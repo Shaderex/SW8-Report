@@ -1,0 +1,25 @@
+%!TEX root = ../../super_main.tex
+
+% Packages used
+\usepackage{amssymb}
+\usepackage{pifont}
+
+% ================================================ %
+
+% Checkmark  
+\renewcommand{\checkmark}{\ding{51}} 	
+\newcommand{\bcheckmark}{\ding{52}}		 
+
+% Cross
+\newcommand{\cross}{\ding{53}}			
+\newcommand{\bcros}{\ding{54}}			
+
+% Crossmark
+\newcommand{\crossmark}{\ding{55}}		
+\newcommand{\bcrosmark}{\ding{56}}		
+
+% CD paths with icon.
+\newcommand{\cdpath}[1]{%
+  % Param1: path
+  \hyperref[app:cd]{\raisebox{-0.28ex}{\includegraphics[height=0.85em]{cd}}\mono{/#1}}%
+}

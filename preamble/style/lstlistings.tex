@@ -1,0 +1,226 @@
+%!TEX root = ../../super_main.tex
+
+% Packages used
+\usepackage{listings}
+
+% Package used to display pseudo code (algorithms)
+
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+
+% ================================================ %
+
+\captionsetup[lstlisting]{
+    format = listing
+}
+
+% Default style for all lstlistings
+\lstset 
+{
+    backgroundcolor = \color{white},
+    keywordstyle = \color{blue},
+    commentstyle = \color{gray!75}\textit,
+    stringstyle = \color{green},
+    basicstyle = \scriptsize\ttfamily,
+    numberstyle = \tiny,
+    numbers = left,
+    breaklines = true,
+    breakatwhitespace=true,
+    showstringspaces = false,
+    tabsize = 3,
+    captionpos = t,
+    extendedchars = true,
+    escapeinside = {//*}{\^^M}, % Use latex inside lstlistings. For instance for refferences.
+    frame = tblr,
+    backgroundcolor = \color{gray!5},
+    xleftmargin = 3.5pt,
+}
+
+% Write "Code snippet" instead of "listing".
+\renewcommand{\lstlistingname}{Code Snippet}
+
+% General style for the whole lstlisting
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{0.9934\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format = listing, labelfont = white, textfont = white}
+
+\lstdefinelanguage{TAInC} 
+{
+    morekeywords=[1]{number, boolean}, 
+    keywordstyle=[1]\color{NavyBlue},
+    morekeywords=[2]{do, if, else, run, when, startup, return, NAME},
+    keywordstyle=[2]\color{Magenta},
+    morekeywords=[3]{Tank, Gun, Battle},
+    keywordstyle=[3]\color{Green},
+    morekeywords=[4]{BattleEnded,BulletHit, BulletHitBullet, BulletMissed, Death, HitByBullet, HitTank, HitWall, TankDeath, RoundEnded, ScannedTank, Win},
+    keywordstyle=[4]\color{Bittersweet},
+    morekeywords=[5]{action, calculation},
+    keywordstyle=[5]\color{Fuchsia},
+    sensitive = true,
+    morecomment = [l]{//},
+    morecomment = [n]{/*}{*/}
+}
+
+% Custom lststyle named tainc
+\lstdefinestyle{tainc}
+{
+    breaklines = true,
+    columns = fullflexible,
+    language = TAInC
+}
+
+% Custom lstinline for TAInC named taincinline
+\newcommand{\taincinline}[1]{\lstinline[style = tainc, basicstyle = \ttfamily\normalsize]{#1}}
+
+% Import the Java language
+\lstloadlanguages{Java}
+
+% Custom lststyle named java
+\lstdefinestyle{java}
+{
+    breaklines = true,
+    language = Java,
+    columns = fullflexible,
+    stringstyle=\color{eclipse_blue},
+    morekeywords=[1]{class, return}, 
+    keywordstyle=[1]\color{eclipse_red}
+}
+
+% Custom lstinline for Java named javainline
+\newcommand{\javacodeinline}[1]{\lstinline[style = java, basicstyle = \ttfamily\normalsize]{#1}}
+
+% Custom highlightning for Xtext
+\lstdefinelanguage{Xtext} 
+{
+    morekeywords=[1]{returns, current, terminal}, 
+    keywordstyle=[1]\color{DarkOrchid},
+    morekeywords=[2]{startup, run, do, action},
+    keywordstyle=[2]\color{eclipse_blue},
+    morekeywords=[3]{name},
+    keywordstyle=[3]\color{red},
+    stringstyle=\color{Goldenrod},
+    sensitive = true,
+    morecomment = [l]{//},
+    morecomment = [n]{/*}{*/}
+}
+
+% Custom lststyle named xtext
+\lstdefinestyle{xtext}
+{
+  breaklines = true,
+  language = Xtext,
+  columns = fullflexible
+}
+
+% Custom lstinline for Xtext named xtextinline
+\newcommand{\xtextinline}[1]{\lstinline[style = xtext, basicstyle = \ttfamily\normalsize]{#1}}
+
+\lstdefinelanguage{Xtend} 
+{
+    morekeywords=[1]{class, extends, new, extension, import, package, def, if, else, val, var, instanceof, null, true, false, return, default, private, case, switch, dispatch}, 
+    keywordstyle=[1]\color{DarkOrchid},
+    stringstyle=\color{eclipse_blue},
+    sensitive = true,
+    morecomment = [l]{//},
+    morecomment = [n]{/*}{*/}
+}
+
+\lstdefinestyle{xtend}
+{
+    breaklines = true,
+    columns = fullflexible,
+    language = Xtend,
+    stringstyle=\color{eclipse_blue},
+    showstringspaces=false
+}
+
+% Custom lstinline for Xtend named xtendinline
+\newcommand{\xtendinline}[1]{\lstinline[style = xtend, basicstyle = \ttfamily\normalsize]{#1}}
+
+% Import the C language
+\lstloadlanguages{C}
+
+% Custom lststyle named c
+\lstdefinestyle{c}
+{
+    breaklines = true,
+    language = C,
+    columns = fullflexible,
+    stringstyle=\color{eclipse_blue},
+    morekeywords=[1]{return}, 
+    keywordstyle=[1]\color{eclipse_red},
+}
+
+% Custom lstinline for C named cinline
+\newcommand{\cinline}[1]{\lstinline[style = c, basicstyle = \ttfamily\normalsize]{#1}}
+
+% Import the C# language
+\lstloadlanguages{[Sharp]C}
+
+% Custom lststyle named cs
+\lstdefinestyle{cs}
+{
+    breaklines = true,
+    language = [Sharp]C,
+    columns = fullflexible,
+    stringstyle=\color{eclipse_blue},
+    morekeywords=[1]{return}, 
+    keywordstyle=[1]\color{eclipse_red},
+}
+
+% Custom lstinline for C# named csinline
+\newcommand{\csinline}[1]{\lstinline[style = cs, basicstyle = \ttfamily\normalsize]{#1}}
+
+% Workaround on global float for lstlisting
+% \lstset{float}
+% \makeatletter
+% \let\lst@floatdefault\lst@float
+% \makeatother
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+% Import the Json language
+\lstdefinelanguage{Json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+% Custom lststyle named json
+\lstdefinestyle{json}
+{
+    breaklines = true,
+    language = Json,
+    columns = fullflexible,
+    stringstyle=\color{eclipse_blue},
+    morekeywords=[1]{class, return}, 
+    keywordstyle=[1]\color{eclipse_red}
+}
+

@@ -1,0 +1,213 @@
+%!TEX root = ../../super_main.tex
+
+% ===================== %
+% == Page references == %
+% ===================== %
+
+% \onpageref
+% References a page using the "Page"-prefix.
+% arg1		the label to reference to.
+\newcommand{\onpageref}[1]{Page \pageref{#1}\xspace}
+
+
+
+% ======================= %
+% == Figure references == %
+% ======================= %
+
+% \figref
+% References a figure using the "Figure"-prefix.
+% arg1 		the labelname of the figure to reference. 
+\newcommand{\figref}[1]{Figure \ref{#1}\xspace}
+
+% \figrefpage
+% References a figure using the "Figure"-prefix. Will also display the page of the figure.
+% arg1		the labelname of the figure to reference.
+\newcommand{\figrefpage}[1]{\figref{#1} on \onpageref{#1}}
+
+
+
+% ====================== %
+% == Table references == %
+% ====================== %
+
+% \tabref
+% References a table using the "Table"-prefix.
+% arg1		the labelname of the tabel to reference.
+\newcommand{\tabref}[1]{Table \ref{#1}\xspace}
+
+% \tabrefpage
+% References a table using the "Table"-prefix. Will also display the page of the table.
+% arg1		the labelname of the tabel to reference.
+\newcommand{\tabrefpage}[1]{\tabref{#1} on \onpageref{#1}}
+
+
+
+% ======================== %
+% == Chapter references == %
+% ======================== %
+
+% \charef
+% References a chapter using the "Chapter"-prefix.
+% arg1 		the labelname of the chapter to reference. 
+\newcommand{\charef}[1]{Chapter \ref{#1}\xspace}
+
+% \secrefpage
+% References a chapter using the "Chapter"-prefix. Will also display the page of the chapter.
+% arg1		the labelname of the chapter to reference.
+\newcommand{\charefpage}[1]{\charef{#1} on \onpageref{#1}}
+
+
+
+% ========================= %
+% == Appendix references == %
+% ========================= %
+
+% \appref
+% References a appendix using the "Appendix"-prefix.
+% arg1 		the labelname of the appendix to reference. 
+\newcommand{\appref}[1]{Appendix \ref{#1}\xspace}
+
+% \secrefpage
+% References a appendix using the "Appendix"-prefix. Will also display the page of the appendix.
+% arg1		the labelname of the appendix to reference.
+\newcommand{\apprefpage}[1]{\appref{#1} on \onpageref{#1}}
+
+
+
+% ======================== %
+% === Part references ==== %
+% ======================== %
+
+% \secref
+% References a section using the "Section"-prefix.
+% arg1 		the labelname of the section to reference. 
+\newcommand{\prtref}[1]{Part \ref{#1}\xspace}
+
+% \secrefpage
+% References a section using the "Section"-prefix. Will also display the page of the section.
+% arg1		the labelname of the section to reference.
+\newcommand{\prtrefpage}[1]{\prtref{#1} on \onpageref{#1}}
+
+
+
+% ======================== %
+% == Section references == %
+% ======================== %
+
+% \secref
+% References a section using the "Section"-prefix.
+% arg1 		the labelname of the section to reference. 
+\newcommand{\secref}[1]{Section \ref{#1}\xspace}
+
+% \secrefpage
+% References a section using the "Section"-prefix. Will also display the page of the section.
+% arg1		the labelname of the section to reference.
+\newcommand{\secrefpage}[1]{\secref{#1} on \onpageref{#1}}
+
+
+
+% =========================== %
+% == Definition references == %
+% =========================== %
+
+% \defref
+% References a definition using the "Definition"-prefix.
+% arg1 		the labelname of the definition to reference. 
+\newcommand{\defref}[1]{Definition \ref{#1}\xspace}
+
+% \defrefpage
+% References a definition using the "Definition"-prefix. Will also display the page of the definition.
+% arg1		the labelname of the definition to reference.
+\newcommand{\defrefpage}[1]{\defref{#1} on \onpageref{#1}}
+
+
+
+% =========================== %
+% == Lstlisting references == %
+% =========================== %
+
+% \lstref
+% References a lstlisting using the "Code snippet"-prefix.
+% arg1 		the labelname of the lstlisting to reference. 
+\newcommand{\lstref}[1]{Code Snippet \ref{#1}\xspace}
+
+% \lstrefpage
+% References a lstlisting using the "Code snippet"-prefix. Will also display the page of the lstlisting.
+% arg1		the labelname of the lstlisting to reference.
+\newcommand{\lstrefpage}[1]{\lstref{#1} on \onpageref{#1}}
+
+% \lineref
+% References a specific line. Using the "Line x".
+% arg1		the labelname of the line in the listing to reference.
+\renewcommand{\lineref}[1]{Line \ref{#1}\xspace}
+
+% \lineref
+% References a specific line. Using the "Line x".
+% arg1		the labelname of the starting line in the listing to reference.
+% arg2		the labelname of the starting line to reference.
+\newcommand{\linesref}[2]{Lines \ref{#1}-\ref{#2}\xspace}
+
+
+% \lstrefline
+% References a specific line on a specific code snippet. Using the "Line x in Code snippet y".
+% arg1		the labelname of the lstlisting to reference.
+% arg2		the labelname of the line to reference.
+\newcommand{\lstrefline}[2]{Line \ref{#2} in \lstref{#1}}
+
+% lstreflines
+% references specific lines on a specific code snippet.
+% arg1		the labelname of the lstlisting to reference.
+% arg2 		the labelname of the starting line to reference.
+% arg3		the labelname of the ending line to reference.
+\newcommand{\lstreflines}[3]{Lines \ref{#2}-\ref{#3} in \lstref{#1}}
+
+
+
+% ======================== %
+% == Grammar references == %
+% ======================== %
+
+% \graref
+% References a grammar using the "Grammar"-prefix.
+% arg1 		the labelname of the grammar to reference. 
+\newcommand{\graref}[1]{Grammar \ref{#1}\xspace}
+
+% \grarefpage
+% References a grammar using the "Grammar"-prefix. Will also display the page of the grammar.
+% arg1		the labelname of the lstlisting to reference.
+\newcommand{\grarefpage}[1]{\graref{#1} on \onpageref{#1}}
+
+
+% ========================= %
+% == Equation references == %
+% ========================= %
+
+% \graref
+% References a equation using the "Equation"-prefix.
+% arg1 		the labelname of the equation to reference. 
+\newcommand{\equref}[1]{Equation \ref{#1}\xspace}
+
+% \grarefpage
+% References a equation using the "Equation"-prefix. Will also display the page of the equation.
+% arg1		the labelname of the lstlisting to reference.
+\newcommand{\equrefpage}[1]{\equref{#1} on \onpageref{#1}}
+
+% \graref
+% References a equation using the "Equation"-prefix.
+% arg1      the labelname of the equation to reference. 
+\newcommand{\forref}[1]{Formula \ref{#1}\xspace}
+
+% =========================== %
+% == Algorithm references == %
+% =========================== %
+
+% \algref
+% References a algorithm using the "Algorithm"-prefix.
+% arg1      the labelname of the algorithm to reference. 
+\renewcommand{\algref}[1]{Algorithm \ref{#1}\xspace}
+
+% \algrefpage
+% References a algorithm using the "Algorithm"-prefix. Will also display the page of the algorithm.
+% arg1      the labelname of the algorithm to reference.
+\newcommand{\algrefpage}[1]{\algref{#1} on \onpageref{#1}}

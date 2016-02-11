@@ -1,0 +1,22 @@
+%!TEX root = ../super_main.tex
+
+% Makes normal page numbering
+\newcommand{\normalpagenumbering}
+{
+  \label{lastRoman}
+  \cleardoublepage
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+  \afterpage{\fancyfoot[LE]{\thepage{}}}
+  \afterpage{\fancyfoot[RO]{\thepage{}}}
+}
+
+% Make a new even side (So the next content appears on the right side).
+\newcommand{\newevenside}{
+  \ifthenelse{\isodd{\thepage}}{\newpage}{
+    \newpage
+    \phantom{placeholder} % Some phantom text. Required.
+    \thispagestyle{empty} % Do not display header/footer text
+    \newpage
+  }
+}

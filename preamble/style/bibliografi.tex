@@ -1,0 +1,37 @@
+%!TEX root = ../../super_main.tex
+
+% Packages used
+\usepackage{csquotes}
+\usepackage{bookmark}
+\usepackage[backend = bibtex, bibencoding=ascii, citestyle = authoryear, bibstyle = authoryear, maxcitenames = 2, maxbibnames = 99, url = true]{biblatex}
+
+\usepackage{xpatch}
+\xpatchbibmacro{cite}{\usebibmacro{cite:label}}{\printnames{labelname}}{}{}
+\renewbibmacro*{cite}{%
+  \iffieldundef{shorthand}
+    {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
+       {\ifnameundef{labelname}
+          {\usebibmacro{cite:label}}
+          {\printnames{labelname}}%
+          \setunit{\addspace}}
+       {\printnames{labelname}%
+        \setunit{\nameyeardelim}}%
+     \usebibmacro{cite:labelyear+extrayear}}
+    {\usebibmacro{cite:shorthand}}}
+
+% ================================================ %
+
+%add comma after authors in the citations
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+% Uses square brackets instead of parentheses
+\AtEveryCite{%
+  \let\parentext=\parentexttrack%
+  \let\bibopenparen=\bibopenbracket%
+  \let\bibcloseparen=\bibclosebracket}
+
+% Add references location
+\addbibresource{references/references.bib}
+   
+% Add space between entries with different author's entries.
+\setlength\bibnamesep{1.5\itemsep}

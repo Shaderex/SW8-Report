@@ -1,0 +1,34 @@
+%!TEX root = ../../super_main.tex
+
+% Will print a type rule
+% arg1:		The name of the typerule
+% arg2:		The label used
+% arg3:		The premise of the type rule
+% arg4:		The conclusion of the type rule
+% arg5:		The side condition of the type rule
+\newcommand{\typerule}[5] {
+	\parbox{0.1\textwidth}{[#1]} \parbox{0.89\textwidth} {
+		\begin{equation*}
+		\frac{#3}{#4} ~ #5
+		\label{#2}
+		\end{equation*}
+	}
+}
+
+\makeatletter
+\newcommand{\mathleft}{\@fleqntrue\@mathmargin\parindent}
+\newcommand{\mathcenter}{\@fleqnfalse}
+\makeatother
+
+% Will print a semantic rule
+% arg1:		The name of the typerule
+% arg2:		The content of the rule
+\newcommand{\semanticrule}[2] {
+	\parbox{0.20\textwidth}{[#1]} \parbox{0.79\textwidth} {
+		\mathleft
+		#2
+	}
+}
+
+% Will make the semantic rules left-aligned
+%\setlength{\mathindent}{0pt}

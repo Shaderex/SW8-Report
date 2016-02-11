@@ -1,0 +1,43 @@
+%!TEX root = ../../super_main.tex
+
+% Packages used
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% ================================================ %
+
+% Style for the "definitionstyle" definition
+\declaretheoremstyle
+[
+  spaceabove = \parsep, 
+  spacebelow = \parsep,
+  notebraces = {}{},
+  headpunct = {},
+  postheadspace = \newline,
+  headformat = {{\NAME} {\NUMBER}:{\NOTE}},
+  mdframed = {
+    backgroundcolor = gray!15, 
+    linecolor = gray!60,
+    linewidth = 5pt,
+    skipabove = 1em,
+    skipbelow = 1em,
+    innertopmargin = 0.7em,
+    innerbottommargin = 0.7em,
+    roundcorner = 0em,
+    skipbelow = \parsep,
+    skipbelow = \parsep,
+    topline = false,
+    bottomline = false,
+    rightline = false,
+  },
+]
+{definitionstyle}
+
+% Declare a new theorem used for definitions
+\declaretheorem
+[
+  style = definitionstyle,
+  name = Definition,
+  numberwithin = chapter,
+]
+{definition}

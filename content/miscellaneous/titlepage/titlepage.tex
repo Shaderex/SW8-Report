@@ -1,0 +1,104 @@
+%!TEX root = ../../../super_main.tex
+
+% Dette er LaTeX-versionen af titelbladet for tek-nat-basis-rapporter 2004 efterår
+% Filen kr¾ver:
+% Universitetets logo:  aau-logo.png (for LaTeX) eller aau-logo.ps (for LaTeX)
+% Synopsis: En fil ved navn synopsis.tex
+
+% Udarbejdet af: Hans HŸttel (hans@cs.auc.dk) 21. maj 2003
+% Rettet af Morten Christophersen (mortench@tnb.aau.dk) 30. nov 2004(ændret til nyt design 2004 efterår)
+
+\thispagestyle{empty}
+
+\begin{nopagebreak}
+\newgeometry{inner=2cm,outer=4cm,top=2cm,bottom=2cm}
+{
+\samepage 
+\begin{tabular}{r}
+\parbox{\textwidth}
+{
+    \raisebox{11mm}{\includegraphics{graphic/titlepage/aau-logo}}
+    \hfill \parbox{7.9cm}
+    {
+        \begin{tabular}{l}
+            {\sf\small \textbf{Department of Computer Science}}\\
+            {\sf\small \textbf{Aalborg University}}\\
+            {\sf\small \textbf{Software}} \\
+            {\sf\small Selma Lagerl\"{o}fsvej 300} \\
+            {\sf\small 9220{  }Aalborg} \\
+            {\sf\small \url{www.cs.aau.dk}}
+        \end{tabular}
+    }
+}
+\\
+\end{tabular}
+
+\begin{tabular}{cc}
+
+    \parbox{6.5cm}
+    {
+        \textbf{Title} \\
+        Gaimz \\
+
+        \textbf{Theme} \\ 
+        Mobile Systems \\
+
+        \textbf{Project period} \\ 
+        P8, spring semester 2016 \\
+
+        \textbf{Project group} \\
+        SW808F16 \\
+
+        \textbf{Authors} \\
+        Anders Rasmussen\\
+        arasm09@student.aau.dk
+        \\\\ 
+        Jesper Clausen\\
+        jclau12@student.aau.dk
+        \\\\ 
+        Martin Damgaard Nielsen\\
+        mdni12@student.aau.dk
+        \\\\ 
+        Mathias Eriksen Otkjær\\
+        meot12@student.aau.dk
+        \\\\ 
+        Niklas Kirk Mouritzsen\\
+        nmouri12@student.aau.dk
+        \\\\ 
+        Rasmus Holm Jensen\\
+        rhje12@student.aau.dk
+        \\\\
+        \textbf{Project supervisor} \\ 
+        Rikke Hagensby Jensen \\
+
+        \textbf{Number of copies published}: 8 \\
+        \textbf{Number of Pages}: \pageref{LastPage} \\
+        \textbf{Number of Appendix Pages}: ---- \\
+        \textbf{Published}: $26^{th}$ of June, 2016 \\
+
+        \vfill 
+
+        } &
+    \parbox{7cm}
+    {
+        \vspace{.15cm}
+        \hfill 
+        \begin{tabular}{l}
+            {\bf Abstract:}\bigskip \\
+            \fbox{
+                \parbox{7cm}
+                {
+                    \bigskip
+                    {\vfill{\small \input{content/miscellaneous/titlepage/abstract.tex}\bigskip}}
+                }
+            }
+        \end{tabular}
+    }
+
+\end{tabular}}
+\begin{center}
+    \noindent{\footnotesize\emph{The substance of the report may only be published (with references) in agreement with the authors.}}
+\end{center}
+
+\restoregeometry
+\end{nopagebreak}

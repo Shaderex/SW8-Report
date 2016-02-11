@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt,twoside,openright]{report}
+
+% Use the preamble defined
+\input{preamble/preamble.tex}
+
+\begin{document}
+
+% Remove me to remove linenumbers in the document
+% \linenumbers
+
+% === FRONT PAGE === %
+\input{content/miscellaneous/frontpage.tex}
+\pdfbookmark[0]{Frontpage}{frontpage}
+
+% Use roman numbers as pagenumbering from now on
+\pagenumbering{roman}
+
+% Header and footer text
+\afterpage{\fancyfoot[LE]{\thepage{}}}
+\afterpage{\fancyfoot[RO]{\thepage{}}}
+
+% === TITLEPAGE === %
+\input{content/miscellaneous/titlepage/titlepage.tex}
+\pdfbookmark[0]{Titlepage}{titlepage}
+
+% === SIGNATURES === % 
+\input{content/miscellaneous/signatures.tex}
+\pdfbookmark[0]{Signatures}{signatures}
+
+% === PREFACE === %
+\input{content/miscellaneous/preface/preface.tex}
+\pdfbookmark[0]{Preface}{preface}
+
+% === TABLE OF CONTENT === %														
+\tableofcontents
+\pdfbookmark[0]{Table of Content}{toc}
+
+% Normal page numbering from now on
+\normalpagenumbering
+
+% ====================== %
+% === REPORT CONTENT === %
+% ====================== %
+
+% === INTRODUCTION === %
+%\input{content/introduction/introduction.tex}
+
+% === ANALYSIS === %
+%\input{content/analysis/analysis.tex}
+
+% === TECHNICAL ANALYSIS === %
+%\input{content/technical_analysis/technical_analysis.tex}
+
+% === DESIGN === %
+%\input{content/design/design.tex}
+
+% === IMPLEMENTATION === %
+%\input{content/implementation/implementation.tex}
+
+% === CONCLUSION === %
+%\input{content/conclusion/conclusion.tex}
+% ====================== %
+
+% \listoftodos
+% \todototoc
+
+% === Bibliografi === %
+\bookmarksetup{startatroot}
+\printbibliography
+\label{bibliografi}
+\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+
+% === Appendix === %
+%\appendix
+\begin{appendices}
+%\input{content/appendix/appendix.tex}
+\end{appendices}
+
+\end{document} 

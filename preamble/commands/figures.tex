@@ -1,0 +1,139 @@
+%!TEX root = ../../super_main.tex
+
+% \translated
+% Will indicate that a given string is translated from danish
+% arg1    the original string
+% arg2    the string that has been translated
+\newcommand{\translatedwithsource}[2] {
+  \emph{``#1'' (translated: ``#2'')}\xspace
+}
+
+% \translated
+% Will indicate that a given string is translated from danish
+% arg2    the string that has been translated
+\newcommand{\translated}[1] {
+  \emph{``#1'' (translated)}\xspace
+}
+
+% \centerfig
+% Will insert a figure with 75% textwidth in the horizontal center of the page.
+% arg1 		graphics file to include.
+% arg2 		the caption of the figure.
+% arg3		the label of the figure.
+\newcommand{\centerfig}[3] {
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+  \noindent
+}
+
+% \centerfigwithwidth
+% Will insert a figure with a custom width in the horizontal center of the page.
+% arg1 		graphics file to include.
+% arg2		the caption of the figure.
+% arg3		the label of the figure.
+% arg4 		the width of the figure. For instance 0.5 for 50% of the page.
+\newcommand{\centerfigwithwidth}[4] {
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=#4]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+  \noindent
+}
+
+% \wrapfig
+% Will insert a figure wrapping with the text of the page.
+% arg1		the graphics file to include.
+% arg2 		the caption of the figure.
+% arg3 		the label of the figure.
+% arg4		what side the figure should wrap to. l for left, r for right.
+\newcommand{\wrapfig}[4] {
+  \begin{wrapfigure}{#4}{0.5\textwidth}
+    \begin{center}
+      \includegraphics[width=0.5\textwidth]{#1}
+    \end{center}
+    \caption{#2}
+    \label{#3}
+  \end{wrapfigure}
+  \noindent
+}
+
+% \wrapfigwithwidth
+% Will insert a figure wrapping with the text of the page.
+% arg1		the graphics file to include.
+% arg2 		the caption of the figure.
+% arg3 		the label of the figure.
+% arg4		what side the figure should wrap to. l for left, r for right.
+% arg5 		the width of the figure. For instance 0.5 for 50% of the page. 
+\newcommand{\wrapfigwithwidth}[5] {
+  \begin{wrapfigure}{#4}{0.5\textwidth}
+    \begin{center}
+      \includegraphics[width=#5]{#1}
+    \end{center}
+    \caption{#2}
+    \label{#3}
+  \end{wrapfigure}
+  \noindent
+}
+
+% Use the newfloat package (For labeling and adding  grammars)
+\usepackage{newfloat}
+
+% declare the floating environment {Grammar}
+% this will also define \listofGrammars:
+\DeclareFloatingEnvironment[
+  % the file extension for the file used to create the list:
+  fileext   = logr,% don't use log here!
+  % the heading for the list:
+  listname  = {List of Grammars},
+  % the name used in captions:
+  name      = Grammar,
+  % the default floating parameters if the environment is used
+  % without optional argument:
+  placement = htbp
+]{Grammar}
+
+% Set the grammar indent to 80 pt. The indent indicates the space between LHS and RHS.
+\grammarindent = 80pt
+
+% Define how non-terminals should look
+\renewcommand{\syntleft}{$<$\ttfamily}
+\renewcommand{\syntright}{$>$}
+
+% \cfg
+% used for declaring cfgs
+% arg1    the graphics file to include.
+% arg2    the caption of the figure.
+% arg3    the label of the figure.
+\newcommand{\cfg}[3] {
+  \begin{Grammar}
+    \ttfamily
+    \begin{grammar}
+      #1
+    \end{grammar}
+
+    \caption{#2}
+    \label{#3}
+  \end{Grammar}
+}
+
+
+
+% declare the floating environment {Equation}
+% this will also define \listofEquations:
+\DeclareFloatingEnvironment[
+  % the file extension for the file used to create the list:
+  fileext   = logr,% don't use log here!
+  % the heading for the list:
+  listname  = {List of Equations},
+  % the name used in captions:
+  name      = Equation,
+  % the default floating parameters if the environment is used
+  % without optional argument:
+  placement = htbp
+]{Equation}

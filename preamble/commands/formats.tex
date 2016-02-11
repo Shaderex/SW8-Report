@@ -1,0 +1,26 @@
+%!TEX root = ../../super_main.tex
+
+% Format specification for all lexems 
+\newcommand{\lexical}[1]{\texttt{\textbf{#1}}\xspace}
+
+% Define how the justify-alignment should be
+\newcommand*\justify{
+	\fontdimen2\font = 0.4em	% interword space
+	\fontdimen3\font = 0.2em	% interword stretch
+	\fontdimen4\font = 0.1em	% interword shrink
+	\fontdimen7\font = 0.1em	% extra space
+	\hyphenchar\font = `\-		% allowing hyphenation
+}
+
+% Used for code
+\newcommand{\mono}{\texttt}
+
+% Inline TAInC Language style
+\def\taincinline{\lstinline[style = taincinline]}
+
+% Inline Java Language style
+\def\javainline{\lstinline[style = javainline]}
+
+% Hide entries in table of content (use \tocless)
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}

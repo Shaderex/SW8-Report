@@ -1,0 +1,289 @@
+%!TEX root = ../super_main.tex
+
+% ========================================================= %
+%         _____           _                         		% 
+%        |  __ \         | |                                %
+%        | |__) |_ _  ___| | ____ _  __ _  ___  ___ 		%
+%        |  ___/ _` |/ __| |/ / _` |/ _` |/ _ \/ __|        %
+%        | |  | (_| | (__|   < (_| | (_| |  __/\__ \        %
+%        |_|   \__,_|\___|_|\_\__,_|\__, |\___||___/        %
+%                                    __/ |                  %
+%                                   |___/                   %
+% ========================================================= %
+
+% Margin
+\usepackage[a4paper, inner = 4cm, outer = 2.4cm, top = 2.4cm, bottom = 2.4cm, pdftex]{geometry}
+
+% Line numbering
+\usepackage{lineno}
+
+% Colors packages
+% Default colors can be found here http://en.wikibooks.org/wiki/LaTeX/Colors#The_68_standard_colors_known_to_dvips
+\usepackage[usenames, dvipsnames]{xcolor} 
+\usepackage{colortbl}
+\definecolor{eclipse_blue}{RGB}{46,55,247}
+\definecolor{eclipse_red}{RGB}{147,86,135}
+
+% Language support
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Used for making CFG 
+% Rounded is to use EBNF
+% Nounderscore is to use underscores in label names
+\usepackage[rounded, nounderscore]{syntax}
+
+% Used to make a directory Tree (CD content etc.)
+\usepackage{dirtree}
+
+% Fonts
+\usepackage{lmodern}
+\usepackage{courier}
+
+% Use any font size
+\usepackage{anyfontsize}
+
+% Greek letters
+\usepackage{textgreek}
+
+% Used for making pretty math
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{upquote} % to use ^
+
+% Adds pretty commas in math expressions
+\usepackage{icomma}
+
+% FiXme comments (fxnote)
+\usepackage{fixme}
+
+% Setup for the FiXme comments 
+\fxsetup{
+    status = draft,
+    author = Comment,
+    layout = footnote, % also try footnote or pdfnote
+    theme = color
+}
+
+%todo setup
+\usepackage[textwidth=2.0cm, textsize=small]{todonotes}
+\setlength{\marginparwidth}{2cm}
+
+% Graphics
+\usepackage{graphicx}
+
+% Captions (for figures etc.)
+\usepackage[hang, footnotesize, bf]{caption}
+
+% Used for making multiple figures within one figure
+\usepackage{wrapfig}
+\usepackage{subcaption}
+
+% Custom styling for titles (chapter, section etc.)
+\usepackage{titlesec}
+
+% Special notation for appendix chapters
+\usepackage[titletoc]{appendix}
+
+% Used for floatbarriers
+\usepackage{placeins}
+
+% Used for double hlines
+\usepackage{hhline}
+
+% Used for \pdfbookmarks. Hidelinks will hide red boxes in some pdf-viewers.
+\usepackage[bookmarks = true, hidelinks]{hyperref}
+
+% Improved linebreaking
+\usepackage{microtype}
+
+% Used for tabels
+\usepackage{booktabs}
+\usepackage{rotating}
+
+% Used for lists
+\usepackage{enumerate}
+
+% Header and footer on page
+\usepackage{lastpage}
+\usepackage{afterpage}
+\usepackage{fancyhdr}
+
+% Used for making multiple columbs
+\usepackage{multicol}
+
+% Used for making multiple rows
+\usepackage{multirow}
+
+% Used for generating lipsum text
+\usepackage{lipsum}
+
+% Used for making space after defined commands.
+% This way we can write \command instead of \command{}.
+\usepackage{xspace}
+
+% Will show the name of the label in the margin (Uncomment to show labels)
+% \usepackage[inline]{showlabels}
+
+% Package used to make spacing between items in itemize and enumarations smaller.
+\usepackage{enumitem}
+
+% Makes it possible to embed PDF documents
+\usepackage{pdfpages}
+
+
+% ========================================================= %
+% / / / / / / / / / / / / / / / / / / / / / / / / / / / / / %
+% ========================================================= %
+
+
+
+% ========================================================= %
+%                _____       _ _   _       _ 				%
+%               |_   _|     (_) | (_)     | |				%
+%                 | |  _ __  _| |_ _  __ _| |				%
+%                 | | | '_ \| | __| |/ _` | |				%
+%                _| |_| | | | | |_| | (_| | |				%
+%               |_____|_| |_|_|\__|_|\__,_|_|				%
+%															%
+% ========================================================= %
+
+% Fixes some orphans (horeunger)
+\widowpenalty = 300
+\clubpenalty = 300
+
+% All chapters must start on a new uneven page
+\let\origdoublepage\cleardoublepage
+
+\newcommand{\clearemptydoublepage}{
+  \clearpage
+  {\pagestyle{empty}\origdoublepage}
+}
+\let\cleardoublepage\clearemptydoublepage
+\let\originalchapter=\chapter
+\def\chapter{\cleardoublepage\originalchapter}
+
+% Justification for captions
+\captionsetup{justification = justified}
+
+% Define graphics pack
+\graphicspath{{graphic/}}
+
+% Used for page header and footer
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[RO]{\slshape \rightmark}
+\fancyhead[LE]{\slshape \leftmark}
+
+% Set head height
+\setlength{\headheight}{14.2pt}
+
+%Set depth of toc to include sections
+\setcounter{tocdepth}{1}
+
+% ========================================================= %
+% / / / / / / / / / / / / / / / / / / / / / / / / / / / / / %
+% ========================================================= %
+
+
+
+% ========================================================= %
+%                 _____      _                				%
+%                / ____|    | |               				%
+%               | |     ___ | | ___  _ __ ___ 				%
+%               | |    / _ \| |/ _ \| '__/ __|				%
+%               | |___| (_) | | (_) | |  \__ \				%
+%                \_____\___/|_|\___/|_|  |___/				%
+%															%
+% ========================================================= %
+
+% Color used for fxnotes
+\colorlet{fxnote}{Red}
+
+% Primary color (Used for chapter headline etc.)
+\colorlet{primarycolor}{Blue}
+
+% ========================================================= %
+% / / / / / / / / / / / / / / / / / / / / / / / / / / / / / %
+% ========================================================= %                               
+
+
+
+% ========================================================= %
+%                   _____ _         _      					%
+%                  / ____| |       | |     					%
+%                 | (___ | |_ _   _| | ___ 					%
+%                  \___ \| __| | | | |/ _ \					%
+%                  ____) | |_| |_| | |  __/					%
+%                 |_____/ \__|\__, |_|\___|					%
+%                              __/ |       					%
+%                             |___/        					%
+% ========================================================= %
+
+% Style for definitions
+\input{preamble/style/definitions.tex}
+
+% Style for lstlistings (code snippets)
+\input{preamble/style/lstlistings.tex}
+
+% Style for formatting text (chapter style etc.)
+\input{preamble/style/formats.tex}
+
+% Style for the bibliografi
+\input{preamble/style/bibliografi.tex}
+
+% ========================================================= %
+% / / / / / / / / / / / / / / / / / / / / / / / / / / / / / %
+% ========================================================= %
+
+
+
+% ========================================================= %
+%    _____                                          _       %
+%   / ____|                                        | |      %
+%  | |     ___  _ __ ___  _ __ ___   __ _ _ __   __| |___   %
+%  | |    / _ \| '_ ` _ \| '_ ` _ \ / _` | '_ \ / _` / __|  %
+%  | |___| (_) | | | | | | | | | | | (_| | | | | (_| \__ \  %
+%   \_____\___/|_| |_| |_|_| |_| |_|\__,_|_| |_|\__,_|___/  %
+%															%
+% ========================================================= %
+
+% Marks commonly used. For instance checkmark
+\input{preamble/commands/special_marks.tex}
+
+% Name variable commands.
+\input{preamble/commands/names.tex}
+
+% How different things should beformatted. For instance bold lexems etc.
+\input{preamble/commands/formats.tex}
+
+% Define the format of pages. For instance page numbering
+\input{preamble/commands/pages.tex}
+
+% Different commands to insert figures etc.
+\input{preamble/commands/figures.tex}
+
+% Commands to make references in the text. 
+\input{preamble/commands/references.tex}
+
+% Commands to make type rules
+\input{preamble/commands/type_rules.tex}
+
+% Commands to format tables
+\input{preamble/commands/tables.tex}
+
+% Commands to format quotes
+\input{preamble/commands/quote_with_ref.tex}
+
+% This needs to be the last thing in the preamble. It is used to make pretty Matrixes
+\usepackage{blkarray}
+\usepackage{pgfplots}
+\usetikzlibrary{backgrounds}
+\pgfplotsset{compat=1.7}
+
+\usepackage{setspace}
+
+% Some magic that makes it possible to make symbols bold (using \boldmath or \boldsymbol)
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
