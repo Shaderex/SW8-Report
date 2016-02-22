@@ -3,46 +3,35 @@
 \section{Sensor Data Availability}
 \label{sec:sensor_data_availability}
 \todo[inline]{Annotate each sensor with what type it is, eg. accelerometer is a constant measurement, compass is using 2 sensors etc.}
-1 = Nexus 5,
-2 = One+ One,
-3 = Microsoft Band 2,
-4 = Samsung Gear S,
-5 = Samsung Galaxy S3,
-6 = MOTO 360,
-7 = LG Watch Urbane LTE,
-8 = Huawei Watch,
+
+This section describes how data from the different mobile sensor are made available to the programmer through an Application programming interface without actually touching upon how this looks in code. 
+
+The sensors in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, and others report continues stream of values. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Luckily these sensors of asynchronous can be cached which in Android is for instance the case of the GPS sensor.   
 
 \input{content/unsorted/table}
 
-
 \subsection{Accelerometer}
 \label{sub:accelerometer}
-[1,2,3,4,5,6,7,8] \\
-Measures how the devices accelerates in three dimensions. Often used together with gyroscope.
+Measures how the devices accelerates in three dimensions. Often used together with gyroscope. Gives a continous stream of readings from the sensor.
 
 \subsection{Gyroscope}
 \label{sub:gyroscope}
-[1,2,3,4,5,6,8] \\
-Measures the orientation of the device referenced to the gravity pull of the device. Often used together with accelerometer.
+Measures the orientation of the device referenced to the gravity pull of the device. Often used together with accelerometer. Gives a continous stream of readings from the sensor.
 
 \subsection{Proximity Sensor}
 \label{sub:proximity_sensor}
-[1,2,4,5,7] \\
 Measures (estimates) how close the device is to the nearest object, using an infrared beam. This estimation has higher accuracy in lower distances. Some proximity sensors return binary values that represent ``near'' or ``far''.
 
 \subsection{Compass}
 \label{sub:compass}
-[1,2,4,5,6,7] \\
-Measures (estimates) the orientation of the device relative to the earths magnetic field.
+Measures (estimates) the orientation of the device relative to the earths magnetic field. The phone really uses a magnetometer and the accelerometer together in to get the effect of a compass. 
 
 \subsection{Barometer}
 \label{sub:barometer}
-[1,3,4,5,7,8] \\
 Measures (approximates) the air pressure, in hPa (a.k.a. mbar), around the phone.
 
 \subsection{WiFi}
 \label{sub:wifi}
-[1,2,4,5,7,8] \\
 Potential values could be: 
 
 Access Point Names \\
@@ -51,12 +40,10 @@ Signal Strength
 
 \subsection{Global Positioning System (GPS)}
 \label{sub:gps}
-[1,2,3,4,5] \\
 Measures, based on satellite triangulation,  the latitude and longitude of the device. Most devices uses A-GPS, meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using the GPS satelites.
 
 \subsection{Cellular Networking}
 \label{sub:cellular_networking}
-[1,2,5,7] \\
 Potential values could be: 
 
 Mobile country code + mobile network code \\
@@ -68,30 +55,24 @@ Signal Strength \\
 
 \subsection{Optical Heart Rate Sensor}
 \label{sub:optical_heart_rate_sensor}
-[3,4,6,7,8] \\
 Measures the heart rate, using a light source and a camera to estimate your heart rate.
 
 \subsection{Ultraviolet (UV) Sensor}
 \label{sub:uv_sensor}
-[3,4] \\
 Measures the UV radiation hitting the device.
 
 \subsection{Skin Temperature Sensor}
 \label{sub:skin_temperature_sensor}
-[3] \\
 Measures the temperature of skin touching the device.
 
 \subsection{Ambient Light Sensor}
 \label{sub:ambient_light_sensor}
-[1,2,3,4] \\
 Measures the lightning, in lux, in the surroundings of the device. Only outputs if changes in lux occurs.
 
 \subsection{Capacitive Sensor}
 \label{sub:capacitive_sensor}
-[3] \\
 Measures touch of the device against the wearer of the device.
 
 \subsection{Galvanic Skin Response (GSR) Sensor}
 \label{sub:galvanic_skin_respons_}
-[3] \\
 Measures the conductivity of the surface against the device.
