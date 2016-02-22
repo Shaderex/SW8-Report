@@ -1,8 +1,0 @@
-%!TEX root = ../../super_main.tex
-
-\section{Sensor Data API}
-\label{sec:sensor_data_api}
-
-This section describes how data from the different mobile sensor are made available to the programmer through an Application programming interface without actually touching upon how this looks in code. 
-
-The sensors in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, and others report continues stream of values. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Luckily these sensors of asynchronous can be cached which in Android is for instance the case of the GPS sensor.   
