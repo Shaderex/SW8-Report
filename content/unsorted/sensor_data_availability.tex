@@ -2,49 +2,73 @@
 
 \section{Sensor Data Availability}
 \label{sec:sensor_data_availability}
-\todo[inline]{Annotate each sensor with what type it is, eg. accelerometer is a constant measurement, compass is using 2 sensors etc.}
 
 This section describes how data from the different mobile sensor are made available to the programmer through an Application programming interface without actually touching upon how this looks in code. 
-
-The sensors in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, and others report continues stream of values. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Luckily these sensors of asynchronous can be cached which in Android is for instance the case of the GPS sensor.   
-
+\\\\
+The sensors in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, some report continues stream of values, and some are more reactive and only reports when changes occur. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Luckily these sensors of asynchronous can be cached which in Android is for instance the case of the GPS sensor. 
+\\\\
+\tabref{tab:sensors_in_devices} gives an overview of which sensors are available from each device we have considered.
+\\
 \input{content/unsorted/sensors_in_devices}
 
-\subsection{Accelerometer}
+\subsection{Continuous sensors}
+\label{sub:continuous_sensors}
+The sensors that gives continuous readings are listed here.
+
+\subsubsection{Accelerometer}
 \label{sub:accelerometer}
-Measures how the devices accelerates in three dimensions. Often used together with gyroscope. Gives a continuous stream of readings from the sensor.
+It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. The accelerometer gives a continuous stream of readings from the sensor.
 
-\subsection{Gyroscope}
+\subsubsection{Gyroscope}
 \label{sub:gyroscope}
-Measures the orientation of the device referenced to the gravity pull of the device. Often used together with accelerometer. Gives a continuous stream of readings from the sensor.
+The gyroscope measures the orientation of the device referenced to the gravity pull of the device. As stated before, the gyroscope is often used together with accelerometer. The gyroscope gives a continuous stream of readings from the sensor.
 
-\subsection{Proximity Sensor}
-\label{sub:proximity_sensor}
-Measures (estimates) how close the device is to the nearest object, using an infrared beam. This estimation has higher accuracy in lower distances. Values are only reported as they change and the proximity sensors of some devices returns binary values that represent ``near'' or ``far'' instead of an actual distance.
-
-\subsection{Compass}
+\subsubsection{Compass}
 \label{sub:compass}
-Measures (estimates) the orientation of the device relative to the earths magnetic field. The phone really uses a magnetometer and the accelerometer together in to get the effect of a compass. The orientation is given as a continuous stream of values.
+The orientation of the device, relative to the earths magnetic field, can be estimated using a compass-like effect, which can be achieved using the accelerometer and the magnetometer on the device. The orientation is given as a continuous stream of values.
 
-\subsection{Barometer}
+\subsubsection{Barometer}
 \label{sub:barometer}
-Measures (approximates) the air pressure, in hPa (a.k.a. mbar), around the phone. The results of the measurements are given as a continuous stream of readings from the sensor. 
+The barometer approximates the air pressure, in hPa or mbar, around the device. The result of the measurements are given as a continuous stream of readings from the sensor. 
 
-\subsection{WiFi}
+\subsection{Reactive Sensor}
+\label{sub:on_change_reporting_sensors}
+The sensors that gives reactive readings are listed here.
+
+\subsubsection{Proximity Sensor}
+\label{sub:proximity_sensor}
+Using an infrared beam, it is possible to to estimate how close the device is to the nearest object. This estimation has higher accuracy in lower distances. Values are only reported as they change and the proximity sensors of some devices returns binary values that represent ``near'' or ``far'' instead of an actual distance.
+
+\subsubsection{Ambient Light Sensor}
+\label{sub:ambient_light_sensor}
+The ambient light sensor makes it possible to measures the lightning in the surroundings of the device from one of its sides in lux. The sensor only reports new values when changes in lux occurs.
+
+\subsection{On-Demand Sensors}
+\label{sub:on_demand_sensors}
+The sensors that gives on-demand readings are listed here.
+
+\subsubsection{WiFi}
 \label{sub:wifi}
-
 The WiFi radio in mobile devices can be used for more than just pure data communication with the local network and the Internet. Different information about access points and the signal to these access points can for instance be used to approximate indoor location.  
 Potential values from WiFi could be: reachable access point names, their communication standards, and signal strength.
 
-\subsection{Global Positioning System (GPS)}
-\label{sub:gps}
-Approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses A-GPS, meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. An on demand reading can only be given asynchronously as the device would first have to contact multiple cell towers and GPS satellites and over time reach a sufficiently accurate position which can take some time. Luckily the latest position is cached, at least for Android, which allows for quick access to a few minutes old location. \todo[inline]{Skriv noget om hvordan GPS fungerer på andre devices}  
-
-\subsection{Cellular Networking}
+\subsubsection{Cellular Networking}
 \label{sub:cellular_networking}
-
 Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting values could be: Mobile country code, mobile network code, mobile cell identity (mast identity), cell tower technology type, signal strength.
 % http://developer.android.com/reference/android/telephony/
+
+\subsection{Asynchronous Sensors}
+\label{sub:asynchronous_sensors}
+The sensors that gives asynchronous readings are listed here.
+
+\subsubsection{Global Positioning System (GPS)}
+\label{sub:gps}
+The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses A-GPS, meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. An on demand reading can only be given asynchronously as the device would first have to contact multiple cell towers and GPS satellites and over time reach a sufficiently accurate position which can take some time. Luckily the latest position is cached, at least for Android, which allows for quick access to a few minutes old location. 
+\todo[inline]{Skriv noget om hvordan GPS fungerer på andre devices}  
+
+\subsection{Unknown For Now}
+\label{sub:unknown_by_now}
+\todo[inline]{We cannot determine the nature of these sensors yet, because we don't have any device with these sensors}
 
 \subsection{Optical Heart Rate Sensor}
 \label{sub:optical_heart_rate_sensor}
@@ -57,10 +81,6 @@ Measures the UV radiation hitting the device.
 \subsection{Skin Temperature Sensor}
 \label{sub:skin_temperature_sensor}
 Measures the temperature of skin touching the device.
-
-\subsection{Ambient Light Sensor}
-\label{sub:ambient_light_sensor}
-The ambient light sensor makes it possible to measures the lightning in the surroundings of the device from one of its sides in lux. The sensor only reports new values when changes in lux occurs.
 
 \subsection{Capacitive Sensor}
 \label{sub:capacitive_sensor}
