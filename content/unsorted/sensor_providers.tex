@@ -7,6 +7,12 @@ We have implemented a threaded abstraction over the different data sources that 
 
 \subsection{Temporality}
 
+% Det bliver hurtigt til meget data når man arbejder med continious data
+% Vi bruger sample frequency til at lave mellemrum mellem samples i tid fordi det ikke er så brugbart at have 8gb data for et minuts målinger
+% Vi vil gerne have flere measurements per sample så vi kan undgå upræcise målinger
+
+As described in \secref{sec:availability_of_data_sources}, some data sources are continuous. This effectively means that it would become infeasible to store this data due to many factors including excessive battery drain, file size etc\todo{We need to research if file size is actually a problem}. Furthermore, it might not be relevant to store a huge amount of measurements for a small time period.
+
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{unsorted/sample_temporality}
