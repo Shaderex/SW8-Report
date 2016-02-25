@@ -9,9 +9,9 @@
     \\
 }
 
-\newcommand{\quotewithauthorandref}[3] {
+\newcommand{\quotewithauthorandref}[4] {
     \begin{quote}
-        ``#1''
+        ``#1'' \ifthenelse{\equal{#4}{true}}{(\emph{translated})}{}
     \end{quote}
     \vspace{-1em}
     \hspace{25pt} \emph{\textemdash ``#2''} \parencite{#3}
