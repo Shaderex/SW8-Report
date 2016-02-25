@@ -1,37 +1,39 @@
 %!TEX root = ../../super_main.tex
 
-\section{Sensor Data Availability}
-\label{sec:sensor_data_availability}
+\section{Availability of Data Sources}
+\label{sec:availability_of_data_sources}
 
-This section describes how data from the different mobile sensor are made available to the programmer through an Application programming interface without actually touching upon how this looks in code. 
+This section describes how data from the different communication devices and mobile sensors i.e. data sources are made available to the programmer through an Application Programming Interface (API) without actually touching upon how this looks in code. Examples of what the different data sources can tell us is also mentioned in this section. 
 \\\\
-The sensors in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, some report continues stream of values, and some are more reactive and only reports when changes occur. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Luckily these sensors of asynchronous can be cached which in Android is for instance the case of the GPS sensor. 
+The data sources in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, some report continues stream of values, and some are more reactive and only reports when changes occur. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Some of the issues related to these data sources have already been taken into consideration when the mobile software platform, for instance Android, was developed. Some of the data sources, such as the GPS, with an asynchronous nature are for instance cached by Android is for instance the case of the GPS sensor. 
 \\\\
-\tabref{tab:sensors_in_devices} gives an overview of which sensors are available from each device we have considered.
+Another example where a mobile platform could make it easier to obtain the desired data is when the platform includes software sensors or virtual sensors. Software and virtual sensors combines and pre-processes raw data in order to give the desired results. The provided software sensors on the mobile platform are often examples of common uses of one or more sensors. 
+\\\\
+\tabref{tab:sensors_in_devices} gives an overview of which data sources are available from each device we have considered.
 \\
 \input{content/unsorted/sensors_in_devices}
 
-\subsection{Continuous sensors}
+\subsection{Continuous Data Sources}
 \label{sub:continuous_sensors}
-The sensors that gives continuous readings are listed here.
+The sensors that gives continuous readings are listed here. These sensors are often noisy i.e. the read values jump up and down a bit around the actual expected value even though the device is laying perfectly still.
 
 \subsubsection{Accelerometer}
 \label{sub:accelerometer}
-It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. The accelerometer gives a continuous stream of readings from the sensor.
+It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. It is generally used to detect motion. The accelerometer gives a continuous stream of readings from the sensor.
 
 \subsubsection{Gyroscope}
 \label{sub:gyroscope}
 The gyroscope measures the orientation of the device referenced to the gravity pull of the device. As stated before, the gyroscope is often used together with accelerometer. The gyroscope gives a continuous stream of readings from the sensor.
 
-\subsubsection{Compass}
+\subsubsection{Magnetometer}
 \label{sub:compass}
 The orientation of the device, relative to the earths magnetic field, can be estimated using a compass-like effect, which can be achieved using the accelerometer and the magnetometer on the device. The orientation is given as a continuous stream of values.
 
 \subsubsection{Barometer}
 \label{sub:barometer}
-The barometer approximates the air pressure, in hPa or mbar, around the device. The result of the measurements are given as a continuous stream of readings from the sensor. 
+The barometer approximates the air pressure, in hPa or mbar, around the device. The readings from a barometer can be used to estimate the altitude of the device. The result of the measurements are given as a continuous stream of readings from the sensor. 
 
-\subsection{Reactive Sensor}
+\subsection{Reactive Data Sources}
 \label{sub:on_change_reporting_sensors}
 The sensors that gives reactive readings are listed here.
 
@@ -41,9 +43,9 @@ Using an infrared beam, it is possible to to estimate how close the device is to
 
 \subsubsection{Ambient Light Sensor}
 \label{sub:ambient_light_sensor}
-The ambient light sensor makes it possible to measures the lightning in the surroundings of the device from one of its sides in lux. The sensor only reports new values when changes in lux occurs.
+The ambient light sensor makes it possible to measures the lightning in the surroundings of the device from one of its sides in lux. The sensor only reports new values when changes in lux occurs. Can be used to regulate the lighting on the device's screen. 
 
-\subsection{On-Demand Sensors}
+\subsection{On-Demand Data Sources}
 \label{sub:on_demand_sensors}
 The sensors that gives on-demand readings are listed here.
 
@@ -57,7 +59,7 @@ Potential values from WiFi could be: reachable access point names, their communi
 Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting values could be: Mobile country code, mobile network code, mobile cell identity (mast identity), cell tower technology type, signal strength.
 % http://developer.android.com/reference/android/telephony/
 
-\subsection{Asynchronous Sensors}
+\subsection{Asynchronous Data Sources}
 \label{sub:asynchronous_sensors}
 The sensors that gives asynchronous readings are listed here.
 
@@ -67,25 +69,21 @@ The GPS approximates the latitude and longitude of the device based on satellite
 \todo[inline]{Skriv noget om hvordan GPS fungerer på andre devices}  
 
 \subsection{Unknown For Now}
-\label{sub:unknown_by_now}
+\label{sub:unknown_for_now}
 \todo[inline]{We cannot determine the nature of these sensors yet, because we don't have any device with these sensors}
 
 \subsection{Optical Heart Rate Sensor}
 \label{sub:optical_heart_rate_sensor}
-Measures the heart rate, using a light source and a camera to estimate your heart rate.
+Measures the heart rate, using a light source and a light sensitive sensor to estimate your heart rate. Can be used to detected elevated heart rate levels for instance caused by exercising or heightened levels of stress\todo{Needs source}. Heart rate monitoring can also be used estimate the quality of ones sleep. \parencite{guardian_fitness_tracker_rem_sleep}. 
 
 \subsection{Ultraviolet (UV) Sensor}
 \label{sub:uv_sensor}
-Measures the UV radiation hitting the device.
+Measures the UV radiation hitting the device. Can be used to estimate whether a person is inside or outside. Can be used to estimate whether a person has spent too much time outside, and thereby risk skin cancer, by accumulating readings of UV radiation of an entire day.   
 
 \subsection{Skin Temperature Sensor}
 \label{sub:skin_temperature_sensor}
-Measures the temperature of skin touching the device.
-
-\subsection{Capacitive Sensor}
-\label{sub:capacitive_sensor}
-Measures touch of the device against the wearer of the device.
+Measures the temperature of skin touching the device. \todo{Find ud af hvad sådan en skal bruges til!?} 
 
 \subsection{Galvanic Skin Response (GSR) Sensor}
-\label{sub:galvanic_skin_respons_}
-Measures the conductivity of the surface against the device.
+\label{sub:galvanic_skin_respons_sensor}
+Measures the conductivity of the surface against the device. Can indicate whether or not a person is sweating or more generally the moisture level on a surface. 
