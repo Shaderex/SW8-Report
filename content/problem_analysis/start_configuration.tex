@@ -3,27 +3,39 @@
 \section{Start Configuration}
 \label{sec:start_configuration}
 
-A start configuration is a basis of software tools, platforms, libraries and system upon which both a problem and a corresponding solution can mature. This section describes existing solutions, potentially interesting and useful infrastructure, and high level design patterns, which could contribute with ideas to the development of our system.
-% Gamification?
+\todo[inline]{Consider the term subject vs user, in terms of medical subject makes great sense but can we use that term instead of user?}
 
-\subsection{Existing Solutions} % (fold)
+A start configuration is a basis of software tools, platforms, libraries and system upon which both a problem and a corresponding solution can mature. This section describes existing solutions, potentially interesting and useful infrastructure, and high level design patterns, which could contribute with ideas to the development of our system.
+
+\subsection{Existing Solutions}
 \label{sub:existing_solutions}
 
-% Mental Health
-
-\begin{itemize}
-    \item Research in mental health using an application \footnote{http://www.imedicalapps.com/2014/09/smartphone-sensors-mental-health/}
-\end{itemize}
-
-\subsection{Ilumivu Mobile EMA}
-\label{sub:ilumivu_mobile_ema}
-
-Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological}, is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
+Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these participants fill out surveys. 
 \\\\
-Ilumivu have developed a Mobile EMA (mEMA) application. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for health research.
+In mental health care there exist a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological}, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
+\\\\
+Ilumivu\footnote{http://ilumivu.com/solutions/ecological-momentary-assessment-app/} have developed a Mobile EMA (mEMA) application. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
 
-\subsection{Mobile Sensor Data Gathering Applications}
-\label{sub:purple_robot}
+% AndWellness
+AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/questionnaire focused system for Android phones. AndWellness have some interesting points on architecture and principles to do this type of monitoring. This system have a concept of a campaign which are the definition of studies, meaning it is the configuration of how sensor data are gathered and surveys are filled on the subjects smartphones. These configurations include how sensors should be monitored in terms of frequency and duration and so on. It is also possible to configure how subjects are notified, this system allows for different triggers for questionnaires. Triggers can be set to be both temporal but also sensor activity based, meaning that both time and the activity and movement of the user can trigger sensor monitoring and notifications for surveys. This means that the customers of such a system is able to customize their study in great detail, which is preferable as the purpose of the gathered data may vary in different aspects of mental health research. Lastly an idea to note is that this system have a concept of expiring surveys, meaning that the customer can configure how many times the subject may prolong the survey and a time window where the survey exists. These time windows allows for customers to disallow meta cognition, the process of reflecting about ones thoughts. In some cases studies of mental do not want meta cognitions, no reflection after some activity, in other studies this is an important factor. Lastly the AndWellness system allows for full transparency meaning that the subjects have full access to the data they are gathering for the customers to increase trustworthiness.
+\\\\
+Both mEMA and AndWellness both monitors sensors in purely real time meaning that they are highly connectivity dependent. It is not clear what they do in cases where there are no connectivity to network, but in cases where the phone is connected to network they stream the data directly to a server in almost real time. This type of network communication is counter intuitive to some general practices on how to avoid battery drain and exhausting use of network (see \secref{sub:design_patterns_and_general_strategies}).
+
+
+% + Principle of campaign. %
+% + Sensor monitoring have configurable resolutions (our terms: measurement frequency, sample duration, sample frequency).
+% + Have different triggers, temporal, contextual (sensor). 
+% + Triggers can both be camgaign-wise and participant specific.
+% + Prompts for surveys.
+% + Surveys expire, configured by admins of campaign (answering window).
+% + Users have full transparency of the data gathered
+% - Pure realtime, battery drain, very network dependent.
+% - Pure smartphone, no wearable technology.
+% - Only two derived (software sensors), Location and Activity tracing.
+%     - No raw sensor output
+
+\subsection{Design Patterns and General Strategies}
+\label{sub:design_patterns_and_general_strategies}
 
 % Purple Robot
 Purple Robot\footnote{https://tech.cbits.northwestern.edu/purple-robot/} is an Android application originally developed to allow for easier or better integration for PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. 
@@ -39,10 +51,20 @@ Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled 
 It might already be challenge for us to gain the trust of users. We are handling sensitive information about their everyday activities and life. 
 Installing a third part application to handle this information could become a potential trust issue. We have installed this application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
 
+\todo{The data sensor collection costs money!}
+\subsection{Design Patterns and General Strategies}
+\label{sub:design_patterns_and_general_strategies}
 
-%The application costs money 
-
-\subsection{Design Pattern}
-
-% Academia
+To reduce battery drain
+\begin{itemize}
+    \item Compress data
+    \item Communicate in bulks
+    \item Pre-fetch network data
+    \item Network scheduling services (use the network when other uses it).
+    \begin{itemize}
+        \item Bundle outgoing data (cache outgoing data)
+    \end{itemize}
+    \item Reduce number of connections
+    \item Check network types (wifi / cellular)
+\end{itemize}
 
