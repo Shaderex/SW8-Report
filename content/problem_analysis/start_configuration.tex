@@ -1,0 +1,48 @@
+%!TEX root = ../../super_main.tex
+
+\section{Start Configuration}
+\label{sec:start_configuration}
+
+A start configuration is a basis of software tools, platforms, libraries and system upon which both a problem and a corresponding solution can mature. This section describes existing solutions, potentially interesting and useful infrastructure, and high level design patterns, which could contribute with ideas to the development of our system.
+% Gamification?
+
+\subsection{Existing Solutions} % (fold)
+\label{sub:existing_solutions}
+
+% Mental Health
+
+\begin{itemize}
+    \item Research in mental health using an application \footnote{http://www.imedicalapps.com/2014/09/smartphone-sensors-mental-health/}
+\end{itemize}
+
+\subsection{Ilumivu Mobile EMA}
+\label{sub:ilumivu_mobile_ema}
+
+Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological}, is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
+\\\\
+Ilumivu have developed a Mobile EMA (mEMA) application. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for health research.
+
+\subsection{Mobile Sensor Data Gathering Applications}
+\label{sub:purple_robot}
+
+% Purple Robot
+Purple Robot\footnote{https://tech.cbits.northwestern.edu/purple-robot/} is an Android application originally developed to allow for easier or better integration for PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. 
+The application also allows other applications to access all the sensors on a device with an uniform interface. 
+The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs, meaning that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality.
+
+% This framework could be used to create what we are striving for?
+This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
+
+Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. The application can use all sensors that are available in iPhone devices in order to gather data, which is then made available through a web API. When gathering data it is possible to store it in two different ways: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
+
+%Trust in third part
+It might already be challenge for us to gain the trust of users. We are handling sensitive information about their everyday activities and life. 
+Installing a third part application to handle this information could become a potential trust issue. We have installed this application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
+
+
+%The application costs money 
+
+\subsection{Design Pattern}
+
+% Academia
+
