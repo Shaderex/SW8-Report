@@ -5,7 +5,7 @@
 
 This section describes how data from the different communication devices and mobile sensors i.e. data sources are made available to the programmer through an Application Programming Interface (API) without actually touching upon how this looks in code. Examples of what the different data sources can tell us is also mentioned in this section. 
 \\\\
-The data sources in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, some report continues stream of values, and some are more reactive and only reports when changes occur. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Some of the issues related to these data sources have already been taken into consideration when the mobile software platform, for instance Android, was developed. Some of the data sources, such as the GPS, with an asynchronous nature are for instance cached by Android is for instance the case of the GPS sensor. 
+The data sources in modern wearable consumer electronics have different characteristics and have different access patterns. Some can synchronously be accessed, on demand, some report continues stream of values, and some are more reactive and only reports when changes occur. A few of them can only be directly queried asynchronously i.e. it might require arbitrary long time in order to get a fixed reading with the desired precision. Some of the issues related to these data sources have already been taken into consideration when the mobile software platform, for instance Android, was developed. Some of the data sources, such as the GPS, with an asynchronous nature are for instance cached by Android. 
 \\\\
 Another example where a mobile platform could make it easier to obtain the desired data is when the platform includes software sensors or virtual sensors. Software and virtual sensors combines and pre-processes raw data in order to give the desired results. The provided software sensors on the mobile platform are often examples of common uses of one or more sensors. 
 \\\\
@@ -23,7 +23,7 @@ It is possible to measure the acceleration of the device in three dimensions usi
 
 \subsubsection{Gyroscope}
 \label{sub:gyroscope}
-The gyroscope measures the orientation of the device referenced to the gravity pull of the device. As stated before, the gyroscope is often used together with accelerometer. The gyroscope gives a continuous stream of readings from the sensor.
+The gyroscope measures the orientation of the device referenced to the gravitational pull of the device. As stated before, the gyroscope is often used together with accelerometer. The gyroscope gives a continuous stream of readings from the sensor.
 
 \subsubsection{Magnetometer}
 \label{sub:compass}
@@ -39,7 +39,7 @@ The sensors that gives reactive readings are listed here.
 
 \subsubsection{Proximity Sensor}
 \label{sub:proximity_sensor}
-Using an infrared beam, it is possible to to estimate how close the device is to the nearest object. This estimation has higher accuracy in lower distances. Values are only reported as they change and the proximity sensors of some devices returns binary values that represent ``near'' or ``far'' instead of an actual distance.
+Using an infrared beam, it is possible to to estimate how close the device is to the nearest object. This estimation has higher accuracy in lower distances. Values are only reported as they change, and the proximity sensors of some devices return binary values that represent ``near'' or ``far'' instead of an actual distance.
 
 \subsubsection{Ambient Light Sensor}
 \label{sub:ambient_light_sensor}
@@ -78,7 +78,7 @@ Measures the heart rate, using a light source and a light sensitive sensor to es
 
 \subsection{Ultraviolet (UV) Sensor}
 \label{sub:uv_sensor}
-Measures the UV radiation hitting the device. Can be used to estimate whether a person is inside or outside. Can be used to estimate whether a person has spent too much time outside, and thereby risk skin cancer, by accumulating readings of UV radiation of an entire day.   
+Measures the UV radiation hitting the device. Can be used to estimate whether a person is inside or outside. Can be used to estimate whether a person has spent too much time outside, and thereby in risk of sunburns or skin cancer, by accumulating readings of UV radiation of an entire day.   
 
 \subsection{Skin Temperature Sensor}
 \label{sub:skin_temperature_sensor}
@@ -86,4 +86,4 @@ Measures the temperature of skin touching the device. \todo{Find ud af hvad såd
 
 \subsection{Galvanic Skin Response (GSR) Sensor}
 \label{sub:galvanic_skin_respons_sensor}
-Measures the conductivity of the surface against the device. Can indicate whether or not a person is sweating or more generally the moisture level on a surface. 
+Measures the conductivity of the surface against the device. Can indicate whether or not a person is sweating or more generally the moisture level on a surface. The GSR sensor is commonly used to infer whether a wearable device is being worn at the moment. 
