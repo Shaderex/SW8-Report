@@ -2,23 +2,27 @@
 
 \section{Problem Definition} 
 \label{sec:problem_definition}
-
 % Opsumer analyse
-
+% Legal stuff, Encryption stuff, ethics stuff
+There is, as described in \secref{sec:legislation}, different types of data with different privacy requirements. Some of these requirements apply to this project and the data we intend to collect. We must therefore take measures to accommodate these requirements. 
+\\\\
 % Campaign definition(s)
-\todo{Define a Campaign}
 We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a data collection from users    
-
+\\\\
 % Health care stuff requires real time - Impacts battery
 Available sensor gathering applications and accompanying platforms generally have real time goals, health care systems often have intervention goals which requires data to be synchronized with a central node in near real time. 
-
+\\\\
 % Does not allow dynamic use of sensors from other mobile devices than smartphones
+The existing solutions we have looked at does not incorporate more devices than smart phones which in general does not have all the health monitoring sensor of for instance a smart watch or a smart band, which opposed to a smart phones are worn close to the body. One could for instance imagine that data from these sensors to be interesting in various health related classification problems. 
+\\\\
+% Participatory sensing and training data
+The context of monitored ubiquitous devices, i.e. gathered sensor data, does necessarily not provide much value without being coupled with a meaningful class label which could for instance be the mental state of a user through participatory sensing. The sensor data values, by them self, can only be used to train a model which predicts the behavior related to a subset of the sensors without the extra user provided labels. This might be interesting for some problems but a general training data collection system should perhaps support both opportunistic sensing and participatory sensing. \todo{Ref til Participatory and Opportunistic Sensing afsnit}
 
 % Hovedspørgsmål 
 \subsection{Problem Statement}
 \label{sub:problem_statement}
 
-Current health s
+%Current health s
 
 The following problem statement and supporting subquestions are based on the prior analysis.
 \\\\
@@ -26,7 +30,8 @@ The following problem statement and supporting subquestions are based on the pri
 
 % Underspørsmål
 \begin{itemize}
-    \item How can we facilitate ad-hoc sensor data collection of different ubiquitous devices, which might and might not be present at a given time? 
+    \item How can we facilitate ad-hoc sensor data collection of different ubiquitous devices, which might and might not be present at a given time?
+    \item How can we acquire class labels, from users, for the sensor data context gathered from ubiquitous devices?  
     \item How can we allow customers to define a campaign for their users?
     \item How can minimize batter consumption from data gathering on mobile devices by exploiting that we little real time requirements?
     \item How can we maintain legally required privacy of users and protect their sensitive personal data? 
