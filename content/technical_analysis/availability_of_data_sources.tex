@@ -35,7 +35,7 @@ The barometer approximates the air pressure, in hPa or mbar, around the device. 
 
 \subsection{Reactive Data Sources}
 \label{sub:on_change_reporting_sensors}
-The sensors that gives reactive readings are listed here.
+Sensors described in this section are reactive meaning that they output measurements when an event from the environment triggers them. The events are typically used to handle some change in the environment rather than measuring the context.
 
 \subsubsection{Proximity Sensor}
 \label{sub:proximity_sensor}
@@ -47,7 +47,7 @@ The ambient light sensor makes it possible to measures the lightning in the surr
 
 \subsection{On-Demand Data Sources}
 \label{sub:on_demand_sensors}
-The sensors that gives on-demand readings are listed here.
+On-demand sensors are sensors that have do not provide a stream of information but have to be requested whenever a measurement is needed. Measurements from this type of sensors are typically more expensive in terms of battery consumption and computation. An on demand reading can only be given asynchronously as the device would first have to contact multiple information providers such as cell towers and GPS satellites and over time reach a sufficiently accurate reading. To improve efficiency the latest readings are cached, at least for Android, which allows for quick access the most recent result.
 
 \subsubsection{WiFi}
 \label{sub:wifi}
@@ -59,14 +59,11 @@ Potential values from WiFi could be: reachable access point names, their communi
 Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting values could be: Mobile country code, mobile network code, mobile cell identity (mast identity), cell tower technology type, signal strength.
 % http://developer.android.com/reference/android/telephony/
 
-\subsection{Asynchronous Data Sources}
-\label{sub:asynchronous_sensors}
-The sensors that gives asynchronous readings are listed here.
-
 \subsubsection{Global Positioning System (GPS)}
 \label{sub:gps}
-The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses A-GPS, meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. An on demand reading can only be given asynchronously as the device would first have to contact multiple cell towers and GPS satellites and over time reach a sufficiently accurate position which can take some time. Luckily the latest position is cached, at least for Android, which allows for quick access to a few minutes old location. 
-\todo[inline]{Skriv noget om hvordan GPS fungerer på andre devices}  
+The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses Assisted GPS (A-GPS), meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites.
+
+\todo[inline]{Skriv noget om hvordan GPS fungerer på andre devices}
 
 \subsection{Unknown For Now}
 \label{sub:unknown_for_now}
