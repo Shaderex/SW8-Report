@@ -1,0 +1,13 @@
+%!TEX root = ../../super_main.tex
+
+\chapter{Client Server Architecture}
+
+A core features of the platform is that multiple clients should feed the server with data gathered from various context alongside labels that is derived form questionnaires. For this reason we have implemented a communication protocol in which the clients will be able to send this to the server. Since the server is a single instance and should be able to handle a growing number of clients we must implement a communication protocol that allows to be scaled accordingly. A way to handle scalability and load balancing is to implement a restful web API, where the interface for manipulating resources does not change with the growing number of clients.
+
+\todo[inline]{Write section about security of the communication}
+
+\todo[inline]{Write about how we have prioritized the way we send data (battery vs disk)}
+
+\todo[inline]{Backend scalability (Restful API)}
+
+\todo[inline]{Data sending format}
