@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt,twoside,openright]{report}
 
 % Use the preamble defined
-\input{preamble/preamble.tex}
+\input{preamble/preamble}
 
 \begin{document}
 
@@ -9,7 +9,7 @@
 % \linenumbers
 
 % === FRONT PAGE === %
-\input{content/miscellaneous/frontpage.tex}
+\input{content/miscellaneous/frontpage}
 \pdfbookmark[0]{Frontpage}{frontpage}
 
 % Use roman numbers as pagenumbering from now on
@@ -20,15 +20,15 @@
 \afterpage{\fancyfoot[RO]{\thepage{}}}
 
 % === TITLEPAGE === %
-\input{content/miscellaneous/titlepage/titlepage.tex}
+\input{content/miscellaneous/titlepage/titlepage}
 \pdfbookmark[0]{Titlepage}{titlepage}
 
 % === SIGNATURES === % 
-\input{content/miscellaneous/signatures.tex}
+\input{content/miscellaneous/signatures}
 \pdfbookmark[0]{Signatures}{signatures}
 
 % === PREFACE === %
-\input{content/miscellaneous/preface/preface.tex}
+\input{content/miscellaneous/preface/preface}
 \pdfbookmark[0]{Preface}{preface}
 
 % === TABLE OF CONTENT === %														
@@ -49,25 +49,22 @@
 \input{content/method/method}
 
 % === ANALYSIS === %
-\input{content/problem_analysis/problem_analysis.tex}
+\input{content/problem_analysis/problem_analysis}
 
 % === TECHNICAL ANALYSIS === %
-\input{content/technical_analysis/technical_analysis.tex}
+\input{content/technical_analysis/technical_analysis}
+
+% === DATA MODELING === %
+\input{content/data_modeling/data_modeling}
 
 % === CLIENT SERVER === %
 \input{content/client_server/client_server_architecture}
 
-% === DESIGN === %
-%\input{content/design/design.tex}
-
-% === IMPLEMENTATION === %
-%\input{content/implementation/implementation.tex}
-
 % === REFLECTION === %
-\input{content/reflection/reflection.tex}
+\input{content/reflection/reflection}
 
 % === CONCLUSION === %
-\input{content/conclusion/conclusion.tex}
+\input{content/conclusion/conclusion}
 
 % === UNSORTED === %
 \input{content/unsorted/unsorted}
@@ -85,7 +82,7 @@
 % === Appendix === %
 %\appendix
 \begin{appendices}
-\input{content/appendix/appendix.tex}
+\input{content/appendix/appendix}
 \end{appendices}
 
 \end{document} 
