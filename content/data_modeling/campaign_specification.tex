@@ -8,11 +8,11 @@ AndWellness had a concept of campaigns \secref{sub:start_configuration} which we
 \label{sub:questionnaire_model}
 We had come to the conclusion that customers should be able to define questionnaires to be a part of the data collection \secref{sec:human_activity_recognition}. Customers should be able to define one or more separate questions or more generally data inputs which combined should make out a questionnaire model. 
 \\\\
-Simple boolean yes/no questions can directly be combined to create a discrete amount of labels or classes which can later be used as targets for an AI model but more open inputs, which for instance can be used for regression or as more diverse features, should also be possible \todo{Overvej om vi når at implementere continuous inputs}. 
+Simple boolean yes/no questions can directly be combined to create a discrete amount of labels or classes which can later be used as targets for an AI model but more open inputs, which for instance can be used for regression or as more diverse features, should also be possible. \todo{Overvej om vi når at implementere continuous inputs}
 \\\\
-A questionnaire specification should be transformable to a format which can be easily be parsed and send from the server to the collecting devices. We have therefore implemented a questionnaire to be Java \mono{Parcelable}. \todo{Overvej at ændre det her hvis vi gør det til JSON ting i stedet} 
+A questionnaire specification should be transformable to a format which can be easily be parsed and send from the server to the collecting devices. We have therefore implemented a questionnaire to be Java Parcelable. \todo{Overvej at ændre det her hvis vi gør det til JSON ting i stedet}
 
-\todo{Overvej om den figur skal opdateres med muligheder for mere advancerede input}
+\todo[inline]{Overvej om den figur skal opdateres med muligheder for mere advancerede input}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{graphic/data_modeling/questionnaire.pdf}
@@ -30,12 +30,12 @@ A questionnaire specification should be transformable to a format which can be e
 
 Questionnaires are not the only source of data and different configurations of the different available sensors should also be customizable for customers. They should be able to specify which data sources they want to include, when they want the data gathered, and how much data they want at a time. 
 
-\todo{figure out where to place this}
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{graphic/data_modeling/model_class_diagram.pdf}
     \caption{Class Diagram of the campaign model.}
     \label{fig:model_class_diagram}
 \end{figure}
+\FloatBarrier
 
-\todo{Slut af med at vi er kommet frem til at vi skal bruge en model for det data der er blevet indsamlet og lav forward ref til snapshot sektion}
+\todo[inline]{Slut af med at vi er kommet frem til at vi skal bruge en model for det data der er blevet indsamlet og lav forward ref til snapshot sektion}
