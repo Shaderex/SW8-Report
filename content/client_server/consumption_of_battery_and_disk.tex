@@ -1,4 +1,6 @@
 %!TEX root = ../../super_main.tex
 \section{Consumption of Battery and Disk}
 
-\todo[inline]{Write about how we have prioritized the way we send data (battery vs disk)}
+As mentioned in SECTION\todo{ref to good engineering practices}, we do not want to reactivate the network antennas repeatedly. At the same time we do not want the client application to be hardly dependent on network. Instead of streaming the data gathered from the senors directly to the server we store it persistently on the device in order to send it in bulks whenever the antennas is already active. By doing this we save a lot of battery time, in fact the larger bulks we send to the server the more energy is saved. Also we want to avoid using the cellular communication when uploading the data for two reasons. One is that this type of communication is charged per byte sent from the user, and secondly this type of communication is slower and for that reason requires the antennas to be active for longer periods of time, hence consuming more battery. If we try to utilize the WiFi as much as possible and at the same time send the data in as big chunks as possible we save energy, however we do not want to occupy the disk capacity of the device entire if the campaign is intended to gather a lot of sensor data rapidly. For this reason we have designed some rules that tries to decrease the battery consumption while still guaranteeing that the disk of the device is not overflown with sensor data.
+
+\todo{When we have designed this, write it here!}
