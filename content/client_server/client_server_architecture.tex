@@ -2,12 +2,12 @@
 
 \chapter{Client Server Architecture}
 
-A core features of the platform is that multiple clients should feed the server with data gathered from various context alongside labels that is derived form questionnaires. For this reason we have implemented a communication protocol in which the clients will be able to send this to the server. Since the server is a single instance and should be able to handle a growing number of clients we must implement a communication protocol that allows to be scaled accordingly. A way to handle scalability and load balancing is to implement a restful web API, where the interface for manipulating resources does not change with the growing number of clients.
+A core features of the platform is that multiple clients should feed the server with data gathered from various context alongside labels that is derived form questionnaires. The way we handle this communication on both the client and the server will be described in this chapter.
 
 \input{content/client_server/security}
 
 \input{content/client_server/consumption_of_battery_and_disk}
 
-\todo[inline]{Backend scalability (Restful API)}
+\input{content/client_server/restful}
 
 \todo[inline]{Data sending format}
