@@ -8,19 +8,16 @@ We would like to develop a platform that allows for dynamic collection of data f
 \todo[inline]{Purge the rest this section for description of essence}
 
 % Vi har ikke nogen udefrakommende kunne, vi vil håndtere dette med et essence vision
-This project aims to be innovative and does not have an external customer whom can define and verify requirements. 
+This project aims to be innovative and does not have an external customer whom can define and verify requirements.
 \\\\
 A software development methodology that aims to support high value software solutions is Essence \parencite{essence_book_2016_draft}. Essence mentions having a vision as a great way to start a project. Essence mentions that having different representations of a vision can help elicit objects, events, and qualities to persue. Four different representation types are suggested, namely: Icon, Prototype, Metaphor, Proposition. We have chosen to attempt to represent the existing condition, i.e. the problem area as we understood it at the time, as Icons, Metaphors, and Propositions. We found the prototype representation too costly in terms of development time. 
 
 \subsection{Start Configuration}
 \label{sub:start_configuration}
-
-\todo[inline]{Consider the term subject vs user, in terms of medical subject makes great sense but can we use that term instead of user?}
-As described in \secref{sub:essence_start_configuration}, the start configuration is the basis foundation on which the entire system can mature. In this section we describe existing solutions, potentially interesting and useful infrastructure, and high level design patterns, which could contribute with ideas to the development of our system.
+As described in \secref{sub:essence_start_configuration}, the start configuration is the basis foundation on which the entire system can mature. In this section we describe existing solutions, potentially interesting and useful infrastructure, and high level design patterns and good practices, which could contribute with ideas to the development of our system.
 
 \subsubsection{Existing Solutions}
-
-Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these subjects fill out surveys. 
+Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor participants using smartphone sensors and have these participants fill out surveys. 
 \\\\
 There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
 \\\\
@@ -31,7 +28,7 @@ AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/quest
 \\\\
 The AndWellness system allows for full transparency, meaning that subjects have full access to the data they are gathering for the customers, to increase trustworthiness. Lastly AndWellness does not support raw sensor output logging, they derive some soft sensors which they call Location- and Activity trace sensors. This is a potential flaw, because the data used to derive output cannot be converted back to raw sensor output and a mental health study might need data which is not included in the outputs of these predefined soft sensors.
 \\\\
-mEMA and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there is no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smart phones.
+Ilumivu and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there is no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smart phones.
 
 % + Principle of campaign. %
 % + Sensor monitoring have configurable resolutions (our terms: measurement frequency, sample duration, sample frequency).
@@ -44,10 +41,6 @@ mEMA and AndWellness both monitor and report sensor readings in real time, meani
 % - Pure smartphone, no wearable technology.
 % - Only two derived (software sensors), Location and Activity tracing.
 %     - No raw sensor output
-
-\subsubsection{Data Collection Applications}
-
-\todo[inline]{The two previously mentioned apps also collect data?}
 
 % Purple Robot
 Purple Robot\footnote{https://tech.cbits.northwestern.edu/purple-robot/} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
