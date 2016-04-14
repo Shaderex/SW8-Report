@@ -3,7 +3,7 @@
 \section{Deriving the Context from Sensors}
 \label{sec:deriving_the_context_from_sensors}
 
-To realize the vision (\secref{sec:vision}), the platform must be able to provide data that can be used to derive something about context in which the user exists. This section describes how different sensors may contribute to training data that describes the environment, in as much detail as possible. We only consider sensors that are commonly found in mobile devices and smart wearables compatible with Android. 
+To realize the vision (\secref{sec:vision}), the platform must be able to provide data that can be used to derive something about context in which the participants exists. This section describes how different sensors may contribute to training data that describes the environment, in as much detail as possible. We only consider sensors that are commonly found in mobile devices and smart wearables compatible with Android. 
 
 \subsection{Availability of Sensors}
 
@@ -16,7 +16,7 @@ To discover which sensors are commonly available and how different type of devic
 A single or few reading form this type of sensor does not give much value to describe a context. However, a continuous stream of readings describes change over time of the context, thus grating value. These sensors are often noisy i.e. the read values jump up and down a bit around the actual expected value even though the device is laying perfectly still.
 
 \subsubsection{Accelerometer}
-It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
+It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the wearer or user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
 
 \subsubsection{Orientation (Gyroscope)}
 The gyroscope measures the speed of rotation of the device in space. In combination with accelerometer the gyroscope will provide in idea of orientation of how the device relative to Earth's gravitational pull. The rotation of the gyroscope is measured on all three axises as rotation velocity in $rad/s$.
