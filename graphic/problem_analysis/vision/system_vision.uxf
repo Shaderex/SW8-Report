@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="13.3">
+<diagram program="umlet" version="14.1.1">
   <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
+      <x>133</x>
       <y>301</y>
       <w>126</w>
       <h>56</h>
@@ -18,7 +18,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>434</x>
+      <x>252</x>
       <y>245</y>
       <w>91</w>
       <h>98</h>
@@ -30,7 +30,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>434</x>
+      <x>252</x>
       <y>315</y>
       <w>91</w>
       <h>28</h>
@@ -42,7 +42,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>434</x>
+      <x>252</x>
       <y>322</y>
       <w>91</w>
       <h>91</h>
@@ -54,7 +54,7 @@ valign=center</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>511</x>
+      <x>329</x>
       <y>224</y>
       <w>126</w>
       <h>56</h>
@@ -68,7 +68,7 @@ valign=center</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>511</x>
+      <x>329</x>
       <y>371</y>
       <w>126</w>
       <h>56</h>
@@ -82,18 +82,18 @@ valign=center</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>721</x>
+      <x>539</x>
       <y>385</y>
       <w>70</w>
       <h>84</h>
     </coordinates>
-    <panel_attributes>User</panel_attributes>
+    <panel_attributes>Participant</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
+      <x>448</x>
       <y>238</y>
       <w>105</w>
       <h>28</h>
@@ -105,7 +105,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
+      <x>448</x>
       <y>385</y>
       <w>105</w>
       <h>28</h>
@@ -117,18 +117,18 @@ valign=center</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>721</x>
+      <x>539</x>
       <y>238</y>
       <w>70</w>
       <h>84</h>
     </coordinates>
-    <panel_attributes>User</panel_attributes>
+    <panel_attributes>Participant</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>182</x>
+      <x>0</x>
       <y>210</y>
       <w>70</w>
       <h>84</h>
@@ -140,7 +140,7 @@ valign=center</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>182</x>
+      <x>0</x>
       <y>392</y>
       <w>70</w>
       <h>84</h>
@@ -151,7 +151,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>56</x>
       <y>315</y>
       <w>91</w>
       <h>28</h>
@@ -163,7 +163,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>56</x>
       <y>231</y>
       <w>91</w>
       <h>112</h>
@@ -175,7 +175,7 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>56</x>
       <y>322</y>
       <w>91</w>
       <h>112</h>
@@ -187,7 +187,7 @@ valign=center</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>189</x>
+      <x>7</x>
       <y>315</y>
       <w>56</w>
       <h>56</h>
@@ -201,7 +201,7 @@ halign=center
   <element>
     <id>Text</id>
     <coordinates>
-      <x>511</x>
+      <x>329</x>
       <y>315</y>
       <w>126</w>
       <h>35</h>
