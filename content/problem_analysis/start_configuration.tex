@@ -16,7 +16,7 @@ AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/quest
 The AndWellness system allows for full transparency, meaning that subjects have full access to the data they are gathering for the customers, to increase trustworthiness. Lastly AndWellness does not support raw sensor output logging, they derive some soft sensors which they call Location- and Activity trace sensors. This is a potential flaw, because the data used to derive output cannot be converted back to raw sensor output and a mental health study might need data which is not included in the outputs of these predefined soft sensors.
 \\\\
 mEMA and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there is no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smartphones.
-
+\\\\
 % + Principle of campaign. %
 % + Sensor monitoring have configurable resolutions (our terms: measurement frequency, sample duration, sample frequency).
 % + Have different triggers, temporal, contextual (sensor). 
@@ -28,7 +28,6 @@ mEMA and AndWellness both monitor and report sensor readings in real time, meani
 % - Pure smartphone, no wearable technology.
 % - Only two derived (software sensors), Location and Activity tracing.
 %     - No raw sensor output
-
 % Purple Robot
 Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
 The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality.
