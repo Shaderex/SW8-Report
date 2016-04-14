@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>210</y>
+      <w>40</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>0
+fontsize=20
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>210</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>010
+fontsize=20
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>210</y>
+      <w>280</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>00000001111111001010
+fontsize=20
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>210</y>
+      <w>280</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>10000011001000010101
+fontsize=20
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>210</y>
+      <w>280</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>00001010010111110111
+fontsize=20
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>0</x>
+      <y>170</y>
+      <w>110</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Excessive bit
+valign=center
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>260</y>
+      <w>130</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Decimal position
+valign=center
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>150</x>
+      <y>170</y>
+      <w>280</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>First float
+valign=center
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>440</x>
+      <y>170</y>
+      <w>280</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Second float
+valign=center
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>730</x>
+      <y>170</y>
+      <w>280</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Third float
+valign=center
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>230</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>190</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>190</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>190</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>190</y>
+      <w>30</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
