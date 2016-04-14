@@ -3,7 +3,7 @@
 \section{Extreme Programming}
 \label{sec:extreme_programming}
 
-In this project we have chosen to use some of the aspects from the Extreme Programming (XP) methodology, which is a type of agile software development method, that has a high amount of focus on customer satisfaction, developer productivity/welfare and high product quality. The methodology focuses on delivering partial products to the customers as they need them, instead of just a complete product far in the future. In XP this is normally achieved by use of several core practices, such as: on-site customer, test driven development, pair programming, planning poker, continuous integration and delivery and daily meetings. XP emphasizes the value of simplicity, communication, feedback, respect, courage. 
+In this project we have chosen to use some of the aspects from the Extreme Programming (XP) method, which is a type of agile software development method, that has a high amount of focus on customer satisfaction, developer productivity/welfare and high product quality. The method focuses on delivering partial products to the customers as they need them, instead of just a complete product far in the future. In XP this is normally achieved by use of several core practices, such as: on-site customer, test driven development, pair programming, planning poker, continuous integration and delivery and daily meetings. XP emphasizes the value of simplicity, communication, feedback, respect, courage. 
 
 \begin{itemize}
 	\item Simplicity is about taking the simplest path to delivering a minimum viable product without compromising quality. 
@@ -13,7 +13,7 @@ In this project we have chosen to use some of the aspects from the Extreme Progr
 	\item Courage allows the team to take on new challenges without the fear of failing, because nobody works alone. The developers should have the courage to tell the truth about progress and estimates. 
 \end{itemize}
 
-The following sections will describe some of the basic concepts from the XP methodology that we have chosen to use, how we have implemented them, and some of the conflicts there are between our project and the methodology.
+The following sections will describe some of the basic concepts from the XP method that we have chosen to use, how we have implemented them, and some of the conflicts there are between our project and the method.
 
 \subsection{Iterations}
 \label{sub:iterations}
@@ -28,12 +28,19 @@ We have chosen to make a release every second XP iteration, meaning that we will
 
 \subsection{Taskboard and User Stories}
 \label{sub:taskboard_and_user_stories}
-In XP a release plan is created for each release, during a release planning meeting. The release plan is typically represented on a taskboard by the use of user story cards and task cards. An example of such a taskboard can be seen in.
-\todo[inline]{Add photo of taskboard and ref to it}~
-\\\\
+In XP a release plan is created for each release, during a release planning meeting. The release plan is typically represented on a taskboard by the use of user story cards and task cards. An example of such a taskboard can be seen in \figref{fig:taskboard}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{method/taskboard.jpg}
+    \caption{A picture of our taskboard.}
+    \label{fig:taskboard}
+\end{figure}
+
 The user story cards are made in collaboration with the customer during release planning.  A subset of all the stories will then be selected to be completed in the given iteration, and acceptance tests will be made for these stories. An acceptance test is a specific test that is conducted in order to determine whether the specification or contract is met.
+% Hvordan er user stories formuleret.. Og hvordan ser en acceptance test ud
 \\\\
-We have chosen attempt to follow the standard XP release plan concept by playing various roles from XP, because they are such a central aspect of the methodology. For this reason during the iteration review and planning meetings we assign each team member roles, such as customer, tester, developer, and user, which they must role-play. This role playing makes it easier for us, as a team, to prioritize user story cards because one team member only has to consider one mindset during these meetings. This approach might be challenging because it can be difficult to apply a different mindset than what we are used to. This means that one team member is assigned to act as the customer during the entire review/planning meeting. As mentioned previously, another central aspect of the development is to have a representative for the customer on-site. However, this project is a student project with no paying customer or user, and we therefore have to role-play this part as well. 
+We have chosen attempt to follow the standard XP release plan concept by playing various roles from XP, because they are such a central aspect of the method. For this reason during the iteration review and planning meetings we assign each team member roles, such as customer, tester, developer, and user, which they must role-play. This role playing makes it easier for us, as a team, to prioritize user story cards because one team member only has to consider one mindset during these meetings. This approach might be challenging because it can be difficult to apply a different mindset than what we are used to. This means that one team member is assigned to act as the customer during the entire review/planning meeting. As mentioned previously, another central aspect of the development is to have a representative for the customer on-site. However, this project is a student project with no paying customer or user, and we therefore have to role-play this part as well. 
 
 
 \subsection{Knowledge Sharing}
@@ -49,9 +56,10 @@ Extreme Programming emphasizes that test driven development is the only developm
 We have not been working with XP or general acceptance testing in previous semester projects, and we therefore cannot judge the quality of the acceptance tests we will create for our user stories.
 
 \subsection{Documentation}
-A major part of the XP methodology is to maintain focus on development and not documentation, and it is only considered in XP if it gives the customer value. This is a very counter-intuitive approach in a student setting, because we have a requirement for the project that states necessary documentation. 
+A major part of the XP method is to maintain focus on development and not documentation, and it is only considered in XP if it gives the customer value. This is a very counter-intuitive approach in a student setting, because we have a requirement for the project that states necessary documentation. 
 \\\\
 Due to the fact that XP does not not have any built in practices or techniques to produce a technical student report during development. we have to adapt our development method to include the production of such a report. We attempt to do this by integrating development 
+
 
 
 
