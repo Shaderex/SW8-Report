@@ -1,29 +1,14 @@
 %!TEX root = ../../super_main.tex
-\section{Vision}
-\label{sec:vision}
-
-We would like to develop a platform that allows for dynamic collection of data for reality mining. Different area of reality mining require different types of labeled training data. For this reason the platform should allow for configurable campaigns of data collection. A customer should be able to to configure what type of data he wants in the set of training data and how the entries should be labeled. The vision for the platform is that people that are in needed of context aware training data can use our platform instead of developing and distributing their own specialized applications to gather these type of data. We imagine that our platform will handle all technical details in regard of gathering the training data, and the only task that is left for the customers of this platform is to motivate participants, which they would have to do in any case.
-
-\todo[inline]{Find a place for this sentence}
-
-% Vi har ikke nogen udefrakommende kunne, vi vil håndtere dette med et essence vision
-This project aims to be innovative and does not have an external customer whom can define and verify requirements. 
-\\\\
-A software development methodology that aims to support high value software solutions is Essence \parencite{essence_book}. Essence mentions having a vision as a great way to start a project. Essence mentions that having different representations of a vision can help elicit objects, events, and qualities to persue. Four different representation types are suggested, namely: Icon, Prototype, Metaphor, Proposition. We have chosen to attempt to represent the existing condition, i.e. the problem area as we understood it at the time, as Icons, Metaphors, and Propositions. We found the prototype representation too costly in terms of development time. 
-
-\subsection{Start Configuration}
-\label{sub:start_configuration}
-
-\todo[inline]{Consider the term subject vs user, in terms of medical subject makes great sense but can we use that term instead of user?}
+\section{Start Configuration}
+\label{sec:start_configuration}
 As described in \secref{sub:essence_start_configuration}, the start configuration is the basis foundation on which the entire system can mature. In this section we describe existing solutions, potentially interesting and useful infrastructure, and high level design patterns, which could contribute with ideas to the development of our system.
 
-\subsubsection{Existing Solutions}
-
-Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these subjects fill out surveys. 
+\subsection{Existing Solutions}
+Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these subjects fill out surveys. We here refer to subjects as both participants of a data gathering systems and individuals involved in medical research.
 \\\\
 There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
 \\\\
-Ilumivu\footnote{http://ilumivu.com/solutions/ecological-momentary-assessment-app/} have developed a Mobile EMA (mEMA) application. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
+Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
 \\\\
 % AndWellness
 AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/questionnaire focused system for Android phones. AndWellness have some interesting points on architecture and principles to do this type of monitoring. This system has a concept of a campaign which is the definition of studies, meaning it is the configuration of how sensor data is gathered and surveys are filled on the subjects smartphones. These configurations include how sensors should be monitored in terms of frequency and duration. It is also possible to configure how subjects are notified. AndWellness allows configuration of different triggers for questionnaires. These triggers can be set to be both temporal but also sensor activity based, meaning that both time and the activity and movement of the user can trigger sensor monitoring and notifications with surveys. This means that the customers using AndWellnes is able to customize their study in great detail, which is preferable as the purpose of the gathered data may vary. Lastly an idea to note is that this system has a concept of expiring surveys, meaning that the customer can configure for how long the subject may prolong a survey with a time window where the survey exists. These time windows allows customers to disallow meta cognition, the process of reflecting about ones thoughts. Some mental health studies does not want meta cognitions, i.e. no reflection after some activity, while other studies include meta cognitions as an important factor. 
@@ -44,12 +29,8 @@ mEMA and AndWellness both monitor and report sensor readings in real time, meani
 % - Only two derived (software sensors), Location and Activity tracing.
 %     - No raw sensor output
 
-\subsubsection{Data Collection Applications}
-
-\todo[inline]{The two previously mentioned apps also collect data?}
-
 % Purple Robot
-Purple Robot\footnote{https://tech.cbits.northwestern.edu/purple-robot/} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
+Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
 The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality.
 % This framework could be used to create what we are striving for?
 This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
@@ -60,8 +41,10 @@ Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled 
 It might already be challenge for us to gain the trust of users. We are handling sensitive information about their everyday activities and life. 
 Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
 
-\todo{The data sensor collection costs money!}
-\subsubsection{Design Patterns and General Strategies}
+\todo[inline]{The data sensor collection costs money!}
+\subsection{Design Patterns and General Strategies}
+
+\todo[inline]{Short describe what this subection is about (softer intro)}
 
 Sloppy handling of network communication is seen as a common source of battery drain \parencite{android_network_scheduling} in the Android development community. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time unless the model itself is actually required to be trained and completed within a given temporal frame. 
 \\\\
@@ -78,58 +61,4 @@ Other typical techniques for reducing power consumption include \parencite{andro
     \item Reduce number of connections
 \end{itemize}
 
-The idea of aggregating and minimizing network communication in a sensor network to save power is not a novel one \parencite{korteweg2007data} \parencite{mhatre2004design}, but they are not included features in the sensor data collecting applications described in \secref{sub:start_configuration}. A battery consumption aware application which collects data, but does not synchronize it with a server in real time, could offer substantial battery consumption improvements to existing solutions. 
-
-\subsection{Vision Scenarios}
-\label{sub:vision_scenarios}
-
-% Essence suggests finding two fundamentally opposing questions that properly represent different directions the project could take. This allows for a clearer insight in the benefits of progressing in either way. The overall goal of this exercise is to explore the design space and to learn more about what we want to create, and eventually end up with a vision for the project. The Essence book has an example project called Psyche where several different opposing questions were found, such as Intervention vs Observation and Citizen Oriented vs Caretaker Oriented. Essence furthermore suggests the four previously mentioned representations for each direction of the two questions, which is typically represented by using the four quadrants in a graph representation. One can start by finding several opposing questions, and then selecting the two most central ones. 
-Essence, as mentioned in \secref{sub:essence_vision_scenarios}, a suggests to utilize vision scenarios. We have come up with a list of opposing directions of development, which can be used to explore the different quadrants of a graph with two of the opposites as its axes. The purpose of this is to detail different directions the project could take and thereby learn more about the problem and possibly learn more about how it can be sovled. 
-
-\begin{itemize}[itemsep=0.1em]
-	\item Disruptive/Non-disruptive - Should the system be based on passively collected sensor data or interactively prompt with questionnaires? % 1
-	\item On demand/Continuous - Should the system be activated by users or run continuously in the background? % 2
-	\item Easy-of-use/Customizable - Should we require that customers must customize campaigns or should it be ``one data collection configuration fits all''? % 3
-	\item Assigned/Opt-in - Should campaigns be assigned automatically to users using a user profile or should users actively choose campaigns? % 4
-	\item Personal/Anonymous - Should the system require personal information about users or not? % 5
-\end{itemize}
-
-We have chosen to use the Ease-of-use/Customizable and Assigned/Opt-in orientation questions as axes. 
-\\\\
-% 1
-We found it difficult to imagine the usefulness of a system that exclusively collects sensor data for classification problems. This means that at least some data not based on sensor should be collected. The degree of disruptiveness could then perhaps be regulated by the campaign configuration. 
-% 2
-The system could allow users to turn the system on/off easily but we think that having the system running continuously once activated would increase the probability of completing campaigns. Actual data collection would also depend on whether there is one or more active campaigns on the user's device.
-% 5
-We found that some demographic information would be necessary for both the scenario where users are assigned to campaigns and where they opt-in. Customers would likely be interested in whether the collected data represents the wide population or the specific group they are targeting for their data collection project. The degree of personal information required for a given campaign could perhaps also be defined in a campaign configuration. 
-\\\\
-We have chosen to include Ease-of-use/Customizable because we thought it would be interesting to explore different 
-
-
-
-
-% 1: rå sensor data har begrænset anvendelsesmuligheder --> spørgeskema kan hjælpe med dette.
-% 		brug for en eller anden grad af labels fra brugere. Behøver ikke komme fra spørgeskemaer
-
-% 2: Skal bruger forstyrres "unødvendigt" eller selv aktivt starte appen op fx. hver dag eller skal den køre i baggrunden
-% Fordel ved selv styring er at de kan regulere strøm forbrug og vælge hvilke dag de vil deltage. Ulempe ved at de vælger er at det kan være svært at generalisere over tid. 
-% Begge dele kan påvirker bruger entusiasmen/involveringen
-
-% 3: Skal det være nemt/hurtigt at lave campaigns
-
-\subsection{Icon Representation}
-
-
-\subsection{Metaphor Representation}
-
-
-\subsection{Proposition Representation}
-
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth]{unsorted/system_vision}
-    \caption{The system vision.}
-    \label{fig:system_vision}
-\end{figure}
-\FloatBarrier
+The idea of aggregating and minimizing network communication in a sensor network to save power is not a novel one \parencite{korteweg2007data} \parencite{mhatre2004design}, but this practice seems to be violated in the existing solutions. A battery consumption aware application which collects data, but does not synchronize it with a server in real time, could offer substantial battery consumption improvements to existing solutions.
