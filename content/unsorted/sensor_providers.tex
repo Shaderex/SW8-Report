@@ -47,9 +47,18 @@ We have come up with a solution to the concerns described in \secref{sub:data_qu
 
 \subsection{Implementation}
 
-The solution was to abstract data collection away in subclasses of a class called.. \todo{Write more}
+The solution was to move the actual data collection to subclasses of an abstract class called \emph{SensorProvider}. The \emph{SensorProvider} class has three methods available: 
+\begin{itemize}
+	\item abstract boolean isSensorAvailable;
+	\item abstract Sample retrieveSampleForDuration
+	\item Future<List<Sample>> retrieveSamplesForDuration
+\end{itemize}
 
-\todo[inline]{Man giver en Callable til en threadpool som så retunerer en Future. Den future indeholder så data når callablen er færdig med at gøre det den skal. Man kan kalde .get() på den future for at få dataen. Hvis dataen endnu ikke er klar venter man til den er klar. Man kan også sætte en timeout på .get() så den ikke venter mere end x sekunder (null resultat). Overvej hvornår vi skal beskrive dette i rapporten. Det ændre sig måske hvis vi finder nogle problemer med denne løsning}
+The abstract \emph{isSensorAvailable} method allows the subclasses of \emph{SensorProvider} a way of specifically checking if the device has that sensor available. This might for example be useful in order to determine which campaigns should be available to which users at some point, or detecting if a wearable device has been disconnected. \emph{Abstract retrieveSampleForDuration} is a method that every subclass has to implement, which specifies how a sample is created for this specific sensor. \emph{Future<List<Sample>> retrieveSamplesForDuration} is implemented on the \emph{SensorProvider} class, i.e. not abstract like the other two methods, and is the method that makes all the different providers work asynchronously. The method returns a \emph{Future}, which, in Android, is the result of an asynchronous computation. The result from a future can be retrieved by calling ``.get()'' on the object, which is a blocking call. Android then provides different methods to check whether or not the computation is completed, in progress, and so on. The method works by submitting a \emph{Callable} to a thread pool, which will eventually return a list of samples, i.e. the future. This callable contains a \emph{TimerTask}, which is a task that is repeated a certain amount of times, that in return calls the \emph{abstract retrieveSampleForDuration} method. In that way, we have a \emph{callable} which at some point returns the desired amount of samples. 
+\\\\
+The \emph{abstract retrieveSampleForDuration} method has, in all the subclasses of \emph{SensorProvider}, been implemented by using a native method called \emph{onSensorChanged}. As the name implies, this event is triggered whenever a sensor changes its state. This is a potential issue, since not all sensors provide continuous data, and not all sensors will change in the time limit that is allowed between two measurements (see \figref{fig:sample_temporality}). A potential solution to this is to always store the previous state, and if the event is not triggered within the alloted time, simply use the old value. 
+\\\\
+Another potential issue with this implementation is the desire for asynchronism, which we implemented by using \emph{future}s. Since we cannot know for certain when different asynchronous calls are finished, it might become difficult to create a snapshot and send it to the database. Furthermore, if we decide to call ``.get()'' on a sample collection that is supposed to take an entire day, we're going to have a really big problem. 
 
 % \lstinputlisting[
 %    style = java,
