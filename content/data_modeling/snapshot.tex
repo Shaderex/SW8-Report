@@ -3,13 +3,10 @@
 \section{Snapshot}
 \label{sec:snapshot}
 
-\todo{vær sikker på at vi har nævnt det}
 % Motivation 
-As described previously we will need a model for the gathered data to complement the specifications of how the individual snapshots should be composed. This model should be able handle different types of data from different sensors. Some measurements will be simple floating point numbers others will be more complex types, i.e. aggregates of different types. 
+We will also need a model for the gathered data to complement the specifications of how the individual snapshots should be composed. This model should be able handle different types of data from different sensors. Some measurements will be simple floating point numbers, to approximate real numbers, and others will consist of more complex types aggregating different values possibly of different types.  
 
-\subsection{Floating Points}
-\label{sub:floating_points}
+\section{FloatTripple}
+We should minimize the required storage footprint of the collected data from the data collecting application in order to minimize power consumption and thereby affecting other use of applied mobile devices as little as possible as described in \secref{sec:start_configuration}.
 
-
-\subsection{Complex Types}
-\label{sub:complex_types}
+\todo{Beskriv FloatTripple}

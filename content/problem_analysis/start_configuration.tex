@@ -1,0 +1,62 @@
+%!TEX root = ../../super_main.tex
+\section{Start Configuration}
+\label{sec:start_configuration}
+As described in \secref{sub:essence_start_configuration}, the start configuration is the basis foundation on which the entire system can mature. In this section we investigate existing solutions and their potentially interesting and useful infrastructure. We also consider some general practices using the mobile platform.
+
+\subsection{Existing Solutions}
+Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these subjects fill out surveys. We here refer to subjects as both participants of a data gathering systems and individuals involved in medical research.
+\\\\
+There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
+\\\\
+Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
+\\\\
+% AndWellness
+AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/questionnaire focused system for Android phones. AndWellness have some interesting points on architecture and principles to do this type of monitoring. This system has a concept of a campaign which is the definition of studies, meaning it is the configuration of how sensor data is gathered and surveys are filled on the subjects smartphones. These configurations include how sensors should be monitored in terms of frequency and duration. It is also possible to configure how subjects are notified. AndWellness allows configuration of different triggers for questionnaires. These triggers can be set to be both temporal but also sensor activity based, meaning that both time and the activity and movement of the user can trigger sensor monitoring and notifications with surveys. This means that the customers using AndWellnes is able to customize their study in great detail, which is preferable as the purpose of the gathered data may vary. Lastly an idea to note is that this system has a concept of expiring surveys, meaning that the customer can configure for how long the subject may prolong a survey with a time window where the survey exists. These time windows allows customers to disallow meta cognition, the process of reflecting about ones thoughts. Some mental health studies does not want meta cognitions, i.e. no reflection after some activity, while other studies include meta cognitions as an important factor. 
+\\\\
+The AndWellness system allows for full transparency, meaning that subjects have full access to the data they are gathering for the customers, to increase trustworthiness. Lastly AndWellness does not support raw sensor output logging, they derive some soft sensors which they call Location- and Activity trace sensors. This is a potential flaw, because the data used to derive output cannot be converted back to raw sensor output and a mental health study might need data which is not included in the outputs of these predefined soft sensors.
+\\\\
+mEMA and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there is no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smartphones.
+
+% + Principle of campaign. %
+% + Sensor monitoring have configurable resolutions (our terms: measurement frequency, sample duration, sample frequency).
+% + Have different triggers, temporal, contextual (sensor). 
+% + Triggers can both be camgaign-wise and participant specific.
+% + Prompts for surveys.
+% + Surveys expire, configured by admins of campaign (answering window).
+% + Users have full transparency of the data gathered
+% - Pure realtime, battery drain, very network dependent.
+% - Pure smartphone, no wearable technology.
+% - Only two derived (software sensors), Location and Activity tracing.
+%     - No raw sensor output
+
+% Purple Robot
+Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
+The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality.
+% This framework could be used to create what we are striving for?
+This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
+\\\\
+Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. The application can gather data from all the sensors that are available in iPhone devices, which is then made available through a web API. It is possible to store the sensor data in two different ways when using Sensor Data: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
+\\\\
+%Trust in third part
+It might already be challenge for us to gain the trust of users. We are handling sensitive information about their everyday activities and life. 
+Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
+
+\subsection{General Strategies}
+To understand the mobile platform better we investigate some of the general strategies that are considered to be good practices for the mobile platform.
+\\\\
+Sloppy handling of network communication is seen as a common source of battery drain \parencite{android_network_scheduling} in the Android development community. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time unless the model itself is actually required to be trained and completed within a given temporal frame. 
+\\\\
+Several different tactics and techniques can be utilized in order to minimize battery drain. A common method to reduce network communication is to compress the data being sent \parencite{har_wearables}\parencite{android_network_scheduling}. This reduces the amount of data that has to be transferred, i.e. the amount of packets, and the awake-time of the network module. Another possibility is to communicate in bulks, which means that instead of sending many small packages with breaks in between, these can be collected into bigger packets. This will reduce the overhead of activating the module. The bulk transfer solution requires the data to be aggregated over time, which requires some sort of intermediate storage. This can be achieved by storing the data in memory for small data packets or persistently on a device for larger packets. Storing the data persistently on the device will also remove the risk of losing the data due to device crashes, and the data therefore becomes less volatile. Another side-effect of storing data, either persistently or in memory, is the possibility collecting data when there is no available connection or only a connection with a high power consumption, e.g. cellular network, and then sending it when a desired connection becomes available. 
+\\\\
+Other typical techniques for reducing power consumption include \parencite{android_network_scheduling}:
+
+\begin{itemize}
+    \item Pre-fetch network data
+    \item Network scheduling services (use the network when other uses it).
+    \begin{itemize}
+        \item Bundle outgoing data (cache outgoing data)
+    \end{itemize}
+    \item Reduce number of connections
+\end{itemize}
+
+The idea of aggregating and minimizing network communication in a sensor network to save power is not a novel one \parencite{korteweg2007data} \parencite{mhatre2004design}, but this practice seems to be violated in the existing solutions. A battery consumption aware application which collects data, but does not synchronize it with a server in real time, could offer substantial battery consumption improvements to existing solutions.
