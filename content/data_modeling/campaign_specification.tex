@@ -2,7 +2,7 @@
 
 \section{Campaign Specification}
 \label{sec:campaign_specification}
-AndWellness had a concept of campaigns \secref{sub:start_configuration} which we liked. We think we could introduce something similar to their campaigns in this project. Our concept of a campaign and its model will be known as a \textit{campaign specification}, it includes questionnaire specifications, snapshot specifications, and trigger specifications\todo{Overvej om vi skal have triggers med}. The details of our \textit{campaign specification} is further described in this section. This \textit{campaign} model will have to coexist server side and client side in order to enable customers to specify campaigns and user devices to subscribe to them.  
+AndWellness had a concept of campaigns \secref{sub:start_configuration} which we liked. We think we could introduce something similar to their campaigns in this project. Our concept of a campaign and its model will be known as a \textit{campaign specification}, it includes questionnaire specifications, snapshot specifications, and trigger specifications\todo{Overvej om vi skal have triggers med}. The details of our \textit{campaign specification} is further described in this section. This \textit{campaign} model will have to coexist server side and client side in order to enable customers to specify campaigns and user devices to subscribe to them. The \textit{campaign specification} is a blueprint for how a campaign should be executed on devices. An execution of a campaign should end up with a lot of data which should also be modelled. This data model also coexits on both sides of the system and is described in \secref{sec:snapshot}.
 
 \subsection{Questionnaire Specification Model}
 \label{sub:questionnaire_model}
@@ -33,6 +33,8 @@ We need a nested concept or model in the \textit{campaign specification} to able
 
 Questionnaires are not the only source of data and different configurations of the different available sensors should also be customizable for customers. They should be able to specify which data sources they want to include, when they want the data gathered, and how much data they want at a time. 
 
+\todo{Ret figur til - Der vi skal have separeret specification af campaign fra opsamlet data}
+
 \todo[inline]{ref til figur}
 \begin{figure}[!htbp]
     \centering
@@ -42,4 +44,3 @@ Questionnaires are not the only source of data and different configurations of t
 \end{figure}
 \FloatBarrier
 
-\todo[inline]{Slut af med at vi er kommet frem til at vi skal bruge en model for det data der er blevet indsamlet og lav forward ref til snapshot sektion}
