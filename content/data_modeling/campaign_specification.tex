@@ -2,7 +2,7 @@
 
 \section{Campaign Specification}
 \label{sec:campaign_specification}
-AndWellness had a concept of campaigns \secref{sub:start_configuration} which we liked. We think we could introduce something similar to their campaigns in this project. Our concept of a campaign and its model will be known as a \textit{campaign specification}, it includes questionnaire specifications, snap shot specifications, and trigger specifications \todo{Overvej om vi skal have triggers med}. The details of our \textit{campaign specification} is further described in this section. This \textit{campaign} model will have to coexist server side and client side in order to enable customers to' specify campaigns and user devices to subscribe to them.  
+AndWellness had a concept of campaigns \secref{sub:start_configuration} which we liked. We think we could introduce something similar to their campaigns in this project. Our concept of a campaign and its model will be known as a \textit{campaign specification}, it includes questionnaire specifications, snapshot specifications, and trigger specifications\todo{Overvej om vi skal have triggers med}. The details of our \textit{campaign specification} is further described in this section. This \textit{campaign} model will have to coexist server side and client side in order to enable customers to specify campaigns and user devices to subscribe to them.  
 
 \subsection{Questionnaire Specification Model}
 \label{sub:questionnaire_model}
@@ -13,10 +13,11 @@ Simple boolean yes/no questions can directly be combined to create a discrete am
 A questionnaire specification should be transformable to a format which can be easily be parsed and send from the server to the collecting devices. We have therefore implemented a questionnaire to be Java Parcelable. \todo{Overvej at ændre det her hvis vi gør det til JSON ting i stedet}
 
 \todo[inline]{Overvej om den figur skal opdateres med muligheder for mere advancerede input}
+\todo[inline]{ref til figur}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{graphic/data_modeling/questionnaire.pdf}
-	\caption{The model of the questionnaires in the system}
+	\caption{The model of the questionnaires in the system.}
 	\label{fig:questionnaire_model}
 \end{figure}
 \FloatBarrier
@@ -24,7 +25,7 @@ A questionnaire specification should be transformable to a format which can be e
 \subsection{Sensor Specification Model}
 \label{sub:sensor_specification_model}
 
-We need a nested concept or model in the \textit{campaign specification} to able to describe different parameters for the data collection from different sensors. This sensor specification model should include which sensor to sample from, the timings of when to sample data from the given sensor,   
+We need a nested concept or model in the \textit{campaign specification} to able to describe different parameters for the data collection from different sensors. This sensor specification model should include which sensor to sample from, the timings of when to sample data from the given sensor. 
 
 
 \subsection{Campaign Class Diagram}
@@ -32,6 +33,7 @@ We need a nested concept or model in the \textit{campaign specification} to able
 
 Questionnaires are not the only source of data and different configurations of the different available sensors should also be customizable for customers. They should be able to specify which data sources they want to include, when they want the data gathered, and how much data they want at a time. 
 
+\todo[inline]{ref til figur}
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{graphic/data_modeling/model_class_diagram.pdf}
