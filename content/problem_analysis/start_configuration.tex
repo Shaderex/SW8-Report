@@ -4,6 +4,7 @@
 As described in \secref{sub:essence_start_configuration}, the start configuration is the basis foundation on which the entire system can mature. In this section we investigate existing solutions and their potentially interesting and useful infrastructure. We also consider some general practices using the mobile platform.
 
 \subsection{Existing Solutions}
+\label{sub:existing_solutions}
 Some solutions that uses data gathering in the world of mental health have been investigated. It seems that a lot of software have been designed to improve mental health using mobile sensor data gathering. We will discuss two solutions that both monitor subjects using smartphone sensors and have these subjects fill out surveys. We here refer to subjects as both participants of a data gathering systems and individuals involved in medical research.
 \\\\
 There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
@@ -37,10 +38,20 @@ This framework could be used to create access to native functionality, i.e. the 
 Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. The application can gather data from all the sensors that are available in iPhone devices, which is then made available through a web API. It is possible to store the sensor data in two different ways when using Sensor Data: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
 \\\\
 %Trust in third part
-It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. 
-Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
+It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
+
+\subsection{Choice of Platform}
+\label{sub:choice_of_platform}
+% Vi kender det fra tidligere og målet proof of concept
+% Android er mest udbredte platform og de fleste smartphone er nød til at være kompatible til
+% Vi har telfon til at teste på
+% Hvis customers vil give devices, er det billigst hvis de giver androids ud
+% gratis og open-source/open-development environment
+% Flest wearables der er kompatible med android
+% Android har et helt økosystem til wearables, mens de 2 andre store kun har få til deres eget produceret ting
 
 \subsection{General Strategies}
+\label{sub:general_strategies}
 To understand the mobile platform better we investigate some of the general strategies that are considered to be good practices for the mobile platform.
 \\\\
 Sloppy handling of network communication is seen as a common source of battery drain \parencite{android_network_scheduling} in the Android development community. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time unless the model itself is actually required to be trained and completed within a given temporal frame. 
