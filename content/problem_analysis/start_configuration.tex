@@ -40,15 +40,23 @@ Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled 
 %Trust in third part
 It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
 
-\subsection{Choice of Platform}
+\subsection{Choice of target Platform}
 \label{sub:choice_of_platform}
+
+% Introduction
 % Vi kender det fra tidligere og målet proof of concept
-% Android er mest udbredte platform og de fleste smartphone er nød til at være kompatible til
-% Vi har telfon til at teste på
-% Hvis customers vil give devices, er det billigst hvis de giver androids ud
-% gratis og open-source/open-development environment
+A part of our system will have to be developed to one mobile platform and as we are limited by time. We have chosen not to  The overall goal of this project is to develop upon an idea and show that this idea can be implemented, we ha. 
+\\\\
+% Android er mest udbredte platform og de fleste wearables er nød til at være kompatible til
 % Flest wearables der er kompatible med android
 % Android har et helt økosystem til wearables, mens de 2 andre store kun har få til deres eget produceret ting
+Many wearables are depended on communication with a smartphone and a lot of wearables are compatible with Android. This is probably partially due to the fact that Android is the most used smartphone operating system \parencite{android_os_market_share} and partially because Android is also a an open wearable platform through Android Wear \footnote{https://www.android.com/wear/}.
+\\\\
+% Vi har telefon til at teste på
+% gratis og open-source/open-development environment
+We have Android devices available as we have some ourself and as we can borrow Android devices from the university. Android SDK and IDE, called Android Studio \footnote{http://developer.android.com/sdk/index.html}, is free and easy to setup and run on multiple platforms contrary to the Apple iOS development environment called Xcode \footnote{https://developer.apple.com/xcode/download/} which only runs on mac with OS X. We have not considered the Windows phone Operating system as a target platform because of its limited market share.
+\\\\
+We have therefore decided to develop the application, which should be run on the devices of participants, to run on the Android platform. On this platform there exist something called API levels which determines what version of the operating system that our application will be compatible with, we have chosen to support the API level 21, which is one of the most recent versions of the Android platform that is compatible with wearables. However, we had some issues in regards to this choice, both in terms of development method and some technical detailes regarding hardware and supported devices. A description of these issues and some reflection upon these can be found in \secref{sec:the_android_platform_compatibility_and_test_driven_development}.
 
 \subsection{General Strategies}
 \label{sub:general_strategies}
