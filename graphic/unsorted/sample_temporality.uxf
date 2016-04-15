@@ -4,66 +4,55 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
+      <x>224</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>182</x>
+      <x>252</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
+      <x>280</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>308</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>126</x>
-      <y>518</y>
-      <w>1092</w>
-      <h>42</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;760.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>140</x>
+      <x>210</x>
       <y>532</y>
       <w>1050</w>
       <h>42</h>
@@ -77,7 +66,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
+      <x>224</x>
       <y>350</y>
       <w>154</w>
       <h>56</h>
@@ -88,7 +77,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>266</x>
+      <x>336</x>
       <y>434</y>
       <w>224</w>
       <h>42</h>
@@ -99,210 +88,210 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>266</x>
+      <x>336</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
+      <x>518</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>476</x>
+      <x>546</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
+      <x>574</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
+      <x>602</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
+      <x>630</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>742</x>
+      <x>812</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
+      <x>840</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
+      <x>868</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>826</x>
+      <x>896</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>854</x>
+      <x>924</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1036</x>
+      <x>1106</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
+      <x>1134</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1092</x>
+      <x>1162</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
+      <x>1190</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1148</x>
+      <x>1218</x>
       <y>378</y>
       <w>42</w>
-      <h>154</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=-
 lw=8</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
+      <x>280</x>
       <y>336</y>
       <w>42</w>
-      <h>56</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
+      <x>238</x>
       <y>308</y>
       <w>112</w>
       <h>42</h>
@@ -316,7 +305,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
+      <x>518</x>
       <y>350</y>
       <w>336</w>
       <h>56</h>
@@ -327,18 +316,18 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>588</x>
+      <x>658</x>
       <y>336</y>
       <w>42</w>
-      <h>56</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>462</x>
+      <x>532</x>
       <y>308</y>
       <w>280</w>
       <h>42</h>
@@ -352,7 +341,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>966</x>
+      <x>1036</x>
       <y>308</y>
       <w>252</w>
       <h>42</h>
@@ -366,7 +355,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
+      <x>1134</x>
       <y>350</y>
       <w>70</w>
       <h>56</h>
@@ -377,7 +366,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1078</x>
+      <x>1148</x>
       <y>336</y>
       <w>42</w>
       <h>56</h>
@@ -388,7 +377,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>756</x>
+      <x>826</x>
       <y>308</y>
       <w>168</w>
       <h>42</h>
@@ -402,34 +391,70 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>826</x>
+      <x>896</x>
       <y>336</y>
       <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>434</y>
+      <w>224</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>434</y>
+      <w>224</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>196</x>
+      <y>518</y>
+      <w>1092</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;760.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>238</x>
+      <y>252</y>
+      <w>994</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>halign=center
+valign=center
+Total Duration
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>280</y>
+      <w>1036</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>434</y>
-      <w>224</w>
-      <h>42</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>854</x>
-      <y>434</y>
-      <w>224</w>
-      <h>42</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0;720.0;10.0;720.0;20.0</additional_attributes>
   </element>
 </diagram>
