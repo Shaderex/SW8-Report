@@ -37,9 +37,28 @@ In XP a release plan is created for each release, during a release planning meet
     \label{fig:taskboard}
 \end{figure}
 
-The user story cards are made in collaboration with the customer during release planning.  A subset of all the stories will then be selected to be completed in the given iteration, and acceptance tests will be made for these stories. An acceptance test is a specific test that is conducted in order to determine whether the specification or contract is met.
-% Hvordan er user stories formuleret.. Og hvordan ser en acceptance test ud
-\\\\
+The user story cards are made in collaboration with the customer during release planning.  A subset of all the stories will then be selected to be completed in the given iteration, and acceptance tests will be made for these stories. An acceptance test is a specific test that is conducted in order to determine whether the specification or contract is met. And example of a user story and corresponding acceptance test can be seen in \tabref{tab:user_story_acceptance_test_example}. The rest of the user stories and acceptance tests can be found in \appref{app:user_stories_and_acceptance_test}.
+
+\begin{table}[!htbp]
+    \begin{tabular}{| m{0.45\textwidth} | m{0.45\textwidth} |}
+        \hline
+        \textbf{User Story} & \textbf{Acceptance Test} \\ \hline
+        As a customer, I would like to have snapshots modeled in the system, where the data is compressed & 
+        \begin{itemize}[noitemsep,parsep=0pt,partopsep=0pt]
+            \item When there exist a snapshot model, which do not use more than 10 MB storage space using all sensors (per device) for one day
+                \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+                    \item Snapshot duration: one day
+                    \item Sample frequency: one minute
+                    \item Sample duration: 10 seconds
+                    \item Measurement frequency: 100 milliseconds
+                \end{itemize}
+         \end{itemize} \\ \hline
+    \end{tabular}
+    \caption{Example of a user story and acceptance test}
+    \label{tab:user_story_acceptance_test_example}
+\end{table}
+\FloatBarrier
+
 We have chosen attempt to follow the standard XP release plan concept by playing various roles from XP, because they are such a central aspect of the method. For this reason during the iteration review and planning meetings we assign each team member roles, such as customer, tester, developer, and user, which they must role-play. This role playing makes it easier for us, as a team, to prioritize user story cards because one team member only has to consider one mindset during these meetings. This approach might be challenging because it can be difficult to apply a different mindset than what we are used to. This means that one team member is assigned to act as the customer during the entire review/planning meeting. As mentioned previously, another central aspect of the development is to have a representative for the customer on-site. However, this project is a student project without a paying customer or user, and we have therefore dediced to include role-play to compensate for this. \todo{Måske tilføje argument omkring innovation og at der ikke behøver at være en dedikeret customer - Måske tilføje noget med at role play så er baseret på et vision?}
 
 \subsection{Knowledge Sharing}
