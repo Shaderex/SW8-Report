@@ -6,7 +6,6 @@
 To realize the vision (\secref{sec:vision}), the platform must be able to provide data that can be used to derive something about context in which the participants exists. This section describes how different sensors may contribute to training data that describes the environment, in as much detail as possible. We only consider sensors that are commonly found in mobile devices and smart wearables compatible with Android. 
 
 \subsection{Availability of Sensors}
-
 To discover which sensors are commonly available and how different type of devices can contribute, the specifications of some popular smartphones and wearables have been analyzed. \tabref{tab:sensors_in_devices} gives an overview of which sensors are available from each of these devices. 
 
 % The sensor/device table
@@ -27,7 +26,6 @@ The magnetometer is able determine the orientation of the device relative to th 
 \subsubsection{Barometer}
 The barometer approximates the air pressure, in $hPa$ or $mbar$, around the device. The readings from a barometer can be used to estimate the altitude of the device. 
 
-
 \subsection{Reactive Sensors}
 Sensors described in this section are reactive meaning that they output measurements when an event from the environment triggers them. The events are typically used to handle some change in the environment rather than measuring the context.
 
@@ -37,7 +35,6 @@ Using an infrared beam, the proximity sensor is possible to to estimate how clos
 \subsubsection{Ambient Light Sensor}
 
 The ambient light sensor makes it possible to measure the illumination surrounding the device in $lx$. This is commonly used to regulate the background light of the device's screen.
-
 
 \subsection{On-Demand Sensors}
 On-demand sensors are sensors that have do not provide a stream of information but have to be requested whenever a measurement is needed. Measurements from this type of sensors are typically more expensive in terms of battery consumption and computation. An on demand reading can only be given asynchronously as the device would first have to contact multiple information providers such as cell towers and GPS satellites and over time reach a sufficiently accurate reading. To improve efficiency the latest readings are cached, at least for Android, which allows for quick access the most recent result.
