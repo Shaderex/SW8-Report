@@ -46,11 +46,15 @@ On-demand sensors are sensors that have do not provide a stream of information b
 The WiFi radio in mobile devices can be used for more than just pure data communication with the local network and the Internet. Different information about access points and the signal to these access points can for instance be used to approximate indoor location.  
 Features of WiFi networks could be reachable access point names, their communication standards, and signal strength. 
 
-\subsubsection{Cellular Networking}
-Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting features could be country code, network code, cell identity (mast identity), cell tower technology type, and signal strength.
-
 \subsubsection{Global Positioning System (GPS)}
 The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses Assisted GPS (A-GPS), meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. Furthermore the GPS provider in Android can also provide estimated information about speed and bearing of the device.
+
+\subsubsection{Cellular Networking}
+Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting features could be country code, network code, cell identity (mast identity), cell tower technology type, and signal strength.
+\\\\
+% Many different types of cellular network with different data layouts 
+% We do not find this data very usefull, except for location based - 
+We have initially chosen not to include cellular networking as a data source directly. There is a lot of data to be found here, but the features and the layout of the data differs depending on which cellular technology the cell tower supports which adds a lot of complexity. The data from cellular towers which we think is interesting, which is the location of the user, is already indirectly available through A-GPS and cellular positioning which is already build in as a separate APIs in Android. We have therefore decided not include this data source initially but this does not prevent prevent us from adding it later on.  
 
 \subsection{Other Sensors}
 \todo[inline]{When we start to use these, describe the nature of their measurements (place them in a category and describe what they measure and what they can be used for)}
