@@ -1,16 +1,11 @@
 %!TEX root = ../../super_main.tex
+\section{Providing Sensor Data}
+\label{sec:providing_sensor_data}
 
-\section{Sensor Providers}
-\label{sec:sensor_providers}
-
-We have implemented a threaded abstraction over the different data sources that the system should utilize in order to gather context for the labels that will eventually be combined to form the output training data for the system. The abstraction is threaded because we want the Android application to be able to gather information from multiple sources concurrently. This is done in order to make sure that the gathered data is obtained temporally close to when the label for the data was obtained. 
-
-% Træls for bruge
-% Træls for folk der kan bruge data
+To support this structure of the sensor output, we have designed an abstraction over the different sensors available. This abstraction is designed for concurrent collection of samples we want the application for the participants to be able to gather information from multiple sources at the same time, meaning that the system is able to, for instance, collect data regarding the motion and location of the participant simultaneously. This is done in order to make sure that the gathered data is obtained according to the desired temporalilty of the customer.
 
 \subsection{Implementation}
-
-The solution was to move the actual data collection to subclasses of an abstract class called \emph{SensorProvider}. The \emph{SensorProvider} class has three methods available: 
+We have implemented an abstract class called \mono{SensoProvider}, which can be specialized for each type of sensor available. The common interface for these sensor providers is implemented by the following methods:
 \begin{itemize}
 	\item \mono{abstract boolean isSensorAvailable();}
 	\item \mono{abstract Sample retrieveSampleForDuration(long, long);}
