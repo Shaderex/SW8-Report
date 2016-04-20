@@ -16,6 +16,14 @@ To discover which sensors are commonly available and how different type of devic
 \subsection{Continuous Sensors}
 A single or few reading form this type of sensor does not give much value to describe a context. However, a continuous stream of readings describes change over time of the context, thus grating value. These sensors are often noisy i.e. the read vary a bit from the expected value even though the device is laying perfectly still.
 
+\begin{description}
+	\item[Accelerometer] It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the wearer or user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
+	\item[Orientation (Gyroscope)] The gyroscope measures the speed of rotation of the device in space. In combination with accelerometer the gyroscope will provide in idea of orientation of how the device relative to Earth's gravitational pull. The rotation of the gyroscope is measured on all three axises as rotation velocity in $rad/s$.
+	\item[Compass (Magnetometer)] The magnetometer is able determine the orientation of the device relative to th earths magnetic field. This sensor can, in combination with the accelerometer be used as, to provide readings like that of a compass. The magnetometer measures the magnetic influence on all threes axises in $\mu T$.
+	\item[Barometer] The barometer approximates the air pressure, in $hPa$ or $mbar$, around the device. The readings from a barometer can be used to estimate the altitude of the device.
+	\item[Reactive Sensors] Sensors described in this section are reactive meaning that they output measurements when an event from the environment triggers them. The events are typically used to handle some change in the environment rather than measuring the context.
+\end{description}
+
 \subsubsection{Accelerometer}
 It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the wearer or user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
 
