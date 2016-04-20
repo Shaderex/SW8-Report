@@ -3,14 +3,14 @@
 \section{Extreme Programming}
 \label{sec:extreme_programming}
 
-In this project we have chosen to use some of the aspects from the Extreme Programming (XP) method, which is a type of agile software development method, that has a high amount of focus on customer satisfaction, developer productivity/welfare and high product quality \parencite{xp}. The method focuses on delivering partial products to the customers as they need them, instead of just a complete product far in the future. In XP this is normally achieved by use of several core practices, such as: on-site customer, test driven development, pair programming, planning poker, continuous integration and delivery and daily meetings. XP emphasizes the value of simplicity, communication, feedback, respect, courage. 
+In this project we have chosen to use some of the aspects from the Extreme Programming (XP) method, which is a type of agile software development method, that has a high amount of focus on customer satisfaction, developer productivity/welfare and high product quality \parencite{xp}. The method focuses on delivering partial products to the customers as they need them, instead of just a complete product far in the future. In XP this is normally achieved by use of several core practices, such as: on-site customer, test driven development, pair programming, planning poker, continuous integration and delivery and daily meetings. XP emphasizes the value of \emph{simplicity}, \emph{communication}, \emph{feedback}, \emph{respect}, and \emph{courage}. 
 
 \begin{itemize}
-	\item Simplicity is about taking the simplest path to delivering a minimum viable product without compromising quality. 
-	\item Communication between every member of the team, including the on site customers, is essential to deliver a product that everybody is proud of. 
-	\item Feedback should be taken seriously, and demonstrations should be done early in the process and frequently.
-	\item Respect between the team members, the customers, and management is important.
-	\item Courage allows the team to take on new challenges without the fear of failing, because nobody works alone. The developers should have the courage to tell the truth about progress and estimates. 
+	\item \emph{Simplicity} is about taking the simplest path to delivering a minimum viable product without compromising quality. 
+	\item \emph{Communication} between every member of the team, including the on site customers, is essential to deliver a product that everybody is proud of. 
+	\item \emph{Feedback} should be taken seriously, and demonstrations should be done early in the process and frequently.
+	\item \emph{Respect} between the team members, the customers, and management is important.
+	\item \emph{Courage} allows the team to take on new challenges without the fear of failing, because nobody works alone. The developers should have the courage to tell the truth about progress and estimates. 
 \end{itemize}
 
 The following sections will describe some of the basic concepts from the XP method that we have chosen to use, how we have implemented them, and some of the conflicts there are between our project and the method.
@@ -22,9 +22,11 @@ Extreme Programming encourages rather short iterations in comparison to other ag
 In our project we have chosen to use iterations of two weeks (calendar time) in length. Each of these will end with a review of what we have managed to accomplish in the given iteration. One of the issues with using calendar time to schedule our iterations is the fact that we are students, meaning that we have to follow the courses on the semester as well. This makes the amount of time we have available vary between the different iterations, making it more difficult to estimate how much we can handle in each iteration. To try to alleviate this issue we calculate the amount of time we have in a given iteration and take that into consideration when planning it. 
 
 \subsection{Releases}
-XP encourages frequent and small releases to the customers. Each iteration ends with a deliverable in XP and these deliverables can be evaluated by the customer, that then can decide if it should be taken into production. The idea behind frequent releases is that the earlier the functionality is used by the customers, the sooner any potential bugs can be found and fixed by the developers. Furthermore, it allows the customers and the team to evaluate if the project is on the right track.
+XP encourages frequent and small releases to the customers. Each iteration ends with a deliverable in XP and these deliverables can be evaluated by the customer, who then can decide if it should be taken into production. The idea behind frequent releases is that the earlier the functionality is used by the customers, the sooner any potential bugs can be found and fixed by the developers. Furthermore, it allows the customers and the team to evaluate if the project is on the right track.
 \\\\
 We have chosen to make a release every second XP iteration, meaning that we will make a release every four weeks. For each of the releases we will make a major product release, but we will also build a minor product release for iterations that do not end in an XP release, if the product is accepted by the customer at the given time. All releases are pushed to our \href{https://github.com/Shaderex/SW8-Android/releases}{GitHub Page}\footnote{\url{https://github.com/Shaderex/SW8-Android/releases}} and can also be found on the CD in \todo{Add reference to CD appendix}. The deliverables for each iteration we have completed are described in \todo{Ref til appendix med Deliverables}. 
+
+\todo[inline]{Beskriv hvad vi gør for at bestemme om produktet er klar til produktion}
 
 \subsection{Taskboard and User Stories}
 \label{sub:taskboard_and_user_stories}
@@ -43,16 +45,11 @@ The user story cards are made in collaboration with the customer during release 
     \begin{tabular}{| m{0.45\textwidth} | m{0.45\textwidth} |}
         \hline
         \textbf{User Story} & \textbf{Acceptance Test} \\ \hline
-        As a customer, I would like to have snapshots modeled in the system, where the data is compressed & 
+        As a customer, I would like to get answers from questionnaires generated by me from participants & 
         \begin{itemize}[noitemsep,parsep=0pt,partopsep=0pt]
-            \item When there exist a snapshot model, which do not use more than 10 MB storage space using all sensors (per device) for one day
-                \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-                    \item Snapshot duration: one day
-                    \item Sample frequency: one minute
-                    \item Sample duration: 10 seconds
-                    \item Measurement frequency: 100 milliseconds
-                \end{itemize}
-         \end{itemize} \\ \hline
+        \item When a customer can come up with a questionnaire, get it into the system without writing code, and have it answered by a participant.
+        \item The questions must occur in sequence and it should only be possible to answer yes or no.
+     \end{itemize} \\ \hline
     \end{tabular}
     \caption{Example of a user story and acceptance test}
     \label{tab:user_story_acceptance_test_example}
