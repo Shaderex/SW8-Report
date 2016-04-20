@@ -1,0 +1,22 @@
+%!TEX root = ../../super_main.tex
+
+\section{General Strategies}
+\label{sec:general_strategies}
+To understand the mobile platform better we investigate some of the general strategies that are considered to be good practices for the mobile platform.
+\\\\
+Sloppy handling of network communication is seen as a common source of battery drain \parencite{android_network_scheduling} in the Android development community. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time unless the model itself is actually required to be trained and completed within a given temporal frame. 
+\\\\
+Several different tactics and techniques can be utilized in order to minimize battery drain. A common method to reduce network communication is to compress the data being sent \parencite{har_wearables}\parencite{android_network_scheduling}. This reduces the amount of data that has to be transferred, i.e. the amount of packets, and the awake-time of the network module. Another possibility is to communicate in bulks, which means that instead of sending many small packages with breaks in between, these can be collected into bigger packets. This will reduce the overhead of activating the module. The bulk transfer solution requires the data to be aggregated over time, which requires some sort of intermediate storage. This can be achieved by storing the data in memory for small data packets or persistently on a device for larger packets. Storing the data persistently on the device will also remove the risk of losing the data due to device crashes, and the data therefore becomes less volatile. Another side-effect of storing data, either persistently or in memory, is the possibility collecting data when there is no available connection or only a connection with a high power consumption, e.g. cellular network, and then sending it when a desired connection becomes available. 
+\\\\
+Other typical techniques for reducing power consumption include \parencite{android_network_scheduling}:
+
+\begin{itemize}
+    \item Pre-fetch network data
+    \item Network scheduling services (use the network when other uses it).
+    \begin{itemize}
+        \item Bundle outgoing data (cache outgoing data)
+    \end{itemize}
+    \item Reduce number of connections
+\end{itemize}
+
+The idea of aggregating and minimizing network communication in a sensor network to save power is not a novel one \parencite{korteweg2007data} \parencite{mhatre2004design}, but this practice seems to be violated in the existing solutions. A battery consumption aware application which collects data, but does not synchronize it with a server in real time, could offer substantial battery consumption improvements to existing solutions.
