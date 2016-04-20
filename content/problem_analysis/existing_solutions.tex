@@ -6,6 +6,7 @@ Some solutions that uses data gathering in the world of mental health have been 
 
 \subsection{Ilumivu mEMA}
 \label{sub:ilumivu_mema}
+\todo[inline]{Overvej at flytte det her til motivation evt?}
 There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
 \\\\
 Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
@@ -18,7 +19,7 @@ AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/quest
 \\\\
 The AndWellness system allows for full transparency, meaning that subjects have full access to the data they are gathering for the customers, to increase trustworthiness. Lastly AndWellness does not support raw sensor output logging, they derive some soft sensors which they call Location- and Activity trace sensors. This is a potential flaw, because the data used to derive output cannot be converted back to raw sensor output and a mental health study might need data which is not included in the outputs of these predefined soft sensors.
 \\\\
-mEMA and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there is no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smartphones.
+mEMA and AndWellness both monitor and report sensor readings in real time, meaning that they are highly connectivity dependent. It is not clear what these systems do in cases where there are no network access, but they stream the data directly to a server in almost real time when the phone is connected to a network. This type of network communication is counter intuitive with general practices on battery and network management. Furthermore these systems do not yet include a larger ecosystem of devices. For instance, these systems do not consider wearable technologies such as smartwatches and smartbands. This excludes some potential sensor information which is usually not present in smartphones.
 
 % + Principle of campaign. %
 % + Sensor monitoring have configurable resolutions (our terms: measurement frequency, sample duration, sample frequency).
@@ -34,14 +35,18 @@ mEMA and AndWellness both monitor and report sensor readings in real time, meani
 % Purple Robot
 \subsection{Purple Robot}
 \label{sub:purple_robot}
+
+\todo[inline]{Purple robot prøver ikke så meget at løse det problem vi vil?}
 Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. 
 The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality.
 % This framework could be used to create what we are striving for?
 This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
+\todo[inline]{Purple Robot crashes and seems buggy.. Dette er en god grund til ikke at anvende det}
 
 \subsection{Sensor Data}
 \label{sub:sensor_data}
 Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. The application can gather data from all the sensors that are available in iPhone devices, which is then made available through a web API. It is possible to store the sensor data in two different ways when using Sensor Data: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
-\\\\
+
+\todo[inline]{Nedenstående virker måske lidt mærkeligt placeret. Hvad har det med existing solutions at gøre?}
 %Trust in third part
-It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical.   
+It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third part application to handle this information could become a potential trust issue. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical. 
