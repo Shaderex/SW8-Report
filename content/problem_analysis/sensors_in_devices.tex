@@ -1,25 +1,26 @@
 %!TEX root = ../../super_main.tex
 
-\begin{sidewaystable}
-\centering
-\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-\hline
- & Nexus 5 & \begin{tabular}[c]{@{}c@{}}OnePlus \\ One\end{tabular} & \begin{tabular}[c]{@{}c@{}}Samsung \\ Galaxy S3\end{tabular} & \begin{tabular}[c]{@{}c@{}}Samsung \\ Gear S\end{tabular} & \begin{tabular}[c]{@{}c@{}}Microsoft \\ Band 2\end{tabular} & Moto 360 & \begin{tabular}[c]{@{}c@{}}LG Watch \\ Urbane LTE\end{tabular} & \begin{tabular}[c]{@{}c@{}}Huawei\\ Watch\end{tabular} \\ \hline
-Accelerometer & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline
-\begin{tabular}[c]{@{}l@{}}Ambient\\ Light Sensor\end{tabular} & \checkmark & \checkmark &  & \checkmark & \checkmark &  &  &  \\ \hline
-Barometer & \checkmark &  & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark \\ \hline
-\begin{tabular}[c]{@{}l@{}}Cellular\\ Networking\end{tabular} & \checkmark & \checkmark & \checkmark &  &  &  & \checkmark &  \\ \hline
-Compass (Magnetometer) & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark &  \\ \hline
-\begin{tabular}[c]{@{}l@{}}Galvanic Skin\\ Response Sensor\end{tabular} &  &  &  &  & \checkmark &  &  &  \\ \hline
-GPS & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  &  \\ \hline
-Gyroscope & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark \\ \hline
-\begin{tabular}[c]{@{}l@{}}Optical Heart\\ Rate Sensor\end{tabular} &  &  &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline
-Proximity Sensor & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \checkmark &  \\ \hline
-\begin{tabular}[c]{@{}l@{}}Skin Temperature\\ Sensor\end{tabular} &  &  &  &  & \checkmark &  &  &  \\ \hline
-UV Sensor &  &  &  & \checkmark & \checkmark &  &  &  \\ \hline
-Wi-Fi & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \checkmark & \checkmark \\ \hline
-\end{tabular}
-\caption{Available sensors in each mobile device that we have considered.}
-\label{tab:sensors_in_devices}
-\end{sidewaystable}
+\begin{table}
+    \centering
+    \begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \textbf{Smartphones} & \rot{Accelerometer} & \rot{Ambient Light} & \rot{Barometer} & \rot{Cellular Network} & \rot{Compass} & \rot{Galvanic Skin Response$~$} & \rot{Global Positioning} & \rot{Gyroscope} & \rot{Optical Heart Rate} & \rot{Proximity} & \rot{Skin Temperature} & \rot{Ultra Violet} & \rot{WI-FI} 
+    \\ \hline
+    Nexus 5 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    OnePlus One & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    Samsung Galaxy S3 & \checkmark & ~ & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    iPhone 6 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    iPhone 6S & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    iPhone SE & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    Microsoft Lumia 950 & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ & \checkmark & ~ & ~ & \checkmark \\ \hline
+    \multicolumn{14}{l}{\textbf{Smartwatches}} \\ \hline
+    Microsoft Band 2 & \checkmark & \checkmark & \checkmark & ~ & ~ & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark & ~ \\ \hline
+    Apple Watch & \checkmark & \checkmark & ~ & ~ & ~ & ~ & ~ & \checkmark & \checkmark & ~ & ~ & ~ & \checkmark \\ \hline
+    Huawei Watch & \checkmark & ~ & \checkmark & ~ & ~ & ~ & ~ & \checkmark & \checkmark & ~ & ~ & ~ & \checkmark \\ \hline
+    LG Watch Urban LTE & \checkmark & ~ & \checkmark & \checkmark & \checkmark & ~ & ~ & ~ & \checkmark & \checkmark & ~ & ~ & \checkmark \\ \hline
+    Moto 360 & \checkmark & ~ & ~ & ~ & \checkmark & ~ & ~ & \checkmark & \checkmark & ~ & ~ & ~ & ~ \\ \hline
+    Samsung Gear S & \checkmark & \checkmark & \checkmark & ~ & \checkmark & ~ & \checkmark & \checkmark & \checkmark & \checkmark & ~ & \checkmark & \checkmark \\ \hline
+    \end{tabular}
+    \caption{Available sensors in each mobile device that we have considered.}
+    \label{tab:sensors_in_devices}
+\end{table}
 \FloatBarrier
