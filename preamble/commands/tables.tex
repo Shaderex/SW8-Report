@@ -5,6 +5,20 @@
 % arg1 		the width of the cell
 \newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\newcolumntype{K}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    c%
+    <{\egroup}%
+}
+
+\newcommand*\rot{\multicolumn{1}{K{90}{1em}|}}% no optional argument here, please!
+
+
 \usepackage{diagbox}
 
 \usepackage{longtable}
