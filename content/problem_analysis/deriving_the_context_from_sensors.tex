@@ -15,51 +15,34 @@ To discover which sensors are commonly available and how different type of devic
 A single or few reading form this type of sensor does not give much value to describe a context. However, a continuous stream of readings describes change over time of the context, thus grating value. These sensors are often noisy i.e. the read vary a bit from the expected value even though the device is laying perfectly still.
 
 \begin{description}
-	\item[Accelerometer] It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the wearer or user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
-	\item[Orientation (Gyroscope)] The gyroscope measures the speed of rotation of the device in space. In combination with accelerometer the gyroscope will provide in idea of orientation of how the device relative to Earth's gravitational pull. The rotation of the gyroscope is measured on all three axises as rotation velocity in $rad/s$.
-	\item[Compass (Magnetometer)] The magnetometer is able determine the orientation of the device relative to th earths magnetic field. This sensor can, in combination with the accelerometer be used as, to provide readings like that of a compass. The magnetometer measures the magnetic influence on all threes axises in $\mu T$.
+	\item[Accelerometer] measures the acceleration of the device in three dimensions, which is also often together with the gyroscope sensor. The accelerometer is able to provide measurements that can describe the motion of the wearer or user along the three physical axes, typically measured in $m/s^2$.
+	\item[Gyroscope] measures the speed of rotation of the device in space. The gyroscope will provide an idea of the orientation of the device relative to Earth's gravitational pull. The rotation of the gyroscope is measured on all three axises as rotation velocity in $rad/s$.
+	\item[Compass] (also known as magnetometer) is able determine the orientation of the device relative to the Earth's magnetic field. This sensor can, in combination with the accelerometer be used to provide readings like that of a compass. The magnetometer measures the magnetic influence on all threes axises in $\mu T$.
 	\item[Barometer] The barometer approximates the air pressure, in $hPa$ or $mbar$, around the device. The readings from a barometer can be used to estimate the altitude of the device.
-	\item[Reactive Sensors] Sensors described in this section are reactive meaning that they output measurements when an event from the environment triggers them. The events are typically used to handle some change in the environment rather than measuring the context.
 \end{description}
-
-\subsubsection{Accelerometer}
-It is possible to measure the acceleration of the device in three dimensions using the accelerometer, which is also often together with the gyroscope sensor. This sensor will be able to provide measurements that can describe the motion of the wearer or user. This motion is measured as acceleration in $m/s^2$ alongside the three physical axises.
-
-\subsubsection{Orientation (Gyroscope)}
-The gyroscope measures the speed of rotation of the device in space. In combination with accelerometer the gyroscope will provide in idea of orientation of how the device relative to Earth's gravitational pull. The rotation of the gyroscope is measured on all three axises as rotation velocity in $rad/s$.
-
-\subsubsection{Compass (Magnetometer)}
-The magnetometer is able determine the orientation of the device relative to th earths magnetic field. This sensor can, in combination with the accelerometer be used as, to provide readings like that of a compass. The magnetometer measures the magnetic influence on all threes axises in $\mu T$.
-
-\subsubsection{Barometer}
-The barometer approximates the air pressure, in $hPa$ or $mbar$, around the device. The readings from a barometer can be used to estimate the altitude of the device. 
 
 \subsection{Reactive Sensors}
 Sensors described in this section are reactive meaning that they output measurements when an event from the environment triggers them. The events are typically used to handle some change in the environment rather than measuring the context.
 
-\subsubsection{Proximity Sensor}
-Using an infrared beam, the proximity sensor is possible to to estimate how close the device is to the nearest object facing the sensor. This estimation has higher accuracy in lower distances. The distance is measured in $cm$. Some devices, however, does not measure the distance directly but return binary values that represent ``near'' or ``far'' instead of an actual distance, the output is still outputted as either zero or five centimeter. This sensor is commonly used to turn of the display when the device is placed in the pocket or is held against the ear.
-
-\subsubsection{Ambient Light Sensor}
-
-The ambient light sensor makes it possible to measure the illumination surrounding the device in $lx$. This is commonly used to regulate the background light of the device's screen.
+\begin{description}
+    \item[Proximity Sensor] Using an infrared beam, the proximity sensor is possible to to estimate how close the device is to the nearest object facing the sensor. This estimation has higher accuracy in lower distances. The distance is measured in $cm$. Some devices, however, does not measure the distance directly but return binary values that represent ``near'' or ``far'' instead of an actual distance, the output is still outputted as either zero or five centimeter. This sensor is commonly used to turn of the display when the device is placed in the pocket or is held against the ear.
+    \item[Ambient Light Sensor] The ambient light sensor makes it possible to measure the illumination surrounding the device in $lx$. This is commonly used to regulate the background light of the device's screen.
+\end{description}
 
 \subsection{On-Demand Sensors}
 On-demand sensors are sensors that have do not provide a stream of information but have to be requested whenever a measurement is needed. Measurements from this type of sensors are typically more expensive in terms of battery consumption and computation. An on demand reading can only be given asynchronously as the device would first have to contact multiple information providers such as cell towers and GPS satellites and over time reach a sufficiently accurate reading. To improve efficiency the latest readings are, for example in Android, cached, which allows for quick access the most recent result.
 
-\subsubsection{WiFi}
-The WiFi radio in mobile devices can be used for more than just pure data communication with the local network and the Internet. Different information about access points and the signal to these access points can for instance be used to approximate indoor location.  
-Features of WiFi networks could be reachable access point names, their communication standards, and signal strength. 
+\begin{description}
+    \item[WiFi] The WiFi radio in mobile devices can be used for more than just pure data communication with the local network and the Internet. Different information about access points and the signal to these access points can for instance be used to approximate indoor location. Features of WiFi networks could be reachable access point names, their communication standards, and signal strength. 
+    \item[Global Positioning System (GPS)] The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses Assisted GPS (A-GPS), meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. Some operating systems can also provide estimated information about speed and bearing of the device.
+    \item[Cellular Networking] Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting features could be country code, network code, cell identity (mast identity), cell tower technology type, and signal strength.
+    \\\\
+    % Many different types of cellular network with different data layouts 
+    % We do not find this data very usefull, except for location based - 
+    We have initially chosen not to include cellular networking as a data source directly. There is a lot of data to be found here, but the features and the layout of the data differs depending on which cellular technology the cell tower supports, which makes it slightly difficult to implement. The location of the user is already indirectly available through A-GPS and cellular positioning, and we have therefore decided not include this data source initially. 
+\end{description}
 
-\subsubsection{Global Positioning System (GPS)}
-The GPS approximates the latitude and longitude of the device based on satellite triangulation. Most modern mobile devices uses Assisted GPS (A-GPS), meaning that the GPS is assisted by the cellular network. The rough positioning is based on the cellular network and the accurate position is triangulated using GPS satellites. Some operating systems can also provide estimated information about speed and bearing of the device.
 
-\subsubsection{Cellular Networking}
-Cellar networking can, similarly to WiFi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting features could be country code, network code, cell identity (mast identity), cell tower technology type, and signal strength.
-\\\\
-% Many different types of cellular network with different data layouts 
-% We do not find this data very usefull, except for location based - 
-We have initially chosen not to include cellular networking as a data source directly. There is a lot of data to be found here, but the features and the layout of the data differs depending on which cellular technology the cell tower supports, which makes it slightly difficult to implement. The location of the user is already indirectly available through A-GPS and cellular positioning, and we have therefore decided not include this data source initially. 
 
 \subsection{Other Sensors}
 \todo[inline]{When we start to use these, describe the nature of their measurements (place them in a category and describe what they measure and what they can be used for)}
