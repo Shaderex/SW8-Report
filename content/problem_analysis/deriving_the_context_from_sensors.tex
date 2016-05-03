@@ -3,7 +3,7 @@
 \section{Deriving the Context from Sensors}
 \label{sec:deriving_the_context_from_sensors}
 
-To realize the vision (\secref{sec:vision}), the platform must be able to provide data that can be used to derive something about context in which the participants exists. This section describes how different sensors may contribute to training data that describes the environment, in as much detail as possible. 
+To realize the vision (\secref{sec:vision}), the devices we are going to develop a solution for must be able to provide data that can be used to derive something about context in which the participants exist. This section describes how different sensors may contribute to training data that describes the environment, in as much detail as possible. 
 % We only consider sensors that are commonly found in mobile devices and smart wearables compatible with Android. 
 
 \subsection{Availability of Sensors}
@@ -42,5 +42,8 @@ On-demand sensors are sensors that have do not provide a stream of information b
     \item[Cellular Networking] can, similarly to Wi-Fi be used for more than pure communication as data from different mobile towers and the signal strength to these towers can be useful besides communication. Potentially interesting features could be country code, network code, cell identity (mast identity), cell tower technology type, and signal strength.
 \end{description}
 
-We have initially chosen not to include cellular networking as a data source directly. There is a lot of data to be found here, but the features and the layout of the data differs depending on which cellular technology the cell tower supports, which makes it slightly difficult to implement. The location of the user is already indirectly available through A-GPS and cellular positioning, and we have therefore decided not include this data source initially. 
-
+We have briefly looked at the availability of various sensors in different smart devices, and it generally seems like most devices have many of the same sensors. In relation to our project this means that we can choose to develop a solution for either iPhone, Android or Windows Phone and their related wearables without limiting the available sensors. A context can at the same time be measured by multiple sensory devices in order to increase the accuracy of the data, which suggests combining outputs from multiple of the examined sensory devices. 
+\\\\
+Some of the sensors furthermore describe overlapping parts of the context, and we have therefore initially chosen not to include cellular networking as a data source directly. There is a lot of data to be found from this sensor, but the features and the layout of the data differs depending on which cellular technology the cell tower supports, which makes it slightly difficult to implement. The location of the user is already indirectly available through A-GPS and cellular positioning, and we have therefore decided not include this data source initially. 
+\\\\
+There are also other available sensors that we have not yet taken a look at in order to describe contexts, such as bluetooth, screen wake time, use of apps, etc. We will not exclude the possibility of using these at some point during the development, but we think the sensors from \tabref{tab:sensors_in_devices} describe an initial sensor context that we can use in order to build a base product. 
