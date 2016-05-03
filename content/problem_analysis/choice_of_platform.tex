@@ -3,22 +3,23 @@
 \section{Choice of target Platform}
 \label{sec:choice_of_platform}
 
-The system should give its customers access to a as much training data as possible. Therefore we would like to reach as large a user base as possible for the gathering of the training data. This means that developing multi-platform mobile application would be ideal. 
-% There exists many tools to do this *nævn dem*
-% Hvad er problemet med de tools?
-% Hvorfor har vi valgt android?
-
-% Introduction
-% Vi kender det fra tidligere og målet proof of concept
-A part of our system will have to be developed to one mobile platform and as we are limited by time. We have chosen not to  The overall goal of this project is to develop upon an idea and show that this idea can be implemented, we ha. 
+The system should give its customers access to as much training data as possible. Therefore we would like to have as many participants as possible involved in gathering the data. This means that developing a multi-platform mobile application would be ideal. There are different tools which can be used to create multi-platform applications, such as Xamarin or Adobe PhoneGap. Although they do it in different ways, both platforms enable developers to reuse code when developing mobile applications for multiple platforms, which in the end should save development time. 
 \\\\
+One problem is that a large amount of our mobile application is focused around gathering data from the sensors of the devices, which varies a lot from platform to platform, meaning that we would have to somehow develop this code for each platform individually. PhoneGap does not allow for having specific code for the different platforms, whereas a tool such as Xamarin allows to write platform specific code alongside the multi-platform code. 
+\\\\
+Even though it would be possible to use Xamarin we would not gain much from it as we would have to write the code responsible for accessing the sensor outputs for each platform that we would support. Furthermore, we would have to spend time on learning to utilize a new framework for the development. We have instead chosen to develop an Android application using the native Java-based Android framework, which is a framework that we have used on a previous semester. Besides our previous experience with this framework, Android is also the ideal platform to work with due to its market share of around 80\% \parencite{android_os_market_share}, and the amount of wearables compatible with the platform. Furthermore, we have Android devices available as we have some ourself and as we can borrow Android devices from the university, and the Android SDK and IDE, called Android Studio \footnote{http://developer.android.com/sdk/index.html}, is free and easy to setup and run on multiple platforms in contrast to many other options. 
+
+\todo[inline]{Kig på om iOS tillader det vi gerne vil. (Sensor målinger i baggrunden)}
+% \\\\
+% On the Android platform there exist something called API levels which determines what version of the operating system that our application will be compatible with, we have chosen to support the API level 21, which is one of the most recent versions of the Android platform that is compatible with wearables. 
+
 % Android er mest udbredte platform og de fleste wearables er nød til at være kompatible til
 % Flest wearables der er kompatible med android
 % Android har et helt økosystem til wearables, mens de 2 andre store kun har få til deres eget produceret ting
-Many wearables are depended on communication with a smartphone and a lot of wearables are compatible with Android. This is probably partially due to the fact that Android is the most used smartphone operating system \parencite{android_os_market_share} and partially because Android is also a an open wearable platform through Android Wear \footnote{https://www.android.com/wear/}.
-\\\\
+% Many wearables are depended on communication with a smartphone and a lot of wearables are compatible with Android. This is probably partially due to the fact that Android is the most used smartphone operating system \parencite{android_os_market_share} and partially because Android is also a an open wearable platform through Android Wear \footnote{https://www.android.com/wear/}.
+% \\\\
 % Vi har telefon til at teste på
 % gratis og open-source/open-development environment
-We have Android devices available as we have some ourself and as we can borrow Android devices from the university. Android SDK and IDE, called Android Studio \footnote{http://developer.android.com/sdk/index.html}, is free and easy to setup and run on multiple platforms contrary to the Apple iOS development environment called Xcode \footnote{https://developer.apple.com/xcode/download/} which only runs on mac with OS X. We have not considered the Windows phone Operating system as a target platform because of its limited market share.
-\\\\
-We have therefore decided to develop the application, which should be run on the devices of participants, to run on the Android platform. On this platform there exist something called API levels which determines what version of the operating system that our application will be compatible with, we have chosen to support the API level 21, which is one of the most recent versions of the Android platform that is compatible with wearables. However, we had some issues in regards to this choice, both in terms of development method and some technical detailes regarding hardware and supported devices. A description of these issues and some reflection upon these can be found in \secref{sec:the_android_platform_compatibility_and_test_driven_development}.
+% We have Android devices available as we have some ourself and as we can borrow Android devices from the university. Android SDK and IDE, called Android Studio \footnote{http://developer.android.com/sdk/index.html}, is free and easy to setup and run on multiple platforms contrary to the Apple iOS development environment called Xcode \footnote{https://developer.apple.com/xcode/download/} which only runs on mac with OS X. We have not considered the Windows phone Operating system as a target platform because of its limited market share.
+% \\\\
+% We have therefore decided to develop the application, which should be run on the devices of participants, to run on the Android platform. On this platform there exist something called API levels which determines what version of the operating system that our application will be compatible with, we have chosen to support the API level 21, which is one of the most recent versions of the Android platform that is compatible with wearables. However, we had some issues in regards to this choice, both in terms of development method and some technical detailes regarding hardware and supported devices. A description of these issues and some reflection upon these can be found in \secref{sec:the_android_platform_compatibility_and_test_driven_development}.
