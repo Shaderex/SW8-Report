@@ -1,0 +1,30 @@
+%!TEX root = ../../super_main.tex
+
+\section{Storage Encryption}
+\label{sec:storage_encryption}
+% Skriv om at vi skal gemme data sikkert
+According to the legislation briefly described in \secref{sub:legislation} the data that can identify individuals should be encrypted. In our case we both need to store data locally on the clients Android device, as well as remotely on a server dedicated to storing the data and showing it to the correct customers, meaning that we will have to consider the security and encryption in two different code bases. 
+
+\subsection{Local Storage}
+\label{sub:local_storage}
+To ensure that the data stored on the Android device we decided to look at different options for storing data encrypted on the device. Firstly, we considered the SQLite database that is natively supported by Android. The problem with using SQLite is the fact that we would have to create a schema for each of the sensors and their datatypes, making it a longsome task, and the process of adding new sensors would also become more tedious making the system less adaptable to new sensors. Furthermore to ensure encryption on a SQLite database we would have to use an extension to SQLite called SQLCipher\footnote{https://www.zetetic.net/sqlcipher/} which would allow us to encrypt the database. 
+\\\\
+Another option that we looked at was android-simple-storage\footnote{https://github.com/sromku/android-simple-storage}, which, as the name implies, is a simply library for handling the internal and external storage in an Android application. 
+\\\\
+Lastly, we came across realm. 
+% Skriv specifikke regler for on device
+% Skriv om hvilke ting vi har undersøgt
+% Skriv at vi har valgt realm og bruger den
+% Skriv hvordan realm bruges
+% Skriv hvordan vi gemmer sikkert
+% Skriv om problemet med en lokal encryption key
+% Skriv hvordan det er muligt at få en fra serveren, og hvordan det kunne bruges på devicet
+
+
+\todo[inline]{Describe why we use realm (encryption + more), what alternatives there are, and how we secure the local data on the phone}
+
+\subsection{Remote Storage}
+\label{sub:remote_storage}
+
+
+\todo[inline]{Describe how we should encrypt the data on the remote storage}
