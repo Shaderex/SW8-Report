@@ -30,9 +30,9 @@ We wanted to compress the floating point values of the sensors so that the size 
 
 We have conducted a performance test for our compression of floats that investigates the extra time for compressing and decompressing compared to using an array with three floats. We create an amount of float arrays compress them and decompress them then we multiply the three floats together and measure how long it took.
 
-\todo[inline]{Make me pretty}
-\begin{table}
-    \begin{tabular}{|l|l|l|l|l|}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | }
     \hline
     ~       & 1+ One           & ~                   & Nexus 5          & ~                   \\ \hline
     Count   & With Compression & Without Compression & With Compression & Without Compression \\ \hline
@@ -41,3 +41,4 @@ We have conducted a performance test for our compression of floats that investig
     1000000 & 9088 ms          & 1333 ms             & 8245 ms          & 1090 ms             \\ \hline
     \end{tabular}
 \end{table}
+\FloatBarrier
