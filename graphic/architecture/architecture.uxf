@@ -123,7 +123,7 @@ valign=center</panel_attributes>
       <w>270</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=3
 Wearable app
 transparency=0
 valign=center
@@ -150,7 +150,7 @@ transparency=0</panel_attributes>
       <w>70</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=2
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -162,7 +162,7 @@ transparency=0</panel_attributes>
       <w>70</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=3
 transparency=0
 Sensor</panel_attributes>
     <additional_attributes/>
@@ -175,7 +175,7 @@ Sensor</panel_attributes>
       <w>80</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=3
 transparency=0
 valign=center
 Sensor
@@ -190,7 +190,7 @@ Provider</panel_attributes>
       <w>160</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=3
 transparency=0
 halign=left
 Wearable </panel_attributes>
@@ -204,7 +204,7 @@ Wearable </panel_attributes>
       <w>160</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=2
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -240,7 +240,7 @@ layer=4</panel_attributes>
       <w>70</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>layer=4
+    <panel_attributes>layer=5
 transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
@@ -252,7 +252,7 @@ transparency=0</panel_attributes>
       <w>70</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>layer=4
+    <panel_attributes>layer=6
 transparency=0
 Sensor</panel_attributes>
     <additional_attributes/>
@@ -265,7 +265,8 @@ Sensor</panel_attributes>
       <w>270</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>transparency=0</panel_attributes>
+    <panel_attributes>transparency=0
+layer=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -278,7 +279,8 @@ Sensor</panel_attributes>
     </coordinates>
     <panel_attributes>transparency=0
 valign=center
-halign=center</panel_attributes>
+halign=center
+layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -289,11 +291,10 @@ halign=center</panel_attributes>
       <w>80</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>layer=1
+    <panel_attributes>layer=2
 transparency=0
 valign=center
-Sensor
-Provider</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -307,8 +308,7 @@ Provider</panel_attributes>
     <panel_attributes>layer=1
 transparency=0
 valign=center
-Sensor
-Provider</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
