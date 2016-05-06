@@ -80,11 +80,9 @@ Due to the fact that XP does not not have any built in practices or techniques t
 
 \todo[inline]{Skriv det her færdigt!}
 
+\subsection{Continuous Integration}
+\label{sub:continuous_integration}
 
-
-
-
-
-
-
-
+Continuous Integration (CI) is the practice of frequently merging all the individual works in development from separate developers, ideally several times per day. This ensures that the system is always in a stable state, such that only small changes have to be taken care of in the case that something breaks, instead of having to roll back days, weeks or even months of work. CI is especially useful in test driven development, because the tests can simply be executed when people are integrating their work, which easily ensures the quality of the product. CI systems can also be configured to run nightly builds, which ensures that the system does not break due to outside factors, and also provides the ability to run tests that take long time to run.
+\\\\
+We think that a stable system is a very important part of our project, and we will therefore make a CI server. This server will automatically be notified about changes when we push our work to our version control system, and also run nightly builds. We hope that this will make it easier for us to spot errors during the development, such that the system is at a stable state during the entire development period. 
