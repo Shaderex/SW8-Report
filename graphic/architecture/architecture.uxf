@@ -22,7 +22,7 @@ Client
       <w>100</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>Application
+    <panel_attributes>UI
 valign=center</panel_attributes>
     <additional_attributes/>
   </element>
@@ -186,7 +186,7 @@ Provider</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>670</x>
-      <y>490</y>
+      <y>510</y>
       <w>160</w>
       <h>100</h>
     </coordinates>
@@ -200,7 +200,7 @@ Wearable </panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>660</x>
-      <y>480</y>
+      <y>500</y>
       <w>160</w>
       <h>100</h>
     </coordinates>
@@ -212,7 +212,7 @@ transparency=0</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>650</x>
-      <y>470</y>
+      <y>490</y>
       <w>160</w>
       <h>100</h>
     </coordinates>
@@ -224,7 +224,7 @@ transparency=0</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>710</x>
-      <y>530</y>
+      <y>540</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -236,7 +236,7 @@ layer=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>540</y>
+      <y>550</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -248,7 +248,7 @@ transparency=0</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>550</y>
+      <y>560</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
