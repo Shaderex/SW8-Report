@@ -4,17 +4,20 @@
 \label{sec:background_sensor_service}
 
 We have implemented a service, which we call Background Sensor Service, in order to facility non-intrusive data collection in the Android system. 
-This section includes some technical details about these  . 
+This section includes some technical details about how services work in Android and how we have implemented our Background Sensor Service. 
 
 \subsection{What is a service?}
 
-A services in Android is an application component which encapsulates long running background processing or a way to provide access to a shared ressource. Services can be shared and can be configured run independently from the graphical interface shown to users, which is ideal for our background data collection.
+A services in Android is an application component which encapsulates long running background processing or a way to provide access to a shared ressource. Services can be shared and can be configured run independently from the graphical interface shown to users, which is ideal for our background data collection. Services have their own lifecycles and can be configured in many different ways. They can be configured as an API where the service itself has a short lifespan while serving some data or while performing a short task or they can be configured as a long running background task with its own complex behavior. 
 
 \subsection{Service Start}
 
-The service should ideally always be running, which does not imply that it is constantly using processing ressources. We have implemented two measures to ensures that the service is running
-
 % Boot receiver
 % On Application start
+The service should ideally always be running, which does not imply that it is constantly using processing ressources. We have implemented two measures to ensures that the service is running for as much time as possible. We have implemented an Android BroadcastReceiver, which upon receiving a system wide boot completed action (\mono{ACTION\_BOOT\_COMPLETED}), starts the service. The service is also attempted started everytime the application is started, but is not started twice if the service is already running. 
+
+\subsection{Background Sensor Listening}
+
+The Background Sensor Service is configured to have one thread, in a pool of threads, available per sensor type, i.e. per \mono{SensorProvider}, see \ref{sub:providing_sensor_data_implementation}, instance used in the service. This lets the scheduling of the gathering from the different services up to the underlying java implementation of threads in a hope to run the different types of sensors and other data sources as independently as possible. We do not provide any real time guarentees.   
 
 

@@ -16,6 +16,7 @@ Problems will arise when enforcing temporality of snapshots due to the event ori
 \FloatBarrier
 
 \subsection{Implementation}
+\label{sub:providing_sensor_data_implementation}
 We have implemented an abstract class called \mono{SensorProvider}, which must be specialized for each type of sensor available, both for sensors found in Android, but also for sensors found in the Microsoft Band 2. The abstract class provides functionality that makes it easy to implement specialized implementations for every sensor that we have. Sub-classes of the abstract \mono{SensorProider}, must specify a generic argument, \mono{MeasurementT}, describing the type of measurement that the implementation will make. Besides this, the following methods must also be implemented on the specializations:
 
 % The common interface for these sensor providers is implemented by the following methods:
