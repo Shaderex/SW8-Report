@@ -71,4 +71,4 @@ This algorithm utilizes the random number generation features in the Linux kerne
 \subsection{Remote Storage}
 \label{sub:remote_storage}
 
-\todo[inline]{Describe how we should encrypt the data on the remote storage}
+According to the legislation the data on the server should also be encrypted. However, due to limited limited time and prioritization of functionality over security, we have not been able to implement proper encryption of the data on the remote storage. We are utilizing PostgreSQL and it has some support for encryption that may fit our needs, however, the connection to the database is currently managed through an ORM, which might complicate the task of decrypting the data before it is used in the application. To be able to release this product we would have to implement encryption on the back end as well to meet the statutory demands.
