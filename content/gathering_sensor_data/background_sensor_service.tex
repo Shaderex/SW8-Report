@@ -3,13 +3,18 @@
 \section{Background Sensor Service}
 \label{sec:background_sensor_service}
 
-In order to facility non-intrusive data collection in the Android system 
+We have implemented a service, which we call Background Sensor Service, in order to facility non-intrusive data collection in the Android system. 
+This section includes some technical details about these  . 
 
 \subsection{What is a service?}
 
+A services in Android is an application component which encapsulates long running background processing or a way to provide access to a shared ressource. Services can be shared and can be configured run independently from the graphical interface shown to users, which is ideal for our background data collection.
+
 \subsection{Service Start}
+
+The service should ideally always be running, which does not imply that it is constantly using processing ressources. We have implemented two measures to ensures that the service is running
+
 % Boot receiver
 % On Application start
 
-\subsection{Android Service Lifecycle}
 
