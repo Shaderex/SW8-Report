@@ -1,5 +1,7 @@
 %!TEX root = ../../super_main.tex
 \section{Server}
-The server components is responsible for handling the upstream of snapshots from all the participants' devices. Also the server is responsible for interacting with the customers. The server uses a NGNIX which is a webserver that is able to server HTTP-requests, interpret PHP and in general facilitates Laravel\todo{insert describtion or ref to a description} (a web framework) which allows for easy implementation of web services and web sites in general.
+The server provides the interface for the customers of the system, the ones in need of snapshots. Besides allowing the customers to specify campaigns the, server is also responsible for handling the upstream of snapshots from the devices of the participants. Meaning that the server has both a application programming interface (API) \todo{check if this is the first place we mention API} and a graphical user interface (GUI) \todo{check if this is the first place we mention GUI} for the customers. The server runs a web server technology called NGINX which handles the network communication using the hyper text transfer protocol (HTTP) \todo{check if this is the first place we mention HTTP} and allows for using transport layer security (TLS) \todo{check if this is the first place we mention TLS}. Furthermore this web server is also able to communicate with the underlying operating system to be able to read files from disk and interpret PHP code.
+\\\\
+With these features of NGINX the server is now able to facilitate the web framework Laravel. This framework builds on the model-view-controller (MVC) pattern. This allows us to route incoming requests and handle them as both application request but also as user requests. 
 
-\todo[inline]{Describe the PostgreSQL}
+\todo[inline]{Snak om PostgreSQL}
