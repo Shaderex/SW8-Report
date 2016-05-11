@@ -1,11 +1,10 @@
 %!TEX root = ../../super_main.tex
 
 \section{Participant Interaction}
-
-When opening the mobile application, the user (participants) is presented with an initial, as seen on \figref{fig:initial_screen}. The idea with this screen is to welcome the user to the application. Currently, it does not supply the user with much information, but one could imagine that this view would, in future iterations, provide the user with usable information, such as progress in the current campaign, clarification of what concepts and principals the participants must know. This screen could possibly also contain some motivational factor, provided by customers. e.g. a ``prize'' for participation.  
+When opening the mobile application, the participant is presented with an initial, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with much information, but one could imagine that this view would, in future iterations, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participants must know. This screen could possibly also contain some motivational factor, provided by customers. e.g. a ``prize'' for participation.
 
 % Initial screen
-\begin{figure}
+\begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{mockups/homepage}
@@ -23,8 +22,16 @@ When opening the mobile application, the user (participants) is presented with a
 \end{figure}
 \FloatBarrier
 
+To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, which will each take the participant to different parts of the application.
+
+\begin{description}
+	\item[\emph{Current campaign}] redirects the participant to a campaign specification view, as seen in \figref{fig:public_campaigns}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
+	\item[\emph{Browse campaigns}] redirects the participant to a view containing brief information about all of the publicly available campaigns.
+	\item[\emph{Join specific}] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where he/she can search for a specific campaign by providing a campaign identifier.
+\end{description}
+
 % Navigation
-\begin{figure}
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=.41\linewidth]{user_interfaces/client_drawer_menu_with_phone}
 \caption{Navigation through the application.}
@@ -33,7 +40,7 @@ When opening the mobile application, the user (participants) is presented with a
 \FloatBarrier
 
 % Publicly available campaigns
-\begin{figure}
+\begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{mockups/campaigns_list}
@@ -52,7 +59,7 @@ When opening the mobile application, the user (participants) is presented with a
 \FloatBarrier
 
 % Search for a campaign through a campaign identifier
-\begin{figure}
+\begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{mockups/join_specific_campaign}
@@ -71,7 +78,7 @@ When opening the mobile application, the user (participants) is presented with a
 \FloatBarrier
 
 % Search for a campaign through a campaign identifier
-\begin{figure}
+\begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{mockups/campaign_specification}
@@ -90,7 +97,7 @@ When opening the mobile application, the user (participants) is presented with a
 \FloatBarrier
 
 % Answering questionnaires
-\begin{figure}
+\begin{figure}[!htbp]
 \begin{subfigure}[!t]{.50\textwidth}
   \centering
   \includegraphics[width=.83\linewidth]{user_interfaces/client_notification_with_phone}
