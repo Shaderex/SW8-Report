@@ -13,17 +13,6 @@
     <additional_attributes/>
   </element>
   <element>
-    <type>com.baselet.element.old.element.Class</type>
-    <coordinates>
-      <x>20</x>
-      <y>70</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>System</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <type>com.baselet.element.old.element.SeqObjectActive</type>
     <coordinates>
       <x>60</x>
@@ -154,5 +143,16 @@ layer=-2</panel_attributes>
     <panel_attributes>lt=.
 layer=-2</panel_attributes>
     <additional_attributes>30;30;30;90</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>20</x>
+      <y>70</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Observer</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
