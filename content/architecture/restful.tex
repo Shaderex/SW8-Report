@@ -1,7 +1,0 @@
-%!TEX root = ../../super_main.tex
-
-\section{Restful}
-The interface between the client and the server also needs to be considered. We chose to follow the REST principles \todo{ref til tidligere rapport eller web guys phd thesis} and implement a RESTful API. This contributes to our architectures ability to handle an increasing amount of clients. A RESTful API allows and requires us to have a uniform interface from the perspective of all devices regardless of how we choose to expand the capacity of the back end. This means that we can add sophisticated tools to handle load balancing and caching for web APIs and applications such as Varnish \footnote{https://www.varnish-cache.org/} and HAProxy \footnote{http://www.haproxy.org/} to allow us to serve more users, without changing anything on the client side. Such technologies both help scaling out to many servers, by balancing work to all available server instances, and scaling up by providing better performance on individual machines through caching. This effectively means that we can reduce the problem of scalability to implementing a proper Restful interface. 
-
-\todo[inline]{Backend scalability (Restful API)}
-\todo[inline]{Describe the interface (our routes)}
