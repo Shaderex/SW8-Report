@@ -5,6 +5,8 @@ When opening the mobile application, the participant is presented with an initia
 
 \todo[inline]{Skriv at vi bruger Google Material Design som udgangspunkt. Så har vi nogle ``standard'' elementer og principper at gå ud fra, så vi slipper for at opfinde den dybe tallerken}
 
+\todo[inline]{Skriv at vi igennem sektionen også viser vores mockups/initial design af de forskellige views.}
+
 % Initial screen
 \begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
@@ -97,6 +99,12 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 
 \subsection{Contributing to Campaigns}
 
+To contribute to a specific campaign, participants must first find a campaign that the want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns} or by being introduced to a campaign externally. The participants must then navigate a campaign specification view, similar to the one seen in \figref{fig:campaign_specification}. Here, participants can view the details of the campaign; after reviewing this information, they can then decide if they want to contribute by subscribing to the campaign, which will be done by pressing the green button.
+
+\todo[inline]{Overvej om vi skal snakke om participatory design her? Folk vælger jo selv om de vil være med, og hvad de gerne vil bidrade til}
+
+\todo[inline]{Reference til hvordan vi indsamler data i baggrunden}
+
 % Campaign specification
 \begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
@@ -136,6 +144,22 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 \FloatBarrier
 
 \subsection{Answering Questionnaires}
+
+Some campaigns might request that the participants answers a questionnaire once in a while. This might happen when the participant has closed the application, or when the participant is not even using the phone. To accompany this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When the notification is pressed, the application is opened with a specific activity, which can be seen in \figref{fig:answering_questionnaire_answering}. In the current system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information.
+
+\begin{description}
+  	\item[Complex questions] awd
+
+  	\item[Answer dependent questions] awd
+\end{description}
+
+In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers; some of our considerations are described below.
+
+\begin{description}
+   	\item[Timely triggers] might be useful 
+
+   	\item[Event triggers] 
+\end{description}    
 
 % Answering questionnaires
 \begin{figure}[!htbp]
