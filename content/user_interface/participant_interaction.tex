@@ -5,6 +5,8 @@ When opening the mobile application, the participant is presented with an initia
 
 \todo[inline]{Skriv at vi bruger Google Material Design som udgangspunkt. Så har vi nogle ``standard'' elementer og principper at gå ud fra, så vi slipper for at opfinde den dybe tallerken}
 
+\todo[inline]{Skriv at vi igennem sektionen også viser vores mockups/initial design af de forskellige views.}
+
 % Initial screen
 \begin{figure}[!htbp]
 \begin{subfigure}[!t]{.48\textwidth}
@@ -15,7 +17,7 @@ When opening the mobile application, the participant is presented with an initia
 \end{subfigure}%
 \begin{subfigure}[!t]{.52\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_uminer_home_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_uminer_home_with_phone}
   \caption{Implementation.}
   \label{fig:implementation_initial_screen}
 \end{subfigure}
@@ -27,15 +29,17 @@ When opening the mobile application, the participant is presented with an initia
 To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, which will each take the participant to different parts of the application.
 
 \begin{description}
-	\item[\emph{Current campaign}] redirects the participant to a campaign specification view, as seen in \figref{fig:public_campaigns}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
-	\item[\emph{Browse campaigns}] redirects the participant to a view containing brief information about all of the publicly available campaigns.
+	\item[\emph{Current campaign}] redirects the participant to a campaign specification view, as seen in \figref{fig:specific_campaign}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
+
+	\item[\emph{Browse campaigns}] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
+
 	\item[\emph{Join specific}] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where he/she can search for a specific campaign by providing a campaign identifier.
 \end{description}
 
 % Navigation
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=.35\linewidth]{user_interfaces/client_drawer_menu_with_phone}
+\includegraphics[width=.35\linewidth]{user_interfaces/client/client_drawer_menu_with_phone}
 \caption{Navigation through the application.}
 \label{fig:navigation}
 \end{figure}
@@ -54,7 +58,7 @@ If a participant wants to contribute to a campaign, they may browse the publicly
 \end{subfigure}%
 \begin{subfigure}[!t]{.52\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_public_campaigns_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_public_campaigns_with_phone}
   \caption{Implementation.}
   \label{fig:implementation_public_campaigns}
 \end{subfigure}
@@ -84,7 +88,7 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 \end{subfigure}%
 \begin{subfigure}[!t]{.52\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_join_specific_campaign_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_join_specific_campaign_with_phone}
   \caption{Implementation.}
   \label{fig:implementation_specific_campaign}
 \end{subfigure}
@@ -94,6 +98,14 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 \FloatBarrier
 
 \subsection{Contributing to Campaigns}
+
+To contribute to a specific campaign, participants must first find a campaign that the want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns} or by being introduced to a campaign externally. The participants must then navigate a campaign specification view, similar to the one seen in \figref{fig:campaign_specification}. Here, participants can view the details of the campaign; after reviewing this information, they can then decide if they want to contribute by subscribing to the campaign, which will be done by pressing the green button.
+\\\\
+If for any reason, participants no longer wishes to contribute to the campaign that they subscribed to, they can find the specification for this campaign. When viewing the campaign that they have subscribed to, the green subscribe button will instead be a red unsubscribe button, as seen in \figref{fig:leave_campaign_no_dialog}. Pressing this button, will trigger a confirmation dialog, as seen in \figref{fig:leave_campaign_dialog}. If the participants confirms this, by pressing yes, all data collection will immediately stop, however, participants may still be asked questions, depending on the campaign.
+
+\todo[inline]{Overvej om vi skal snakke om participatory design her? Folk vælger jo selv om de vil være med, og hvad de gerne vil bidrade til}
+
+\todo[inline]{Reference til hvordan vi indsamler data i baggrunden}
 
 % Campaign specification
 \begin{figure}[!htbp]
@@ -105,7 +117,7 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 \end{subfigure}%
 \begin{subfigure}[!t]{.52\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_campaign_specification2_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_campaign_specification2_with_phone}
   \caption{Implementation.}
   \label{fig:implementation_campaign_specification}
 \end{subfigure}
@@ -118,13 +130,13 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 \begin{figure}[!htbp]
 \begin{subfigure}[!t]{.50\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_leave_campaign_no_dialog_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_leave_campaign_no_dialog_with_phone}
   \caption{Specification with leave button.}
   \label{fig:leave_campaign_no_dialog}
 \end{subfigure}%
 \begin{subfigure}[!t]{.50\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_leave_campaign_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_leave_campaign_with_phone}
   \caption{Confirmation dialog.}
   \label{fig:leave_campaign_dialog}
 \end{subfigure}
@@ -135,17 +147,33 @@ An alternative way of finding campaigns, are through the view seen in \figref{fi
 
 \subsection{Answering Questionnaires}
 
+Some campaigns might request that the participants answers a questionnaire once in a while. This might happen when the participant has closed the application, or when the participant is not even using the phone. To accompany this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When the notification is pressed, the application is opened with a specific activity, which can be seen in \figref{fig:answering_questionnaire_answering}. In the current system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information.
+
+\begin{description}
+  	\item[Complex questions] awd
+
+  	\item[Answer dependent questions] awd
+\end{description}
+
+In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers; some of our considerations are described below.
+
+\begin{description}
+   	\item[Timely triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, meaning that labels can be more easily related.
+
+   	\item[Event triggers] 
+\end{description}    
+
 % Answering questionnaires
 \begin{figure}[!htbp]
 \begin{subfigure}[!t]{.50\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_notification_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_notification_with_phone}
   \caption{Questionnaire notification.}
   \label{fig:answering_questionnaire_notification}
 \end{subfigure}%
 \begin{subfigure}[!t]{.50\textwidth}
   \centering
-  \includegraphics[width=.73\linewidth]{user_interfaces/client_answering_questions_with_phone}
+  \includegraphics[width=.73\linewidth]{user_interfaces/client/client_answering_questions_with_phone}
   \caption{Answering the questionnaire.}
   \label{fig:answering_questionnaire_answering}
 \end{subfigure}
