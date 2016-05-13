@@ -3,10 +3,18 @@
 \chapter{Quality Assurance}
 \label{cha:quality_assurance}
 
-\todo{Overvej at skrive kort om pair programming}
+This section describes the different measures we have used in order ensure the quality of our developed product. 
+\todo[inline]{Write more intro to QA}
+\\\\
+When we executed tests that required that we run the code om some device, we always attempted to run it on multiple different devices in order to support several different hardware configurations and also that we are compatible with multiple Android versions. The phones we have available all run stock Android versions from the Android open source project. This might indicate that we also cover additional OS versions that are based on the stock versions, since if we find some bug when we test against the stock version, it is most likely also present in the modified version. 
+
+
+\todo{Overvej at lave pair programming section}
 
 \section{Automated Unit Test}
 \label{sec:automated_unit_test}
+
+\todo[inline]{Write about automated unit tests}
 
 \section{Continuous Integration}
 \label{sec:continuous_integration}
@@ -28,12 +36,11 @@ We executed UI/Application Exerciser Monkey tests on the android code. The exerc
 \\\\
 We started by running one trace on 50000 inputs on a Galaxy Nexus phone, where the application crashed after 46000 actions, which allowed us to take a look at the exception and resolve it. Afterwards the monkey ran for 2 hours straight without crashing, and we therefore think the application is rather robust.
 \\\\
-Following this we also ran the monkey for a while on a Nexus 5 device which had Android 6.x, in contrast to the 5.x on the Galaxy Nexus. Here it also seemed to run without any difficulties, which gives some indication that our application is resilient in terms of different configurations and also compatible with different versions of Android.
+Following this we also ran the monkey for a while on a Nexus 5 device which had Android 6.x, in contrast to the 5.x on the Galaxy Nexus. Here it also seemed to run without any difficulties, which gives some indication that our application is resilient in terms of different configurations and also compatible with different versions of Android without issues.
 
-\section{Configuration Test}
-\label{sec:configuration_test}
+\section{Pair Group Review}
+\label{sec:pair_group_review}
 
-\section{Pair Review}
-\label{sec:pair_review}
-
-
+Two times during the project period we arranged meetings with another software student group at Aalborg University, where we presented the current states of our projects and provided critique for each other. 
+\\\\
+\todo[inline]{Write what we achieved from the pair group reviews}
