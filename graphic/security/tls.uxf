@@ -4,10 +4,10 @@
   <element>
     <type>com.baselet.element.old.element.SeqObjectActive</type>
     <coordinates>
-      <x>810</x>
-      <y>190</y>
+      <x>720</x>
+      <y>140</y>
       <w>20</w>
-      <h>430</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>bg=white</panel_attributes>
     <additional_attributes/>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>490</x>
-      <y>140</y>
+      <x>400</x>
+      <y>90</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -27,8 +27,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>770</x>
-      <y>140</y>
+      <x>680</x>
+      <y>90</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -38,8 +38,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>330</x>
-      <y>140</y>
+      <x>240</x>
+      <y>90</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -50,8 +50,8 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>610</x>
-      <y>430</y>
+      <x>530</x>
+      <y>380</y>
       <w>130</w>
       <h>30</h>
     </coordinates>
@@ -63,8 +63,8 @@ PreMasterSecret</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>190</y>
+      <x>520</x>
+      <y>140</y>
       <w>140</w>
       <h>60</h>
     </coordinates>
@@ -81,8 +81,8 @@ bg=white</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>280</y>
+      <x>520</x>
+      <y>230</y>
       <w>140</w>
       <h>80</h>
     </coordinates>
@@ -98,8 +98,8 @@ public key</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.SeqObjectActive</type>
     <coordinates>
-      <x>370</x>
-      <y>350</y>
+      <x>280</x>
+      <y>300</y>
       <w>20</w>
       <h>70</h>
     </coordinates>
@@ -109,8 +109,8 @@ public key</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>350</y>
+      <x>290</x>
+      <y>300</y>
       <w>170</w>
       <h>40</h>
     </coordinates>
@@ -121,8 +121,8 @@ certifacte</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>380</y>
+      <x>290</x>
+      <y>330</y>
       <w>170</w>
       <h>40</h>
     </coordinates>
@@ -133,8 +133,8 @@ validation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>200</y>
+      <x>650</x>
+      <y>150</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -145,8 +145,8 @@ validation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>300</y>
+      <x>450</x>
+      <y>250</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -157,8 +157,8 @@ validation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>200</y>
+      <x>450</x>
+      <y>150</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -169,8 +169,8 @@ validation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>300</y>
+      <x>650</x>
+      <y>250</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -181,10 +181,10 @@ validation</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>610</x>
-      <y>400</y>
+      <x>520</x>
+      <y>350</y>
       <w>140</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>public key
 bg=white</panel_attributes>
@@ -193,10 +193,10 @@ bg=white</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.SeqObjectActive</type>
     <coordinates>
-      <x>530</x>
-      <y>190</y>
+      <x>440</x>
+      <y>140</y>
       <w>20</w>
-      <h>430</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>bg=white</panel_attributes>
     <additional_attributes/>
@@ -204,8 +204,8 @@ bg=white</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>420</y>
+      <x>650</x>
+      <y>370</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -216,8 +216,8 @@ bg=white</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>420</y>
+      <x>450</x>
+      <y>370</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -228,13 +228,12 @@ bg=white</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>610</x>
-      <y>510</y>
+      <x>520</x>
+      <y>500</y>
       <w>140</w>
-      <h>80</h>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>PreMasterSecret
-(and seed)
+    <panel_attributes>MasterSecret
 bg=white
 layer=-1</panel_attributes>
     <additional_attributes/>
@@ -242,8 +241,8 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>160</y>
+      <x>280</x>
+      <y>110</y>
       <w>30</w>
       <h>210</h>
     </coordinates>
@@ -253,8 +252,8 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>410</y>
+      <x>280</x>
+      <y>360</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -264,8 +263,8 @@ layer=-1</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>370</x>
-      <y>440</y>
+      <x>280</x>
+      <y>390</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -275,8 +274,8 @@ layer=-1</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>620</x>
-      <y>550</y>
+      <x>530</x>
+      <y>530</y>
       <w>130</w>
       <h>30</h>
     </coordinates>
@@ -288,8 +287,8 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>520</y>
+      <x>650</x>
+      <y>510</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -300,8 +299,8 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>540</y>
+      <x>450</x>
+      <y>530</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -312,8 +311,8 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>160</y>
+      <x>440</x>
+      <y>110</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -323,8 +322,8 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>160</y>
+      <x>720</x>
+      <y>110</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -334,8 +333,8 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>520</y>
+      <x>450</x>
+      <y>510</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
@@ -346,13 +345,39 @@ valign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>540</y>
+      <x>650</x>
+      <y>530</y>
       <w>90</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
     <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>430</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+calculate
+MasterSecret</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0;40.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>430</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+calculate
+MasterSecret</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0;40.0;50.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>
