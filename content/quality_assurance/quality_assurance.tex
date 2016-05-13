@@ -3,9 +3,9 @@
 \chapter{Quality Assurance}
 \label{cha:quality_assurance}
 
-This section describes the different measures we have used in order ensure the quality of our developed product. 
+This section describes the different measures we have used in order ensure the quality of our developed product.
+\\\\ 
 \todo[inline]{Write more intro to QA}
-\\\\
 When we executed tests that required that we run the code om some device, we always attempted to run it on multiple different devices in order to support several different hardware configurations and also that we are compatible with multiple Android versions. The phones we have available all run stock Android versions from the Android open source project. This might indicate that we also cover additional OS versions that are based on the stock versions, since if we find some bug when we test against the stock version, it is most likely also present in the modified version. 
 
 
@@ -32,15 +32,19 @@ We used this extensively during the development, because when several people mer
 
 \section{Monkey Test}
 \label{sec:monkey_test}
-We executed UI/Application Exerciser Monkey tests on the android code. The exerciser monkey generates pseudo-random streams of user events, which can be used to test the robustness of the application. The monkey is able to stress-test the application because of frequent button clicks, etc., such that it most likely crashes if there are memory leaks or other bad implementations. It furthermore provides the possibility of simulating irradical user behavior, that might perform some trace of actions that human users would not typically follow, which might crash the application. 
+We executed UI/Application Exerciser Monkey tests on the android code. The exerciser monkey generates pseudo-random streams of user events, which can be used to test the robustness of the application. The monkey is able to stress-test the application because of frequent button clicks, etc., such that it most likely crashes if there are memory leaks or other bad implementations. It furthermore provides the possibility of simulating irradical user behavior, that might perform some trace of actions that human users would not typically follow, which might crash the application. Whenever the monkey crashes the application, the entire trace is available, but we mainly used it for the crash reports and exceptions that are available through the Android Debug Bridge. 
 \\\\
 We started by running one trace on 50000 inputs on a Galaxy Nexus phone, where the application crashed after 46000 actions, which allowed us to take a look at the exception and resolve it. Afterwards the monkey ran for 2 hours straight without crashing, and we therefore think the application is rather robust.
 \\\\
 Following this we also ran the monkey for a while on a Nexus 5 device which had Android 6.x, in contrast to the 5.x on the Galaxy Nexus. Here it also seemed to run without any difficulties, which gives some indication that our application is resilient in terms of different configurations and also compatible with different versions of Android without issues.
+\\\\
+We've also been using the monkey to discover cases where, if you executed a certain set of actions fast enough, it would would result in incorrect app behavior. This includes things such as subscribing to a campaign, immediately exiting the menu and then entering the same menu again, where the communication between app and server had not completed to register the participant yet. This allows us to find certain use patterns that we need to consider, or at least need to keep in mind, even if we don't have solutions for them at the time.
+\\\\
+It is also possible to configure CI servers to run automated monkey tests if so desired, but we did not think this was a good idea for our project. This was partially because it takes quite a bit of time to execute the monkey test, but also because it has access to the settings of the phone, which might mess up the unit tests. So given the amount of precautions, resets, etc., that might be necessary, we deemed it to take too much time to set up. 
 
 \section{Pair Group Review}
 \label{sec:pair_group_review}
 
-Two times during the project period we arranged meetings with another software student group at Aalborg University, where we presented the current states of our projects and provided critique for each other. 
+Two times during the project period we arranged meetings with another software student group at Aalborg University, where we presented the current states of our projects and provided critique for each other. One meeting was arranged halfway through the semester and another was arranged three weeks before project delivery.
 \\\\
 \todo[inline]{Write what we achieved from the pair group reviews}
