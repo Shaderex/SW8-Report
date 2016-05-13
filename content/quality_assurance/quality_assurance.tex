@@ -24,6 +24,11 @@ We used this extensively during the development, because when several people mer
 
 \section{Monkey Test}
 \label{sec:monkey_test}
+We executed UI/Application Exerciser Monkey tests on the android code. The exerciser monkey generates pseudo-random streams of user events, which can be used to test the robustness of the application. The monkey is able to stress-test the application because of frequent button clicks, etc., such that it most likely crashes if there are memory leaks or other bad implementations. It furthermore provides the possibility of simulating irradical user behavior, that might perform some trace of actions that human users would not typically follow, which might crash the application. 
+\\\\
+We started by running one trace on 50000 inputs on a Galaxy Nexus phone, where the application crashed after 46000 actions, which allowed us to take a look at the exception and resolve it. Afterwards the monkey ran for 2 hours straight without crashing, and we therefore think the application is rather robust.
+\\\\
+Following this we also ran the monkey for a while on a Nexus 5 device which had Android 6.x, in contrast to the 5.x on the Galaxy Nexus. Here it also seemed to run without any difficulties, which gives some indication that our application is resilient in terms of different configurations and also compatible with different versions of Android.
 
 \section{Configuration Test}
 \label{sec:configuration_test}
