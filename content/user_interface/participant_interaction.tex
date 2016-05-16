@@ -158,9 +158,9 @@ Some campaigns might request that the participants answers a questionnaire once 
 In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers; some of our considerations are described below.
 
 \begin{description}
-   	\item[Timely triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, meaning that labels can be more easily related.
+   	\item[Timely fixed triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, i.e. at a specific time of day. This might cause gathered information to be more easily related. Furthermore, customers might be interested in asking participants regarding something, only at a specific time, e.g. in the morning (after finishing sleeping). 
 
-   	\item[Event triggers] 
+   	\item[Event triggers] could be useful since participants is answering questions based on their own memory. So instead of waiting a fixed amount of time, triggers could be event based. This would prompt participants to answer questionnaires when a specific even occurs, e.g. when returning home, finished a call, etc.    
 \end{description}    
 
 % Answering questionnaires
