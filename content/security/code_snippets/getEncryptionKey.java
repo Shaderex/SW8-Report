@@ -1,5 +1,5 @@
 @Override
-protected Response<byte[]> sendRequest(Request request) {
+protected Response<byte[]> sendRequest(final Request request) {
   final Context context = weakContextReference.get();
 
   if (context != null) {
