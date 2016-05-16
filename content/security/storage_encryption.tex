@@ -36,7 +36,7 @@ Another drawback is that Realm only supports one aggregate or collection type, n
    label = {lst:realm_example},
 ]{content/security/code_snippets/notifyQuestionnaireCompleted.java}
 
-\todo[inline]{This text need some rework, it is quite difficult to understand}
+\todo[inline]{Rikke: This text need some rework, it is quite difficult to understand}
 Even though Realm sets up these restrictions it still has a nice API, where one simply can get a previously defined default instance of the access point (\mono{Realm}) in \lineref{lst:get_default_realm} in \lstref{lst:realm_example}. Following this it is possible to utilize the instance to get certain types of object. In this case we are looking for a \mono{Snapshot}, where its timestamp is equal to a given value. In the case such a snapshot exists we want to add a questionnaire with its questions answered to the snapshot, by first adding it to the realm, and then update the snapshot with the given questionnaire set as a field on the snapshot. Similar to the \mono{copyToRealm} and \mono{copyToRealmOrUpdate} there also exists functionality for removing objects from a realm, namely \mono{removeFromRealm} and \mono{removeAllFromRealm}.
 
 \todo[inline]{how does realm do this -- REFLECTION PUHA BESKRIV DET}
@@ -59,7 +59,7 @@ All that is needed for a potential attacker or malicious application is then to 
 \\\\
 Instead of storing the encryption key on the device we decided to move it to the server, and also ensure that every device has its own encryption key. Having an encryption key for each device requires us to somehow be able to uniquely identify a device. Luckily, as mentioned in \todo{insert secref to GCM} we have a way of generating a unique identifier for each individual device. In having the device identifier it is possible for us to generate a 512 bit random encryption key the first time a device issues requests to our server and then simply return the newly generated key or a stored key if one has already been generated for the given device. This key exchange is of course done over our TLS encrypted connection covered in \secref{sec:transport_layer_security}. We generate the key with the algorithm seen in \lstref{lst:encryption_php}. 
 
-\todo[inline]{Make clear that this code snippet is in PHP}
+\todo[inline]{Rikke: Make clear that this code snippet is in PHP}
 \lstinputlisting[
    style = PHP,
    caption = {The algorithm generating encryption keys.},
