@@ -29,11 +29,11 @@ When opening the mobile application, the participant is presented with an initia
 To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, which will each take the participant to different parts of the application.
 
 \begin{description}
-	\item[\emph{Current campaign}] redirects the participant to a campaign specification view, as seen in \figref{fig:specific_campaign}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
+	\item[``Current campaign''] redirects the participant to a campaign specification view, as seen in \figref{fig:specific_campaign}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
 
-	\item[\emph{Browse campaigns}] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
+	\item[``Browse campaigns''] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
 
-	\item[\emph{Join specific}] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where he/she can search for a specific campaign by providing a campaign identifier.
+	\item[``Join specific''] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where he/she can search for a specific campaign by providing a campaign identifier.
 \end{description}
 
 % Navigation
@@ -150,9 +150,9 @@ If for any reason, participants no longer wishes to contribute to the campaign t
 Some campaigns might request that the participants answers a questionnaire once in a while. This might happen when the participant has closed the application, or when the participant is not even using the phone. To accompany this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When the notification is pressed, the application is opened with a specific activity, which can be seen in \figref{fig:answering_questionnaire_answering}. In the current system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information.
 
 \begin{description}
-  	\item[Complex questions] might be required for customers to get a better understanding of the label. Currently, questions will be asked in a simple sequence. 
+  	\item[Complex questions] might be required for customers to get a better understanding of the label. Currently, only yes/no questions can be included in a questionnaire, however, customers might be interested asking more complex questions, such as: \emph{Which of the following statements would describe your current situation best?} or \emph{Please provide a small description of your current mood}. Questions such as the latter might be harder for customers to interpret, but techniques such as  sentiment analysis could be applied here. Ideally, the system should not limit the customer in defining what label they would like to retrieve, i.e. customers should be able to define whatever kind of question, or activity, they wish for participants to perform \todo{Her vil jeg gerne beskrive at der er mange metoder som kunderne kan bruge for at få information omkring dataen - så vi skal ikke spænde ben for dem på nogen som helst måde. Måske skal vi evt. overveje om vi skal skrive at de selv kan skrive activities?}. 
 
-  	\item[Answer dependent questions] awd
+  	\item[Answer dependent questions] might be desired by customers to get a more detailed label, e.g. if the participants answers \emph{yes} to $q_1$, ask him $q_2$, otherwise ask $q_3$. Defining questions depending on the outcome of previous questions could become a complex task, and the customers might need some aid to visualize the questionnaire. Decision diagrams could be useful for this \todo{Er det nødvendigt med et eksempel her?}.
 \end{description}
 
 In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers; some of our considerations are described below.
