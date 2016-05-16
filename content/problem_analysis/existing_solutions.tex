@@ -4,7 +4,7 @@
 \label{sec:existing_solutions}
 
 
-\todo[inline]{Indsæt billederne fra latex kommentaren.}
+\todo[inline]{Vi er ikke helt sikre på om vi må bruge billederne, hvad gør vi?}
 % BILLEDER
 % Ilumivu = graphic/existing_solutions/ilumivu.png (kilde = https://ilumivu.com/)
 % AndWellness = graphic/existing_solutions/and_wellness.pdf (kilde = http://research.cens.ucla.edu/people/estrin/resources/conferences/2010-oct-wireless-health.pdf)
@@ -18,9 +18,8 @@ Some solutions that uses data gathering in the world of mental health have been 
 \todo[inline]{Overvej at flytte det her til motivation evt?}
 There exists a concept called Ecological Momentary Assessment (EMA) \parencite{shiffman2008ecological} in mental health care, which is a way of making assessments of patients in the ecosystem where they normally exist. In traditional medical practice the patient is acquainted with a doctor, where long term treatment is periodical appointments with a doctor. This particular pattern has disadvantages in psychological treatments where the treatment does not happen in the environment where the patient lives, but it happens in a doctors or psychiatrist office. EMA is a way of gathering information from patient and possibly providing some sort of treatment or intervention in real-time. This type of system works particularly well using mobile technologies.
 \\\\
-Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
+Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}, where a screenshot of the application can be seen in \figref{fig:ilumivu_screenshot}. This application provides researchers and companies with a platform for real-time data gathering from test subjects going about their daily lives. The functionality in the purchasable core package of mEMA includes questionnaires and creation of these. It is also possible for the customers to add certain opt-ins that can provide more context for the answers of the questionnaires, such as mobile sensors, wearable sensors, and in-home sensors. The system is centered around the patient, and is generally meant for research purposes.
 
-\todo[inline]{Add ref to the figure}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/ilumivu.png}
@@ -34,9 +33,8 @@ Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. This 
 \label{sub:andwellness}
 
 % AndWellness
-AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/questionnaire focused system for Android phones. AndWellness have some interesting points on architecture and principles to do this type of monitoring. This system has a concept of a campaign which is the definition of studies, meaning it is the configuration of how sensor data is gathered and surveys are filled on the subjects smartphones. These configurations include how sensors should be monitored in terms of frequency and duration. It is also possible to configure how subjects are notified. AndWellness allows configuration of different triggers for questionnaires. These triggers can be set to be both temporal but also sensor activity based, meaning that both time and the activity and movement of the user can trigger sensor monitoring and notifications with surveys. This means that the customers using AndWellnes is able to customize their study in great detail, which is preferable as the purpose of the gathered data may vary. Lastly an idea to note is that this system has a concept of expiring surveys, meaning that the customer can configure for how long the subject may prolong a survey with a time window where the survey exists. These time windows allows customers to disallow meta cognition, the process of reflecting about ones thoughts. Some mental health studies does not want meta cognitions, i.e. no reflection after some activity, while other studies include meta cognitions as an important factor. 
+AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/questionnaire focused system for Android phones. A screenshot of AndWellness's application can be seen in \figref{sub:andwellness_screenshot}. AndWellness have some interesting points on architecture and principles to do this type of monitoring. This system has a concept of a campaign which is the definition of studies, meaning it is the configuration of how sensor data is gathered and surveys are filled on the subjects smartphones. These configurations include how sensors should be monitored in terms of frequency and duration. It is also possible to configure how subjects are notified. AndWellness allows configuration of different triggers for questionnaires. These triggers can be set to be both temporal but also sensor activity based, meaning that both time and the activity and movement of the user can trigger sensor monitoring and notifications with surveys. This means that the customers using AndWellnes is able to customize their study in great detail, which is preferable as the purpose of the gathered data may vary. Lastly an idea to note is that this system has a concept of expiring surveys, meaning that the customer can configure for how long the subject may prolong a survey with a time window where the survey exists. These time windows allows customers to disallow meta cognition, the process of reflecting about ones thoughts. Some mental health studies does not want meta cognitions, i.e. no reflection after some activity, while other studies include meta cognitions as an important factor. 
 
-\todo[inline]{Add ref to the figure}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/and_wellness.pdf}
@@ -67,10 +65,9 @@ mEMA and AndWellness both monitor and report sensor readings in real time, meani
 
 \todo[inline]{Purple robot prøver ikke så meget at løse det problem vi vil?}
 
-Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality. This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
+Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap and Apache Cordova applications with native functionality on the Android platform. The application, where a screenshot can be seen in \figref{fig:purple_robot_screenshot}, allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. The communication for triggering and reading of the sensors is done using a locally running HTTP server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality. This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. 
 \todo[inline]{Purple Robot crashes and seems buggy.. Dette er en god grund til ikke at anvende det}
 
-\todo[inline]{Add ref to the figure}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/purple_robot.png}
@@ -82,14 +79,13 @@ Purple Robot \parencite{purple_robot} is an Android application originally devel
 
 \subsection{Sensor Data}
 \label{sub:sensor_data}
-Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. The application can gather data from all the sensors that are available in iPhone devices, which is then made available through a web API. It is possible to store the sensor data in two different ways when using Sensor Data: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
+Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled data. A screenshot of this application can be seen in \figref{fig:sensor_data_screenshot}. The application can gather data from all the sensors that are available in iPhone devices, which is then made available through a web API. It is possible to store the sensor data in two different ways when using Sensor Data: Capture Mode and Streaming Mode. When using Capture Mode the data is stored directly into the flash memory of the iPhone, while using Streaming Mode will transfer the data to another computer. The data is recorded and stored as comma separated values for easy integration into data analysis software.
 
-\todo[inline]{Add ref to the figure}
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/sensor_data}
 	\caption[]{Screenshot of the Sensor Data application\footnotemark.}
-	\label{fig:sensor_datascreenshot}
+	\label{fig:sensor_data_screenshot}
 \end{figure}
 \FloatBarrier
 \footnotetext{https://itunes.apple.com/us/app/sensor-data/id397619802?mt=8}
