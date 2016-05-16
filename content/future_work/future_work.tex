@@ -1,0 +1,13 @@
+%!TEX root = ../../super_main.tex
+
+\chapter{Future Work}
+
+\section{Network Bound Battery Consumption}
+\label{sec:future_work_network_bound_battery_consumption}
+
+We have in \secref{sub:background_sensor_service_snapshot_generation_and_synchronization} described how using a \mono{GcmNetworkManager} service could help us improve battery consumption. Future development of the Android application should attempt to implement and use such a service and evaluate whether or not using such an API actually saves battery.
+
+\subsection{Server workload distribution}
+
+Another dimension which would have to be considered in case batching of network tasks is implemented and in case we implement constraints on when campaign data should be uploaded to a server, for instance require that the device should be charging, is the distribution of workload on the server. Requiring that the phone is charging would for instance likely distribute workload towards the nightly hours where people tend to charge their mobile devices while sleeping.  
+
