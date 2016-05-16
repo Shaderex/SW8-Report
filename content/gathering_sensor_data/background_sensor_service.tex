@@ -25,9 +25,11 @@ Our Background Sensor Service should ideally always be running, which does not i
 
 The background Background Sensor Service uses two independent timers. One for Snapshot generation and one for synchronization of the snapshots with our server. The timer for snapshot generation is encapsulated in a class called \mono{SnapshotTimer} which is started whenever the service has an active running campaign which should generate snapshots. Timed tasks are then scheduled at a constant rate, generating snapshots, until the campaign is completed or stopped by the user.
 \\\\
-Synchronization of snapshots with the server is done with the second timer which is encapsulated in a class called \mono{SynchronizationTimer}. \mono{SynchronizationTimer} schedules tasks, when active, which attempts to synchronize gathered snapshots with the server at a fixed rate if the device is currently connected to a WiFi network. This is not an optimal solution as it does not incorporate any battery consumption optimizations except maybe for a little bundling of the data in the given temporal frame until the next synchronization. The actual size of the bundled data is not taken into account so the bundling of the collected data is probably not that effective, especially not for data sets collected at a low frequency. The \mono{SynchronizationTimer} also does not incorporate any radio based optimizations such as scheduling network task through Android APIs. The \mono{SynchronizationTimer} just requests immediate communication over the WiFi connection which forces waking up radio hardware if it was in a dormant state. This is not ideal as we do not require data to be uploaded as soon as its ready as stated in \todo{Byg ref til vores opsummering af krav jf. task til at gøre det} and because there is potential for less battery consumption. 
+Synchronization of snapshots with the server is done with the second timer which is encapsulated in a class called \mono{SynchronizationTimer}. \mono{SynchronizationTimer} schedules tasks, when active, which attempts to synchronize gathered snapshots with the server at a fixed rate if the device is currently connected to a WiFi network. This is not an optimal solution as it does not incorporate any battery consumption optimizations except maybe for a little bundling of the data in the given temporal frame until the next synchronization. The actual size of the bundled data is not taken into account so the bundling of the collected data is probably not that effective, especially not for data sets collected at a low frequency. The \mono{SynchronizationTimer} also does not incorporate any radio based optimizations such as scheduling network task through Android APIs. The \mono{SynchronizationTimer} just requests immediate communication over the WiFi connection which forces waking up radio hardware if it was in a dormant state. This is not ideal as we do not require data to be uploaded as soon as its ready as stated in \todo{Byg ref til vores opsummering af krav jf. task til at gøre det} and because there is potential for less battery consumption which would help satisfy \todo{ref til konkret requirement }. 
 \\\\
-Adding such optimizations should however be doable as all data synchronization work is local to the \mono{SynchronizationTimer} and not distributed elsewhere in the implementation.
+An example of an Android API, or rather a library with Google APIs for Android, which could help optimize network usage would be the \mono{GCMNetworkManager} class, which is an Android service, that can schedule encapsulated network tasks. \mono{GCMNetworkManager} \parencite{gcmnetworkmanager} handles batching of network tasks; retries; backoffs, in case a remote server is not responding or is busy; waiting for WiFi, for bandwidth heavy communication; waiting with commutation until the device is charging; and waiting until a radio becomes active, for instance by getting activated by another application. It does all of this based on parameters given to every encapsulated network tasks such as a desired time frame for the network communication and desired network or battery conditions.  
+\\\\
+Adding such optimizations should however be doable as all data synchronization work is local to the \mono{SynchronizationTimer} and not distributed elsewhere in the implementation. Other network tasks such a refreshing GUI with lists of Campaigns from the service should happen instantly and are thus more difficult to optimize. 
 
 \subsection{Background Sensor Listening}
 
@@ -37,4 +39,12 @@ We do not provide any real time guarantees but the different threads from the di
 
 \subsection{Concurrency Overview}
 
-% 
+We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff.pdf}
+    \caption{An Activiy Diagram like overview of the mobile Application Components.}
+    \label{fig:system_currency_and_lifecycle}
+\end{figure}
+\FloatBarrier

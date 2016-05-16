@@ -9,9 +9,9 @@ According to the legislation briefly described in \secref{sub:legislation}, data
 \label{sub:local_storage}
 We decided to look at different options to ensure, that we could safely store the gathered data on Android devices. Storing the data locally requires a local solution for encrypting all data saved in persistent storage on the device. 
 \\\\
-Firstly, we considered the SQLite database that is natively supported by Android. The problem with using SQLite is the fact that we would have to create a schema for each of the sensors and their data types, making it a longsome task, and the process of adding new sensors would also become more tedious making the system less adaptable to new sensors. Furthermore to ensure encryption on a SQLite database we would have to use an extension to SQLite called SQLCipher\footnote{https://www.zetetic.net/sqlcipher/} which would allow us to encrypt the database. 
+Firstly, we considered the SQLite database that is natively supported by Android. The problem with using SQLite is that we would have to create a schema for each of the sensors and their data types, making it a longsome task. The process of adding new sensors would also become more tedious, making the system less adaptable to new sensors. Furthermore to ensure encryption on a SQLite database we would have to use an extension to SQLite called SQLCipher\footnote{https://www.zetetic.net/sqlcipher/} which would allow us to encrypt the database. 
 \\\\
-Another option that we looked at was android-simple-storage (ASS)\footnote{https://github.com/sromku/android-simple-storage}, which, as the name implies, is a simple library for handling the internal (storage reserved for an application and only accessible through the application it is reserved for) and external (SD card or other shared storage) storage in Android. ASS allowed us a simple interface to this file system while at the same time it made it possible to encrypt the data directly through the library by specifying a few options. We therefore implemented a prototype of this as our main storage for the application. Our prototype was based on JSON as our file format and the GSON library, which provides easy serialization and deserialization of Java objects to and from JSON. A problem arose with this approach. This way of storing our data could not pass one of our acceptance tests stating that:
+Another option that we looked at is android-simple-storage (ASS)\footnote{https://github.com/sromku/android-simple-storage}, which, as the name implies, is a simple library for handling the internal (storage reserved for an application and only accessible through the application it is reserved for) and external (SD card or other shared storage) storage in Android. ASS allowed us a simple interface to this file system while at the same time it made it possible to encrypt the data directly through the library by specifying a few options. We therefore implemented a prototype of this as our main storage for the application. Our prototype was based on JSON as our file format and the GSON library, which provides easy serialization and deserialization of Java objects to and from JSON. A problem arose with this approach. This way of storing our data could not pass one of our acceptance tests stating that:
 
 \begin{itemize}[noitemsep]
  	\item When there exist a snapshot model, which does not use more than 10 MB storage space using all sensors (per device) for one day
@@ -32,10 +32,11 @@ Another drawback is that Realm only supports one aggregate or collection type, n
 
 \lstinputlisting[
    style = Java,
-   caption = {The algorithm generating encryption keys.},
+   caption = {An example of how the realm is accessed and objects in it are manipulated.},
    label = {lst:realm_example},
 ]{content/security/code_snippets/notifyQuestionnaireCompleted.java}
 
+\todo[inline]{Rikke: This text need some rework, it is quite difficult to understand}
 Even though Realm sets up these restrictions it still has a nice API, where one simply can get a previously defined default instance of the access point (\mono{Realm}) in \lineref{lst:get_default_realm} in \lstref{lst:realm_example}. Following this it is possible to utilize the instance to get certain types of object. In this case we are looking for a \mono{Snapshot}, where its timestamp is equal to a given value. In the case such a snapshot exists we want to add a questionnaire with its questions answered to the snapshot, by first adding it to the realm, and then update the snapshot with the given questionnaire set as a field on the snapshot. Similar to the \mono{copyToRealm} and \mono{copyToRealmOrUpdate} there also exists functionality for removing objects from a realm, namely \mono{removeFromRealm} and \mono{removeAllFromRealm}.
 
 \todo[inline]{how does realm do this -- REFLECTION PUHA BESKRIV DET}
@@ -52,12 +53,13 @@ As shown the code for specifying an instance of a realm is very simple, and a th
 
 \subsubsection{Encryption Keys}
 \label{sub:encryption_keys}
-A requirement when storing sensitive data encrypted is that the encryption key is not stored on the same unit as the data. We initially stored the encryption key in the source code of the application to simplify the encryption of the data. A problem with this approach and the reason why it is a requirement to store it separately is that a distributable application, known as an APK file, which is made publicly available, can be decompiled and the encryption key could potentially be extracted. 
+A requirement when storing sensitive data encrypted is that the encryption key is not stored on the same unit as the data. We initially stored the encryption key in the source code of the application to simplify the encryption of the data. A problem with this approach, and the reason why it is a requirement to store it separately, is that a distributable application, known as an APK file, which is made publicly available, can be decompiled and the encryption key could potentially be extracted. 
 \\\\
 All that is needed for a potential attacker or malicious application is then to somehow gain access to the internal storage of our application and fetch the Realm file. The internal storage of the application is private, and under normal circumstances the underlying Linux operating system will only grant the application owning the internal storage access to it. This holds unless there is a security hole present, or the user of the device has rooted his device, i.e. is using a privileged account, in which case it is possible to access the internal storage of every application on the device. An application or user with root privileges could then access our storage and with the use of the key found in the decompiled APK and gain access to all the sensitive information that we store on the device.
 \\\\
 Instead of storing the encryption key on the device we decided to move it to the server, and also ensure that every device has its own encryption key. Having an encryption key for each device requires us to somehow be able to uniquely identify a device. Luckily, as mentioned in \todo{insert secref to GCM} we have a way of generating a unique identifier for each individual device. In having the device identifier it is possible for us to generate a 512 bit random encryption key the first time a device issues requests to our server and then simply return the newly generated key or a stored key if one has already been generated for the given device. This key exchange is of course done over our TLS encrypted connection covered in \secref{sec:transport_layer_security}. We generate the key with the algorithm seen in \lstref{lst:encryption_php}. 
 
+\todo[inline]{Rikke: Make clear that this code snippet is in PHP}
 \lstinputlisting[
    style = PHP,
    caption = {The algorithm generating encryption keys.},
