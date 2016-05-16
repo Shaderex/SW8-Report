@@ -29,10 +29,10 @@ onPostExecute(result : Result) : void
     </coordinates>
     <panel_attributes>/AsyncHttpWebbTask&lt;ResultT&gt;/
 --
-sendRequest() : Response&lt;ResultT&gt;
-onResponseCodeMatching(response : Response&lt;ResultT&gt;) : void
-onResponseCodeNotMatching(response : Response&lt;ResultT&gt;) : void
-onConnectionFailure() : void
+/sendRequest() : Response&lt;ResultT&gt;/
+/onResponseCodeMatching(response : Response&lt;ResultT&gt;) : void/
+/onResponseCodeNotMatching(response : Response&lt;ResultT&gt;) : void/
+/onConnectionFailure() : void/
 ...
 
 </panel_attributes>
