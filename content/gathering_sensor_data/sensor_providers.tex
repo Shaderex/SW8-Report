@@ -7,6 +7,7 @@ To support this structure of the sensor output, we have designed an abstraction 
 \\\\
 Problems will arise when enforcing temporality of snapshots due to the event oriented nature of sensors in Android. Sensor events will trigger whenever a value is updated. This effectively means that it is impossible to know when these events will trigger. We want to guarantee that measurements can be made with a specific frequency independent on what is supported by the sensor, i.e. measurements can be made more often than what some sensors provide, but also more rarely. To make it possible to always get samples at the desired rate, we need to store the last measured value. To do this, we will use a cache, containing the last measurement. This concept is illustrated on the message sequence diagram in \figref{fig:cached_values}. If multiple values are output from the sensors in between two sample readings, only the latest one will be considered by the sample collection unit. This might mean that some sensor readings will not be used for anything, but this is a necessary precaution we have to take, in order to ensure the temporal features of the snapshot. In the case where no measurements have been provided by the sensor, and the sample collector reads the cache, a default value will be read, which will reflect the fact that no measurements have been provided. It is then up to the customer to handle this.
 
+\todo[inline]{Rikke: Need to explain the figure better}
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{backgroundsensorservice/cached_values}
@@ -33,6 +34,7 @@ Besides implementing these methods, the specializations must also call the \mono
 \\\\
 All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. 
 
+\todo[inline]{Rikke: Need to explain the code better}
 \lstinputlisting[
    style = Java,
    caption = {Implementation of sensor provider for Accelerometer.},
