@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>60</y>
+      <w>460</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>/AsyncTask&lt;Params, Progress, Result&gt;/
+--
+onPreExecute(): void
+onPostExecute(result : Result) : void
+/doInBackground(params : Params...) : Result/
+...
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>250</y>
+      <w>460</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>/AsyncHttpWebbTask&lt;ResultT&gt;/
+--
+sendRequest() : Response&lt;ResultT&gt;
+onResponseCodeMatching(response : Response&lt;ResultT&gt;) : void
+onResponseCodeNotMatching(response : Response&lt;ResultT&gt;) : void
+onConnectionFailure() : void
+...
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>150</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+/&lt;&lt;bind&gt;&gt; Params::Void/
+/&lt;&lt;bind&gt;&gt; Progress::Void/
+/&lt;&lt;bind&gt;&gt; Result::ResultT/</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>
