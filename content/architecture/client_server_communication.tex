@@ -11,13 +11,13 @@
 \label{sub:server_interface}
 The interface from the clients to the server also needs to be considered. We chose to follow the REST principles \todo{ref til tidligere rapport eller web guys phd thesis} and implement a RESTful API. This contributes to our architectures ability to handle an increasing amount of clients. The REST principles involves having a uniform interface from the perspective of all devices regardless of how we choose to expand the capacity of the back end. This means that we can add sophisticated tools to handle load balancing and caching for web APIs and applications such as Varnish \footnote{https://www.varnish-cache.org/} and HAProxy \footnote{http://www.haproxy.org/} to allow us to serve more users, without changing anything on the client side. Such technologies both help scaling out to many servers, by balancing work to all available server instances, and scaling up by providing better performance on individual machines through caching. This effectively means that we can reduce the problem of scalability to implementing a proper Restful interface. 
 \\\\
-\todo[inline]{Vi skal måske passe på med at kalde vores API restful. Vi mangler nogle essentielle ting, så som links eller i det mindste informationer om hvordan man skal komme videre i systemet. http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven .. THE MAN HIMSELF.. En hjemmeside er restful i det alle mulige transitioner for brugeren bliver præsenteret i form af links og brugerens state er repræsenteret på siden. }
+\todo[inline]{Vi skal måske passe på med at kalde vores API restful. Vi mangler nogle essentielle ting, så som links eller i det mindste informationer om hvordan man skal komme videre i systemet. http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven .. THE MAN HIMSELF.. En hjemmeside er restful i det alle mulige transitioner for brugeren bliver præsenteret i form af links og brugerens state er repræsenteret på siden. HATEOAS er ikke fulgt.. Kig på richardsons maturity model}
 
-The communication between the server and the client will be done over http, and we will ensure that each resource, e.g. a campaign or a snapshot, will have a Unique Resource Identifier (URI). In our system we have need for storing three different kinds of resources on our server, namely campaigns, snapshots, and participants. The main object in our system is the campaign, and each other object will only exist in the system if it is somehow linked to a campaign, meaning that it makes sense to form the URI for these associated items as a part of a campaign. As can be seen in \tabref{tab:api_routes} each of the routes meant for communication between the Android client and the server has been prepended with the ``api'' prefix to indicate that each of these routes will return a response containing JSON code. 
+The communication between the server and the client will be done over HTTP, and we will ensure that each resource, e.g. a campaign or a snapshot, will have a Unique Resource Identifier (URI). In our system we have need for storing three different kinds of resources on our server, namely campaigns, snapshots, and participants. The main object in our system is the campaign, and each other object will only exist in the system if it is somehow linked to a campaign, meaning that it makes sense to form the URI for these associated items as a part of a campaign. As can be seen in \tabref{tab:api_routes} each of the routes meant for communication between the Android client and the server has been prepended with the ``api'' prefix to indicate that each of these routes will return a response containing JSON code. 
 
 \todo[inline]{This could have been done by utilizing HTTP header stating that the requester wants JSON instead, but it would complicate some of the controller code.}
 
-The table then reveals that we for the android application only utilizes two types of requests namely GET and POST requests, which is normally respectively used for getting and storing new instances of resources. The first route will receive GET requests and retrieve a list of campaigns in form of essential information to display, such as name, description, the author of it and its id\todo{Here there would not only be a id if it was truly restful, but also the uri for joining the campaign, the uri for retrieving the remainder of the information}, which can be used to fetch the entire specification through the use of the second route. In the case of this route we utilize the curly braces to indicate that it should be replaced by the identifier for the given resource, e.g. if we wanted to retrieve all the information related to the campaign with a id of 5, its URI would be ``\mono{api/campaigns/5}''. To save a new snapshot for a specific campaign the third route would be used, where the body of the request send would contain the data of the snapshot, and to join a campaign the last route would be used with a body containing an identifier of the campaign and a identifier to describe which phone has joined.
+The table then reveals that we for the android application only utilizes two types of requests namely GET and POST requests, which is normally respectively used for getting and storing new instances of resources. The first route will receive GET requests and retrieve a list of campaigns in form of essential information to display, such as name, description, the author of it and its id\todo{Here there would not only be a id if it was truly restful, but also the URI for joining the campaign, the URI for retrieving the remainder of the information}, which can be used to fetch the entire specification through the use of the second route. In the case of this route we utilize the curly braces to indicate that it should be replaced by the identifier for the given resource, e.g. if we wanted to retrieve all the information related to the campaign with a id of 5, its URI would be ``\mono{api/campaigns/5}''. To save a new snapshot for a specific campaign the third route would be used, where the body of the request send would contain the data of the snapshot, and to join a campaign the last route would be used with a body containing an identifier of the campaign and a identifier to describe which phone has joined.
 
 \begin{table}[!htbp]
     \centering
@@ -27,47 +27,55 @@ The table then reveals that we for the android application only utilizes two typ
         \mono{GET }   & \mono{api/campaigns}                          \\ \hline 
         \mono{GET }   & \mono{api/campaigns/\{identifier\}}           \\ \hline 
         \mono{POST}   & \mono{api/campaigns/\{identifier\}/snapshots} \\ \hline 
-        \mono{POST}   & \mono{api/campaigns/join}                     \\ \hline 
+        \mono{POST}   & \mono{api/campaigns/join}                     \\ \hline % \mono{api/campaigns/\{identifier\}/participants}
     \end{tabular}
     \caption{The routes that the client uses to send and get information to and from the server.}
     \label{tab:api_routes}
 \end{table}
-\todo[inline]{join should have been \mono{api/campaigns/\{identifier\}(join)}}
+\todo[inline]{join should have been \mono{api/campaigns/\{identifier\}/participants}}
 
-Besides the routes for the Android client we have also created some for the web application that the customers would use. 
+Besides the routes for the Android client we have also created some for the web application that the customers would use. These routes are not prefixed with api, and are used for creating and managing the campaigns in the system and retrieve information about the campaigns and their submitted snapshots. These routes are described in \secref{sec:customer_interaction}. 
 % Follows defacto standards for how routing should look and it is uniform for our api
 % There are also some routes for customers to use through a browser:
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{|l|l|} 
-        \hline
-        \textbf{Type} & \textbf{URL}                            \\ \hline 
-        \mono{GET}    & \mono{campaigns}                        \\ \hline 
-        \mono{POST}   & \mono{campaigns}                        \\ \hline 
-        \mono{GET}    & \mono{campaigns/create}                 \\ \hline 
-        \mono{GET}    & \mono{campaigns/\{campaign\}}           \\ \hline 
-        \mono{GET}    & \mono{campaigns/\{campaign\}/snapshots} \\ \hline 
-        \mono{GET}    & \mono{home}                             \\ \hline 
-        \mono{POST}   & \mono{login}                            \\ \hline 
-        \mono{GET}    & \mono{login}                            \\ \hline 
-        \mono{GET}    & \mono{logout}                           \\ \hline 
-        \mono{POST}   & \mono{password/email}                   \\ \hline 
-        \mono{POST}   & \mono{password/reset}                   \\ \hline 
-        \mono{GET}    & \mono{password/reset/\{token?\}}        \\ \hline 
-        \mono{POST}   & \mono{register}                         \\ \hline 
-        \mono{GET}    & \mono{register}                         \\ \hline 
-    \end{tabular}
-    \caption{The routes that the is used on the website.}
-    \label{tab:browser_routes}
-\end{table}
 
 
 % Talk about middleware mayhaps?
 \subsection{Client Requests}
 \label{sub:client_requests}
+The Android client needs to be able to access these routes somehow and retrieve the information they need to know to send the correct data back to the server as snapshots. There are a few different situations where such a interaction between the client should take place, some will be GUI related and some concerned about retrieving necessary data for the application to do the data gathering. Even though the communication occurs with different purposes most of the aspects of communicating over HTTP, such as establishing a connection and encoding its messages, can be generalized to a common class structure. To simplify the process of these issues we chose to utilize a library, called Webb\footnote{https://github.com/hgoebl/DavidWebb}, handling all the HTTP communication and encoding through a simple interface. Even though we use this library there are still some aspects that can be further generalized, namely ensuring that the communication happens asynchronously and thereby not blocks the applications main thread, ensuring that the right headers and request type is sent, and lastly make some modifications to the TLS verification (see \secref{sec:transport_layer_security}). The way we generalized these aspects were by extending (inheriting from) a class in the Android framework called AsyncTask as seen in \figref{fig:async_http_webb_task}, which is an abstract class with an abstract method, named \mono{doInBackground} which is the primary method that is executed in a background thread. Besides the abstract method the class also contains different empty overidable methods that will be called during the tasks life cycle, such as \mono{onPreExecute}, which will be called prior to the execution of the task and \mono{onPostExecute}, which as the name indicates will be called after the execution of the task. Both of these methods will be run on the main thread, which allows them to modify for example GUI elements. 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphic/architecture/async_http_webb_task.pdf}
+    \caption{An UML diagram describing the class extending the AsyncTask.}
+    \label{fig:async_http_webb_task}
+\end{figure}
+\FloatBarrier
+
+We found that we needed to ensure that the response code matches what we expected in the different situations, such as 200 (status OK), and would otherwise need to make some error handling. We also figured that we often would need to specify what to happen if there were no available connection to the server, such that there were no response code returned. Therefore we overwrote the onPostExecute method as seen in \lstref{lst:on_post_execute}. 
+
+\lstinputlisting[
+   style = Java,
+   caption = {The \mono{onPostExecute} method, which is called after the asynchronous task has completed.},
+   label = {lst:on_post_execute},
+]{content/architecture/code_snippets/onPostExecute.java}
+
+Here we firstly check if the response parameter is null, in which case something went wrong in establishing the connection to the server, and the abstract method \mono{onConnectionFailure} will be called. Otherwise we check if the response code matches what we expect, and if it is we call the abstract method \mono{onResponseCodeMatching} and if it does not we call \mono{onResponseCodeNotMatching}. These methods can then be overwritten in an anonymous class or a normal class. The response code from the snippet is set through the constructor of the method, along with the the URL the request should be sent to and the request method, which is either ``GET'', ``POST'', ``PUT'', or ``DELETE''. 
+
+\todo[inline]{Skal vi beskrive disse HTTP request typer?}.
+
+The response that the \mono{onPostExecute} in \lstref{lst:on_post_execute} receives as an argument is the result of the doInBackground process, which can be seen in \lstref{lst:do_in_background}. In this method we make 
+
+\lstinputlisting[
+   style = Java,
+   caption = {The actual task being executed on a background thread.},
+   label = {lst:do_in_background},
+]{content/architecture/code_snippets/doInBackground.java}
+
+
 
 % Describe how the client makes requests
-\subsection{Request handling}
+\subsection{Request Handling}
 \label{sub:request_handling}
 
 
