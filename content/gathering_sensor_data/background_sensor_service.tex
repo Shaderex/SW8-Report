@@ -21,7 +21,8 @@ We have given an overview of the concurrency
 % On Application start
 Our Background Sensor Service should ideally always be running, which does not imply that it is constantly using processing ressources. We have implemented two measures to ensures that the service is running for as much time as possible. We have implemented an Android BroadcastReceiver, which upon receiving a system wide boot completed action (\mono{ACTION\_BOOT\_COMPLETED}), starts the service. The service is also attempted started everytime the application is started, but is not started twice if the service is already running. 
 
-\subsection{Snapshot Generation and Synchronization}  
+\subsection{Snapshot Generation and Synchronization}
+\label{sub:background_sensor_service_snapshot_generation_and_synchronization}
 
 The background Background Sensor Service uses two independent timers. One for Snapshot generation and one for synchronization of the snapshots with our server. The timer for snapshot generation is encapsulated in a class called \mono{SnapshotTimer} which is started whenever the service has an active running campaign which should generate snapshots. Timed tasks are then scheduled at a constant rate, generating snapshots, until the campaign is completed or stopped by the user.
 \\\\
