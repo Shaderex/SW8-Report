@@ -7,25 +7,25 @@ To support this structure of the sensor output, we have designed an abstraction 
 \\\\
 As described in \secref{sec:deriving_the_context_from_sensors}, there exist various types of sensors, each sensing various types of data in various formats. Problems will arise when enforcing temporality of snapshots due to the event oriented nature of sensors in Android. Sensor events will trigger whenever a value is updated. This effectively means that it is impossible to know when these events will trigger. We want to guarantee that measurements can be made with a specific frequency independent on what is supported by the sensor, i.e. measurements can be made more often than what some sensors provide, but also more rarely. For instance the nature of an accelerometer sensor (in Android at least) is that it only raises an event whenever the device is affected in some way, meaning that if the phone is laying completely still this event may never be raised. For sensors of this nature, we need to have some cache that always contains the last measurement of a sensor. 
 \\\\
-The idea is that this update is completely independent from the the rest of th system, meaning that this update can happen asynchronously. \figref{fig:cahce_examples} shows how this independent behavior provides an interface time driven processes that want to acquire the data synchronously. \figref{fig:cache_no_event_between} shows a scenario where some other process request a measurement multiple times where the events from the sensors are not triggered in between. As shown this process will be answered with the same value in both of its requests. However since the underlying sensor have not registered a change the cached measurement must still be correct. Another scenario, as shown in \figref{fig:cache_multiple_event_between}, is that multiple events are triggered between two measurement request from another process. Also here the interface is sound since the value of the sensor that is most recent will be returned, effectively providing the eaves drop interface on event driven sensors we desire.
+The idea is that this update is completely independent from the the rest of th system, meaning that this update can happen asynchronously. \figref{fig:cache_examples} shows how this independent behavior provides an interface time driven processes that want to acquire the data synchronously. \figref{fig:cache_no_event_between} shows a scenario where some other process request a measurement multiple times where the events from the sensors are not triggered in between. As shown this process will be answered with the same value in both of its requests. However since the underlying sensor have not registered a change the cached measurement must still be correct. Another scenario, as shown in \figref{fig:cache_multiple_event_between}, is that multiple events are triggered between two measurement request from another process. Also here the interface is sound since the value of the sensor that is most recent will be returned, effectively providing the eaves drop interface on event driven sensors we desire.
 
 \begin{figure}[!htbp]
-\begin{subfigure}[!t]{.45\textwidth}
+\begin{subfigure}[!t]{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{sensor_providers/cache_example_1}
   \caption{No events between requests.}
   \label{fig:cache_no_event_between}
 \end{subfigure}
-~
-\begin{subfigure}[!t]{.45\textwidth}
+\begin{subfigure}[!t]{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{sensor_providers/cache_example_2}
   \caption{Multiple events between requests.}
   \label{fig:cache_multiple_event_between}
 \end{subfigure}
-\caption{Sensor cache interface.}
-\label{fig:cahce_examples}
+\caption{Measurement caching.}
+\label{fig:cache_examples}
 \end{figure}
+\FloatBarrier
 
 One issue this design might introduce is that we rely on these sensor events to be raised eventually. If this is not the case the cache must contains some default value for a sensor which potentially pollute the sensor measurements until the first event is triggered. This means that until the first event is raised other processes will be answered with some default values. Other type of sensors such as GPS is, as mentioned in \secref{sec:deriving_the_context_from_sensors}, required on demand meaning that we are able to require the GPS location at any given time, meaning that they already provide the behavior that is desired. Some of these on demand sensors might take some time to acquire the information for instance triangulation of satellites for GPS. A potential problem here, in regards to timing, is for this reason latency of which the underlying operating system has before data from this type of sensors are returned to the caller.
 
@@ -43,7 +43,7 @@ We have implemented an abstract class called \mono{SensorProvider}, which must b
 	\item[\mono{EventListenerRegistrationManager createRegManager()}] Should return an instance of something that implements the \mono{EventListenerRegistrationManager} interface. This interface will enforce the class to implement the following two methods: \mono{void register(int frequency)} and \mono{void unregister()}. These methods will be used by the \mono{SensorProvider} implementation to register the sensor (and its event listeners) when the specific sensor is needed, and unregister them when they are not.
 \end{description}
 
-Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as preciously described in \figref{fig:cached_values}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
+Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
 \\\\
 All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. 
 
