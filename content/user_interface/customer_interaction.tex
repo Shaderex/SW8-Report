@@ -110,9 +110,13 @@ When logged in, customers can now create campaigns. This is done through the sit
 \end{figure}
 \FloatBarrier
 
-\subsection{Viewing Campaign Details}
+\subsection{Viewing Campaign Details and Gathered Snapshots}
 
 When customers have created a campaign, it will show up in their list of campaigns, as seen in \figref{fig:web_view_campaigns}. If the customer have not created any campaigns yet, this page will only contain the small description along with the \emph{Create}-button. If pressing any of the created campaigns on this page, the customer will be redirected to a page similar to the one seen in \figref{fig:web_view_campaign}. This page will reflect the values inputted when creating the campaign through the creation page. Furthermore, this page also informs customers regarding the campaign identifier, allowing them to distribute the campaign through other media than our application. On the right side of the page, a \emph{Progress} area have been included. We have included this, so customers may get an insight in how many participants have contributed (\emph{Participants joined}), but also much data has been collected (\emph{Snapshots submitted}). 
+\\\\
+To view the collected snapshots, submitted by participants, customers can press the \emph{Get snapshot data} button, just below the statistics. This will redirect the user to a site, containing unformatted JSON, describing the different snapshots that have been submitted for that particular campaign.
+
+\todo[inline]{Har overvejet om vi skal indsætte et ``code snippet'' der viser hvordan JSON'en ser ud, men det bliver hurtigt langt og kedeligt. Men det er det måske ikke, hvis man aldrig har set det før?}
 
 \todo[inline]{Man kan beregne alle mulige statistikker som kan hjælpe kunderne med at lave gode spørgsmål, ved eksempelvis at vise hvilke spørgsmål der bliver besvaret mest, eller i hvilke tidsrum de bliver svaret med på i} 
 
@@ -136,4 +140,8 @@ When customers have created a campaign, it will show up in their list of campaig
 
 \subsection{Editing and Deleting Campaigns}
 
-\todo[inline]{Skriv at vi har valgt at gøre det umuligt at redigere og slette campaigns. Slet gad vi ikke. Edit krævede for meget arbejde da ændringerne skulle reflekteres ned på alle devices der var tilmeldte, som skulle opdatere deres timings, og slette alt det data de havde indsamlet. Long story kort: Det ville være NÆSTEN det samme som at slette og genoprette campaignen hvis edit funktionalitet skulle blive implementeret.}
+In the current implementation of the system, it is not possible to edit campaigns, since we deemed it to be a unnecessary feature for the project. This decision was based on the fact that there would be no difference in editing the campaign; and deleting it and then re-creating it. By deleting the campaign, participants would be forced to unsubscribe from the campaign (since they might not be able to accept the new, edited campaign). Furthermore, all gathered snapshots would be invalidated, and would have to be removed (there might be missing sensors or labels).
+\\\\
+It is however possible to implement some different checks, that would inform the participants regarding the updated campaign, asking them to re-subscribe to the campaign. One could also imagine that customers would like to update questions (for instance to correct a spelling error), without removing all of the previous collected data (since this would not be invalidated since the semantics of the labels did not change). However, we chose not to pursue any of these solutions.
+
+\todo[inline]{Beskriv hvordan man sletter en campaign (når @clausen har implementeret det)}

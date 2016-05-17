@@ -3,6 +3,12 @@
 \section{Device Identification}
 \label{sec:device_identification}
 
-\todo{Skriv om GCM}
-
-We need some way to identify the devices of participants 
+We need some way to identify the devices of participants in order to determine which snapshots belong to which campaigns. A participant is bound to a campaign when a participant has signed up for one in the Android application. All snapshots uploaded then identifies which user that is uploading through a unique device id which on the server is mapped to a campaign identifier via the registration by the participant. 
+\\\\
+We could have implemented our own identification mechanism by letting devices request a unique id from our server. We have however chosen to utilize a Google cloud service with an accompanying library called Google Cloud Messaging (GCM) \parencite{google_cloud_messaging}. Both the service and library is free to use. GCM scales well across a lot of devices and provides a lot of potentially interesting features besides identification of devices. Scaling our back-end, our server application, to multiple server nodes in order to handle more users would require some kind of way to make sure that the identifiers given to client devices is unique across the server nodes. This could for instance be handled by giving all identifiers a prefix which is unique to the server which handled the identifier request. But we can, by using GCM instead, concentrate on the development of the data collection and less on the development of infrastructure.
+\\\\
+% Future perspectives for use of GCM
+Identifying participants and their devices might also be useful for other purposes such as targeting specific groups of people as described in \todo{Lav ref til essence der snakker om profiles and users/participants} and for banning participants with malicious behavior. 
+\\\\
+% Other nice features of GCM
+GCM was originally, as the name suggests developed for chat messaging, but it can also be used for behind the scenes communication between distributed front-end applications and back-end server applications. It also provides other nice features such a message broadcasting where the recipients does not necessarily have to be online and available, i.e. it can be turned off or be offline, at the time of the broadcast. GCM will then cache the messages that was not delivered and retransmit them once the device becomes available again, thereby guaranteeing that messages are delivered at some point in the future. This could for instance be used to cancel a campaign on participants devices if customers or administrators of the back-end decides to do so. Devices could then be notified, the next time they are able to communicate with the server, and stop the collection of the data as soon as possible. 
