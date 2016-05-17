@@ -140,4 +140,8 @@ To view the collected snapshots, submitted by participants, customers can press 
 
 \subsection{Editing and Deleting Campaigns}
 
-\todo[inline]{Skriv at vi har valgt at gøre det umuligt at redigere og slette campaigns. Slet gad vi ikke. Edit krævede for meget arbejde da ændringerne skulle reflekteres ned på alle devices der var tilmeldte, som skulle opdatere deres timings, og slette alt det data de havde indsamlet. Long story kort: Det ville være NÆSTEN det samme som at slette og genoprette campaignen hvis edit funktionalitet skulle blive implementeret.}
+In the current implementation of the system, it is not possible to edit campaigns, since we deemed it to be a unnecessary feature for the project. This decision was based on the fact that there would be no difference in editing the campaign; and deleting it and then re-creating it. By deleting the campaign, participants would be forced to unsubscribe from the campaign (since they might not be able to accept the new, edited campaign). Furthermore, all gathered snapshots would be invalidated, and would have to be removed (there might be missing sensors or labels).
+\\\\
+It is however possible to implement some different checks, that would inform the participants regarding the updated campaign, asking them to re-subscribe to the campaign. One could also imagine that customers would like to update questions (for instance to correct a spelling error), without removing all of the previous collected data (since this would not be invalidated since the semantics of the labels did not change). However, we chose not to pursue any of these solutions.
+
+\todo[inline]{Beskriv hvordan man sletter en campaign (når @clausen har implementeret det)}
