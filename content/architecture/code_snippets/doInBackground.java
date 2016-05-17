@@ -1,12 +1,11 @@
 @Override
 protected Response<ResultT> doInBackground(Void... params) {
-
   final TrustManager[] trustAllCerts = new TrustManager[] {...};
+  
   ...
+  
   webb.setHostnameVerifier(new HostnameVerifier() {...});
-
   webb.setRetryManager(new RetryManager());
-
   webb.setDefaultHeader("X-Requested-With", "XMLHttpRequest");
 
   if (isCancelled()) {
@@ -29,5 +28,6 @@ protected Response<ResultT> doInBackground(Void... params) {
   } catch (WebbException exception) {
     exception.printStackTrace();
   }
+  
   return null;
 }
