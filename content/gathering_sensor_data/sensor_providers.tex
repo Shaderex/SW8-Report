@@ -41,13 +41,15 @@ We have implemented an abstract class called \mono{SensorProvider}, which must b
 	\item[\mono{SensorType getSensorType()}] Should return the \mono{SensorType} that the sensor provider implementation will utilize. For instance \mono{SensorType.BAROMETER}.
 
 	\item[\mono{EventListenerRegistrationManager createRegManager()}] Should return an instance of something that implements the \mono{EventListenerRegistrationManager} interface. This interface will enforce the class to implement the following two methods: \mono{void register(int frequency)} and \mono{void unregister()}. These methods will be used by the \mono{SensorProvider} implementation to register the sensor (and its event listeners) when the specific sensor is needed, and unregister them when they are not.
+
+  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] Should return an default instance of the \mono{MeasurementT} that the subclass is parameterized with.
+
 \end{description}
 
 Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
 \\\\
-All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. 
+All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. The developer have to write relative few lines of code to enable this provider for a any new type of sensor. To do so the developer must, as seen in \lineref{line:sensor_provider_extends}, subclass the \mono{Sensorprovider} with the generic parameter \mono{FloatTripleMeasurement} which is the type of measurement the accelerometer produces. Furthermore he have to override the abstract methods as follows: \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end} for the \mono{isSensorAvailable}, \lineref{line:getSensorType} for \mono{getSensorType}, \lineref{line:createRegManager} and \linesref{line:createRegManager_start}{line:createRegManager_end} for \mono{createRegManager} and lastly \lineref{line:getDefaultMeasurement} for \mono{getDefaultMeasurement}.
 
-\todo[inline]{Rikke: Need to explain the code better}
 \lstinputlisting[
    style = Java,
    caption = {Implementation of sensor provider for Accelerometer.},
