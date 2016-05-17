@@ -34,8 +34,9 @@ Another drawback is that Realm only supports one aggregate or collection type, n
    style = Java,
    caption = {An example of how the realm is accessed and objects in it are manipulated.},
    label = {lst:realm_example},
-   float,
+   float=!htbp,
 ]{content/security/code_snippets/notifyQuestionnaireCompleted.java}
+\FloatBarrier
 
 \todo[inline]{Rikke: This text need some rework, it is quite difficult to understand}
 Even though Realm sets up these restrictions it still has a nice API, where one simply can get a previously defined default instance of the access point (\mono{Realm}) in \lineref{lst:get_default_realm} in \lstref{lst:realm_example}. Following this it is possible to utilize the instance to get certain types of object. In this case we are looking for a \mono{Snapshot}, where its timestamp is equal to a given value. In the case such a snapshot exists we want to add a questionnaire with its questions answered to the snapshot, by first adding it to the realm, and then update the snapshot with the given questionnaire set as a field on the snapshot. Similar to the \mono{copyToRealm} and \mono{copyToRealmOrUpdate} there also exists functionality for removing objects from a realm, namely \mono{removeFromRealm} and \mono{removeAllFromRealm}.
@@ -48,8 +49,9 @@ The default configuration used in the previous example needs to be set somewhere
    style = Java,
    caption = {The algorithm generating encryption keys.},
    label = {lst:realm_default},
-   float,
+   float=!htbp,
 ]{content/security/code_snippets/setupRealmAndStartTimers.java}
+\FloatBarrier
 
 As shown the code for specifying an instance of a realm is very simple, and a thing such as encryption is handled by just a single line of code, given that the encryption key is known at this point. How we generate and retrieve the encryption key is covered below. 
 
@@ -66,8 +68,9 @@ Instead of storing the encryption key on the device we decided to move it to the
    style = PHP,
    caption = {The algorithm generating encryption keys.},
    label = {lst:encryption_php},
-   float,
+   float=!htbp,
 ]{content/security/code_snippets/encryption.php}
+\FloatBarrier
 
 This algorithm utilizes the random number generation features in the Linux kernel, by utilizing a special file, \mono{/dev/urandom} that interfaces the random number generation. Each time this file is read by the algorithm it will return a random byte, making it ideal to generate a sequence of random bytes representing an encryption key. The algorithm firstly create a file pointer to the \mono{/dev/urandom} file with the \mono{fopen} function. The function will return \mono{FALSE} if the file could not be opened, which is checked in \lineref{lst:fp_check}. Next, we will read the number of specified random bytes with the \mono{fread} function, which we will then return back to the call site as a binary string. This key can then be sent to a client if requested. On the Android client the encryption key is expected to be in the format of a byte array, meaning that we will need to convert the binary string into such a data structure. 
 \\\\
@@ -77,8 +80,9 @@ Luckily, the library that we utilize for making HTTP requests from the Android a
    style = Java,
    caption = {Simple example of how we use the Webb library to convert binary strings to an byte array.},
    label = {lst:binary_to_byte_array},
-   float,
+   float=!htbp,
 ]{content/security/code_snippets/getEncryptionKey.java}
+\FloatBarrier
 
 \subsection{Remote Storage}
 \label{sub:remote_storage}
