@@ -46,7 +46,7 @@ The Android client needs to be able to access these routes somehow and retrieve 
 \end{figure}
 \FloatBarrier
 
-We found that we needed to ensure that the response code matches what we expected in the different situations, such as 200 (status OK), and would otherwise need to make some error handling. We also figured that we often would need to specify what to happen if there were no available connection to the server, such that there were no response code returned. Therefore we overrode the onPostExecute method as seen in \lstref{lst:on_post_execute}. 
+We found that we needed to ensure that the response code matches what we expected in the different situations, such as 200 (status OK), and would otherwise need to make some error handling. We also figured that we often would need to specify what to happen if there is no available connection to the server, such that there is no response code returned. Therefore we overrode the onPostExecute method as seen in \lstref{lst:on_post_execute}. 
 
 \lstinputlisting[
    style = Java,
