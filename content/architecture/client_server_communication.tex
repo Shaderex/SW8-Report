@@ -52,6 +52,7 @@ We found that we needed to ensure that the response code matches what we expecte
    style = Java,
    caption = {The \mono{onPostExecute} method, which is called after the asynchronous task has completed.},
    label = {lst:on_post_execute},
+   float,
 ]{content/architecture/code_snippets/onPostExecute.java}
 
 Here we firstly check if the response parameter is null, in which case something went wrong in establishing the connection to the server, and the abstract method \mono{onConnectionFailure} will be called. Otherwise we check if the response code matches what we expect, and if it is we call the abstract method \mono{onResponseCodeMatching} and if it does not we call \mono{onResponseCodeNotMatching}. These methods can then be overridden in an anonymous class or a normal class. The response code from the snippet is set through the constructor of the method, along with the the URL the request should be sent to and the request method, which is either ``GET'', ``POST'', ``PUT'', or ``DELETE''. 
@@ -64,6 +65,7 @@ The response that the \mono{onPostExecute} in \lstref{lst:on_post_execute} recei
    style = Java,
    caption = {The actual task being executed on a background thread.},
    label = {lst:do_in_background},
+   float,
 ]{content/architecture/code_snippets/doInBackground.java}
 
 In this method we firstly create a custom \mono{TrustManager} and \mono{HostnameVerifier}, which is connected to the Transport Layer Security that we utilize and will be described in \secref{sec:transport_layer_security}. This is followed by setting some of the properties that we want to apply to every request, such as adding the ``X-requested-with''-header describing that the request is an Ajax request and not a normal web page request. This is followed by a check of which method is requested in the constructor and use the Webb library to create a request of that type, and use it as a parameter for the abstract method called sendRequest. As with the other abstract methods the \mono{sendRequest} method can be overridden to specify different aspects of the request, such as what the parameters for the request should be as well as how many reties there should be.
@@ -75,6 +77,7 @@ In the architecture a request from device is going through two different handler
 \lstinputlisting[
    caption = {The actual task being executed on a background thread.},
    label = {lst:server_conf},
+   float,
 ]{content/architecture/code_snippets/server.conf}
 
 In line \linesref{lst:server_conf_listen_begin}{lst:server_conf_listen_end} the port that the server should listen on is specified. In our case it would have been ideal to utilize port 80, but the port was already occupied by another server using external IP that was granted to us by the university, instead we were assigned port 8000, which is the one that we utilize as seen in the snippet. This is followed by a directive specifying the root folder of the web site in \lineref{lst:server_conf_root}, and then the index directive specifying that it should prioritize to serve a page called index.php over its HTML counterpart. The server\_name directive was covered by the earlier example, and in this case we are looking at the production (virtual) server configuation and therefore the names are ``prod.local.element67.dk'' and ``prod.global.element67.dk''.
