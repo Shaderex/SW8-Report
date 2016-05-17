@@ -3,9 +3,9 @@
 \section{Customer Interaction}
 \label{sec:customer_interaction}
 
-To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. Interacting with this website is only be available to customers, who may interact with the system in two ways, depending on their intent.  Customers can, through a Graphical User Interface (GUI), browse their previously created campaigns along with creating new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may utilize an Application Programming Interface (API). Both ways of interacting with the system will be described in this section.
+To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. Interacting with this website is only be available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns along with creating new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may utilize an Application Programming Interface (API). Both ways of interacting with the system will be described in this section.
 \\\\
-When visiting this site, customers a presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
+When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
 
 \todo[inline]{Skriv at web-delen er et ekspertsystem og konsekvenserne af dette}
 
@@ -53,7 +53,7 @@ When visiting this site, customers a presented with the page seen in \figref{fig
 
 \subsection{Registration and Logging In}
 
-To gain access to the features of the website, customers must first log in. If the customer does not have a login, one can be created through the register page, as seen in \figref{fig:web_register}. The \emph{name} input field will later be used to show participants who created the different campaigns. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. When the customer is registered, he/she can log in through the login-page seen in \figref{fig:web_login}.  
+To gain access to the features of the website, customers must first log in. If the customer does not have a login, he/she can create one through the register page, as seen in \figref{fig:web_register}. The \emph{name} input field will later be used to show participants who created the different campaigns. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. When the customer is registered, he/she can log in through the login-page seen in \figref{fig:web_login}.  
 
 % Register
 \begin{figure}[!htbp]
@@ -68,17 +68,18 @@ To gain access to the features of the website, customers must first log in. If t
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{user_interfaces/web/web_login}
-\caption{Log in page.}
+\caption{Login page.}
 \label{fig:web_login}
 \end{figure}
 \FloatBarrier
 
 \subsection{Creating Campaign}
+\label{sub:creating_campaign}
 
-When logged in, customers can now create campaigns. This is done through the site seen in \figref{fig:web_create_campaign}. Here, customers will have to specify different details regarding the campaign. To give customers an ideas of how the participants will view this information, a mobile phone is included on the page, showing the mobile application. Please note that this is only an indication of how it will look, since different phones, with different screen sizes, font settings, etc. will influence the look of the application. A detailed description of all the input fields that the customer will have to fill out is described below.
+When a customer is logged in, he/she has the option to create campaigns. This is done through the site seen in \figref{fig:web_create_campaign}. Here, customers will have to specify different details regarding the campaign. To give customers an ideas of how the participants will view this information, a mobile phone is included on the page, showing the mobile application. Please note that this is only an indication of how it will look, since different phones, with different screen sizes, font settings, etc. will influence the look of the application. A detailed description of all the input fields that the customer must fill out is described below.
 
 \begin{description}
-    \item[Campaign title] is used to give participants a rough idea of what the campaign will be used for. This information will visible when participants are browsing campaigns (\figref{fig:public_campaigns}) and when viewing details regarding the campaign (\figref{fig:campaign_specification}).
+    \item[Campaign title] is used to give participants a rough idea of what the campaign will be used for. This information will visible when participants are browsing campaigns and when viewing details regarding the campaign (as mention in \ref{sub:browsing_campaigns}).
 
     \item[Campaign description] will provide participants with a detailed description of the campaign. This text could possibly contain motivational factory, inclining participants to participate in that specific campaign. This information is only available to participants when viewing the specifications of the campaign (\figref{fig:campaign_specification}).
 
