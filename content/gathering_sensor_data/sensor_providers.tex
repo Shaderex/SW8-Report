@@ -10,13 +10,14 @@ As described in \secref{sec:deriving_the_context_from_sensors}, there exist vari
 The idea is that this update is completely independent from the the rest of th system, meaning that this update can happen asynchronously. \figref{fig:cahce_examples} shows how this independent behavior provides an interface time driven processes that want to acquire the data synchronously. \figref{fig:cache_no_event_between} shows a scenario where some other process request a measurement multiple times where the events from the sensors are not triggered in between. As shown this process will be answered with the same value in both of its requests. However since the underlying sensor have not registered a change the cached measurement must still be correct. Another scenario, as shown in \figref{fig:cache_multiple_event_between}, is that multiple events are triggered between two measurement request from another process. Also here the interface is sound since the value of the sensor that is most recent will be returned, effectively providing the eaves drop interface on event driven sensors we desire.
 
 \begin{figure}[!htbp]
-\begin{subfigure}[!t]{.75\textwidth}
+\begin{subfigure}[!t]{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{sensor_providers/cache_example_1}
   \caption{No events between requests.}
   \label{fig:cache_no_event_between}
 \end{subfigure}
-\begin{subfigure}[!t]{.75\textwidth}
+~
+\begin{subfigure}[!t]{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{sensor_providers/cache_example_2}
   \caption{Multiple events between requests.}
