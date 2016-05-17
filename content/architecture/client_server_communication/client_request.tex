@@ -17,8 +17,9 @@ We found that we needed to ensure that the response code matches what we expecte
    style = Java,
    caption = {The \mono{onPostExecute} method, which is called after the asynchronous task has completed.},
    label = {lst:on_post_execute},
-   float,
+   float=!htbp,
 ]{content/architecture/code_snippets/onPostExecute.java}
+\FloatBarrier
 
 Here we firstly check if the response parameter is null, in which case something went wrong in establishing the connection to the server, and the abstract method \mono{onConnectionFailure} will be called. Otherwise we check if the response code matches what we expect, and if it is we call the abstract method \mono{onResponseCodeMatching} and if it does not we call \mono{onResponseCodeNotMatching}. These methods can then be overridden in an anonymous class or a normal class. The response code from the snippet is set through the constructor of the method, along with the the URL the request should be sent to and the request method, which is either ``GET'', ``POST'', ``PUT'', or ``DELETE''. 
 
@@ -30,7 +31,8 @@ The response that the \mono{onPostExecute} in \lstref{lst:on_post_execute} recei
    style = Java,
    caption = {The actual task being executed on a background thread.},
    label = {lst:do_in_background},
-   float,
+   float=!htbp,
 ]{content/architecture/code_snippets/doInBackground.java}
+\FloatBarrier
 
 In this method we firstly create a custom \mono{TrustManager} and \mono{HostnameVerifier}, which is connected to the Transport Layer Security that we utilize and will be described in \secref{sec:transport_layer_security}. This is followed by setting some of the properties that we want to apply to every request, such as adding the ``X-requested-with''-header describing that the request is an Ajax request and not a normal web page request. This is followed by a check of which method is requested in the constructor and use the Webb library to create a request of that type, and use it as a parameter for the abstract method called sendRequest. As with the other abstract methods the \mono{sendRequest} method can be overridden to specify different aspects of the request, such as what the parameters for the request should be as well as how many reties there should be.
