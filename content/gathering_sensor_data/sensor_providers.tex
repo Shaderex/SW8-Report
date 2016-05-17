@@ -41,13 +41,15 @@ We have implemented an abstract class called \mono{SensorProvider}, which must b
 	\item[\mono{SensorType getSensorType()}] Should return the \mono{SensorType} that the sensor provider implementation will utilize. For instance \mono{SensorType.BAROMETER}.
 
 	\item[\mono{EventListenerRegistrationManager createRegManager()}] Should return an instance of something that implements the \mono{EventListenerRegistrationManager} interface. This interface will enforce the class to implement the following two methods: \mono{void register(int frequency)} and \mono{void unregister()}. These methods will be used by the \mono{SensorProvider} implementation to register the sensor (and its event listeners) when the specific sensor is needed, and unregister them when they are not.
+
+  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] Should return an default instance of the \mono{MeasurementT} that the subclass is parameterized with.
+
 \end{description}
 
 Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
 \\\\
-All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. 
+All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. The developer have to write relative few lines of code to enable this provider for a any new type of sensor. To do so the developer must, as seen in \lineref{line:sensor_provider_extends}, subclass the \mono{Sensorprovider} with the generic parameter \mono{FloatTripleMeasurement} which is the type of measurement the accelerometer produces. Furthermore he have to override the abstract methods as follows: \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end} for the \mono{isSensorAvailable}, \lineref{line:getSensorType} for \mono{getSensorType}, \lineref{line:createRegManager} and \linesref{line:createRegManager_start}{line:createRegManager_end} for \mono{createRegManager} and lastly \lineref{line:getDefaultMeasurement} for \mono{getDefaultMeasurement}.
 
-\todo[inline]{Rikke: Need to explain the code better}
 \lstinputlisting[
    style = Java,
    caption = {Implementation of sensor provider for Accelerometer.},
@@ -55,15 +57,5 @@ All of this effectively means that new sensors can be implemented into the syste
    float,
 ]{content/gathering_sensor_data/code_snippets/sensor_provider_acclerometer.java}
 
-% The abstract \mono{isSensorAvailable()} method allows the subclasses of \mono{SensorProvider} a way of specifically checking if the device has that sensor available. This might for example be useful in order to determine which campaigns should be available to which participants at some point, or detecting if a wearable device has been disconnected. \mono{retrieveSampleForDuration()} is a method that every subclass has to implement, which specifies how a sample is created for this specific sensor. The \mono{retrieveSamplesForDuration()} method is implemented on the \mono{SensorProvider} class, i.e. not abstract like the other two methods, and is the method that makes all the different providers work asynchronously. The method returns a \mono{Future<List<Sample>{}>}. A future, in Android, is the result of an asynchronous computation. The result from a future can be retrieved by calling the \mono{get()} method on the future object, which is a blocking call. Android then provides different methods to check whether or not the computation is completed, in progress, and so on. The method works by submitting a \mono{Callable} to a thread pool, which will eventually return a list of samples, i.e. the future. This callable contains a \mono{TimerTask}, which is a task that is repeated a certain amount of times, that in return calls the \mono{retrieveSampleForDuration()} method. In that way, we have a \mono{Callable} which at some point returns the desired amount of samples. 
-% \\\\
-% The \mono{retrieveSampleForDuration()} method has, in all the subclasses of \mono{SensorProvider}, been implemented by using a native method called \mono{onSensorChanged()}. As the name implies, this event is triggered whenever a sensor changes its state. This is a potential issue, since not all sensors provide continuous data, and not all sensors will change in the time limit that is allowed between two measurements (see \figref{fig:sample_temporality}). A potential solution to this is to always store the previous state, and if the event is not triggered within the alloted time, simply use the cached value. 
-% \\\\
-% Another potential issue with this implementation is the desire for asynchronism, which we implemented by using \mono{future} objects. Since we cannot know for certain when different asynchronous calls are finished, it might become difficult to create a snapshot and send it to the database.
-
-% \lstinputlisting[
-%    style = java,
-%    caption = {Property similarity on a component.},
-%    label = {lst:attribute_difference},
-%    float,
-%]{content/implementation/annotation/attribute_difference.java}
+\subsection{Gathering Data from the Microsoft Band 2}
+Due to the structure of sensor providers, as described in \secref{sub:providing_sensor_data_implementation}, it is relativly easy to implement functionality that will gather information from the Microsoft Band 2 smart watch. 
