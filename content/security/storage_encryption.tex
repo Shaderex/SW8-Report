@@ -34,6 +34,7 @@ Another drawback is that Realm only supports one aggregate or collection type, n
    style = Java,
    caption = {An example of how the realm is accessed and objects in it are manipulated.},
    label = {lst:realm_example},
+   float,
 ]{content/security/code_snippets/notifyQuestionnaireCompleted.java}
 
 \todo[inline]{Rikke: This text need some rework, it is quite difficult to understand}
@@ -47,6 +48,7 @@ The default configuration used in the previous example needs to be set somewhere
    style = Java,
    caption = {The algorithm generating encryption keys.},
    label = {lst:realm_default},
+   float,
 ]{content/security/code_snippets/setupRealmAndStartTimers.java}
 
 As shown the code for specifying an instance of a realm is very simple, and a thing such as encryption is handled by just a single line of code, given that the encryption key is known at this point. How we generate and retrieve the encryption key is covered below. 
@@ -64,6 +66,7 @@ Instead of storing the encryption key on the device we decided to move it to the
    style = PHP,
    caption = {The algorithm generating encryption keys.},
    label = {lst:encryption_php},
+   float,
 ]{content/security/code_snippets/encryption.php}
 
 This algorithm utilizes the random number generation features in the Linux kernel, by utilizing a special file, \mono{/dev/urandom} that interfaces the random number generation. Each time this file is read by the algorithm it will return a random byte, making it ideal to generate a sequence of random bytes representing an encryption key. The algorithm firstly create a file pointer to the \mono{/dev/urandom} file with the \mono{fopen} function. The function will return \mono{FALSE} if the file could not be opened, which is checked in \lineref{lst:fp_check}. Next, we will read the number of specified random bytes with the \mono{fread} function, which we will then return back to the call site as a binary string. This key can then be sent to a client if requested. On the Android client the encryption key is expected to be in the format of a byte array, meaning that we will need to convert the binary string into such a data structure. 
@@ -74,6 +77,7 @@ Luckily, the library that we utilize for making HTTP requests from the Android a
    style = Java,
    caption = {Simple example of how we use the Webb library to convert binary strings to an byte array.},
    label = {lst:binary_to_byte_array},
+   float,
 ]{content/security/code_snippets/getEncryptionKey.java}
 
 \subsection{Remote Storage}
