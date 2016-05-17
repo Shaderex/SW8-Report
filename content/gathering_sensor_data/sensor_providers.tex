@@ -51,6 +51,7 @@ All of this effectively means that new sensors can be implemented into the syste
    style = Java,
    caption = {Implementation of sensor provider for Accelerometer.},
    label = {lst:sensor_provider_acclerometer},
+   float,
 ]{content/gathering_sensor_data/code_snippets/sensor_provider_acclerometer.java}
 
 % The abstract \mono{isSensorAvailable()} method allows the subclasses of \mono{SensorProvider} a way of specifically checking if the device has that sensor available. This might for example be useful in order to determine which campaigns should be available to which participants at some point, or detecting if a wearable device has been disconnected. \mono{retrieveSampleForDuration()} is a method that every subclass has to implement, which specifies how a sample is created for this specific sensor. The \mono{retrieveSamplesForDuration()} method is implemented on the \mono{SensorProvider} class, i.e. not abstract like the other two methods, and is the method that makes all the different providers work asynchronously. The method returns a \mono{Future<List<Sample>{}>}. A future, in Android, is the result of an asynchronous computation. The result from a future can be retrieved by calling the \mono{get()} method on the future object, which is a blocking call. Android then provides different methods to check whether or not the computation is completed, in progress, and so on. The method works by submitting a \mono{Callable} to a thread pool, which will eventually return a list of samples, i.e. the future. This callable contains a \mono{TimerTask}, which is a task that is repeated a certain amount of times, that in return calls the \mono{retrieveSampleForDuration()} method. In that way, we have a \mono{Callable} which at some point returns the desired amount of samples. 
@@ -63,4 +64,5 @@ All of this effectively means that new sensors can be implemented into the syste
 %    style = java,
 %    caption = {Property similarity on a component.},
 %    label = {lst:attribute_difference},
+%    float,
 %]{content/implementation/annotation/attribute_difference.java}
