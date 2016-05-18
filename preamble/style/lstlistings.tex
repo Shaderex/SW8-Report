@@ -29,7 +29,7 @@
     breakatwhitespace=true,
     showstringspaces = false,
     tabsize = 3,
-    captionpos = t,
+    captionpos = b,
     extendedchars = true,
     escapeinside = {//*}{\^^M}, % Use latex inside lstlistings. For instance for refferences.
     frame = tblr,
@@ -41,9 +41,8 @@
 \renewcommand{\lstlistingname}{Code Snippet}
 
 % General style for the whole lstlisting
-\DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{0.9934\textwidth}{#1#2#3}}}
-\captionsetup[lstlisting]{format = listing, labelfont = white, textfont = white}
+\DeclareCaptionFormat{listing}{#1#2#3}
+\captionsetup[lstlisting]{format = listing}
 
 \lstdefinelanguage{TAInC} 
 {
