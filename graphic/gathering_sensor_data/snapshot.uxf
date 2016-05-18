@@ -5,7 +5,7 @@
     <id>Text</id>
     <coordinates>
       <x>450</x>
-      <y>720</y>
+      <y>702</y>
       <w>675</w>
       <h>27</h>
     </coordinates>
@@ -31,7 +31,7 @@ group=12</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>441</x>
-      <y>711</y>
+      <y>693</y>
       <w>702</w>
       <h>27</h>
     </coordinates>
@@ -282,17 +282,6 @@ halign=center</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>909</x>
-      <y>396</y>
-      <w>144</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>846</x>
@@ -509,17 +498,6 @@ lw=8</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>909</x>
-      <y>477</y>
-      <w>144</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>846</x>
@@ -712,17 +690,6 @@ lw=8</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>909</x>
-      <y>558</y>
-      <w>144</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>846</x>
@@ -770,7 +737,7 @@ lw=8</panel_attributes>
     </coordinates>
     <panel_attributes>Label 
 --
-Yes, no, no, yes, yes
+Yes
 valign=center
 halign=left
 bg=#ddddddd</panel_attributes>
@@ -845,7 +812,7 @@ bg=#ddddddd</panel_attributes>
       <w>675</w>
       <h>72</h>
     </coordinates>
-    <panel_attributes>Samples for GPS
+    <panel_attributes>Samples for GPS location
 --
 bg=#ddddddd</panel_attributes>
     <additional_attributes/>
@@ -895,5 +862,38 @@ halign=left</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>558</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>477</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>396</y>
+      <w>144</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
   </element>
 </diagram>
