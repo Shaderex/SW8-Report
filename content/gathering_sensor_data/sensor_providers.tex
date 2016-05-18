@@ -3,7 +3,7 @@
 \section{Providing Sensor Data}
 \label{sec:providing_sensor_data}
 
-We have designed a general abstraction for the different available sensors and data sources to support the structure as described in \secref{sec:structural_sensor_data} called a Sensor Provider. 
+We have designed a general abstraction for the different available sensors and data sources to support the structure as described in \secref{sec:structural_sensor_data} called a \emph{Sensor Provider}. 
 \\\\
 This abstraction is designed for concurrent and independent collection of samples, as we want the application to be able to gather information from multiple sources at the same time, meaning that the system is able to, for instance, collect data regarding the motion and location of the participant simultaneously. This is done in order to make sure that the gathered data is obtained according to the desired temporality of the customer, i.e. the time constraints of the campaign as seen in \figref{fig:sample_temporality}.
 \\\\
