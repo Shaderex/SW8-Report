@@ -45,7 +45,6 @@ We have implemented our Sensor Provider as an abstract class called \mono{Sensor
 	\item[\mono{EventListenerRegistrationManager createRegManager()}] should return an instance of a class that implements the \mono{EventListenerRegistrationManager} interface. This interface will enforce the class to implement the following two methods: \mono{void register(int frequency)} and \mono{void unregister()}. These methods will be used by the \mono{SensorProvider} implementation to register the sensor and thereby acquire some resources, e.g. registering an event listener or start a thread, when the specific sensor is needed, and unregister them, and free the required resources, when they are not.
 
   \item[\mono{MeasurementT getDefaultMeasurement()}] Should return a default instance of the \mono{MeasurementT} that the subclass is parameterized with, for instance \mono{FloatMeasurement}.
-
 \end{description}
 
 Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
