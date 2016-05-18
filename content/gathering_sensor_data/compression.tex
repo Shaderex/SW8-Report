@@ -8,9 +8,9 @@ We will also need a model for the gathered data to complement the specifications
 \todo[inline]{Describe other methods we used for compression here!}
 
 \subsection{Compression of Floats}
-As described in \secref{sec:general_strategies}, we would like to minimize the power consumption of our application. To do this, we minimize the footprint of the collected data when transmitting it wirelessly, since this is very expensive. To do this, we compress values gathered from sensors. Most sensors will make measurements described by three \mono{float} values. We designed a class called \mono{FloatTripleMeasurement} which is used to compress these three values a single \mono{long}, meaning we convert $12$ bytes ($3 \times 4$ bytes) to be stored in $8$ bytes. We do this by sacrificing some of the precision of a regular float.
+As described in \secref{sec:general_strategies}, we would like to minimize the power consumption of our application. To do this, we minimize the footprint of the collected data when transmitting it wirelessly, since this is very expensive. To do this, we compress values gathered from sensors. Many sensors will make measurements described by three \mono{float} values. We designed a class called \mono{FloatTripleMeasurement} which is used to compress these three values a single \mono{long}, meaning we convert $12$ bytes ($3 \times 4$ bytes) to be stored in $8$ bytes. We do this by sacrificing some of the precision of a regular float.
 \\\\
-When compressing, we assume that the integer part does not exceed $7$ numbers. We do this because the sensors only produce values ranging from $-360$ to $360$. We strip the decimal separator from the floats an treat them as a $20$ bit integer value, where the first bit determines whether the value is positive or negative. This means that we now use $60$ bits for storing the compressed value of the floats. We use the remainder of the long to add 3 bits for representing where the decimal should be placed. A visualization of the method used to compress floats can be seen in \figref{fig:float_triple_convert} and \figref{fig:float_triple_bit} respectively.
+When compressing, we assume that the integer part does not exceed $7$ numbers. We do this because the sensors only produce values ranging from $-360$ to $360$. We strip the decimal separator from the floats and treat them as a $20$ bit integer value, where the first bit determines whether the value is positive or negative. This means that we now use $60$ bits for storing the compressed value of the floats. We use the remainder of the long to add 3 bits for representing where the decimal should be placed. A visualization of the method used to compress floats can be seen in \figref{fig:float_triple_convert} and \figref{fig:float_triple_bit} respectively.
 \begin{figure}[!htbp]
     \begin{alignat*}{6}
        &8.138   &&                   &&   && 8138  &&                   && \text{\mono{00000001111111001010}} \\
@@ -27,21 +27,23 @@ When compressing, we assume that the integer part does not exceed $7$ numbers. W
     \caption{The bit representation of a FloatTriple.}
     \label{fig:float_triple_bit}
 \end{figure}
-We wanted to compress the floating point values of the sensors so that the size of the data we need to send over network and store on the device would decrease. However, this compression does not come for free. We actively make a trade off between size of data stored and CPU cycles used for compressing and decompressing the values.  
-
-We have conducted a performance test for our compression of floats that investigates the extra time for compressing and decompressing compared to using an array with three floats. We create an amount of float arrays compress them and decompress them then we multiply the three floats together and measure how long it took.
+We wanted to compress the floating point values of the sensors so that the size of the data we need to send over network and store on the device would decrease. However, this compression does not come for free. We actively make a trade off between size of data stored and CPU cycles used for compressing and decompressing the values. We have conducted a performance test for our compression of floats that investigates how much extra time has to be spent on compressing and decompressing the floats. In the test we create a number of arrays that each contain three float values. The actual test is how fast the three float values can be multiplied together. We do this in two ways: One where we compress and decompress the float values first, and another one where we just multiply. This can give us an indication of how much time is lost on the compression when performing another task. 
 
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{ | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | }
     \hline
-    ~       & 1+ One           & ~                   & Nexus 5          & ~                   \\ \hline
-    Count   & With Compression & Without Compression & With Compression & Without Compression \\ \hline
-    10000   & 83 ms            & 11 ms               & 77 ms            & 10 ms               \\ \hline
-    100000  & 635 ms           & 172 ms              & 783 ms           &  113 ms             \\ \hline
-    1000000 & 9088 ms          & 1333 ms             & 8245 ms          & 1090 ms             \\ \hline
+    ~       & 1+ One           & ~                   & ~            & Nexus 5          & ~                   &      \\ \hline
+    Count   & With Compression & Without Compression & Ratio        & With Compression & Without Compression & Ratio\\ \hline
+    10000   & 83 ms            & 11 ms               &  7.55        & 77 ms            & 10 ms               &      \\ \hline
+    100000  & 635 ms           & 172 ms              &  3.69        & 783 ms           &  113 ms             &      \\ \hline
+    1000000 & 9088 ms          & 1333 ms             &  6.82        & 8245 ms          & 1090 ms             &      \\ \hline
     \end{tabular}
+    \caption{Results of compression test}
+    \label{tab:results_of_compression_test}
 \end{table}
 \FloatBarrier
 
-\todo{Ref til tabel herover!}
+As can be seen, it \tabref{tab:results_of_compression_test}
+
+\todo[inline]{Finish section and explain results. Also write considerations about external compression stuff. Also finish ratios in table}
