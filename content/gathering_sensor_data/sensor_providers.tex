@@ -33,10 +33,8 @@ One issue this design might introduce is that we rely on these sensor events bei
 
 \subsection{Sensor Provider}
 \label{sub:providing_sensor_data_implementation}
-
 We have implemented our Sensor Provider as an abstract class called \mono{SensorProvider}, which must be subclassed for each type of available sensor, both for sensors found on the actual Android devices which runs the application, but also for external sensors, such as those found in a Microsoft Band 2. 
-
-
+\\\\
 The abstract class provides functionality that makes it easy to implement specialized implementations for every sensor that we have. Sub-classes of the abstract \mono{SensorProider}, must specify a type argument, \mono{MeasurementT}, describing the type of the measurements which the implementation will make. Besides this, the following methods must also be implemented on the specializations:
 
 % The common interface for these sensor providers is implemented by the following methods:
