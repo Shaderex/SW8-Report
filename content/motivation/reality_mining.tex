@@ -5,24 +5,24 @@
 \todo[inline]{Rikke: Sektion virker stadig lidt ustruktureret}
 
 The expansion of mobile technologies opens new opportunities for studying and understanding the context around the users more accurately. This means that we can obtain better knowledge about the users of a system\todo{Rikke: ``of a system'': ??} and better understanding people through their behavior in general. A common practice for identifying the context around users is to ask them explicitly with surveys or similar techniques. A field of research where a less biased description of the context would be appreciated is \emph{reality mining}, which is the study of environmental data that is related to human social behavior \parencite{madan2009_reality_mining_privacy}. Reality mining is a branch of data mining, where machine intelligence principles are applied to machine-gathered labeled training data. Labeled training data is here understood as a collection of data (features or values) attached with some label, where the ``training'' part does \underline{not} refer to actual physical training, but instead to the fact that it can be used to train a machine intelligence model. In a reality mining context, features and values would be readings from sensors and the label could be determined by some user input as seen in \figref{tab:labeled_training_data}.
-
-\todo[inline]{Rikke: til \tabref{tab:labeled_training_data}, brug sensorer der passer til alkohol consumption}
-
-\begin{table}
-	\centering
-	\begin{tabular}{|m{0.25\textwidth}|m{0.25\textwidth}|m{0.20\textwidth}|m{0.17\textwidth}|}
-		\hline
-		\textbf{Accelerometer:}       & \textbf{GPS:}           & \textbf{Other sensors:} & \textbf{User input:} \\ 
-		\emph{(x, y, z)} & \begin{tabular}[c]{@{}l@{}} \emph{(longitude, latitude)} \end{tabular} & \centering \ldots & \emph{Are you influenced by alcohol?} \\ \hline
-		\begin{tabular}[c]{@{}l@{}} \mono{10.23},\\ \mono{00.33},\\ \mono{02.44} \end{tabular} & \mono{59.22, 31.22}  & \centering \ldots & \begin{center} \mono{no}  \end{center}	\\ \hline
-		\begin{tabular}[c]{@{}l@{}} \mono{22.23},\\ \mono{13.38},\\ \mono{04.24} \end{tabular} & \mono{58.44, 32.44}  & \centering \ldots & \begin{center} \mono{yes} \end{center}	\\ \hline
-		\multicolumn{4}{|c|}{\vdots} 																																					\\ \hline
-		\begin{tabular}[c]{@{}l@{}} \mono{09.82},\\ \mono{00.11},\\ \mono{01.22} \end{tabular} & \mono{59.21, 31.22}  & \centering \ldots & \begin{center} \mono{no}  \end{center}	\\ \hline
-	\end{tabular}
-\caption{Example of labeled training data}
-\label{tab:labeled_training_data}
+\\
+\begin{table}[!htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+         \textbf{Optical heart rate:} & \textbf{Accelerometer:} & \textbf{GPS:} & \textbf{User input:} \\
+        \textit{(x, y, z)}  & \textit{(heartrate)}  & \textit{(longitude, latitude)}   & \textit{\begin{tabular}[c]{@{}c@{}}Are you influenced \\ by alcohol?\end{tabular}} \\ \hline
+        \mono{10.23, 00.33, 02.44} & \mono{74}    & \mono{59.22, 31.22}    & \mono{no}   \\ \hline
+        \mono{22.23, 13.38, 04.24} & \mono{86}    & \mono{58.44, 32.44}    & \mono{yes}  \\ \hline
+        \multicolumn{4}{|c|}{\vdots}    \\ \hline
+        \mono{09.82, 00.11, 01.22} & \mono{76}    & \mono{59.21, 31.22}    & \mono{no}   \\ \hline
+    \end{tabular}%
+    }
+    \caption{Example of labeled training data.}
+    \label{tab:labeled_training_data}
 \end{table}
-\FloatBarrier
+
 \todo[inline]{Rikke: Beskriv hvad features/values og labels er her}
 
 Reality mining gives research and industry an alternative to basing research and models solely on data provided exclusively through people, i.e. from public polls, focus groups, and questionnaires. In order to understand human dynamics with less bias, a study from 2006 \parencite{eagle2006_reality_mining_definition} showed that context could be derived from people and their behavior. The study was conducted on 100 subjects with mobile phones, and showed promising results. The study furthermore concluded that data from new types of sensors could have a lot of potential in regards to different fields based upon reality mining. 
