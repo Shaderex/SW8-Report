@@ -48,12 +48,19 @@ We have implemented our Sensor Provider as an abstract class called \mono{Sensor
 \end{description}
 
 Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
-\\\\
-All of this effectively means that new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. A developer has to write relative few lines of code to enable such a provider for a any new type of sensor. 
 
-\todo{Marhlder er nået her til - Der er lidt duplicate tekst her}
+\subsubsection{Implementing a Sensor Provider}
+Because of the abstract \mono{SensorProvider} class, new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows how the \mono{AccelerometerSensorProvider} implements and uses the methods described above to make measurements from the phones accelerometer available to our application. A developer has to write relative few lines of code to enable such a provider for a any new type of sensor. To do so, the we have, as seen in \lineref{line:sensor_provider_extends}, subclassed \mono{SensorProvider} with the generic parameter \mono{FloatTripleMeasurement} which is the type of measurement the accelerometer produces. Furthermore, we have to override the abstract methods as previously stated: 
 
-To do so the developer must, as seen in \lineref{line:sensor_provider_extends}, subclass the \mono{SensorProvider} with the generic parameter \mono{FloatTripleMeasurement} which is the type of measurement the accelerometer produces. Furthermore he have to override the abstract methods as follows: \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end} for the \mono{isSensorAvailable}, \lineref{line:getSensorType} for \mono{getSensorType}, \lineref{line:createRegManager} and \linesref{line:createRegManager_start}{line:createRegManager_end} for \mono{createRegManager} and lastly \lineref{line:getDefaultMeasurement} for \mono{getDefaultMeasurement}.
+\begin{description}
+  \item[\mono{boolean isSensorAvailable()}] is overridden in \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end}. Here we check if the phone has the system feature \mono{FEATURE\_SENSOR\_ACCELEROMETER}; if this is the case, we are able to measure accelerometer.
+
+  \item[\mono{SensorType getSensorType()}] is overridden in \linesref{line:getSensorType_start}{line:getSensorType_end}. This method simply return the enum value \mono{ACCELEROMETER}.
+
+  \item[\mono{EventListenerRegistrationManager createRegManager()}] is overridden in \linesref{line:createRegManager_start}{line:createRegManager_end} and will first construct a listener, registering new measurements whenever the sensor outputs new values. We do not wish to do anything when the accuracy changes, so this block is empty. Lastly we create the registration manager, based on fields found on the \mono{SensorProvider} class, and the listener we created.
+
+  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasuremen} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
+\end{description}
 
 \lstinputlisting[
    style = Java,
