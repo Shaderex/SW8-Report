@@ -14,15 +14,14 @@ Firstly, we considered the SQLite database that is natively supported by Android
 Another option that we looked at is android-simple-storage (ASS)\footnote{https://github.com/sromku/android-simple-storage}, which, as the name implies, is a simple library for handling the internal (storage reserved for an application and only accessible through the application it is reserved for) and external (SD card or other shared storage) storage in Android. ASS allowed us a simple interface to this file system while at the same time it made it possible to encrypt the data directly through the library by specifying a few options. We therefore implemented a prototype of this as our main storage for the application. Our prototype was based on JSON as our file format and the GSON library, which provides easy serialization and deserialization of Java objects to and from JSON. A problem arose with this approach. This way of storing our data could not pass one of our acceptance tests stating that:
 
 \begin{itemize}[noitemsep]
- 	\item When there exist a snapshot model, which does not use more than 10 MB storage space using all sensors (per device) for one day
-	\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-		\item Snapshot duration: one day
-		\item Sample frequency: one minute
-		\item Sample duration: 10 seconds
-		\item Measurement frequency: 100 milliseconds
-	\end{itemize}
+   \item When there exist a snapshot model, which does not use more than 0.42 MB storage space using all sensors (per device) for one hour
+   \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+      \item Snapshot duration: one hour
+      \item Sample frequency: one minute
+      \item Sample duration one second
+      \item Measurement frequency: 100 milliseconds
+   \end{itemize}
 \end{itemize}
-\todo[inline]{OPDATER ACCEPTANCE TESTS I RAPPORT}
 
 The problem was that we used more than the maximum storage size of 10 MB as stated in the acceptance test. The JSON format had too much overhead, because it utilizes explicit field names instead of a schema, and thus it used more storage space than what should be needed. 
 \\\\
