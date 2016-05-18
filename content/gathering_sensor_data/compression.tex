@@ -30,15 +30,17 @@ When compressing, we assume that the integer part does not exceed $7$ numbers. W
 We wanted to compress the floating point values of the sensors so that the size of the data we need to send over network and store on the device would decrease. However, this compression does not come for free. We actively make a trade off between size of data stored and CPU cycles used for compressing and decompressing the values. We have conducted a performance test for our compression of floats that investigates how much extra time has to be spent on compressing and decompressing the floats. In the test we create a number of arrays that each contain three float values. The actual test is how fast the three float values can be multiplied together. We do this in two ways: One where we compress and decompress the float values first, and another one where we just multiply. This can give us an indication of how much time is lost on the compression when performing another task. 
 
 \begin{table}[!htbp]
-    \centering
-    \begin{tabular}{ | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | m{0.15\textwidth} | }
-    \hline
-    ~       & 1+ One           & ~                   & ~            & Nexus 5          & ~                   &      \\ \hline
-    Count   & With Compression & Without Compression & Ratio        & With Compression & Without Compression & Ratio\\ \hline
-    10000   & 83 ms            & 11 ms               &  7.55        & 77 ms            & 10 ms               &      \\ \hline
-    100000  & 635 ms           & 172 ms              &  3.69        & 783 ms           &  113 ms             &      \\ \hline
-    1000000 & 9088 ms          & 1333 ms             &  6.82        & 8245 ms          & 1090 ms             &      \\ \hline
-    \end{tabular}
+\centering
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+            ~ & 1+ One  & ~ & ~ & Nexus 5   & ~ & ~ \\ \hline
+            Count    & \begin{tabular}[c]{@{}l@{}}With \\ compression\end{tabular}  & \begin{tabular}[c]{@{}l@{}}Without\\ compression\end{tabular} & Ratio & \begin{tabular}[c]{@{}l@{}}With \\ compression\end{tabular}   & \begin{tabular}[c]{@{}l@{}}Without \\ compression\end{tabular} & Ratio \\ \hline
+            10000   &   83 ms   &   11 ms   & 7.55  &   77 ms   &   10 ms   & 7,70  \\ \hline
+            100000  &  635 ms   &  172 ms   & 3.69  &  783 ms   &  113 ms   & 6,93  \\ \hline
+            1000000 & 9088 ms   & 1333 ms   & 6.82  & 8245 ms   & 1090 ms   & 7,56  \\ \hline
+        \end{tabular}%
+    }
     \caption{Results of compression test}
     \label{tab:results_of_compression_test}
 \end{table}
