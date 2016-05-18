@@ -2,7 +2,9 @@
 
 \section{The Campaign Model}
 
-Our system is a platform that will allow interested parties to specify \emph{campaign}s and by these and some willing participants acquire some data corresponding to the specification. We introduce a concept called \emph{snapshot}. A \emph{snapshot} is conceptually a time snippet of the reality around a participant. The information in a \emph{snapshot} consists of sensor readings of the devices of the participant, and some \emph{label} that is derived by explicitly asking the participant. A \emph{campaign} consist of a specification that describes the structure of a \emph{snapshot}. This specification included what and when the sensor should measure the reality alongside a questionnaire that must be answered for each \emph{snapshot}. An example of such a campaign specification can be seen in FIGREF-CAMP, which is a campaign that wants to investigate if it is possible to detect if a user is influenced by alcohol. This campaign desires to get readings from a heartbeat sensor, an accelerometer and a GPS and ask questions regarding alcohol.
+A \emph{snapshot} is conceptually a time snippet of the reality around a participant. The information in a \emph{snapshot} consists of sensor readings of the devices of the participant, and some \emph{label} that is derived by explicitly asking the participant. 
+
+This campaign desires to get readings from a heartbeat sensor, an accelerometer and a GPS and ask questions regarding alcohol.
 
 \begin{figure}[!htbp]
     \centering
@@ -12,7 +14,7 @@ Our system is a platform that will allow interested parties to specify \emph{cam
 \end{figure}
 \FloatBarrier
 
-An example of such a snapshot could be as seen in \figref{fig:snapshot_example}. This have outputs from the sensors specified in the campaign. These measurements have some special temporal structure which will be described REF-TIL-TEMPORALITY. Besides sensor readings a \emph{snapshot} also have a \emph{label} associated. This label is simply a sequence of answers corresponding to a questionnaire as specified from the \emph{campaign}. 
+An example of such a snapshot could be as seen in \figref{fig:snapshot_example}. This have outputs from the sensors specified in the campaign. These measurements have some special temporal structure which will be described REF-TIL-TEMPORALITY. Besides sensor readings a \emph{snapshot} also have a \emph{label} associated. 
 
 
 
