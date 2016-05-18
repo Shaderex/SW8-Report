@@ -3,7 +3,9 @@
 \section{Participant Interaction}
 \label{sec:participant_interaction}
 \todo[inline]{overvej om der skal stå ``he'' eller ``he/she'' eller noget helt tredje}
-This section will describe how the participants are able to interact with the mobile application\todo{Skriv at vi bruger Google Material Design som udgangspunkt. Så har vi nogle ``standard'' elementer og principper at gå ud fra, så vi slipper for at opfinde den dybe tallerken}. Throughout this section we will provide mockups together with the implementation of the user interface on the device. When a participant opens the mobile application, the participant is presented with an initial screen, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with any information, but one could imagine that this view would, in future iterations, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participant must know. This screen could possibly also contain some motivational factor, provided by the customers, e.g. a ``prize'' for participation.
+This section will describe how the participants are able to interact with the mobile application\todo{Skriv at vi bruger Google Material Design som udgangspunkt. Så har vi nogle ``standard'' elementer og principper at gå ud fra, så vi slipper for at opfinde den dybe tallerken}. Throughout this section we will provide mockups together with the implementation of the user interface on the device. 
+\\\\
+When a participant opens the mobile application, the participant is presented with an initial screen, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with any information, but one could imagine that this view would, in a potential future release, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participant must know. This screen could possibly also contain some motivational factor, provided by the customers, e.g. a ``prize'' for participation.
 
 % Initial screen
 \begin{figure}[!htbp]
@@ -24,7 +26,7 @@ This section will describe how the participants are able to interact with the mo
 \end{figure}
 \FloatBarrier
 
-To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, which will each take the participant to different parts of the application, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign''.
+To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign'', which each will take the participant to different parts of the application.
 
 \begin{description}
     \item[``Browse campaigns''] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
@@ -46,7 +48,7 @@ To navigate to other views in the application, the participants must either use 
 \subsection{Browsing Campaigns}
 \label{sub:browsing_campaigns}
 
-If a participant wants to contribute to a campaign, they may browse the publicly available campaigns. This can be done through the view seen in \figref{fig:public_campaigns}. In this view, all the campaigns listed displays the title alongside with the creator of the campaign. If the participant wishes to know more about one of the listed campaign, he/she can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}. 
+If a participant wants to contribute to a campaign, they may browse the publicly available campaigns. This can be done through the view seen in \figref{fig:public_campaigns}. In this view, all the campaigns listed displays the title alongside with the creator of the campaign. If the participant wishes to learn more about one of the listed campaigns, he/she can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign will be shown. 
 
 % Publicly available campaigns
 \begin{figure}[!htbp]
@@ -67,7 +69,7 @@ If a participant wants to contribute to a campaign, they may browse the publicly
 \end{figure}
 \FloatBarrier
 
-In the browsing view the participant also has the opportunity to join a specific campaign by pressing the bottom-most blue button (join specific button), which will always be visible regardless of how far the participant scroll in the list. If the participant presses on the join specific button he/she will be redirected to the view showed in \figref{fig:specific_campaign}. Here participants can enter a unique campaign identifier. If the identifier corresponds to a campaign, the participant will be redirected to a view similar to the one seen in \figref{fig:campaign_specification}. If not, he/she will be notified that the entered campaign identifier is invalid, explanation of how to know what the identifier is, can be seen in \secref{sec:customer_interaction}. 
+In the browsing view the participant also has the opportunity to join a specific campaign by pressing the bottom-most blue button, which will always be visible regardless of how far the participant scroll in the list. If the button is pressed the participant will be redirected to the view showed in \figref{fig:specific_campaign}. Here participants can enter a unique campaign identifier, if they have been given one by a customer. If the specified identifier corresponds to a campaign, the participant will be redirected to a view similar to the one seen in \figref{fig:campaign_specification}. If not, he/she will be notified that the entered campaign identifier is invalid. 
 
 % Search for a campaign through a campaign identifier
 \begin{figure}[!htbp]
@@ -88,20 +90,22 @@ In the browsing view the participant also has the opportunity to join a specific
 \end{figure}
 \FloatBarrier
 
-Throughout the project, we have thought of quite a number of different ways of allowing the participants to search for campaigns using different search criteria:
+Throughout the project, we have thought of quite a number of different ways of allowing the participants to search for and join campaigns:
 
 \begin{description}
     \item[Quick Response (QR) Code] could be utilized to give participants an easy way of subscribing to campaigns, by scanning a QR code. Customers would be able to distribute these QR codes through both digital and printed media. Furthermore, QR codes might be more easily relatable for participants, since they might be familiar with the concept from other domains.
 
-    \item[Specific search criteria] might help participants to find exactly what they want to contribute to. Participants might only want to contribute to campaigns with a scientific background, or campaigns that have next to no impact on battery life. Other criteria might be: limited amount of, or no questions, in questionnaires. Additionally, some participants might not be willing to contribute to campaigns with specific sensors, e.g. GPS, so the possibility of searching for campaigns with specific search criteria might be desirable.
+    \item[Specific search criteria] might help participants to find exactly what they want to contribute to. Participants might only be willing to contribute to campaigns with a scientific purpose, or campaigns that have next to no impact on battery life. Other criteria might be: limited amount of questions, or none at all, in questionnaires. Additionally, some participants might not be willing to contribute to campaigns with specific sensors, e.g. GPS, so the possibility of searching for or filtering campaigns using specific terms or criteria might be desirable.
 
-    \item[Prizes and other motivational factors] will potentially have a big impact on which campaigns gets contributed to. This means that the application could assist customers in getting more participants for their campaigns by displaying information regarding the prizes that customers might provide to willing participants. One could also imagine that participants could filter campaigns with or without prizes.
+    \item[Prizes and other motivational factors] will potentially have a big impact on which campaigns gets contributed to. This means that the application could assist customers in getting more participants for their campaigns by displaying information regarding the prizes that customers might provide to willing participants. One could also imagine that participants could filter campaigns depending on whether they provide a reward or not.
 \end{description} 
 
 \subsection{Contributing to Campaigns}
 \label{sub:contributing_to_campaigns}
 
-To contribute to a specific campaign, participants must first find a campaign that the want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns}, or entering a unique identifier in the join specific campaign view, previously shown in \figref{fig:specific_campaign}. The participants must then navigate to a campaign specification view, similar to the one seen in \figref{fig:campaign_specification}. Here, participants can view the details of the campaign; after reviewing this information, they can then decide if they want to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will start the gathering process, and how this process works is described in \charef{cha:gathering_sensor_data}\todo{overvej om denne ref skal være til en specific sektion i stedet for hele kapitlet}.
+To contribute to a specific campaign, participants must first find a campaign that the want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns}, or entering a unique identifier in the join specific campaign view, previously shown in \figref{fig:specific_campaign}. The participants must then navigate to a campaign specification view, similar to the one seen in \figref{fig:campaign_specification}. 
+
+After a participant has found a campaign that he/she is willing to contribute to either through the campaign browser, previously shown in \figref{fig:public_campaigns}, or through the join specific campaign view, shown in \figref{fig:specific_campaign}, he/she will find himself/herself on an overview of the information related to the campaign in a view similar to the one seen in \figref{fig:campaign_specification}. After reviewing this information, the participant can decide if he/she wants to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will start the gathering process described in \charef{cha:gathering_sensor_data}\todo{overvej om denne ref skal være til en specific sektion i stedet for hele kapitlet}.
 
 % Campaign specification
 \begin{figure}[!htbp]
@@ -122,7 +126,8 @@ To contribute to a specific campaign, participants must first find a campaign th
 \end{figure}
 \FloatBarrier
 
-If for any reason, a participant no longer wishes to contribute to the campaign he/she is subscribed to, he/she can navigate to the specification for subscribed campaign. In the specification view, the green subscribe button will instead be a red unsubscribe button, as seen in \figref{fig:leave_campaign_no_dialog}. Pressing this button, will trigger a confirmation dialog, as seen in \figref{fig:leave_campaign_dialog}. If the participant confirms this, by pressing yes, all data collection will immediately stop, however, participants may still be asked questions, depending on the campaign\todo{forklar kort hvorfor den gør det}. This comply with the way we intended the system to work regarding the participatory sensing as described in \secref{sec:human_activity_recognition}\todo{er det her godt nok?}.
+If for any reason, a participant no longer wishes to contribute to the campaign he/she is subscribed to, he/she can navigate to the specification for the subscribed campaign. In this, the otherwise green subscribe button will instead be a red unsubscribe button, as seen in \figref{fig:leave_campaign_no_dialog}. Pressing this button, will prompt the participant with a confirmation dialog, as seen in \figref{fig:leave_campaign_dialog}. If the participant confirms the action, by pressing yes, the posting of the data to the server will stop, however, the sensors will still be running until the next question is asked due to the nature of timers and timer tasks, which is not ideal.  \todo{forklar kort hvorfor den gør det}. 
+
 
 % Leave campaign and dialog
 \begin{figure}[!htbp]
@@ -145,8 +150,9 @@ If for any reason, a participant no longer wishes to contribute to the campaign 
 
 \subsection{Answering Questionnaires}
 \label{sub:answering_questionnaired}
+% This complies with the way we intended the system to work regarding the participatory sensing as described in \secref{sec:human_activity_recognition}\todo{er det her godt nok?}.
 
-Some campaigns might request that the participants answers a questionnaire. The request can happen when the participant has closed the application, or when the participant is not using the phone. To accompany this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When the notification is pressed, the application opens with a specific activity, which can be seen in \figref{fig:answering_questionnaire_answering}. 
+Some campaigns might request that the participants answer a questionnaire. The request can happen when the participant has closed the application, or when the participant is not using the phone. To accompany this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When the notification is pressed, the application opens the view separate from the rest of the application as seen in \figref{fig:answering_questionnaire_answering}. 
 
 \todo[inline]{Overvej om at vise notifikationen hvor vores app ikke er åben}
 % Answering questionnaires
@@ -171,15 +177,16 @@ Some campaigns might request that the participants answers a questionnaire. The 
 In the current system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information.
 
 \begin{description}
-    \item[Complex questions] might be required for customers to get a better understanding of the label. Currently, only yes/no questions can be included in a questionnaire, however, customers might be interested to ask more complex questions, such as: \emph{Which of the following statements would describe your current situation best?} or \emph{Please provide a small description of your current mood}. Questions such as the latter might be harder for customers to interpret, but techniques such as  sentiment analysis could be applied here. Ideally, the system should not limit the customer in defining what label they would like to retrieve, i.e. customers should be able to define their own kind of question, or activity, they wish for participants to perform \todo{Her vil jeg gerne beskrive at der er mange metoder som kunderne kan bruge for at få information omkring dataen - så vi skal ikke spænde ben for dem på nogen som helst måde. Måske skal vi evt. overveje om vi skal skrive at de selv kan skrive activities?}. 
-
-    \item[Answer dependent questions] might be desired by customers to get a more detailed label, e.g. if the participants answers \emph{yes} to $q_1$, ask him $q_2$, otherwise ask $q_3$. Defining questions depending on the outcome of previous questions could become a complex task, and the customers might need some aid to visualize the questionnaire. Decision diagrams could be useful for this.
+    \item[Complex questions] might be required for customers to get a better understanding of the label. Currently, only yes/no questions can be included in a questionnaire, however, customers might be interested to ask more complex questions, such as: \emph{Which of the following statements would describe your current situation best?} or \emph{Please provide a small description of your current mood}. Questions such as the latter might be harder for customers to interpret automatically, but techniques such as  sentiment analysis could be applied here. Ideally, the system should not limit the customer in defining what label they would like to retrieve, i.e. customers should be able to define their own kind of question, or activity, they wish for participants to perform.
+    \todo[inline]{Her vil jeg gerne beskrive at der er mange metoder som kunderne kan bruge for at få information omkring dataen - så vi skal ikke spænde ben for dem på nogen som helst måde. Måske skal vi evt. overveje om vi skal skrive at de selv kan skrive activities?}
+    \todo[inline]{Svar på ovenstående: Det ville nok være mere fordelagtigt med noget wysiwyg programmering for customers så de kan specificere et view som vi kan interpret og dynamisk skabe i en android application, uden at skulle compile en ny apk}
+    \item[Answer dependent questions] might be desired by customers to get a more detailed label, e.g. if the participants answers \emph{yes} to $q_1$, ask him $q_2$, otherwise ask $q_3$. Defining questions depending on the outcome of previous questions could become a complex task, and the customers might need visual aid in the creation of such questions. Decision diagrams could be useful for this.
 \end{description}
 
-In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers; some of our considerations are described below.
+In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be desired by customers. Some of our considerations are described below.
 
 \begin{description}
-    \item[Timely fixed triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, i.e. at a specific time of day. This might cause gathered information to be more easily related. Furthermore, customers might be interested in asking participants regarding something, only at a specific time, e.g. in the morning (after finishing sleeping). 
+    \item[Timely fixed triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, i.e. at a specific time of day. This might cause gathered information to be more easily related. Furthermore, customers might be interested in asking participants regarding something, only at a specific time, e.g. in the morning (after waking up). 
 
-    \item[Event triggers] could be useful since participants is answering questions based on their own memory. So instead of waiting a fixed amount of time, triggers could be event based. This would prompt participants to answer questionnaires when a specific even occurs, e.g. when returning home, finished a call, etc.    
+    \item[Event triggers] could be useful since participants is answering questions based on their own memory. So instead of waiting a fixed amount of time, triggers could be event based. This would prompt participants to answer questionnaires when a specific even occurs, e.g. when returning home, after finishing a call, or when a sensor makes a major fluctuation etc.    
 \end{description}    
