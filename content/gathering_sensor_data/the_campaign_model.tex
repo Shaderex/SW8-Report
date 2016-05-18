@@ -2,9 +2,16 @@
 
 \section{The Campaign Model}
 
-A \emph{snapshot} is conceptually a time snippet of the reality around a participant. The information in a \emph{snapshot} consists of sensor readings of the devices of the participant, and some \emph{label} that is derived by explicitly asking the participant. 
+Conceptually, a \emph{snapshots} is a snippet of the reality (context) that a specific participants exists in, measured through the subjects devices along with a \emph{label}, describing this reality further. This label is used to define the reality in ways that available sensors cannot. 
 
-This campaign desires to get readings from a heartbeat sensor, an accelerometer and a GPS and ask questions regarding alcohol.
+% Vi kigger på snapshots, og deres label. Vi kan nu se mønstre i målingerne, og tilføje mere viden til de målinger. Eksempelvis kunne man undersøge om der var en sammenhæng mellem en alternated puls, og dét at være fuld.
+
+By examining snapshots, and their labels, customers will be able to recognize patterns in measurements, and be able to see a correlation between sensor output and human dynamics. For instance, as seen in \figref{fig:snapshot_example}, there could be a correlation between an alternated hearth rate and the participant being influenced by alcohol. 
+
+\\\\
+The reality of the participants are measured through a series of \emph{samples}, each consisting of a sequence of \emph{measurements}.
+\\\\
+\figref{fig:snapshot_example} shows an example of a snapshot where three sensors are used. The measurements from these sensors are then labeled, further describing the context of the participants. In this example, participants are asked to rate how drunk they are. This information can then, later, be used to 
 
 \begin{figure}[!htbp]
     \centering
@@ -15,10 +22,6 @@ This campaign desires to get readings from a heartbeat sensor, an accelerometer 
 \FloatBarrier
 
 An example of such a snapshot could be as seen in \figref{fig:snapshot_example}. This have outputs from the sensors specified in the campaign. These measurements have some special temporal structure which will be described REF-TIL-TEMPORALITY. Besides sensor readings a \emph{snapshot} also have a \emph{label} associated. 
-
-
-
-
 
 \todo[inline]{Beskriv hvad en campaign er i koden, brug gerne klassediagrammet til at forklare det!}
 
