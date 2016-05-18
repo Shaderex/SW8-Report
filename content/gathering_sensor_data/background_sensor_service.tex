@@ -30,13 +30,14 @@ An example of an Android API, or rather a library with Google APIs for Android, 
 Adding such optimizations should however be doable as all data synchronization work is local to the \mono{SynchronizationTimer} and not distributed elsewhere in the implementation. Other network tasks such a refreshing GUI with lists of campaigns from the service should happen instantly and are thus more difficult to optimize. 
 
 \subsection{Background Sensor Listening}
-The Background Sensor Service is configured to have one thread, in a pool of threads, available per sensor type, i.e. per \mono{SensorProvider}, see \secref{sub:providing_sensor_data_implementation}, instance used in the service. This lets the scheduling of the gathering from the different \mono{SensorProvider} instances up to the underlying Java implementation of threads in a hope to run the different types of sensors and other data sources as independently as possible. Data is only collected from the \mono{SensorProvider} instances if the corresponding sensors are included in the currently active campaign and if the system is currently gathering a snapshot. There is no data collection activity in the Background Sensor Service unless a timed task for a snapshot is running. CPU resources and thereby battery is therefore only consumed on demand.
+The Background Sensor Service is configured to have one thread, in a pool of threads, available per sensor type, i.e. per \mono{SensorProvider}, see \secref{sub:providing_sensor_data_implementation}, instance used in the service. This lets the scheduling of the gathering from the different \mono{SensorProvider} instances up to the underlying Java implementation of threads in a hope to run the different types of sensors and other data sources as independently as possible. Data is only collected from the \mono{SensorProvider} instances if the corresponding sensors are included in the currently active campaign and if the system is currently gathering a snapshot. There is no data collection activity in the Background Sensor Service unless a timed task for a snapshot is running. CPU resources, and thereby battery, are therefore only consumed on demand.
 \\\\
 We do not provide any real time guarantees but the different threads from the different streams of data should always be able to run unless they get starved by other processes in the system. Temporary starvation of the data collecting threads might result in missed updates from different data sources. 
 
 \subsection{Concurrency Overview}
 We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. 
 
+\todo[inline]{Rikke: Figuren skal beskrives i teksten og en legend vil være meget godt}
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff.pdf}
