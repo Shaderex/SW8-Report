@@ -5,10 +5,7 @@
 % Opsumer analyse
 % Legal stuff, Encryption stuff, ethics stuff
 \todo[inline]{Consider if these paragraphs are too short}
-There is, as described in \secref{sub:legislation}, different types of data with different privacy requirements. Some of these requirements apply to this project and the data we intend to collect. We must therefore take measures to accommodate these requirements. 
-\\\\
-% Campaign definition(s)
-We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a session of data collection from participants.    
+There is, as described in \secref{sub:legislation}, different types of data with different privacy requirements. Some of these requirements apply to this project and the data we intend to collect. We must therefore take measures to accommodate these requirements.    
 \\\\
 % Health care stuff requires real time - Impacts battery
 Available sensor gathering applications and accompanying platforms generally have real time goals, health care systems often have intervention goals which requires data to be synchronized with a central node in near real time. 
@@ -19,10 +16,17 @@ The existing solutions we have looked at does not incorporate more devices than 
 % Participatory sensing and training data
 The context of monitored ubiquitous devices, i.e. gathered sensor data, does necessarily not provide much value without being coupled with a meaningful class label which could for instance be the mental state of a participant through participatory sensing. The sensor data values, by them self, can only be used to train a model which predicts the behavior related to a subset of the sensors without the extra labels from participants. \todo{Måske en mere vag formulering eller kilde her?}
 
+\subsection{Term definitions}
+\todo[inline]{Someone confirm this section!}
+Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. We have a concept of two types of actors, a customer, which are the ones that are in need of labeled training data, and participants which are the ones that will provide this data. We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a session of data collection from participants. An analogue for a campaign could be a survey, where the questions of the questionnaire or interview is a campaigns specification defining what sensors the customer wants to get measurements from. The result of such a campaign will then be the answers to this special survey. We call these results snapshots, which are measurements from the sensors specified and some label derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist. This could be a series of questions.
+% Campaign = survey
+% Campaign specification = Activity that gathers information regarding people in some context
+% Snapshots = results of survey
+
 % Hovedspørgsmål 
 \subsection{Problem Statement}
 \label{sub:problem_statement}
-
+\todo[inline]{Rewrite problem statement and so on to use the new terms.}
 The following problem statement and supporting subquestions are based on the prior analysis.
 \\\\
 \textbf{What characterizes a participatory sensing system which collects machine intelligence training data from distributed ubiquitous devices and how could such a system be realized?}
