@@ -3,7 +3,7 @@
 \section{Customer Interaction}
 \label{sec:customer_interaction}
 
-To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns as well as create new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may utilize an Application Programming Interface (API). Both ways of interacting with the system will be described in this section.
+To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns as well as create new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may retrieve it in a JSON format which is interpretable by a computer. Both ways of interacting with the system will be described in this section.
 \\\\
 When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
 
@@ -50,27 +50,29 @@ When visiting the site, customers are presented with the page seen in \figref{fi
 
 \subsection{Registration and Logging In}
 
-To gain access to the features of the website, customers must first log in. If the customer does not have a login, he/she can create one through the register page, as seen in \figref{fig:web_register}. The \emph{name} input field will later be used to show participants who created the different campaigns. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. When the customer is registered, he/she can log in through the login-page seen in \figref{fig:web_login}.  
+To gain access to the features of the website, customers must first log in. If the customer does not have a login, he/she can create one. The page for registration as well as the login page are similar to the ones of many other pages. When a user registers he is asked to provide a name, an email and a password. The name is used to show participants who created the different campaigns, allowing them to pick and choose which customers they wish to contribute data to. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. 
 
-% Register
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=\linewidth]{user_interfaces/web/web_register}
-\caption{Register page.}
-\label{fig:web_register}
-\end{figure}
-\FloatBarrier
+\todo[inline]{Jeg kunne forestille mig at det ville være beneficial at have conceptet om comapanies (customers) på web delen hvor flere users kan være tilknyttet det samme firma}
 
-% Login
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=\linewidth]{user_interfaces/web/web_login}
-\caption{Login page.}
-\label{fig:web_login}
-\end{figure}
-\FloatBarrier
+% % Register
+% \begin{figure}[!htbp]
+% \centering
+% \includegraphics[width=\linewidth]{user_interfaces/web/web_register}
+% \caption{Register page.}
+% \label{fig:web_register}
+% \end{figure}
+% \FloatBarrier
 
-\subsection{Creating Campaign}
+% % Login
+% \begin{figure}[!htbp]
+% \centering
+% \includegraphics[width=\linewidth]{user_interfaces/web/web_login}
+% \caption{Login page.}
+% \label{fig:web_login}
+% \end{figure}
+% \FloatBarrier
+
+\subsection{Creating Campaigns}
 \label{sub:creating_campaign}
 
 When a customer is logged in, he/she has the option to create campaigns. This is done through the site seen in \figref{fig:web_create_campaign}. Here, customers will have to specify different details regarding the campaign. To give customers an ideas of how the participants will view this information, a mobile phone is included on the page, showing the mobile application. Please note that this is only an indication of how it will look, since different phones, with different screen sizes, font settings, etc. will influence the look of the application. A detailed description of all the input fields that the customer must fill out is described below.
@@ -88,9 +90,9 @@ When a customer is logged in, he/she has the option to create campaigns. This is
 
     \item[Sample and measurement] consists of five different input fields. The \emph{Snapshots per Campaign} input is used to specify how many snapshots the participant must collect before completing a campaign. However, in the current implementation of system, this property is not used, meaning that participants will continue to contribute until unsubscribing from the campaign. 
 
-    The \emph{Measurement per Sample}- and \emph{Measurement delay} input fields will change the length of a sample; while the \emph{Samples per Snapshot}- and \emph{Sample delay} input fields will change the length of a Snapshot. 
+    The \emph{Measurement per Sample}- and \emph{Measurement delay} input fields will change the length of a sample, while the \emph{Samples per Snapshot}- and \emph{Sample delay} input fields will change the length of a Snapshot. 
 
-    Please note that this way of specifying snapshots differs from the internal structure, explained in \secref{sec:temporal_properties_of_snapshots}. We did this, since customers might find it easier to specify the delay between measurements and samples, rather than having to calculate the different frequencies. 
+    Please note that this way of specifying snapshots differs from the internal structure, explained in \secref{sec:structural_sensor_data}. We did this, since customers might find it easier to specify the delay between measurements and samples, rather than having to calculate the different frequencies. 
 
     The concept of delay, amount of measurements, samples etc. might still be difficult to grasp, so we have included a illustration of a time line. This could possibly aid customers in specifying the different parameters. Ideally, the figure should be responsive, and automatically update whenever customers change the input fields \todo{Det her kan måske lyder lidt kringlet/svært at forstå, måske revise lidt}. 
 
