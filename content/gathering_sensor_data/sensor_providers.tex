@@ -3,7 +3,7 @@
 \section{Providing Sensor Data}
 \label{sec:providing_sensor_data}
 
-We have designed a general abstraction for the different available sensors and data sources to support the structure as described in \secref{sec:structural_sensor_data} called a Sensor Provider. 
+We have designed a general abstraction for the different available sensors and data sources to support the structure as described in \secref{sec:structural_sensor_data} called a \emph{Sensor Provider}. 
 \\\\
 This abstraction is designed for concurrent and independent collection of samples, as we want the application to be able to gather information from multiple sources at the same time, meaning that the system is able to, for instance, collect data regarding the motion and location of the participant simultaneously. This is done in order to make sure that the gathered data is obtained according to the desired temporality of the customer, i.e. the time constraints of the campaign as seen in \figref{fig:sample_temporality}.
 \\\\
@@ -31,7 +31,7 @@ Another scenario, as shown in \figref{fig:cache_multiple_event_between}, could b
 \end{figure}
 \FloatBarrier
 
-One issue this design might introduce is that we rely on these sensor events being raised eventually. The cache must contain some default value for a sensor, if this is not the case, which could potentially pollute the measurements until the first event is triggered. This means that until the first event is raised other processes will be answered with default values. Other types of data sources, which are not event driven, such as WiFi, is as mentioned in \secref{sec:deriving_the_context_from_sensors}, available on demand meaning that we are able to acquire the access point data at any given time as long as WiFi is enabled, meaning that some data sources already provide the desired behavior. Some of these on demand sensors might take some time to acquire the information. An example of this could be triangulation based on satellites for GPS. A potential problem here, in regards to timing, is therefore latency before the underlying system is ready to return the data to the caller.
+One issue this design might introduce is that we rely on these sensor events being raised eventually. The cache must contain some default value for a sensor, if this is not the case, which could potentially pollute the measurements until the first event is triggered. This means that until the first event is raised other processes will be answered with default values. Other types of data sources, which are not event driven, such as Wi-Fi, is as mentioned in \secref{sec:deriving_the_context_from_sensors}, available on demand meaning that we are able to acquire the access point data at any given time as long as Wi-Fi is enabled, meaning that some data sources already provide the desired behavior. Some of these on demand sensors might take some time to acquire the information. An example of this could be triangulation based on satellites for GPS. A potential problem here, in regards to timing, is therefore latency before the underlying system is ready to return the data to the caller.
 
 \todo{Tilfældig slutning her.. virker som om vi ikke rigtigt har løst problemet med latency. ??}
 
