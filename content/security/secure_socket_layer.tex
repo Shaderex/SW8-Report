@@ -16,9 +16,15 @@ To establish the connection between the client and the server, the client initia
 \FloatBarrier
 
 For our purposes we have chosen to use what is called a self-signed certificate, because it covered the need for encryption that we had, and the price of a certificate issued by a CA is fairly high. The certificate we use was created by using OpenSSL\footnote{https://www.openssl.org}, which is an open source project that allows you to create your own certificate. One of the issues in utilizing a self-signed certificate is that the certificate will not be trusted by most browsers and operating systems. A more severe problem is the fact that it leaves the connection vulnerable to a man in the middle attack, where a third party with malicious intent might intercept the connection and use his own ``fake'' certificate and thereby getting access to potentially sensitive information. This would not be a problem if we had used a certificate issued by a CA, because the certificate then could be validated. Having a self-signed certificate also means that most browsers will not trust the certificate, and make the user of the browser aware that the site they are trying to connect to might be insecure with a scary warning page. 
-Another problem is that the self-signed certificates are not trusted by Android, which causes problems when trying to make a connection to our server. To solve this problem Android provides the possibility of overriding what they call their \mono{TrustManager}, which we have done. 
+Another problem is that the self-signed certificates are not trusted by Android, which causes problems when trying to make a connection to our server. To solve this problem Android and the library we use provide the possibility of overriding what they call their \mono{TrustManager}, as seen in \lstref{lst:trust_manager}. 
 
-\todo[inline]{insert snippet of trust manager override, and explain it above}
+\lstinputlisting[
+   style = Java,
+   caption = {The very simplified \mono{TrustManager} that we utilize.},
+   label = {lst:trust_manager},
+   float=!htbp,
+]{content/security/code_snippets/trustManager.java}
+\FloatBarrier
 
 Another problem that we encountered with the Android platform is that there are issues when a certificate uses what is called wildcard subdomains. Wildcard subdomains allows us to use the same certificate for various server names mentioned in \secref{sub:server_names}. Therefore we used the wildcard domain ``\mono{*.*.ourdomain.dk}'' on our certificate. However, in case of wildcard subdomains the standard Android hostname verifier will try to check if the domain is an exact match to the requested hostname, which will fail and raise an exception. Luckily, the framework allows us to override their \mono{HostnameVerifier} as seen in \todo{insert hostname verifier ref}
 
