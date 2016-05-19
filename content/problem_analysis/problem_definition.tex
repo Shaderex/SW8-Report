@@ -17,11 +17,7 @@ The existing solutions we have looked at does not incorporate more devices than 
 The context of monitored ubiquitous devices, i.e. gathered sensor data, does necessarily not provide much value without being coupled with a meaningful class label which could for instance be the mental state of a participant through participatory sensing. The sensor data values, by them self, can only be used to train a model which predicts the behavior related to a subset of the sensors without the extra labels from participants. \todo{Måske en mere vag formulering eller kilde her?}
 
 \subsection{Term definitions}
-\todo[inline]{Someone confirm this section!}
-Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. We have a concept of two types of actors, a customer, which are the ones that are in need of labeled training data, and participants which are the ones that will provide this data. We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a session of data collection from participants. An analogue for a campaign could be a survey, where the questions of the questionnaire or interview is a campaigns specification defining what sensors the customer wants to get measurements from. The result of such a campaign will then be the answers to this special survey. We call these results snapshots, which are measurements from the sensors specified and some label derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist. This could be a series of questions.
-% Campaign = survey
-% Campaign specification = Activity that gathers information regarding people in some context
-% Snapshots = results of survey
+Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. We have a concept of two types of actors, customers and participants. A customer is one who are in need of labeled training data, while a participant is one who will provide the data a customer need. We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a session of data collection from participants. An analogue for a campaign could be a survey, where the questions of the questionnaire, or interview, is a campaigns specification defining what sensors the customer wants to get measurements from. The result of such a campaign will then be the answers to this special survey. We call these results snapshots, which are measurements from the sensors specified and some label derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist, which could be a series of questions.
 
 % Hovedspørgsmål 
 \subsection{Problem Statement}
@@ -33,13 +29,13 @@ The following problem statement and supporting subquestions are based on the pri
 
 % Underspørsmål
 \begin{itemize}
-    \item How can we facilitate ad-hoc sensor data collection of different ubiquitous devices, which might and might not be present at a given time?
+    \item How can we facilitate ad-hoc sensor data collection of different ubiquitous devices, which might or might not be present at a given time?
 
-    \item How can we acquire class labels, from participants, for the sensor data context gathered from ubiquitous devices?  
+    \item How can we acquire labels, from participants, for the sensor data context gathered from ubiquitous devices?  
     
     \item How can we allow customers to define a campaign for their participants?
     
-    \item How can we minimize the effect which the mobile application have on participants daily mobile life
+    \item How can we minimize the effect which the mobile application have on participants daily mobile life?
 
     \item How can we maintain required privacy legislation and protect participants' sensitive personal data? 
 \end{itemize}
