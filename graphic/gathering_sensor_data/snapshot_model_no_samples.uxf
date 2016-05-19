@@ -332,9 +332,9 @@ bg=#ddddddd</panel_attributes>
     <id>Text</id>
     <coordinates>
       <x>231</x>
-      <y>308</y>
+      <y>363</y>
       <w>77</w>
-      <h>440</h>
+      <h>396</h>
     </coordinates>
     <panel_attributes>halign=right
 valign=center
@@ -345,7 +345,7 @@ Snapshot</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>517</y>
+      <y>550</y>
       <w>44</w>
       <h>33</h>
     </coordinates>
