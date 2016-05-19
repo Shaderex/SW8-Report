@@ -1,0 +1,8 @@
+%!TEX root = ../../super_main.tex
+
+\section{Compression}
+\label{sec:reflection_compression}
+
+At some point in time after we created the compression method for three floats described in \secref{sec:compression}, we had to send the data to the server, and for this we decided to use the JSON format for transferring data. This resulted in the insertion of \mono{FloatTripleMeasurements} into the JSON which was sent as HTTP requests. When the server receives a snapshot, the entire JSON string is inserted into the PostgreSQL database as a \mono{text} type, which is a varying unlimited length string type. This means that, when we want to display the JSON to the customers, we would have to decompress our FloatTripleMeasurements, somewhere in the middle of the JSON, before the data is useful for the customers.
+\\\\
+When we created the \mono{FloatTripleMeasurement}s on the Android side, we immediately made sure to create a decompression algorithm on our server in PHP, so we could handle it however we decided to. Sadly, we did not have the time to create the appropriate search, decompress and replace functions when we decided upon the JSON format. This resulted in having to decompress the \mono{FloatTripleMeasurement}s on the Android side before sending the data, which is a suboptimal solution. Now we both spend power on compressing and decompressing the data on the phone, where the decompression could have been made on the server, which therefore directly and negatively affects the participants. We should ideally have created a much more detailed database schema, where we could separate the JSON and insert correctly and decompressed.
