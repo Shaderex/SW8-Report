@@ -23,3 +23,22 @@ The communication between the server and the client will be done over HTTP, and 
 \FloatBarrier
 
 Besides the routes for the Android client there also exist routes related to the user interface of the web application. These routes are not prefixed with ``api'', and are used for creating and managing the campaigns in the system and retrieve information about the campaigns and their submitted snapshots. These routes are further described in \secref{sec:customer_interaction}. 
+
+\subsubsection{Server Names}
+\label{sub:server_names}
+
+A problem that we have dealt with during the setup of the servers was that it was placed on the university. Problems arose when we wished to access the server from outside the university network. We had to request the network commitee on AAU to gain access from the outside of the university. However, in doing this the we would have to utilize another IP to access the server from outside the university network. This would not have been a problem if the IP that was utilized to access the server outside the university network also worked when one was connected to the university network, however this was not the case. Furthermore, we also wanted two version of our web site and API: one for development and one for production to ensure that we had a stable version of the server side available. The problem is that the physical somehow should be able to distinguish these two versions from each other. 
+\\\\
+To solve these problems we introduce different subdomains to our site as can be seen in \tabref{tab:server_names}. The primary domain name ``element67.dk'' is a domain owned by a group member, which already had access to editing DNS records for this domain. The local domains have DNS records where the server name is mapped to the internal IP on the university, whereas the global ones map to the external IP. 
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|l|l|l|} \hline
+                                  & \textbf{Production}             & \textbf{Development}     \\ \hline
+        \textbf{Internal network} & prod.local.element67.dk         & dev.local.element67.dk   \\ \hline 
+        \textbf{External network} & prod.global.element67.dk        & dev.global.element67.dk  \\ \hline
+    \end{tabular}
+    \caption{The different server names that we need}
+    \label{tab:server_names}
+\end{table}
+
