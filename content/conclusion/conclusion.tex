@@ -2,3 +2,45 @@
 
 \chapter{Conclusion}
 \label{cha:conclusion}
+
+% Hvad har vi gjort? Hvad kan vi?
+We have designed and implemented a solution which allows customers to create customized campaigns for collection of labeled training data. The labeled training data is returned to customers in a readable JSON format, which should allow easy conversion to a format suitable to the customer's machine learning problem or other needs. 
+
+% Hvad består løsning af?
+The implemented system consists of a server part and an Android application part. The server part has a front-end for configuration of data collection campaigns and for retrieval of the collected data and a back-end for upstreams of collected data from the Android application. 
+\\\\
+The Android application is also split into two parts, a front-end and a background service. The front-end is designed to allow participants to give consent for the participation of campaigns and to allow participants to answer questionnaires which gives the labels for the collected data. The background service is used to collect the remaining data. The data collection performed by the background service includes automated collection of data about the users context through sensors local to the device which runs the application and other sources such as an external smart band. 
+
+% Hvad er det overordnede success kriterie? 
+
+The implemented solution originates from the difficulties of collecting custom machine learning data sets which can be used to capture and learn specific patterns in human behavior.  
+
+The problem statement is reproduced here for the reader's convenience:
+\\\\
+\input{content/problem_analysis/problem_statement}
+
+%  % Resultat i forhold til problem formulering / Forhold os til underspørgsmål:
+
+% How can we acquire labels, from participants, for the sensor data context gathered from ubiquitous devices?  
+	% Vi håndtere sensorer der ikke altid er til stede.... 
+% How can we allow customers to define a campaign for their participants?
+	% Vi tillader specifikation af campaign igennem en webside
+% How can we minimize the effect which the mobile application have on participants daily mobile life?
+	% Vi har lavet optimeringer.. Vi lader det være op til customers hvor meget participants skal forstyrres
+% How can we maintain required privacy legislation and protect participants' sensitive personal data? 
+	% A mix of symmetric and asymetric encryption for communication and symmetric encryption for local storage. 
+
+Customers are able specify zero to many binary yes/no questions for questionnaires, through campaign specifications, to be asked periodically, and thereby derive labels for the collected data. The questionnaires are presented to the participant through notifications which allows the user 
+
+% Hvad er rigtig godt?
+
+We have designed an architecture for a data collection application, which is easily extendable with new sources of data both from the device where the application is installed and from external sources such as a wearable connected through for instance Bluetooth or WiFi. 
+\\\\
+We have laid out how the efficiency, in terms of battery consumption, of the implemented application could be improved and we have implemented some battery consumption optimizations such as batching network requests to some degree and using WiFi instead of mobile networks when uploading data.
+\\\\
+
+
+\todo{Opsumer resultater fra TOV tests}
+
+
+The design has been implemented ...
