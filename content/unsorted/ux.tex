@@ -2,10 +2,42 @@
 \section{Participant Experience Evaluation}
 \label{sec:participant_experience_evaluation}
 
-We want uMiner to be as general as possible in terms of who participants might be. Meaning that we want to target as many different personas as possible in terms of user experience of the Android application. We have for this reason tried to create some sort of user experience evaluations in regards to the part of the system the participants are going to use. The idea of this evaluation is to determine if there are some obvious flaws in the design of how our Android application in regards to disturbing the participants. We want to investigate if we developed a solid start for part of the client application that notifies and asks the participants questions.
+We want uMiner to be as general as possible in terms of who participants might be. Meaning that we want to target as many different personas as possible in terms of user experience of the Android application. We have for this reason tried to create some sort of user experience evaluations in regards to the part of the system the participants are going to use. The idea of this evaluation is to determine if there are some obvious flaws in the design of how our Android application in regards to disturbing the participants. We want to investigate if we developed a solid start for part of the client application that notifies and asks the participants questions. This evaluation was performed with five people having a compatible smartphone, firstly this is not a great deal of test subjects and does not provide any statistical evidence for the evaluation of the system, but we hope to get some constructive evaluation of the application never the less. Furthermore one should not that the persona of these five test subjects are rather similar. All five are male in their start 20s, with similar interests, all being tech savvy some extend.
 
-\subsection{Test Setup}
-\label{sub:test_setup}
+\subsection{Setup}
+\label{sub:setup}
 
-We have created a test campaign called ``Alcohol and you'' which should emulate the type of campaign a final customer might specify. The campaign specification can be seen in TABREF. This specification means that we take 600 measurements every hour and we desire answers for a questionnaire every other hour.
+We have created a test campaign called ``Alcohol and you'' which should emulate the type of campaign a final customer might specify. The campaign specification can be seen in \tabref{tab:test_campaign_spec}. This specification means that we take 600 measurements every hour and we desire answers for a questionnaire every other hour.
+
+\begin{table}[!htbp]
+    \centering
+	\begin{tabular}{|l|l|} \hline
+	Total duration        & 2 hr                                                                                                                                                                                                                                                           \\ \hline
+	Sample frequency      & 1 min                                                                                                                                                                                                                                                          \\ \hline
+	Sample duration       & 2 sec                                                                                                                                                                                                                                                          \\ \hline
+	Measurement frequency & 200 mili sec                                                                                                                                                                                                                                                   \\ \hline
+	Sensors               & Accelerometer, 
+							Ambient Light,
+							Barometer,
+							Compass,
+							Gyroscope,
+							Location,
+							Proximity,
+							Galvanic Skin Response (Microsoft Band 2),
+							Heartbeat (Microsoft Band 2),
+	Questions             & Have you within the last hour had an alcoholic beverage?,
+							Have you within the last hour had a carbonated alcoholic beverage?,
+							Have you within the last hour had a strong alcoholic beverage with (more than 10\% alcohol)?, 
+							Do you feel influenced by alcohol? \hline
+	\end{tabular}
+	\caption{Alcohol and you specification}
+	\label{tab:test_campaign_spec}
+\end{table}
+\FloatBarrier
+
+The application was distributed and installed on devices of test subjects, and they were guided to how they could start contributing to our test campaign. This means that this test does not in any way evaluate the main activity of the system, it only evaluates the experience of being notified by the application and prompted with questions. After the setup of the application we told the test subjects to proceed with their daily life and treat the uMiner application as any other application the might have installed from the Google Play Store. 
+
+\subsection{Results}
+\label{sub:results}
+After 24 hours of the application being installed on the test participants devices we asked them a series of questions to understand the disturbance of the notifications and questionnaire throughout one day of experience. 
 
