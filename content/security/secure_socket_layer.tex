@@ -20,24 +20,7 @@ Another problem is that the self-signed certificates are not trusted by Android,
 
 \todo[inline]{insert snippet of trust manager override, and explain it above}
 
-Another problem that we encountered with the Android platform is that there are issues when a certificate uses what is called wildcard subdomains. Wildcard subdomains allows us to use the same certificate for various subdomains. The reason why it is necessary for us to have multiple subdomains is that we have a development site (dev) and a production site (prod). These sites all should have different domains to allow the server to tell them apart. Furthermore, the server has different IP addresses depending on if the server is accessed from the university network, or if it is accessed from outside, meaning that we need different DNS records for in house access and outside access. Therefore we created the different DNS records seen in \tabref{tab:dns}, and used the wildcard domain ``\mono{*.*.ourdomain.dk}'' on our certificate.
-
-\begin{table}[!htbp]
-	\centering
-	\begin{tabular}{|l|l|} \hline
-		\textbf{Domain}				& \textbf{IP}	\\ \hline
-		prod.local.ourdomain.dk 	& localip		\\ \hline 
-		dev.local.ourdomain.dk 		& localip		\\ \hline
-		prod.global.ourdomain.dk 	& globalip		\\ \hline
-		dev.global.ourdomain.dk 	& globalip		\\ \hline
-	\end{tabular}
-	\caption{DNS records}
-	\label{tab:dns}
-\end{table}
-
-\FloatBarrier
-
-In case of wildcard subdomains the standard Android hostname verifier will try to check if the domain is an exact match to the requested hostname, which will fail and raise an exception. Luckily, the framework allows us to override their \mono{HostnameVerifier} as seen in \todo{insert hostname verifier ref}
+Another problem that we encountered with the Android platform is that there are issues when a certificate uses what is called wildcard subdomains. Wildcard subdomains allows us to use the same certificate for various server names mentioned in \secref{sub:server_names}. Therefore we used the wildcard domain ``\mono{*.*.ourdomain.dk}'' on our certificate. However, in case of wildcard subdomains the standard Android hostname verifier will try to check if the domain is an exact match to the requested hostname, which will fail and raise an exception. Luckily, the framework allows us to override their \mono{HostnameVerifier} as seen in \todo{insert hostname verifier ref}
 
 \todo[inline]{Insert snippet of hostname verifier and describe it below}
 
