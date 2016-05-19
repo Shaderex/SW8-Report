@@ -6,9 +6,6 @@ The server, as seen in the top right part of \ref{fig:system_architecture}, both
 The server utilizes a web server technology, called NGINX, to serve dynamic content over the Hyper Text Transfer Protocol (HTTP). Furhtermore the server hosts a PostgreSQL database, which allows us to store the data collected from all the participants, as well as information regarding customers and campaigns.  
 With these features the server is now able to facilitate the Laravel\footnote{https://laravel.com} web framework, which is a framework built on the model-view-controller (MVC) pattern. This allows us to route incoming requests and differentitate between requests from a device wanting JSON and requests from a customer using a browser. 
 
-
-\todo[inline]{Beskriv server setup i kælderen. Måske flyt tabel fra TLS herop. Beskriv at vi ikke fik port 80 men 8000 her eller i server interface}
-
 \input{content/architecture/client_server_communication/server_interface}
 
 \input{content/architecture/client_server_communication/request_handling}
