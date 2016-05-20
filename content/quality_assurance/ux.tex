@@ -28,9 +28,9 @@ We have created a test campaign called ``Alcohol and you'' which should emulate 
 								\item Heartbeat (Microsoft Band 2)
 							\end{itemize} \\\hline
 	Questions             & \begin{itemize}[noitemsep]
-								\item Have you within the last hour had an alcoholic beverage?
-								\item Have you within the last hour had a carbonated alcoholic beverage?
-								\item Have you within the last hour had a strong alcoholic beverage with (more than 10\% alcohol)?
+								\item Have you within the last two hours had an alcoholic beverage?
+								\item Have you within the last two hours had a carbonated alcoholic beverage?
+								\item Have you within the last two hours had a strong alcoholic beverage with (more than 10\% alcohol)?
 								\item Do you feel influenced by alcohol?
 							\end{itemize} \\ \hline
 	\end{tabular}
@@ -43,23 +43,53 @@ The application was distributed and installed on devices of test subjects, and t
 
 \subsection{Results}
 \label{sub:results}
-After 24 hours of the application being installed on the test participants devices we asked them a series of questions to understand the disturbance of the notifications and questionnaire throughout one day of experience. The results of this survey can be seen in \tabref{tab:survey_result}
-
-\todo[inline]{Prettify table and translate}
-\begin{table}[]
-\centering
-\caption{Result of the survey.}
-\label{tab:survey_result}
-\begin{tabular}{|m{0.7\textwidth}|m{0.3\textwidth}|} \hline
-Hvor god føler du dine evner er til at benytte en smartphone? (1-5)                                           & 3: 20\% , 4: 40\% , 5: 40\%			  \\ \hline
-Har du følt dig generet af uMiner applikationen?                                                              & Ja: 20\% 							  \\ \hline
-Hvor meget følt du den generede dig? (1-5)                                                                    & 2: 100\% 							  \\ \hline
-Hvor ofte ignorerede du spørgsmålene (notifikationerne) du fik?                                               & Ingen: 80\% , \textgreater 50\%: 20\% \\ \hline
-Har du på noget tidspunkt haft lyst til at afinstallere uMiner mens den har været installeret på din telefon? & Nej: 100\% \\ \hline
-\end{tabular}
-\end{table}
+After 24 hours of the application being installed on the test participants devices we asked them a series of questions to understand the disturbance of the notifications and questionnaire throughout one day of experience. The results of this survey can be seen in \tabref{fig:survey_results}. These results show that our participants in general are not being disturbed to a severe degree. Most of the participants did answer they was not distrubed at all as seen in \figref{fig:general_disturbance}, where the one person feeling disturbed only deemed it to be a degree 2 out of 5 of disturbance as seen in \figref{fig:disturbance_level}. Same goes for the amount of notifications being dismissed, as seen in \figref{fig:ingore_notifications}, only 1 in 5 ignored the notifications and they only did so for half of them or less. Lastly none of the test participants had the desire to uninstall the application after contributing for a day as seen in \figref{fig:want_to_uninstall}.
 
 
-\todo[inline]{Mention the feedback regarding "Hvis jeg ikke var fuld 6.20 om morgenen er jeg det sku nok heller ikke klokken 8 og klokken 10"}
-%Hvorfor ignorerede du spørgsmålene?
-%Hvis jeg ikke var fuld 6.20 om morgenen er jeg det sku nok heller ikke klokken 8 og klokken 10
+\begin{figure}[!htbp]
+    \begin{subfigure}[!t]{.45\textwidth}
+      \centering
+        \input{content/quality_assurance/ux_figs/smartphone_ability}
+        \caption{On a scale from 1 to 5, where 1 is novice and 5 is expert how would you rate your abilities to utilize a smartphone.}
+      \label{fig:smartphone_ability}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[!htbp]{.45\textwidth}
+      \centering
+        \input{content/quality_assurance/ux_figs/general_disturbance}
+      \caption{Did you feel that the application was disturbing?}
+      \label{fig:general_disturbance}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}[!htbp]{.45\textwidth}
+      \centering
+        \input{content/quality_assurance/ux_figs/disturbance_level}
+      \caption{On a level from 1 to 5, to what degree did you feel disturbed?}
+      \label{fig:disturbance_level}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[!htbp]{.45\textwidth}
+      \centering
+        \input{content/quality_assurance/ux_figs/ingore_notifications}
+      \caption{How many of the notifications uMiner sent did you ignore of dismiss?}
+      \label{fig:ingore_notifications}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}[!htbp]{\textwidth}
+      \centering
+        \input{content/quality_assurance/ux_figs/want_to_uninstall}
+      \caption{Did you at any point want to uninstall the application?}
+      \label{fig:want_to_uninstall}
+    \end{subfigure}
+    \caption{Survey results.}
+    \label{fig:survey_results}
+    \end{figure}
+\FloatBarrier
+
+In this small set of test participants the general user experience regarding the notifications and questionnaires showed to be rather successful. Besides these metrics in \figref{fig:survey_results}, we got some feedback for the application concerning the fact that we ask the same question multiple times throughout a day. One of the participants sent the following feedback:
+\\\\
+\translated{Hvis jeg ikke var fuld 6.20 om morgenen er jeg det sku nok heller ikke klokken 8 og klokken 10}{If i was not drunk at 6.20 in the morning, i am probably not drunk at 8 or 10 either.}
+\\\\
+We can see the concern of this participant, and could imagine that the questionnaires would be rather tedious to answer because the user is prompted for the exact same thing over and over. One could imagine that platform would have to provide a better way of prompting for questions, for instance only ask questions once a day. With the ``Alcohold and you'' campaign, one could imagine that the user was asked daily with something like, ``Have you consumed alcohol today?'', and then give the user to enter some timespan in where he was influence by alcohol. However with this approach the accuracy of the snapshots rely on the memory of the participants and this might pollute the snapshots with less accurate data. The important thing to consider is that if the platform should be further developed it is important that it provides great tools for the customer to specify on how he wants to ask the participants questions. 
+\\\\
+In the end the customer want to get as accurate data as possible while still disturbing the participants as little as possible, it will be a challenge to maintain both of these qualities or find some good trade-off between them.

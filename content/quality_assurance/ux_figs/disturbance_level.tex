@@ -1,0 +1,22 @@
+%!TEX root = ../../../super_main.tex
+\pgfplotstableread[row sep=\\,col sep=&]{
+    interval & disturbance\\
+    1   & 0  \\
+    2   & 20  \\
+    3   & 0 \\
+    4   & 0 \\
+    5   & 0 \\
+    }\mydata
+\begin{tikzpicture}
+    \begin{axis}[
+            width  = \textwidth,
+            height = 5.5cm,
+            ybar,
+            nodes near coords,
+            ymax=100,
+            symbolic x coords={1,2,3,4,5},
+            xtick=data,
+        ]
+        \addplot table[x=interval,y=disturbance]{\mydata};
+    \end{axis}
+\end{tikzpicture}
