@@ -14,18 +14,22 @@ The Android framework supports two-way message parsing as a way of communication
 % Boot receiver
 % On Application start
 \subsection{Service Start}
-Our \mono{BackgroundSensorService} should ideally always be running, which does not imply that it is constantly using processing ressources. We have implemented two measures to ensures that the service is running for as much time as possible. We have implemented an Android BroadcastReceiver, which upon receiving a system wide boot completed action (\mono{ACTION\_BOOT\_COMPLETED}), starts the service. The service is also attempted started everytime the application is started, but is not started twice if the service is already running. 
+Our \mono{BackgroundSensorService} should ideally always be running, which does not imply that it is constantly using processing resources. We have implemented two measures to ensures that the service is running for as much time as possible. We have implemented an Android BroadcastReceiver, which upon receiving a system wide boot completed action (\mono{ACTION\_BOOT\_COMPLETED}), starts the service. The service is also attempted started every time the application is started, but is not started twice if the service is already running. 
 
 \subsection{Snapshot Generation and Synchronization}
 \label{sub:background_sensor_service_snapshot_generation_and_synchronization}
 
-The background \mono{BackgroundSensorService} uses two independent timers. One for snapshot generation and one for synchronization of the snapshots with our server. The timer for snapshot generation is encapsulated in a class called \mono{SnapshotTimer} which is started whenever the service has an active running campaign which should generate snapshots. Timed tasks are then scheduled at a constant rate, generating snapshots, until the campaign is completed or stopped by the user.
+The background \mono{BackgroundSensorService} uses an independed timer for snapshot generation. The timer for snapshot generation is encapsulated in a class called \mono{SnapshotTimer} which is started whenever the service has an active running campaign which should generate snapshots. Timed tasks are then scheduled at a constant rate, generating snapshots, until the campaign is completed or stopped by the user.
 \\\\
-Before we send all available snapshots to the server we transform them to a JSON format, because JSON is humanly readable, decent for machine learning purposes, and because it has to have some well defined format when we send it, so it can be made sense of on the server. We use this because it is easy, instead of inventing our own format, but at the sacrifice of spending extra bandwidth of the participant to send it, which is rather bad. A better solution would be to use some format with few-to-no keys, where we have optimized how much space we use. When we have converted the data to JSON, the actual synchronization of snapshots is done with the second timer which is encapsulated in a class called \mono{SynchronizationTimer}. This timer schedules tasks, when active, which attempts to synchronize gathered snapshots with the server at a fixed rate, if the device is currently connected to a Wi-Fi network. This is not an optimal solution, as it does not incorporate any battery consumption optimizations, except maybe for a little bundling of the data in the given temporal frame until the next synchronization. The actual size of the bundled data is not taken into account so the bundling of the collected data is probably not that effective, especially not for data sets collected at a low frequency. The \mono{SynchronizationTimer} also does not incorporate any radio based optimizations such as scheduling network task through Android APIs. The \mono{SynchronizationTimer} just requests immediate communication over the Wi-Fi connection which forces waking up radio hardware if it was in a dormant state. This is not ideal as we do not require data to be uploaded as soon as its ready as stated in \todo{Byg ref til vores opsummering af krav jf. task til at gøre det (Måske ref til userstories og acceptance test?)} and because there is potential for less battery consumption which would help satisfy \todo{ref til konkret requirement }. 
+Before we send all available snapshots to the server we transform them to a JSON format, because JSON is humanly readable, decent for machine learning purposes, and because it has to have some well defined format when we send it, so it can be made sense of on the server. We use this because it is easy, instead of inventing our own format, but at the sacrifice of spending extra bandwidth of the participant to send it, which is rather bad. A better solution would be to use some format with few-to-no keys, where we have optimized how much space we use. 
 \\\\
-An example of an Android API, or rather a library with Google APIs for Android, which could help optimize network usage would be the \mono{GCMNetworkManager} class, which is an Android service, that can schedule encapsulated network tasks. \mono{GCMNetworkManager} \parencite{gcmnetworkmanager} handles batching of network tasks; retries; backoffs, in case a remote server is not responding or is busy; waiting for Wi-Fi, for bandwidth heavy communication; waiting with commutation until the device is charging; and waiting until a radio becomes active, for instance by getting activated by another application. It does all of this based on parameters given to every encapsulated network tasks such as a desired time frame for the network communication and desired network or battery conditions.  
+When we have converted the data to JSON, the actual synchronization of snapshots is done separately and is encapsulated in a class called \mono{SynchronizationManager}. This synchronization should ideally be done using as little network resources as possible, and thereby also save battery capacity. 
 \\\\
-Adding such optimizations should however be doable as all data synchronization work is local to the \mono{SynchronizationTimer} and not distributed elsewhere in the implementation. Other network tasks such a refreshing GUI with lists of campaigns from the service should happen instantly and are thus more difficult to optimize. 
+An example of an Android API, or rather a library with Google APIs for Android, which could help optimize network usage, and the, would be the \mono{GCMNetworkManager}, which is an Android service, that can schedule encapsulated network tasks. \mono{GCMNetworkManager} \parencite{gcmnetworkmanager} handles batching of network tasks; retries; backoffs, in case a remote server is not responding or is busy; waiting for Wi-Fi, for bandwidth heavy communication; waiting with commutation until the device is charging; and waiting until a radio becomes active, for instance by getting activated by another application. It does all of this based on parameters given to every encapsulated network tasks such as a desired time frame for the network communication and desired network or battery conditions.  
+\\\\
+Our \mono{SynchronizationManager} uses the \mono{GCMNetworkManager} to schedule a periodic task which attempts to synchronize gathered snapshots with the server at a fixed rate. Our periodic task is configured to override and removes the old pending tasks if it rescheduled but has not yet been executed. It is then up to the \mono{GCMNetworkManager} to determine when the task should be executed based parameters given with the task. Our task is configured to require that an unmetered connection, e.g. WiFi, is available before the task can be executed. 
+\\\\
+The \mono{GCMNetworkManager} incorporates radio based optimizations and will start all the pending tasks if the radio is active and a minimum time, as specified by the parameters, has elapsed. This minimizes unnecessary wake-ups of the radio and thus minimizes battery consumption. Using \mono{GCMNetworkManager} makes sense for network related operations which can be delayed in order to minimize battery consumption. Other network tasks which should happen instantly, such a refreshing the GUI with lists of campaigns from the server, are therefore not applicable to be optimized with \mono{GCMNetworkManager}. 
 
 \subsection{Background Sensor Listening}
 The \mono{BackgroundSensorService} is configured to have one thread, in a pool of threads, available per sensor type, i.e. per \mono{SensorProvider}, see \secref{sub:providing_sensor_data_implementation}, instance used in the service. This lets the scheduling of the gathering from the different \mono{SensorProvider} instances up to the underlying Java implementation of threads in a hope to run the different types of sensors and other data sources as independently as possible. Data is only collected from the \mono{SensorProvider} instances if the corresponding sensors are included in the currently active campaign and if the system is currently gathering a snapshot. There is no data collection activity in the \mono{BackgroundSensorService} unless a timed task for a snapshot is running. CPU resources, and thereby battery, are therefore only consumed on demand.
@@ -33,13 +37,35 @@ The \mono{BackgroundSensorService} is configured to have one thread, in a pool o
 We do not provide any real time guarantees but the different threads from the different streams of data should always be able to run unless they get starved by other processes in the system. Temporary starvation of the data collecting threads might result in missed updates from different data sources. 
 
 \subsection{Concurrency Overview}
-We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. 
+We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. We provide this overview so the communication between the different processes and communication in the application becomes more clear. While inspecting the illustration, please refer to the following legend:
 
-\todo[inline]{Rikke: Figuren skal beskrives i teksten og en legend vil være meget godt}
+\begin{description}
+	\item[Yellow arrow-like shapes] indicates the raise of a signal from a thread.
+
+	\item[Yellow flag-like shapes] indicates the reception of a signal raised previously.
+
+	\item[Green diamond shapes] indicates a choice between multiple outcomes. 
+
+	\item[Black filled-in circles] indicates that a process is initialized. 
+
+	\item[Circles with a cross] indicates that a thread is terminated
+
+	\item[Outlined black circles] indicates that the process is terminated.
+
+	\item[Hourglasses] indicates time event occurrences.
+
+	\item[Thick black bars] indicates synchronization. Incoming edges will require each other to be available to continue. Synchronization can also cause one or multiple edges to branch out to multiple places.
+
+	\item[Boxes with round corners] indicates states. A process can be in one state at any time
+\end{description}
+
+
+The first thing you might notice, is that the application is split into two parts, namely an Android application part, and a background service part. The application is further split into two activities, namely the \emph{Main Activity} and the \emph{Questionnaire Activity}. The main activity will live until the participants closes it, while the questionnaire activity also will close if the participant has finished answering all of the questions\todo{Finish this description}.
+
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff.pdf}
-    \caption{An Activity Diagram-esque overview of the mobile Application Components.}
+    \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff}
+    \caption{An overview of the mobile Application Components.}
     \label{fig:system_currency_and_lifecycle}
 \end{figure}
 \FloatBarrier
