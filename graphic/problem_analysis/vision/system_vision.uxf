@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="13.3">
-  <zoom_level>7</zoom_level>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>462</x>
-      <y>294</y>
-      <w>126</w>
-      <h>56</h>
+      <x>590</x>
+      <y>470</y>
+      <w>180</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>System
+    <panel_attributes>uMiner
 fontsize=20
 halign=center
 valign=center</panel_attributes>
@@ -18,74 +18,137 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>238</y>
-      <w>91</w>
-      <h>98</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>110.0;10.0;80.0;10.0;80.0;120.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>581</x>
-      <y>308</y>
-      <w>91</w>
-      <h>28</h>
+      <x>760</x>
+      <y>370</y>
+      <w>130</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
 </panel_attributes>
-    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>110.0;10.0;60.0;10.0;60.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>350</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Mobile Devices
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>315</y>
-      <w>91</w>
-      <h>91</h>
+      <x>970</x>
+      <y>360</y>
+      <w>90</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
 </panel_attributes>
-    <additional_attributes>110.0;110.0;80.0;110.0;80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>658</x>
-      <y>217</y>
-      <w>126</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>Mobile Device
-fontsize=20
-halign=center
-valign=center</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>658</x>
-      <y>364</y>
-      <w>126</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>Mobile Device
-fontsize=20
-halign=center
-valign=center</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>70.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>868</x>
-      <y>378</y>
-      <w>70</w>
-      <h>84</h>
+      <x>1020</x>
+      <y>340</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Participant</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>870</x>
+      <y>540</y>
+      <w>110</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>halign=center
+valign=center
+
+·
+·
+·
+fontsize=20
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>670</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Mobile Devices
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>490</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Actor</type>
+    <coordinates>
+      <x>1020</x>
+      <y>660</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Participant</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>480</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Mobile Devices
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>680</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
+</panel_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Actor</type>
+    <coordinates>
+      <x>1020</x>
+      <y>470</y>
+      <w>100</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Participant</panel_attributes>
     <additional_attributes/>
@@ -93,123 +156,119 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>777</x>
-      <y>231</y>
-      <w>105</w>
-      <h>28</h>
+      <x>810</x>
+      <y>500</y>
+      <w>80</w>
+      <h>220</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>777</x>
-      <y>378</y>
-      <w>105</w>
-      <h>28</h>
+      <x>810</x>
+      <y>500</y>
+      <w>80</w>
+      <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>500</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>868</x>
-      <y>231</y>
-      <w>70</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>Participant</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.baselet.element.old.element.Actor</type>
-    <coordinates>
-      <x>329</x>
-      <y>203</y>
-      <w>70</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>Customer
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.baselet.element.old.element.Actor</type>
-    <coordinates>
-      <x>329</x>
-      <y>385</y>
-      <w>70</w>
-      <h>84</h>
+      <x>390</x>
+      <y>340</y>
+      <w>100</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
+    <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>385</x>
-      <y>308</y>
-      <w>91</w>
-      <h>28</h>
+      <x>390</x>
+      <y>660</y>
+      <w>100</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+    <panel_attributes>Customer</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
+    <type>com.baselet.element.old.element.Actor</type>
     <coordinates>
-      <x>385</x>
-      <y>224</y>
-      <w>91</w>
-      <h>112</h>
+      <x>390</x>
+      <y>470</y>
+      <w>100</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;10.0;40.0;140.0;110.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>385</x>
-      <y>315</y>
-      <w>91</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
-</panel_attributes>
-    <additional_attributes>10.0;140.0;40.0;140.0;40.0;10.0;110.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>336</x>
-      <y>308</y>
-      <w>56</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>...
-fontsize=20
-halign=center
-</panel_attributes>
+    <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>658</x>
-      <y>308</y>
-      <w>126</w>
-      <h>35</h>
+      <x>390</x>
+      <y>540</y>
+      <w>100</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>...
+    <panel_attributes>halign=center
+valign=center
+
+
+·
+·
+·
 fontsize=20
-halign=center
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>370</y>
+      <w>30</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>690</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>370</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
 </diagram>
