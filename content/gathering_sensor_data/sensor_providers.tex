@@ -38,7 +38,7 @@ We have implemented our Sensor Provider as an abstract class called \mono{Sensor
 % The common interface for these sensor providers is implemented by the following methods:
 
 \begin{description}
-	\item[\mono{boolean isSensorAvailable()}] should return \mono{true} if the sensor is currently available, and ready to make measurements. Should return \mono{false} if the sensor is unavailable or not present on the device. Overriding this function should be simple for most build-in sensors which are always available if they are included in a device. It should be sufficient with a simple system call, to check if the sensor is present in the device, here. But overriding with function for other data sources such as WiFi, where the physical presence of a WiFi radio in the device does not imply that the radio is turned on and active, might prove more complicated.   
+	\item[\mono{boolean isSensorAvailable()}] should return \mono{true} if the sensor is currently available, and ready to make measurements. Should return \mono{false} if the sensor is unavailable or not present on the device. Overriding this function should be simple for most build-in sensors which are always available if they are included in a device. It should be sufficient with a simple system call, to check if the sensor is present in the device, here. But overriding with function for other data sources such as Wi-Fi, where the physical presence of a Wi-Fi radio in the device does not imply that the radio is turned on and active, might prove more complicated.   
 
 	\item[\mono{SensorType getSensorType()}] should return the \mono{SensorType} that the sensor provider implementation will utilize. For instance \mono{SensorType.BAROMETER}.
 
@@ -59,7 +59,7 @@ Because of the abstract \mono{SensorProvider} class, new sensors can be implemen
 
   \item[\mono{EventListenerRegistrationManager createRegManager()}] is overridden in \linesref{line:createRegManager_start}{line:createRegManager_end} and will first construct a listener, registering new measurements whenever the sensor outputs new values. We do not wish to do anything when the accuracy changes, so this block is empty. Lastly we create the registration manager, based on fields found on the \mono{SensorProvider} class, and the listener we created.
 
-  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasuremen} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
+  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasurement} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
 \end{description}
 
 \lstinputlisting[
@@ -75,7 +75,7 @@ Due to the structure of sensor providers, as described in \secref{sub:providing_
 
 \lstinputlisting[
    style = Java,
-   caption = {Establishing a connection between the phone and the smart band.},
+   caption = {Establishing a connection between the phone and the Microsoft Band 2.},
    label = {lst:get_connected_band_client},
    float=!htbp,
 ]{content/gathering_sensor_data/code_snippets/get_connected_band_client.java}
