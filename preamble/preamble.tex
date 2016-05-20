@@ -276,13 +276,17 @@
 % Commands to format quotes
 \input{preamble/commands/quote_with_ref.tex}
 
+% Pretty pie charts
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
 % This needs to be the last thing in the preamble. It is used to make pretty Matrixes
 \usepackage{blkarray}
 \usepackage{pgfplots}
 \usetikzlibrary{backgrounds}
 \pgfplotsset{compat=1.7}
-
 \usepackage{setspace}
+
 
 % Some magic that makes it possible to make symbols bold (using \boldmath or \boldsymbol)
 \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
