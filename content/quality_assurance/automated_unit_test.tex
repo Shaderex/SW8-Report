@@ -3,8 +3,6 @@
 \section{Automated Testing}
 \label{sec:automated_unit_test}
 
-\todo[inline]{Rikke: Er ikke helt sikker på at jeg kan følge processen her. Hvordan har I lavet integrations test og hvordan med black box test?}
-
 Our development method states that all code we develop should be made in a test-first fashion (see \secref{sec:extreme_programming}). We therefore attempted to always make test cases for all the features we implemented. Our code coverage graphs can be seen in \figref{fig:android_project_code_coverage} and \figref{fig:php_project_code_coverage}, for our Android and PHP projects respectively. The two figures look different because we use different plugins on the CI server (due to the projects being written in different languages). We have not used a more strict testing metric than line coverage, due to limited time. However, interesting and useful metrics might include branch coverage, exception handling, etc. This does not mean that we did not write test cases which tests for correct exception handling, we simply did not have any automated way of calculating metrics for it. In the Android project our line coverage percentage is $\sim 43\%$, which is relatively low. %But as explained previously, this is due to the complexity of the integration tests which were manual instead. 
 
 % In \figref{fig:android_project_code_coverage} the line coverage is represented with green while missed lines are represented with red. In \figref{fig:php_project_code_coverage} the red line is method coverage, blue is line coverage and green is total.
