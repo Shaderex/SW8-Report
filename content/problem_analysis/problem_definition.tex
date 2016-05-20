@@ -17,7 +17,19 @@ The existing solutions we have looked at does not incorporate more devices than 
 Gathered sensor data, does not necessarily provide much value without being coupled with a meaningful label, which could for instance be the mental state of a participant through participatory sensing. The sensor data values, by them self, can only be used to train a model which predicts the behavior related to a subset of the sensors without the extra labels from participants. \todo{Måske en mere vag formulering eller kilde her?}
 
 \subsection{Term definitions}
-Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. We have a concept of two types of actors, customers and participants. A customer is one who are in need of labeled training data, while a participant is one who will provide the data a customer need. We borrow the terminology from AndWellness \parencite{hicks2010andwellness} and define a campaign to be all the configuration of triggers, sensor data collection, and label questionnaires necessary for a session of data collection from participants. An analogue for a campaign could be a survey, where the questions of the questionnaire, or interview, is a campaigns specification defining what sensors the customer wants to get measurements from. The result of such a campaign will then be the answers to this special survey. We call these results snapshots, which are measurements from the sensors specified and some label derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist, which could be a series of questions.
+Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. 
+
+\begin{description}
+    \item [Customers and Participants] are two types of actors that we see in this problem area. A customer is one who are in need of labeled training data, while a participant is one who will provide the data a customer need. 
+\end{description}
+
+\begin{description}
+    \item[Campaign] is a term we borrow the terminology from AndWellness \parencite{hicks2010andwellness} which is a concept that describes  the configuration of triggers, sensor data collection, and participant input necessary to label the collected data. An analogue for a campaign could be a survey, where the questions of the questionnaire, or interview, is a campaigns specification defining what sensors the customer wants to get measurements from. 
+\end{description}
+
+\begin{description}
+    \item[Snapshot] is our concept of one collection of measurements from the sensors specified from a campaign, that discretely and implicitly describes the context. Furthermore a snapshot contains a label which is derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist, which could derived by having participants answering a series of questions. In the analogue where a campaign is a survey, snapshots would be answers to this special kind of context aware survey. In other words a snapshot will be an entry in a set of labeled training data.
+\end{description}
 
 \subsection{Problem Statement}
 \label{sub:problem_statement}
