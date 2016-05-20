@@ -17,27 +17,20 @@ To establish the connection between the client and the server, the client initia
 
 For our purposes we have chosen to use what is called a self-signed certificate, because it covered the need for encryption that we had, and the price of a certificate issued by a CA is fairly high. The certificate we use was created by using OpenSSL\footnote{https://www.openssl.org}, which is an open source project that allows you to create your own certificate. One of the issues in utilizing a self-signed certificate is that the certificate will not be trusted by most browsers and operating systems. A more severe problem is the fact that it leaves the connection vulnerable to a man in the middle attack, where a third party with malicious intent might intercept the connection and use his own ``fake'' certificate and thereby getting access to potentially sensitive information. This would not be a problem if we had used a certificate issued by a CA, because the certificate then could be validated. Having a self-signed certificate also means that most browsers will not trust the certificate, and make the user of the browser aware that the site they are trying to connect to might be insecure with a scary warning page. 
 \\\\
-Another problem is that the self-signed certificates are not trusted by Android, which causes problems when trying to make a connection to our server. To solve this problem Android and the library we use provide the possibility of setting what they call their \mono{TrustManager}, as seen in \lstref{lst:trust_manager}. As seen the \mono{TrustManager} is very simple, and is implemented to trust all certificates, by simply using specifying that the \mono{checkServerTrusted()} of the anonymous simply does nothing instead of throwing the \mono{CertificateException} that the normal \mono{TrustManager} would otherwise throw, meaning that it will trust all certificates, which is not ideal due to the fact that there will be no validation of who the client application is communicating with. 
-\todo[inline]{Write how this could be solved!}
+Another problem is that the self-signed certificates are not trusted by Android, which causes problems when trying to make a connection to our server. To solve this problem Android and the library we use provide the possibility of changing their \mono{TrustManager}, which is the class that the Android framework and Webb library use to establish if a certificate from a host can be trusted. At first we created a \mono{TrustManager} that would trust all certificates as seen in \lstref{lst:trust_manager}. The way that the trust manager says that it does not trust a host is by raising a \mono{CertificateException}, and as seen in the snippet we do nothing no matter what and thereby no exception is thrown, making the \mono{TrustManager} trust every certificate. 
 
 \lstinputlisting[
    style = Java,
-   caption = {The very simplified \mono{TrustManager} that we utilize.},
+   caption = {The very simple \mono{TrustManager}, that we created early in the project.},
    label = {lst:trust_manager},
    float=!htbp,
 ]{content/security/code_snippets/trustManager.java}
 \FloatBarrier
 
-Another problem that we encountered with the Android platform is that there are issues when a certificate uses what is called wildcard subdomains. Wildcard subdomains allows us to use the same certificate for various server names mentioned in \secref{sub:server_names}. Therefore we used the wildcard domain ``\mono{*.*.ourdomain.dk}'' on our certificate. However, in case of wildcard subdomains the standard Android hostname verifier will try to check if the domain is an exact match to the requested hostname, which will fail and raise an exception. Luckily, the framework allows us to create another\mono{HostnameVerifier} to use as seen in \lstref{lst:hostname_verifier}. 
-
-\lstinputlisting[
-   style = Java,
-   caption = {The \mono{HostnameVerifier} that we utilize.},
-   label = {lst:hostname_verifier},
-   float=!htbp,
-]{content/security/code_snippets/HostnameVerifier.java}
-\FloatBarrier
-
+This approach, however, are not very secure and with the approach we were not meeting the statutory demands of authenticating the identity of the host that we were connected to. We therefore defined an alternative \mono{TrustManager}, that only would trust our certificate. For this purpose we used an alternative way of creating new \mono{TrustManager}s, namely a factory called \mono{TrustManagerFactory}. In this factory we can specify that each \mono{TrustManager} produced by it should trust our certificate. To specify a new certificate for the factory we need our certificate to be available on the phone. Therefore we ship our certificate with the application. 
+\\\\
+Another problem that we encountered was the use of wildcard subdomains. We wanted to use the same certificate for various server names mentioned in \secref{sub:server_names}. Therefore we used the wildcard domain ``\mono{*.*.ourdomain.dk}'' on our certificate. However, in case of wildcard subdomains the standard Android \mono{HostnameVerifier} will try to check if the domain is an exact match to the requested hostname or one of the alternatives specified in the certificate. This will fail and raise an exception. We therefore added these alternative names to our certificate.
+\\\\
 Having the server placed on the university\todo{Det er første gang vi nævner at serveren er på Uni, det bliver beskrevet i reflection kapitlet (\secref{sec:the_android_platform_compatibility_and_test_driven_development}), det er måske ikke så godt?} did also introduce other problems, due to a limitation in what ports that we could use for outside access. 
 We were assigned two different ports from outside access namely port 8000 and 8001, which we used for the web application, and our continious integration system respectively. 
 If we had access to the ports normally used for the HTTP and HTTPS protocols, we could have used a system called let's encrypt \footnote{https://letsencrypt.org}, which is an free certificate authority trusted by all major browsers \parencite{lets_encrypt_all_browsers}. Let's encrypt allows for automatic verification of domain name ownership by installing their client on the server, where it will use port 80 and 443 to access validate a servers authenticity and create a certificate that can be validated through them. Using let's encrypt as our CA would remove the intimidating error potential customers encounter when accessing our page through most web browser, and also remove the need for overriding the \mono{HostnameVerifier} and the \mono{TrustManager} in the Android client code.
