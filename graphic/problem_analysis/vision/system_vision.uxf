@@ -194,7 +194,7 @@ valign=center</panel_attributes>
       <w>100</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Participant</panel_attributes>
+    <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -205,7 +205,7 @@ valign=center</panel_attributes>
       <w>100</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Participant</panel_attributes>
+    <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -216,7 +216,7 @@ valign=center</panel_attributes>
       <w>100</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Participant</panel_attributes>
+    <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
