@@ -2,18 +2,18 @@
 
 \section{General Strategies}
 \label{sec:general_strategies}
-To understand the mobile platform better we investigate some of the general strategies that are considered to be good practices for the mobile platform.
+To understand the mobile platform better we investigate some of the general strategies that are considered to be good practices for the mobile platform. A common strategy is to avoid sloppy handling of network communication, since this is a common source of battery drain in both the Android development community \parencite{android_network_scheduling} and Apple development community \parencite{iphone_network_scheduling}. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time, unless the model itself is actually required to be trained and completed within a given temporal frame, which provides the possibility of respecting the battery drain of transferring data. 
 \\\\
-Sloppy handling of network communication is seen as a common source of battery drain in both the Android development community \parencite{android_network_scheduling} and Apple development community \parencite{iphone_network_scheduling}. Gathering training data with the purpose of training an AI model does not require the training data to be delivered in real time unless the model itself is actually required to be trained and completed within a given temporal frame, which provides the possibility of respecting the battery drain of transferring data. 
-\\\\
-Several different tactics and techniques can be utilized in order to minimize battery drain. A common method to reduce network communication is to compress the data being sent \parencite{har_wearables}\parencite{android_network_scheduling}. This reduces the amount of data that has to be transferred, i.e. the amount of packets, and the awake-time of the network module. Another possibility is to communicate in bulks, which means that instead of sending many small packages with breaks in between, these can be collected into bigger packets \parencite{android_network_scheduling}. This will reduce the overhead of activating the module. The bulk transfer solution requires the data to be aggregated over time, which requires some sort of intermediate storage. This can be achieved by storing the data in memory for small data packets or persistently on a device for larger packets. Storing the data persistently on the device will also remove the risk of losing the data due to device crashes, and the data therefore becomes less volatile. Another side-effect of storing data, either persistently or in memory, is the possibility collecting data when there is no available connection or only a connection with a high power consumption, e.g. cellular network, and then sending it when a desired connection becomes available. 
-\\\\
-Other typical techniques for reducing power consumption include \parencite{android_network_scheduling}:
+A common method to reduce network communication is to compress the data being sent \parencite{har_wearables}\parencite{android_network_scheduling}. This reduces the amount of data that has to be transferred, i.e. the amount of packets, and the awake-time of the network module. Another possibility is to communicate in bulks, which means that instead of sending many small packages with breaks in between, these can be collected into bigger packets \parencite{android_network_scheduling}. This will reduce the overhead of activating the communication module. The bulk transfer solution requires the data to be aggregated over time, which requires some sort of intermediate storage. This can be achieved by storing the data in memory for small data packets or persistently on a device for larger packets. Storing the data persistently on the device will also remove the risk of losing the data due to device crashes, and the data therefore becomes less volatile. Another side-effect of storing data, either persistently or in memory, is the possibility collecting data when there is no available connection or only a connection with a high power consumption, e.g. cellular network, and then sending it when a desired connection becomes available. Other typical techniques for reducing power consumption include \parencite{android_network_scheduling}:
 
 \begin{itemize}
+	\setlength\itemsep{-0.3em}
     \item Pre-fetch network data
-    \item Network scheduling services (use the network when other uses it).
+    \item Network scheduling services
+    \vspace{-0.8em}
     \begin{itemize}
+    	\setlength\itemsep{-0.3em}
+    	\item Use the network when other uses it
         \item Bundle outgoing data (cache outgoing data)
     \end{itemize}
     \item Reduce number of connections

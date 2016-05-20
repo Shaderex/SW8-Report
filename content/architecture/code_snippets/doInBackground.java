@@ -13,9 +13,9 @@ protected Response<ResultT> doInBackground(Void... params) {
   }
 
   try {
-    switch (method) {
+    switch (method) { //*\label{lst:switch_method_start}
       case POST:
-        return sendRequest(webb.post(url));
+        return sendRequest(webb.post(url));//*\label{lst:webb_post}
       case GET:
         return sendRequest(webb.get(url));
       case PUT:
@@ -24,7 +24,7 @@ protected Response<ResultT> doInBackground(Void... params) {
         return sendRequest(webb.delete(url));
       default:
         return null;
-    }
+    }//*\label{lst:switch_method_end}
   } catch (WebbException exception) {
     exception.printStackTrace();
   }

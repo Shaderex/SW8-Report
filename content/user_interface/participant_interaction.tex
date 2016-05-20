@@ -151,9 +151,13 @@ If for any reason, a participant no longer wishes to contribute to the campaign 
 \label{sub:answering_questionnaired}
 % This complies with the way we intended the system to work regarding the participatory sensing as described in \secref{sec:human_activity_recognition}\todo{er det her godt nok?}.
 
-Some campaigns might request that the participants answer a questionnaire. The request can also occur when the participant has closed the application, or when the participant is not using the phone. To do this, we chose to use notifications to inform the participant when they should answer questionnaires, which can be seen in \figref{fig:answering_questionnaire_notification}. When a notification is pressed, the application opens a questionnaire activity which is separate from the rest of the application as seen in \figref{fig:answering_questionnaire_answering}. 
+Some campaigns might request that the participants answer a questionnaire. The request can also occur when the participant has closed the application, or when the participant is not using the phone. 
+\\\\
+We chosen to use Android notifications \parencite{android_notifications} to facility these request to the the participant. Notification then pop-up when participants should answer questionnaires, as can be seen in \figref{fig:answering_questionnaire_notification}. Using Android notifications has the nice side effect that it allows participants some degree of configuration of how and to which degree they want to be disturbed. Android includes global settings which affects how notifications are delivered ti its users. User can configure a downtime where they do not wish to be disturbed, for instance because they are at work. Users can also configure different sounds levels or turn on silent mode to minimize disturbances for a period. Our application thus synergizes well with a general usage pattern in Android.     
+\\\\
+When a notification is pressed, the application opens a questionnaire activity which is separate from the rest of the application as seen in \figref{fig:answering_questionnaire_answering}. 
 
-\todo[inline]{Overvej om at vise notifikationen hvor vores app ikke er åben}
+\todo[inline]{Overvej om at vise notifikationen hvor vores app ikke er åben - Jeg tænker at det er lige meget (Marhlder)}
 % Answering questionnaires
 \begin{figure}[!htbp]
     \begin{subfigure}[!t]{.50\textwidth}
@@ -168,7 +172,7 @@ Some campaigns might request that the participants answer a questionnaire. The r
         \caption{View when answering a question.}
         \label{fig:answering_questionnaire_answering}
     \end{subfigure}
-    \caption{Notification regarding questionnaire is ready to be answered and view of a question being answered.}
+    \caption{Questionnaire notification which is ready to be answered and view of a question being answered.}
     \label{fig:answering_questionnaire}
 \end{figure}
 \FloatBarrier
@@ -190,3 +194,5 @@ In the current application, questionnaires are triggered, and showed to the user
 
     \item[Event triggers] could be useful since participants is answering questions based on their own memory. So instead of waiting a fixed amount of time, triggers could be event based. This would prompt participants to answer questionnaires when a specific event occurs, e.g. when returning home, after finishing a call, or when a sensor reads a major fluctuation etc.    
 \end{description}    
+
+\todo{Gør det lidt mere klart hvad der rent faktisk er implementeret og hvad der ikke er}

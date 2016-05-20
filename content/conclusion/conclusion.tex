@@ -2,3 +2,55 @@
 
 \chapter{Conclusion}
 \label{cha:conclusion}
+
+% Hvad har vi gjort? Hvad kan vi?
+We have designed and implemented a solution which allows customers to create customized campaigns for collection of labeled training data. The labeled training data is returned to customers in a readable JSON format, which should allow easy conversion to a format suitable to the customer's machine learning problem or other needs. 
+
+% Hvad består løsning af?
+The implemented system consists of a server part and an Android application part. The server part has a web front-end for configuration of data collection campaigns and for retrieval of the collected data and a back-end for upstreams of collected data from the Android application. 
+\\\\
+The Android application is also split into two parts, a front-end and a background service. The front-end is designed to allow participants to give consent for the participation of campaigns and to allow participants to answer questionnaires which gives the labels for the collected data. The background service is used to collect the remaining data. The data collection performed by the background service includes automated collection of data about the users context through sensors local to the device which runs the application and other sources such as an external smart band. 
+
+% Hvad er det overordnede success kriterie? 
+
+The implemented solution originates from the difficulties of collecting custom machine learning data sets which can be used to capture and learn specific patterns in human behavior.  
+
+The problem statement is reproduced here for the reader's convenience:
+\\\\
+\input{content/problem_analysis/problem_statement}
+
+%  % Resultat i forhold til problem formulering / Forhold os til underspørgsmål:
+
+% How can we acquire labels, from participants, for the sensor data context gathered from ubiquitous devices?  
+	% Vi håndtere sensorer der ikke altid er til stede.... 
+% How can we allow customers to define a campaign for their participants?
+	% Vi tillader specifikation af campaign igennem en webside
+% How can we minimize the effect which the mobile application have on participants daily mobile life?
+	% Vi har lavet optimeringer.. Vi lader det være op til customers hvor meget participants skal forstyrres
+% How can we maintain required privacy legislation and protect participants' sensitive personal data? 
+	% 
+
+Customers are able specify zero to many binary yes/no questions for questionnaires, through campaign specifications, to be asked periodically, and thereby derive labels for the collected data. The questionnaires are presented to the participant through Android notifications which allows the user some degree of configuration of how and when they want to be disturbed in order to answer questionnaires. 
+\\\\
+Some sensors or data sources might not be available at the time of a data collection session, either because the sensor simply never was available, i.e. the sensor is not installed in the device or the participant does not have an external sensor, or because the sensor is temporarily disabled, e.g. the sensor is temporarily turned off by the user outside of the application. The background service part of the application handles this by explicitly checking for the presence of a sensor before requesting data from it. Data from a sensor that was not available is simply just not included in the data returned to customers. It is then up to customers to make sense of the collected data and perhaps filter the collected data until an acceptable level, across the data set, of participation from the desired sensors is reached.
+\\\\
+Customers are able to specify what data they want and how they want it, to some degree, through campaign specifications created through the web front-end. Customers can specify precisely which sensors or data sources they want to include different levels of timings for when data should be read. 
+\\\\
+We have laid out how the efficiency, in terms of battery consumption, of the implemented application could be improved and we have implemented some battery consumption optimizations such as batching network requests to some degree and using WiFi instead of mobile networks when uploading data. We have implemented a battery and performance optimizing pattern, called the ViewHolder pattern, for presenting lists of items in a graphical user interface \todo{Tjek at dette er blevet beskrevet} and we have implemented some measures to minimize the bandwidth consumption of the Android front-end application when browsing campaigns by only downloading the minimum required data at a time as it might negatively affect the remaining capacity of a participant's mobile network data plan. The architecture of the Android application also helps the Android operating system manage resources better, by splitting the application into Activities and a service. \\
+The design of the background service makes it free from busy waiting, thereby using less CPU-cycles, by using multiple threads and performing block calls when threads are not used. Sensors and data sources are additionally only polled by the background service when the service is actively collecting data and hooks, connections, and listeners to these sensors and data sources are dropped or disconnected when they not in use.  \todo{Overvej GZip hvis vi får det implementeret.}
+\\\\
+The privacy of participants is maintained through a mix of symmetric and asymetric encryption for communication, SSL, and symmetric encryption for local storage on the device as supported by a persistence library. \todo{Skriv noget om server side encryption når vi får styr på det}
+\\\\
+We have designed an architecture for a data collection application, which is easily extendable with new sources of data both from the device where the application is installed and from external sources such as a wearable connected through for instance Bluetooth or WiFi.
+\\\\
+
+% Konkluder på requirements
+
+\todo{Skriv noget om requirements}
+
+% Konkluder på tests
+
+\todo{Opsumer resultater fra TOV tests}
+
+
+The design has been implemented ...
