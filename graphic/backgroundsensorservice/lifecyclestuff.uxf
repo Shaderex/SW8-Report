@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.1.1">
+<diagram program="umlet" version="14.2">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLObject</id>
@@ -312,32 +312,32 @@ type=receiver</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
-      <y>600</y>
-      <w>170</w>
-      <h>80</h>
+      <x>100</x>
+      <y>630</y>
+      <w>180</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [User subscribed]</panel_attributes>
-    <additional_attributes>150.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>160.0;20.0;20.0;20.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>600</y>
-      <w>190</w>
-      <h>130</h>
+      <x>100</x>
+      <y>670</y>
+      <w>180</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [User cancled]</panel_attributes>
-    <additional_attributes>170.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>160.0;40.0;20.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
       <x>300</x>
-      <y>640</y>
+      <y>630</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -378,7 +378,7 @@ bg=red</panel_attributes>
     <id>UMLSyncBarVertical</id>
     <coordinates>
       <x>250</x>
-      <y>640</y>
+      <y>630</y>
       <w>20</w>
       <h>40</h>
     </coordinates>
@@ -393,10 +393,10 @@ bg=red</panel_attributes>
       <x>250</x>
       <y>600</y>
       <w>30</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -413,7 +413,7 @@ bg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>250</x>
-      <y>650</y>
+      <y>640</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -1426,5 +1426,29 @@ halign=center</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>70</x>
+      <y>660</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=green
+type=decision</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>600</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>
+lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
