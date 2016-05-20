@@ -4,7 +4,12 @@
 \label{sec:participant_interaction}
 \todo[inline]{overvej om der skal stå ``he'' eller ``he/she'' eller noget helt tredje}
 \todo[inline]{Gør det lidt mere klart hvad der rent faktisk er implementeret og hvad der ikke er}
-This section will describe how the participants are able to interact with the mobile application. During the construction of the participant interface we have followed the Google Material Design\footnote{https://www.google.com/design/spec/material-design/} manual, which is a design manual provided by Google for the Android platform. This design manual helps designing an interface using good design practices on the Android platform. By adhering to this design manual we hope to achieve a somewhat user friendly interface for participants that fits as many different users as possible. This will guide us in improving things such as utilization of screen estate and usability in general without having to creating and interface design from the ground up. Throughout this section we will provide mockups together with the implementation of the user interface on the device.
+
+This section describes how the participants are able to interact with the mobile application. 
+\\\\
+Limited screen real estate characterizes user interfaces for mobile systems and is a general concern when doing so, compared to designing graphical user interfaces for desktop systems \parencite[cha. 21]{mobile_computing_constraints}. The limited screen real estate is generally solved by more navigation and by having more focus on a few visible elements at a time. We have therefore split our graphical userface into a few logical screens with different views and implemented navigation between them in order to improve the interaction. Having all functionality on one screen tends to be less portable to many different screen sizes and cause overlapping hit areas for buttons and other interactive elements.
+\\\\
+During the construction of the participant interface we have followed the Google Material Design\footnote{https://www.google.com/design/spec/material-design/} manual, which is a design manual provided by Google for the Android platform. This design manual helps designing an interface using good design practices on the Android platform. By adhering to this design manual we hope to achieve a somewhat user friendly interface for participants that fits as many different users as possible. This will guide us in improving things such as utilization of screen estate and usability in general without having to creating and interface design from the ground up. Throughout this section we provide mockups together with descriptions of the implementation of the user interface on the mobile device.
 \\\\
 When a participant opens the mobile application, the participant is presented with an initial screen, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with any information, but one could imagine that this view would, in a potential future release, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participant must know. This screen could possibly also contain some motivational factor, provided by the customers, e.g. a ``prize'' for participation.
 
@@ -27,7 +32,7 @@ When a participant opens the mobile application, the participant is presented wi
 \end{figure}
 \FloatBarrier
 
-To navigate to other views in the application, the participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial view. The navigation menu contains three elements, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign'', which each will take the participant to different parts of the application.
+The participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial view to navigate to other views in the application. The navigation menu contains three elements, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign'', which each takes the participant to different parts of the application.
 
 \begin{description}
     \item[``Browse campaigns''] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
@@ -49,7 +54,9 @@ To navigate to other views in the application, the participants must either use 
 \subsection{Browsing Campaigns}
 \label{sub:browsing_campaigns}
 
-If a participant wants to contribute to a campaign, they may browse the publicly available campaigns. This can be done through the view seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed in this view, each with its own entry which displays the title alongside with the creator of the campaign. If the participant wishes to learn more about one of the listed campaigns, he/she can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign can be shown. Only the data which is strictly necessary for displaying the list is downloaded initially. The detailed information is only downloaded on demand to use less resources.
+
+
+Participants may browse the publicly available campaigns if they want to contribute to a campaign. This can be done through the screen seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed here, each with its own entry which displays the title alongside the author of the campaign. If the participant wishes to learn more about one of the listed campaigns, he/she can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign is shown. Only the data which is strictly necessary for displaying the list is downloaded initially. The detailed information is only downloaded on demand to use less resources.
 \\\\
 We have for the implementation of the listing of campaigns utilized a design pattern called the ViewHolder design pattern \parencite{view_holder_pattern} together with an Android Adapter. The Adapter makes sure that we can reuse view and thus prevents constant allocation and deallocation of views when the user is scrolling the list. Using the Heap excessively is expensive in terms of CPU cycles in Java and triggers the garbage collector to run more than necessary \parencite{android_garbage_collection}. We would thus like to minimize use of the heap. Reusing views thus might help reduce battery consumption and should improve the general performance perceived by users and prevent stuttering in the graphical interface. The ViewHolder pattern also saves CPU cycles at the expense of a little memory by preventing view-hierarchy-lookups of child-views in the entries of the listing by maintaining references to the child-views.
 
@@ -72,7 +79,7 @@ We have for the implementation of the listing of campaigns utilized a design pat
 \end{figure}
 \FloatBarrier
 
-In the browsing view the participant also has the opportunity to join a specific campaign by pressing the bottom-most blue button, which will always be visible regardless of how far the participant scroll in the list. If the button is pressed the participant will be redirected to the view showed in \figref{fig:specific_campaign}. Here participants can enter a unique campaign identifier, if they have been given one by a customer. If the specified identifier corresponds to a campaign, the participant will be redirected to a view similar to the one seen in \figref{fig:campaign_specification}. If not, he/she will be notified that the entered campaign identifier is invalid. 
+The participant also has the opportunity to join a specific campaign, when browsing the public campaings, by pressing the bottom-most blue button, which will always be visible regardless of how far the participant scroll in the list. The participant will be redirected to the view showed in \figref{fig:specific_campaign} if the button is pressed. Participants can here enter a unique campaign identifier, if they have been given one by a customer. The participant will, upon entering an identifier, be redirected to a view similar to the one seen in \figref{fig:campaign_specification} if the specified identifier corresponds to a campaign. If not, he/she will be notified that the entered campaign identifier is invalid. 
 
 % Search for a campaign through a campaign identifier
 \begin{figure}[!htbp]
@@ -93,7 +100,7 @@ In the browsing view the participant also has the opportunity to join a specific
 \end{figure}
 \FloatBarrier
 
-Throughout the project, we have thought of quite a number of different ways of allowing the participants to search for and join campaigns:
+The mobile application currently only supports scrolling through the list of public campaigns to locate a campaign. There is no fundamental technical barriers which blocks this from beeing done smarter, but any searching og filter might have to be done server side so that the client, which in this case is the mobile application, does not have to download all the data about all campaigns and process the query and or filter. Throughout the project, we have thought of quite a number of different ways of allowing the participants to search for and join campaigns:
 
 \begin{description}
     \item[Quick Response (QR) Code] could be utilized to give participants an easy way of subscribing to campaigns, by scanning a QR code. Customers would be able to distribute these QR codes through both digital and printed media. Furthermore, QR codes might be more easily relatable for participants, since they might be familiar with the concept from other domains.
