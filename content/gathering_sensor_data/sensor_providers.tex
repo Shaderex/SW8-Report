@@ -38,13 +38,13 @@ We have implemented our Sensor Provider as an abstract class called \mono{Sensor
 % The common interface for these sensor providers is implemented by the following methods:
 
 \begin{description}
-	\item[\mono{boolean isSensorAvailable()}] should return \mono{true} if the sensor is currently available, and ready to make measurements. Should return \mono{false} if the sensor is unavailable or not present on the device. Overriding this function should be simple for most build-in sensors which are always available if they are included in a device. It should be sufficient with a simple system call, to check if the sensor is present in the device, here. But overriding with function for other data sources such as WiFi, where the physical presence of a WiFi radio in the device does not imply that the radio is turned on and active, might prove more complicated.   
+	\item[\mono{boolean isSensorAvailable()}] should return \mono{true} if the sensor is currently available, and ready to make measurements. Should return \mono{false} if the sensor is unavailable or not present on the device. Overriding this function should be simple for most build-in sensors which are always available if they are included in a device. It should be sufficient with a simple system call, to check if the sensor is present in the device, here. But overriding with function for other data sources such as Wi-Fi, where the physical presence of a Wi-Fi radio in the device does not imply that the radio is turned on and active, might prove more complicated.   
 
 	\item[\mono{SensorType getSensorType()}] should return the \mono{SensorType} that the sensor provider implementation will utilize. For instance \mono{SensorType.BAROMETER}.
 
 	\item[\mono{EventListenerRegistrationManager createRegManager()}] should return an instance of a class that implements the \mono{EventListenerRegistrationManager} interface. This interface will enforce the class to implement the following two methods: \mono{void register(int frequency)} and \mono{void unregister()}. These methods will be used by the \mono{SensorProvider} implementation to register the sensor and thereby acquire some resources, e.g. registering an event listener or start a thread, when the specific sensor is needed, and unregister them, and free the required resources, when they are not.
 
-  \item[\mono{MeasurementT getDefaultMeasurement()}] Should return a default instance of the \mono{MeasurementT} that the subclass is parameterized with, for instance \mono{FloatMeasurement}.
+  \item[\mono{MeasurementT getDefaultMeasurement()}] should return an object of the type \mono{MeasurementT}, for instance \mono{FloatMeasurement}. This object should represent the default value for that particular sensor. This value will be used when the sensor cache has not yet been set. It should be trivial to see if this measurement is a default value, so that customers can disregard these measurements when processing the data.
 \end{description}
 
 Besides implementing these methods, the specializations must also call the \mono{void onNewMeasurement(MeasurementT)}, which will override the cached value, as described in \figref{fig:cache_examples}. With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with the specific intervals. 
@@ -59,7 +59,7 @@ Because of the abstract \mono{SensorProvider} class, new sensors can be implemen
 
   \item[\mono{EventListenerRegistrationManager createRegManager()}] is overridden in \linesref{line:createRegManager_start}{line:createRegManager_end} and will first construct a listener, registering new measurements whenever the sensor outputs new values. We do not wish to do anything when the accuracy changes, so this block is empty. Lastly we create the registration manager, based on fields found on the \mono{SensorProvider} class, and the listener we created.
 
-  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasuremen} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
+  \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasurement} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
 \end{description}
 
 \lstinputlisting[
@@ -75,7 +75,7 @@ Due to the structure of sensor providers, as described in \secref{sub:providing_
 
 \lstinputlisting[
    style = Java,
-   caption = {Establishing a connection between the phone and the smart band.},
+   caption = {Establishing a connection between the phone and the Microsoft Band 2.},
    label = {lst:get_connected_band_client},
    float=!htbp,
 ]{content/gathering_sensor_data/code_snippets/get_connected_band_client.java}
@@ -83,6 +83,6 @@ Due to the structure of sensor providers, as described in \secref{sub:providing_
 
 \subsection{Asynchronous Delivery of Samples}
 
-A \mono{SensorProvider} subclass is, with the the requirements implemented, able to provide a list of \mono{Sample} instances at some point in the future through a call to a member function on the abstract \mono{SensorProvider} class. This is captured by letting the method return an instance of \mono{Future<List<Sample>>}. A \mono{Future} object is a reference to some other object which represents the result of some computation being performed on another thread. A client of \mono{SensorProvider} instances can the request multiple of such \mono{Future} instances and then, once having all the desired \mono{Future} instances, choose to synchronously call a \mono{get()} on the \mono{Future} instances and effectively wait for each of the asynchronous computations to complete.
+A \mono{SensorProvider} subclass is, with the the requirements implemented, able to provide a list of \mono{Sample} instances at some point in the future through a call to a member function on the abstract \mono{SensorProvider} class. This is captured by letting the method return an instance of \mono{Future<List<Sample>\mono{}>}. A \mono{Future} object is a reference to some other object which represents the result of some computation being performed on another thread. A client of \mono{SensorProvider} instances can the request multiple of such \mono{Future} instances and then, once having all the desired \mono{Future} instances, choose to synchronously call a \mono{get()} on the \mono{Future} instances and effectively wait for each of the asynchronous computations to complete.
 \\\\
 Using futures and not saving any intermediary state persistently might prove to be a problem for Snapshots which are configured to collect data for longer periods of time as they might quickly fill up the memory because the objects referenced by the \mono{Future} instances is not dereferenced, and thereby freed, before the tasks behind the \mono{Future} instances are completed. Further development on how to minimize memory consumption for Snapshot collection should be pursued.
