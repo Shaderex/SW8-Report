@@ -3,14 +3,6 @@
 \section{Existing Solutions}
 \label{sec:existing_solutions}
 
-
-\todo[inline]{Vi er ikke helt sikre på om vi må bruge billederne, hvad gør vi?}
-% BILLEDER
-% Ilumivu = graphic/existing_solutions/ilumivu.png (kilde = https://ilumivu.com/)
-% AndWellness = graphic/existing_solutions/and_wellness.pdf (kilde = http://research.cens.ucla.edu/people/estrin/resources/conferences/2010-oct-wireless-health.pdf)
-% PurpleRobot = graphic/existing_solutions/purple_robot.png (kilde = https://play.google.com/store/apps/details?id=edu.northwestern.cbits.purple_robot_manager)
-% SensorData = graphic/existing_solutions/sensor_data.jpeg (kilde = https://itunes.apple.com/us/app/sensor-data/id397619802?mt=8) 
-
 Some solutions that uses data gathering in the area of mental health have been investigated. It seems that a lot of software have been designed to improve this area based on mobile sensor data gathering. We will discuss two solutions which both monitor subjects using smartphone sensors and have these subjects fill out surveys. We here refer to subjects as both participants of a data gathering systems and individuals involved in medical research.
 
 \subsection{Ilumivu mEMA}
@@ -22,11 +14,10 @@ Ilumivu have developed a Mobile EMA (mEMA) application \parencite{lumivu}. A scr
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/ilumivu.png}
-	\caption[]{Screenshot of the Ilumivu application\footnotemark.}
+	\caption[]{Screenshot of the Ilumivu application\parencite{lumivu}.}
 	\label{fig:ilumivu_screenshot}
 \end{figure}
 \FloatBarrier
-\footnotetext{https://ilumivu.com/}
 
 \subsection{AndWellness}
 \label{sub:andwellness}
@@ -35,11 +26,10 @@ AndWellness \parencite{hicks2010andwellness}, is another sensor monitoring/quest
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/and_wellness.pdf}
-	\caption[]{Screenshot of the AndWellness application\footnotemark.}
+	\caption[]{Screenshot of the AndWellness application\parencite{hicks2010andwellness}}
 	\label{fig:andwellness_screenshot}
 \end{figure}
 \FloatBarrier
-\footnotetext{http://research.cens.ucla.edu/people/estrin/resources/conferences/2010-oct-wireless-health.pdf}
 
 The AndWellness system allows for full transparency, meaning that subjects have full access to the data they are gathering for the customers, to increase trustworthiness. Lastly AndWellness does not support raw sensor output logging, they derive some soft sensors which they call Location- and Activity trace sensors. This is a potential flaw, because the data used to derive output cannot be converted back to raw sensor output and a mental health study might need data which is not included in the outputs of these predefined soft sensors.
 \\\\
@@ -64,11 +54,10 @@ Purple Robot \parencite{purple_robot} is an Android application originally devel
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/purple_robot.png}
-	\caption[]{Screenshot of the Purple Robot application\footnotemark.}
+	\caption[]{Screenshot of the Purple Robot application\parencite{purple_robot_google_play_store}.}
 	\label{fig:purple_robot_screenshot}
 \end{figure}
 \FloatBarrier
-\footnotetext{https://play.google.com/store/apps/details?id=edu.northwestern.cbits.purple\_robot\_manager}
 
 \subsection{Sensor Data}
 \label{sub:sensor_data}
@@ -77,11 +66,10 @@ Like Purple Robot, Sensor Data is an iPhone application for gathering unlabeled 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[height=0.5\textwidth]{graphic/existing_solutions/sensor_data}
-	\caption[]{Screenshot of the Sensor Data application\footnotemark.}
+	\caption[]{Screenshot of the Sensor Data application\parencite{sensor_data_app_itunes}.}
 	\label{fig:sensor_data_screenshot}
 \end{figure}
 \FloatBarrier
-\footnotetext{https://itunes.apple.com/us/app/sensor-data/id397619802?mt=8}
 
 \subsection{Using Third Party Applications}
 It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third part application to handle this information could become a potential trust issue, and would require additional efforc from the participants. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical, and would instead like to handle the collection ourselves. 

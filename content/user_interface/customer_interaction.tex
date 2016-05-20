@@ -2,18 +2,9 @@
 
 \section{Customer Interaction}
 \label{sec:customer_interaction}
-
-To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns as well as create new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may retrieve it in a JSON format which is interpretable by a computer. Both ways of interacting with the system will be described in this section.
+To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns as well as create new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may retrieve it in a JSON format which is interpretable by a computer. Both ways of interacting with the system will be described in this section. 
 \\\\
-When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
-
-\todo[inline]{Skriv at web-delen er et ekspertsystem og konsekvenserne af dette}
-
-\todo[inline]{MÅSKE: Indsæt de mockups vi har lavet af web-delen}
-
-\todo[inline]{Skriv at URLen i alle screenshots er ``forkert'', og skriv at hvis folk vil besøge den, og oprette campaigns osv, så er den tilgængelig på www.x.dk/data}
-
-\todo[inline]{Beskriv \tabref{tab:browser_routes} i introduktionen }
+The interface for the customer is meant to be some kind of expert system, where more explicit training in how to use the system might be necessary. This have been decided since we deem that the customers in need of snapshots will be willing to invest more effort into using the system in order to get the snapshots they desire. This means that some part of the system might somewhat less intuitive and requires some kind of tacit knowledge to be productive when using it. \tabref{tab:browser_routes} contains all routes that relates to the customer interaction of the system. This table effectively describes the full interface for the customers of the system since it is the complete list of routes they customer uses to interact with.
 
 \begin{table}[!htbp]
     \centering
@@ -38,6 +29,11 @@ When visiting the site, customers are presented with the page seen in \figref{fi
     \caption{The routes that the is used on the website.}
     \label{tab:browser_routes}
 \end{table}
+\FloatBarrier
+
+Note that all screenshots of the customer UI containing an address bar includes the url \mono{https://dev.local.element67.dk:8000}, note that if you want to go visit the website as you read this you need to visit either \mono{https://prod.local.element67.dk:8000} (if you are on the AAU network) or \mono{https://prod.global.element67.dk:8000} (if you are not on the AAU network). Furthermore, mockups of this part of the system can be found in \appref{app:web_mockup}.
+\\\\
+When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
 
 % Welcome not logged in
 \begin{figure}[!htbp]

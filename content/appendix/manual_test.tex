@@ -1,6 +1,92 @@
 %!TEX root = ../../super_main.tex
 
 \chapter{Manual Test}
-\label{cha:manual_test}
+\label{app:manual_test}
 
-\todo[inline]{Write short intro}
+This appendix contains the list of the manual test we have executed to maintain regression and integration testing of the entire platform. These test are dynamic black box tests, meaning that when ever a test fails some effort is needed in terms of debugging to establish why this particular test fails. 
+
+\subsubsection{gcm-registration-and-notification-test}
+
+\begin{enumerate}
+    \item Install the application on an Android device
+    \item Launch the application and watch the Android device for 60 seconds
+    \item Check logcat with the tag ``GCM Registration''
+        \begin{enumerate}
+            \item If you see the ``GCM Registration Failed!'' message the test fails.
+            \item If you see the ``GCM Registration Success'' message continue to step 3.
+            \item If the 60 seconds have elapsed and none of the above messages have been shown the test fails.
+        \end{enumerate}
+    \item If you are on aau network visit
+        \begin{itemize}
+            \item https://dev.local.element67.dk:8000/gcm/notifyAll/PASSED
+        \end{itemize}
+    \item Otherwise visit
+        \begin{itemize}
+            \item https://dev.global.element67.dk:8000/gcm/notifyAll/PASSED
+        \end{itemize}
+    \item If your device get a notification with the message ``PASSED'' the test is passed.
+\end{enumerate}
+
+\subsubsection{upload-snapshot-on-wi-fi-test}
+
+\begin{enumerate}
+    \item Attach the debugger to your device (ensure you have access to Wi-Fi)
+    \item Join the public test campaign named ``60SECOND\_TEST\_CAMP''
+    \item Disable Wi-Fi (by activating flight mode)
+    \item Check the debug logcat tag ``SynchronizationTimer''
+        \begin{enumerate}
+            \item See if the string ``Unable to upload without network'', if it does not, the test fails
+            \item Enable Wi-Fi (by deactivating flight mode)
+            \item If the string ``All campaigns were uploaded'' appears, the test is successful, otherwise it fails
+        \end{enumerate}
+\end{enumerate}
+
+\subsubsection{fetch-campaign-specification-test}
+
+\begin{enumerate}
+    \item Attach the debugger to your device (ensure you have access to Wi-Fi)
+    \item Click the info button (the button with an ``i'' on it) on the the ``60SECOND\_TEST\_CAMP'' campaign
+    \item Check the debug logcat tag ``CampaignSpecification''
+        \begin{enumerate}
+            \item See if the string if the following strings is present:
+                \begin{enumerate}
+                        \item ``Campaign Specification Retrieved''
+                        \item ``name: 60SECOND\_TEST\_CAMP''
+                        \item ``description: 60SECOND\_TEST\_CAMP''
+                        \item ``private: false'' 
+                        \item ``sensors: [ACCELEROMETER, AMBIENT\_LIGHT, BAROMETER, CELLULAR, COMPASS, GYROSCOPE, LOCATION, PROXIMITY, WIFI]''
+                        \item ``snapshotLength: 60000''
+                        \item ``sampleDuration: 1000''
+                        \item ``sampleFrequency: 1000''
+                        \item ``measurementFrequency: 500''
+                        \item ``campaignLength: 3''
+                        \item ``questionnairePlacement: End of snapshot''
+                        \item ``questions: 1: Er du god?,2: Er du dårlig?,''
+                \end{enumerate}
+            \item If all strings are present the test passes, otherwise it fails
+        \end{enumerate}
+\end{enumerate}
+
+\subsubsection{test-campaign-joined-stored}
+
+\begin{enumerate}
+    \item Attach the debugger to your device (ensure you have access to Wi-Fi)
+    \item Join the public test campaign named ``60SECOND\_TEST\_CAMP''
+    \item Close the application
+    \item Open the application
+    \item Check the debug logcat tag ``SavedCampaign''
+    \item See if the following log strings are present
+        \begin{itemize}
+            \item Campaign Specification Retrieved
+            \item name: 60SECOND\_TEST\_CAMP
+            \item description: 60SECOND\_TEST\_CAMP
+            \item private: false
+            \item sensors: [ACCELEROMETER, AMBIENT\_LIGHT, BAROMETER, CELLULAR, COMPASS, GYROSCOPE, LOCATION, PROXIMITY, WIFI]
+            \item snapshotLength: 60000
+            \item sampleDuration: 1000
+            \item sampleFrequency: 1000
+            \item measurementFrequency: 500
+            \item 1: Er du god?,2: Er du dårlig?,
+        \end{itemize}
+    \item If all strings are present the test passes, otherwise it fails.
+\end{enumerate}
