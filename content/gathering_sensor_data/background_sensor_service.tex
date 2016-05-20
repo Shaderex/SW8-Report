@@ -37,13 +37,35 @@ The \mono{BackgroundSensorService} is configured to have one thread, in a pool o
 We do not provide any real time guarantees but the different threads from the different streams of data should always be able to run unless they get starved by other processes in the system. Temporary starvation of the data collecting threads might result in missed updates from different data sources. 
 
 \subsection{Concurrency Overview}
-We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. 
+We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. We provide this overview so the communication between the different processes and communication in the application becomes more clear. While inspecting the illustration, please refer to the following legend:
 
-\todo[inline]{Rikke: Figuren skal beskrives i teksten og en legend vil være meget godt}
+\begin{description}
+	\item[Yellow arrow-like shapes] indicates the raise of a signal from a thread.
+
+	\item[Yellow flag-like shapes] indicates the reception of a signal raised previously.
+
+	\item[Green diamond shapes] indicates a choice between multiple outcomes. 
+
+	\item[Black filled-in circles] indicates that a process is initialized. 
+
+	\item[Circles with a cross] indicates that a thread is terminated
+
+	\item[Outlined black circles] indicates that the process is terminated.
+
+	\item[Hourglasses] indicates time event occurrences.
+
+	\item[Thick black bars] indicates synchronization. Incoming edges will require each other to be available to continue. Synchronization can also cause one or multiple edges to branch out to multiple places.
+
+	\item[Boxes with round corners] indicates states. A process can be in one state at any time
+\end{description}
+
+
+The first thing you might notice, is that the application is split into two parts, namely an Android application part, and a background service part. The application is further split into two activities, namely the \emph{Main Activity} and the \emph{Questionnaire Activity}. The main activity will live until the participants closes it, while the questionnaire activity also will close if the participant has finished answering all of the questions\todo{Finish this description}.
+
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff.pdf}
-    \caption{An Activity Diagram-esque overview of the mobile Application Components.}
+    \includegraphics[width=\textwidth]{graphic/backgroundsensorservice/lifecyclestuff}
+    \caption{An overview of the mobile Application Components.}
     \label{fig:system_currency_and_lifecycle}
 \end{figure}
 \FloatBarrier
