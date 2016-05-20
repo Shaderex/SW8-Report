@@ -25,7 +25,7 @@ Before we send all available snapshots to the server we transform them to a JSON
 \\\\
 When we have converted the data to JSON, the actual synchronization of snapshots is done separately and is encapsulated in a class called \mono{SynchronizationManager}. This synchronization should ideally be done using as little network resources as possible, and thereby also save battery capacity. 
 \\\\
-An example of an Android API, or rather a library with Google APIs for Android, which could help optimize network usage, and the, would be the \mono{GCMNetworkManager}, which is an Android service, that can schedule encapsulated network tasks. \mono{GCMNetworkManager} \parencite{gcmnetworkmanager} handles batching of network tasks; retries; backoffs, in case a remote server is not responding or is busy; waiting for Wi-Fi, for bandwidth heavy communication; waiting with commutation until the device is charging; and waiting until a radio becomes active, for instance by getting activated by another application. It does all of this based on parameters given to every encapsulated network tasks such as a desired time frame for the network communication and desired network or battery conditions.  
+An example of an Android API, or rather a library with Google APIs for Android, which could help optimize network usage, and the, would be the \mono{GCMNetworkManager}, which is an Android service, that can schedule encapsulated network tasks. \mono{GCMNetworkManager} \parencite{gcmnetworkmanager} handles batching of network tasks; retries; backoffs, in case a remote server is not responding or is busy; waiting for Wi-Fi, for bandwidth heavy communication; waiting with communication until the device is charging; and waiting until a radio becomes active, for instance by getting activated by another application. It does all of this based on parameters given to every encapsulated network tasks such as a desired time frame for the network communication and desired network or battery conditions.  
 \\\\
 Our \mono{SynchronizationManager} uses the \mono{GCMNetworkManager} to schedule a periodic task which attempts to synchronize gathered snapshots with the server at a fixed rate. Our periodic task is configured to override and removes the old pending tasks if it rescheduled but has not yet been executed. It is then up to the \mono{GCMNetworkManager} to determine when the task should be executed based parameters given with the task. Our task is configured to require that an unmetered connection, e.g. WiFi, is available before the task can be executed. 
 \\\\
@@ -37,30 +37,13 @@ The \mono{BackgroundSensorService} is configured to have one thread, in a pool o
 We do not provide any real time guarantees but the different threads from the different streams of data should always be able to run unless they get starved by other processes in the system. Temporary starvation of the data collecting threads might result in missed updates from different data sources. 
 
 \subsection{Concurrency Overview}
-We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. We provide this overview so the communication between the different processes and communication in the application becomes more clear. While inspecting the illustration, please refer to the following legend:
-
-\begin{description}
-	\item[Yellow arrow-like shapes] indicates the raise of a signal from a thread.
-
-	\item[Yellow flag-like shapes] indicates the reception of a signal raised previously.
-
-	\item[Green diamond shapes] indicates a choice between multiple outcomes. 
-
-	\item[Black filled-in circles] indicates that a process is initialized. 
-
-	\item[Circles with a cross] indicates that a thread is terminated
-
-	\item[Outlined black circles] indicates that the process is terminated.
-
-	\item[Hourglasses] indicates time event occurrences.
-
-	\item[Thick black bars] indicates synchronization. Incoming edges will require each other to be available to continue. Synchronization can also cause one or multiple edges to branch out to multiple places.
-
-	\item[Boxes with round corners] indicates states. A process can be in one state at any time
-\end{description}
-
-
-The first thing you might notice, is that the application is split into two parts, namely an Android application part, and a background service part. The application is further split into two activities, namely the \emph{Main Activity} and the \emph{Questionnaire Activity}. The main activity will live until the participants closes it, while the questionnaire activity also will close if the participant has finished answering all of the questions\todo{Finish this description}.
+We have attempted to give an overview of the current processes and threads running in the mobile application in \figref{fig:system_currency_and_lifecycle} illustrated with a near UML Activity Diagram Syntax. We provide this overview so the communication between the different processes and communication in the application becomes more clear.
+\\\\
+As seen on the figure the system is split into two parts, namely an Android application part (GUI), and a Background Sensor Service part. The Android application is further split into two activities, namely the \emph{Main Activity} and the \emph{Questionnaire Activity}. As seen in \figref{fig:system_currency_and_lifecycle} the Main Activity lives until the participants closes it. During the life cycle of this activity the participant are able to subscribe to campaigns and cancel campaigns. Like the Main Activity the Questionnaire Activity lives until the questionnaire within is answered. However, the Questionnaire Activity might also expire if the delay from the expire timer ends before the participants have answered. 
+\\\\
+Both the Main Activity and the Questionnaire Activity is started by an Intent Handler as seen in the middle left in \figref{fig:system_currency_and_lifecycle}. The \emph{Start Main}-receiver, which starts the Main Activity, is signaled when the user opens it, for instance by clicking the application icon from the home screen of the device. The \emph{Start Questionnaire}-receiver is signaled by the Background Sensor Service.
+\\\\
+The Background Sensor Service, is the main controller of ensuring that the collection of snapshots is done accordingly to the campaign specified. This service is started, as seen in \figref{fig:system_currency_and_lifecycle} (the top right corner of the service), by the \emph{Application Start}-signal or the \emph{onBoot}-signal if it is not already running. These signals are sent when the application is installed or after the device boots respectively. When the service is running, it starts two asynchronous tasks, a task for gathering snapshots which is the most complicated part of this process, and a task for syncing the snapshots to the server. As seen in the lower left of the figure the synchronization task simply checks every \emph{Synchronization Delay} if there are any snapshots ready to be uploaded. The other task firstly checks if there are any active campaigns on the device. If this is the case, or if the user at any time joins a campaign this tasks
 
 \begin{figure}[!htbp]
     \centering
