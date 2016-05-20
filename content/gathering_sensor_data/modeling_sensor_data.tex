@@ -19,8 +19,6 @@ One could imagine that a customer might be interested in finding a correlation b
 \subsection{Temporal Properties of Snapshots}
 \label{sec:temporal_properties_of_snapshots}
 
-\todo[inline]{I dette afsnit skal vi skrive at kunderne kan beskrive hvornår i snapshottet spørgsmål skal forekomme}
-
 A single sensor reading from a continuous sensor often does not make much sense on its own, which is why we introduced the \emph{measurement} concept. Following the introduction of measurements, we came to the realization that customers might be interested in taking a stream of measurements, waiting for some amount of time, and then taking a new stream of measurements. This has led to the introduction of a concept that we call \emph{sample}. A \emph{sample} is simply a collection of \emph{measurement}s where there is an interval between them, as seen in \figref{fig:snapshot_example_with_samples}. This allows customers to make sense of continuous sensor readings, but in a periodic manner. 
 
 \begin{figure}[!htbp]
@@ -31,7 +29,7 @@ A single sensor reading from a continuous sensor often does not make much sense 
 \end{figure}
 \FloatBarrier
 
-We want customers to configure how often \emph{measurement}s should be made, and we therefore allow them to define a \emph{measurement frequency} for their \emph{campaign}. Customers should furthermore be able to define how often \emph{sample}s should be gathered, and for that reason we allow them to define a \emph{sample frequency}. Lastly, the length of the \emph{snapshot} is configurable by defining how many \emph{sample}s the customer wants for a single \emph{snapshot}. This is used to calculate what we call \emph{total duration}, which states for how long samples should be generated for a snapshot. All of this is illustrated in \figref{fig:sample_temporality}. 
+We want customers to configure how often \emph{measurement}s should be made, and we therefore allow them to define a \emph{measurement frequency} for their \emph{campaign}. Customers should furthermore be able to define how often \emph{sample}s should be gathered, and for that reason we allow them to define a \emph{sample frequency}. Lastly, the length of the \emph{snapshot} is configurable by defining how many \emph{sample}s the customer wants for a single \emph{snapshot}. This is used to calculate what we call \emph{total duration}, which states for how long samples should be generated for a snapshot. All of this is illustrated in \figref{fig:sample_temporality}. Lastly, a customer should be able to define when the questionnaire should appear to the participant, for example at the start or the end of a snapshot.
 
 \begin{figure}[!htbp]
     \centering
