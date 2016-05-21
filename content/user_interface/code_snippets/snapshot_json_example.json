@@ -13,7 +13,7 @@
 				"updated_at": "2016-05-17 17:49:50",
 				"campaign_id": 2,
 				"participant_id": 14,
-				"data": {
+				"snapshot": {
 					"timestamp": 1463493046542,
 					"accelerometerSamples": [{
 						"timestamp": 1463493046578,
