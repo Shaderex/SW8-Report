@@ -1480,7 +1480,7 @@ style=wordwrap</panel_attributes>
       <w>250</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Descition handles control flow
+    <panel_attributes>Decision handles control flow
 valign=center
 style=wordwrap</panel_attributes>
     <additional_attributes/>
@@ -1746,7 +1746,7 @@ style=wordwrap</panel_attributes>
       <w>330</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>* This is not the standard semantics for this timer, normally there are no incomming flows into timers.
+    <panel_attributes>* This is not the standard semantics for this timer, normally there are no incoming flows into timers.
 style=wordwrap
 valign=center</panel_attributes>
     <additional_attributes/>
