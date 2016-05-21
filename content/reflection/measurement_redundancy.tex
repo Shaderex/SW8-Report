@@ -2,9 +2,4 @@
 
 \section{Measurement Redundancy}
 \label{sec:measurement_redundancy}
-
-% Sensors are event driven in android
-% We use them as continuous
-% We also treat on-demand sensors as continious sensors to get consistent data, but it means that we send a lot of redundant data
-
-\todo[inline]{Vores temporality struktur er ikke super optimal. Fx ikke mål GPS og WiFi med samme freq som accelerometer og gyroscope. Dårlig design her: \secref{sec:temporal_properties_of_snapshots}}
+By the design of our temporal structure of measurement as described in \secref{sec:temporal_properties_of_snapshots}, we wanted to provide the customer with a uniform dataset in terms of having the temporal structure of all sensors to be the same. We thought that a uniform structure would be more convenient for the customer to have the same structure for all type of sensors in the system even though different sensors are of varying nature as discussed in \secref{sec:deriving_the_context_from_sensors}. However, after enforcing this temporal structure on all our sensors we found that there were a lot of data redundancy. We did not realize until late in the process that when we had a campaigns specified to gather WiFi data with a relative high density the amount of data increased reasonable size since it contains information about all access points around the device. This combined with being located at the university where the density in access points are rather high we figured that enforcing the temporal structure on these type of sensors is more severe than first assumed. One should consider only gathering on measurement for sensors such as location and WiFi instead of treating them as the other sensors. This would decrease the data redundancy and still persist the description of the context. However, this would decrease the level of detail the snapshots have in respect to these sensors and also make the structure of the snapshots less uniform. Never the less, this would decrease the consumption of various resources such as memory disk and battery around the system.
