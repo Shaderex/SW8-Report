@@ -2,7 +2,6 @@
 
 \section{Participant Interaction}
 \label{sec:participant_interaction}
-\todo[inline]{overvej om der skal stå ``he'' eller ``he/she'' eller noget helt tredje}
 \todo[inline]{Gør det lidt mere klart hvad der rent faktisk er implementeret og hvad der ikke er}
 
 This section describes how the participants are able to interact with the mobile application. 
@@ -37,7 +36,7 @@ The participants must either use the drawer menu displayed in \figref{fig:naviga
 \begin{description}
     \item[``Browse campaigns''] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
 
-    \item[``Join specific''] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where he/she can search for a specific campaign by providing a campaign identifier.
+    \item[``Join specific''] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where it is possible to search for a specific campaign by providing a campaign identifier.
 
     \item[``Current campaign''] redirects the participant to a campaign specification view, as seen in \figref{fig:leave_campaign_no_dialog}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
 \end{description}
@@ -56,9 +55,9 @@ The participants must either use the drawer menu displayed in \figref{fig:naviga
 
 
 
-Participants may browse the publicly available campaigns if they want to contribute to a campaign. This can be done through the screen seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed here, each with its own entry which displays the title alongside the author of the campaign. If the participant wishes to learn more about one of the listed campaigns, he/she can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign is shown. Only the data which is strictly necessary for displaying the list is downloaded initially. The detailed information is only downloaded on demand to use less resources.
+Participants may browse the publicly available campaigns if they want to contribute to a campaign. This can be done through the screen seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed here, each with its own entry which displays the title alongside the author of the campaign. If the participant wishes to learn more about one of the listed campaigns, he can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign is shown. Only the data which is strictly necessary for displaying the list is downloaded initially. The detailed information is only downloaded on demand to use less resources.
 \\\\
-We have for the implementation of the listing of campaigns utilized a design pattern called the ViewHolder design pattern \parencite{view_holder_pattern} together with an Android Adapter. The Adapter makes sure that we can reuse view and thus prevents constant allocation and deallocation of views when the user is scrolling the list. Using the Heap excessively is expensive in terms of CPU cycles in Java and triggers the garbage collector to run more than necessary \parencite{android_garbage_collection}. We would thus like to minimize use of the heap. Reusing views thus might help reduce battery consumption and should improve the general performance perceived by users and prevent stuttering in the graphical interface. The ViewHolder pattern also saves CPU cycles at the expense of a little memory by preventing view-hierarchy-lookups of child-views in the entries of the listing by maintaining references to the child-views.
+We have for the implementation of the listing of campaigns utilized a design pattern called the ViewHolder design pattern \parencite{view_holder_pattern} together with an Android Adapter. The Adapter makes sure that we can reuse view and thus prevents constant allocation and deallocation of views when the user is scrolling the list. Using the heap excessively is expensive in terms of CPU cycles in Java and triggers the garbage collector to run more than necessary \parencite{android_garbage_collection}. We would thus like to minimize use of the heap. Reusing views thus might help reduce battery consumption and should improve the general performance perceived by users and prevent stuttering in the graphical interface. The ViewHolder pattern also saves CPU cycles at the expense of a little memory by preventing view-hierarchy-lookups of child-views in the entries of the listing by maintaining references to the child-views.
 
 % Publicly available campaigns
 \begin{figure}[!htbp]
@@ -79,7 +78,7 @@ We have for the implementation of the listing of campaigns utilized a design pat
 \end{figure}
 \FloatBarrier
 
-The participant also has the opportunity to join a specific campaign, when browsing the public campaings, by pressing the bottom-most blue button, which will always be visible regardless of how far the participant scroll in the list. The participant will be redirected to the view showed in \figref{fig:specific_campaign} if the button is pressed. Participants can here enter a unique campaign identifier, if they have been given one by a customer. The participant will, upon entering an identifier, be redirected to a view similar to the one seen in \figref{fig:campaign_specification} if the specified identifier corresponds to a campaign. If not, he/she will be notified that the entered campaign identifier is invalid. 
+The participant also has the opportunity to join a specific campaign, when browsing the public campaings, by pressing the bottom-most blue button, which will always be visible regardless of how far the participant scroll in the list. The participant will be redirected to the view showed in \figref{fig:specific_campaign} if the button is pressed. Participants can here enter a unique campaign identifier, if they have been given one by a customer. The participant will, upon entering an identifier, be redirected to a view similar to the one seen in \figref{fig:campaign_specification} if the specified identifier corresponds to a campaign. If not, the participant will be notified that the entered campaign identifier is invalid. 
 
 % Search for a campaign through a campaign identifier
 \begin{figure}[!htbp]
@@ -115,7 +114,7 @@ The mobile application currently only supports scrolling through the list of pub
 
 To contribute to a specific campaign, participants must first find a campaign that the want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns}, or entering a unique identifier in the join specific campaign view, previously shown in \figref{fig:specific_campaign}. The participants must then navigate to a campaign specification view, similar to the one seen in \figref{fig:campaign_specification}. 
 \\\\
-After a participant has found a campaign that he/she is willing to contribute to either through the campaign browser, previously shown in \figref{fig:public_campaigns}, or through the join specific campaign view, shown in \figref{fig:specific_campaign}, he/she will find himself/herself on an overview of the information related to the campaign in a view similar to the one seen in \figref{fig:campaign_specification}. After reviewing this information, the participant can decide if he/she wants to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will start the gathering process described in \secref{sec:background_sensor_service}.
+After a participant has found a campaign that he is willing to contribute to either through the campaign browser, previously shown in \figref{fig:public_campaigns}, or through the join specific campaign view, shown in \figref{fig:specific_campaign}, he will find himself/herself on an overview of the information related to the campaign in a view similar to the one seen in \figref{fig:campaign_specification}. After reviewing this information, the participant can decide if he wants to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will start the gathering process described in \secref{sec:background_sensor_service}.
 
 % Campaign specification
 \begin{figure}[!htbp]
@@ -136,7 +135,7 @@ After a participant has found a campaign that he/she is willing to contribute to
 \end{figure}
 \FloatBarrier
 
-If for any reason, a participant no longer wishes to contribute to the campaign he/she is subscribed to, he/she can navigate to the specification for the subscribed campaign. In this, the otherwise green subscribe button will instead be a red unsubscribe button, as seen in \figref{fig:leave_campaign_no_dialog}. Pressing this button, will prompt the participant with a confirmation dialog, as seen in \figref{fig:leave_campaign_dialog}. If the participant confirms the action, by pressing yes, the posting of the data to the server will stop, however, the sensors will still be running until the next question is asked due to the nature of timers and timer tasks, which is not ideal. This happens because the service (described in \secref{sec:background_sensor_service}) that starts the sensor gathering does not have a hook on the threads that produces output from sensors, and for that reason it is, as the system is now, not possible to stop the gathering immediately.
+If for any reason, a participant no longer wishes to contribute to the campaign he is subscribed to, he can navigate to the specification for the subscribed campaign. In this, the otherwise green subscribe button will instead be a red unsubscribe button, as seen in \figref{fig:leave_campaign_no_dialog}. Pressing this button, will prompt the participant with a confirmation dialog, as seen in \figref{fig:leave_campaign_dialog}. If the participant confirms the action, by pressing yes, the posting of the data to the server will stop, however, the sensors will still be running until the next question is asked due to the nature of timers and timer tasks, which is not ideal. This happens because the service (described in \secref{sec:background_sensor_service}) that starts the sensor gathering does not have a hook on the threads that produces output from sensors, and for that reason it is, as the system is now, not possible to stop the gathering immediately.
 
 % Leave campaign and dialog
 \begin{figure}[!htbp]
