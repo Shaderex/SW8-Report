@@ -2,8 +2,6 @@
 
 \section{Participant Interaction}
 \label{sec:participant_interaction}
-\todo[inline]{Gør det lidt mere klart hvad der rent faktisk er implementeret og hvad der ikke er}
-
 This section describes how the participants are able to interact with the mobile application. 
 \\\\
 Limited screen real estate characterizes user interfaces for mobile systems and is a general concern when designing user interfaces for these, compared to designing GUIs for desktop systems \parencite[cha. 21]{mobile_computing_constraints}. The limited screen real estate is generally solved by more navigation and by having more focus on a few visible elements at a time. We have therefore split our graphical userface into a few logical screens with different views and implemented navigation between them in order to improve the interaction. Having all functionality on one screen tends to be less portable to many different screen sizes and cause overlapping hit areas for buttons and other interactive elements.
@@ -99,7 +97,7 @@ The participant also has the opportunity to join a specific campaign, when brows
 \end{figure}
 \FloatBarrier
 
-The mobile application currently only supports scrolling through the list of public campaigns to locate a campaign. There is no fundamental technical barriers which blocks this from beeing done smarter, but any searching og filter might have to be done server side so that the client, which in this case is the mobile application, does not have to download all the data about all campaigns and process the query and or filter. Throughout the project, we have thought of a number of different ways of allowing the participants to search for and join campaigns:
+The mobile application currently only supports scrolling through the list of public campaigns to locate a campaign. There is no fundamental technical barriers which blocks this from being done smarter, but any searching or filtering might have to be done server side so that the client, which in this case is the mobile application, does not have to download all the data about all campaigns and process the query and or filter. Furthermore, throughout the project period, we have thought of a number of different ways of allowing the participants to search for and join campaigns, which could prove to be nice additions to the system, but have not been implemented yet.
 
 \begin{description}
     \item[Quick Response (QR) Code] could be utilized to give participants an easy way of subscribing to campaigns, by scanning a QR code. Customers would be able to distribute these QR codes through both digital and printed media. Furthermore, QR codes might be more easily relatable for participants, since they might be familiar with the concept from other domains.
@@ -185,7 +183,7 @@ When a notification is pressed, the application opens a questionnaire activity w
 \end{figure}
 \FloatBarrier
 
-In the current system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information.
+In the current implementation of the system, customers can only specify yes/no questions, but we have thought of different concepts for labeling the collected information:
 
 \begin{description}
     \item[Complex questions] might be required for customers to get a better understanding of the label. Currently, only yes/no questions can be included in a questionnaire, however, customers might be interested to ask more complex questions, such as: \emph{Which of the following statements would describe your current situation best?} or \emph{Please provide a small description of your current mood}. Questions such as the latter might be harder for customers to interpret automatically, but techniques such as sentiment analysis \parencite{pang2008opinion} could be applied here. The system should, ideally, not limit the customer in defining what label they would like to retrieve, i.e. customers should be able to define their own kind of question, or activity, they wish for participants to perform. 
@@ -195,7 +193,7 @@ In the current system, customers can only specify yes/no questions, but we have 
     \item[Answer dependent questions] might be desired by customers to get a more detailed label, e.g. if the participants answers \emph{yes} to $q_1$, ask him $q_2$, otherwise ask $q_3$. Defining questions depending on the outcome of previous questions could become a complex task, and the customers might need visual aid in the creation of such questions. Decision diagrams could be useful for this.
 \end{description}
 
-In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot \todo{insæt reference}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be valuable to customers. Some of our considerations are described below.
+In the current application, questionnaires are triggered, and showed to the user, either in the start or the end of a snapshot, as described in \secref{sec:temporal_properties_of_snapshots}. This will cause the time of questionnaires to be relative to the time that the participants subscribed to the campaign. This might complicate things when trying to build a machine intelligence based model around the collected data, because the label, and time of data collection is skewed between contributers. Because of this, alternative triggers could be valuable to customers. Because of this, some alternative ways of triggering questionnaires might be wanted by customers:
 
 \begin{description}
     \item[Timely fixed triggers] might be useful to ensure that all participants are notified regarding questionnaires simultaneously, i.e. at a specific time of day. This might cause gathered information to be more easily related. Furthermore, customers might be interested in asking participants regarding something, only at a specific time, e.g. in the morning (after waking up). 
