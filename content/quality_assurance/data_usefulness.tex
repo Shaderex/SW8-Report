@@ -1,0 +1,32 @@
+%!TEX root = ../../super_main.tex
+
+\section{Data Usefulness}
+\label{sec:data_usefulness}
+
+Near the end of the project we implemented a prototype of a system we think could represent what an actual customer might want to create with our data. The purpose of this prototype is to utilize data we gather with our app in order to determine whether a participant is jumping or not. The configuration for the campaign we use for the data gathering is the following:
+
+\begin{itemize}
+    \item Sensors used: 
+    \begin{itemize}
+        \item Accelerometer
+        \item Gyroscope
+        \item Compass
+    \end{itemize}
+    \item Measurement delay: 200 ms
+    \item Measurements per sample: 50
+    \item Sample delay: 1 ms
+    \item Samples per snapshot: 1
+    \item Total snapshots: 30
+\end{itemize}
+
+When we only measure 1 sample per snapshot, and utilize $50 \cdot 200ms$ per sample, it means that our snapshots last 10 seconds. This means that every 10 seconds we ask the participant whether he has jumped or not, which he then answers with the appropriate response. We then do this for 30 snapshots, which means that our test lasts 300 seconds or 5 minutes. The accelerometer and gyroscope both use \mono{FloatTripleMeasurements}, while the Compass uses \mono{FloatMeasurement}, which means that for every accelerometer and gyroscope reading we get three values and only a single one from the compass sensor. This gives us $2*(50 * 3) + (50)$ features per sample which we describe with a label. 
+\\\\
+We use this data in order to train a naïve bayesian classifier to guess whether the person jumps or not. The classifier is made with a library called WEKA\footnote{https://weka.wikispaces.com/}, which has some predefined methods and datatypes that makes it relatively easy to implement. 
+\\\\
+Once the classifier has been trained, we use the classifier on the same participant who answered the questionnaire, and tests whether the classifier can correctly guess which action he is performing. We hereunder present the findings of our test: 
+
+\todo[inline]{Indsæt resultatater af test her}
+
+We can conclude that...
+
+\todo[inline]{Konkluder noget}
