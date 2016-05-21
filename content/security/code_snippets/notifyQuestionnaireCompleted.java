@@ -1,26 +1,40 @@
-public void notifyQuestionnaireCompleted(final long snapshotTimeStamp, final Questionnaire questionnaire) {
-	Realm realm = null;
-	try {
-		realm = Realm.getDefaultInstance();//*\label{lst:get_default_realm}
+public void notifyQuestionnaireCompleted(final long snapshotTimeStamp, Questionnaire questionnaire) {
 
-		final Snapshot snapshot = realm.where(Snapshot.class).equalTo("timestamp", snapshotTimeStamp).findFirst(); 
+    Realm realm = null;
 
-		// If we found a snapshot
-		if (snapshot != null) {
-			// Save the questionnaire
-			realm.beginTransaction();
-			questionnaire = realm.copyToRealm(questionnaire);
-			realm.commitTransaction();
+    try {
+      realm = Realm.getDefaultInstance(); //*\label{lst:get_default_realm}
 
-			// Associate the questionnaire to the snapshots, and update it 
-			realm.beginTransaction();
-			snapshot.setQuestionnaire(questionnaire);
-			realm.copyToRealmOrUpdate(snapshot);
-			realm.commitTransaction();
-		}
-	} finally {
-		if (realm != null) {
-			realm.close();
-		}
-	}
-}
+      final Snapshot snapshot = realm.where(Snapshot.class).equalTo("timestamp", snapshotTimeStamp).findFirst(); //*\label{lst:get_correct_snapshot}
+
+      if (snapshot != null) {																					//*\label{lst:snapshot_found}
+        try {																									//*\label{lst:begin_try_realm}
+          realm.beginTransaction();																				//*\label{lst:begin_realm_transaction}
+          questionnaire = realm.copyToRealm(questionnaire);														//*\label{lst:save_questionnaire_get_return}
+          realm.commitTransaction();																			//*\label{lst:end_realm_transaction}
+        } catch (Exception exception) {																			//*\label{lst:try_realm}
+          Log.e("BackgroundSensorService", "Exception while performing Realm Transaction");
+          exception.printStackTrace();
+          realm.cancelTransaction();																			//*\label{lst:cancel_realm_transaction}
+          throw exception;
+        }
+
+        try {
+          realm.beginTransaction();
+          snapshot.setQuestionnaire(questionnaire);																//*\label{lst:set_questionnaire_on_snap}
+          realm.copyToRealmOrUpdate(snapshot);																	//*\label{lst:update_snapshot_in_db}
+          realm.commitTransaction();
+        } catch (Exception exception) {
+          Log.e("BackgroundSensorService", "Exception while performing Realm Transaction");
+          exception.printStackTrace();
+          realm.cancelTransaction();
+          throw exception;
+        }
+
+      }
+    } finally {
+      if (realm != null) {
+        realm.close();																							//*\label{lst:realm_close}
+      }
+    }
+  }
