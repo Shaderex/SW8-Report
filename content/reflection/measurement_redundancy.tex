@@ -3,4 +3,8 @@
 \section{Measurement Redundancy}
 \label{sec:measurement_redundancy}
 
+% Sensors are event driven in android
+% We use them as continuous
+% We also treat on-demand sensors as continious sensors to get consistent data, but it means that we send a lot of redundant data
+
 \todo[inline]{Vores temporality struktur er ikke super optimal. Fx ikke mål GPS og WiFi med samme freq som accelerometer og gyroscope. Dårlig design her: \secref{sec:temporal_properties_of_snapshots}}
