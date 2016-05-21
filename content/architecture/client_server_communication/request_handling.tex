@@ -32,11 +32,15 @@ Now the server knows what server it should utilize, however it should also deter
 
 The configuration inside the two locations also vary. \emph{Location 2} will try to handle the request with the following strategies. 
 \begin{enumerate}
-	\item Try to statically serve the file corresponding to the requested URI. E.g.
+    \setlength\itemsep{-0.2em}
+
+	\item Try to statically serve the file corresponding to the requested URI, e.g.
 	\\\mono{/var/www/datacollection-prod/public/api/campaigns}
-	\item If that is not possible try to serve an \mono{index.php} file located in the folder corresponding to the URI. E.g.
-	\\\mono{/var/www/datacollection-prod/public/api/campaigns/index.php}
-	\item If none of the above options exist we will internally redirect the request to the \mono{index.php} located at the root. E.g.
+	
+    \item If that is not possible try to serve an \mono{index.php} file located in the folder corresponding to the URI, e.g.
+    \\\mono{/var/www/datacollection-prod/public/api/campaigns/index.php}
+
+	\item If none of the above options exist we will internally redirect the request to the \mono{index.php} located at the root, e.g.
 	\\\mono{/var/www/datacollection-prod/public/index.php}
 \end{enumerate}
 
