@@ -504,7 +504,7 @@ bg=green</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>720</x>
-      <y>1160</y>
+      <y>1150</y>
       <w>40</w>
       <h>40</h>
     </coordinates>
@@ -516,12 +516,12 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>310</x>
-      <y>1170</y>
+      <y>1160</y>
       <w>430</w>
-      <h>130</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>410.0;10.0;290.0;10.0;290.0;110.0;230.0;110.0;230.0;100.0;210.0;100.0;210.0;110.0;10.0;110.0</additional_attributes>
+    <additional_attributes>410.0;10.0;290.0;10.0;290.0;120.0;220.0;120.0;220.0;110.0;180.0;110.0;180.0;120.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -599,12 +599,12 @@ bg=red</panel_attributes>
     <coordinates>
       <x>730</x>
       <y>1060</y>
-      <w>150</w>
-      <h>120</h>
+      <w>160</w>
+      <h>110</h>
     </coordinates>
-    <panel_attributes>[Enough Samples]
+    <panel_attributes>[Enough Snapshots]
 lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
@@ -667,13 +667,13 @@ lt=&lt;-</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>730</x>
-      <y>1190</y>
+      <y>1180</y>
       <w>180</w>
-      <h>70</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>m1=[Need more Snapshots]
 lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
@@ -798,7 +798,7 @@ Generated</panel_attributes>
       <h>360</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0;280.0;30.0;280.0;340.0;320.0;340.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0;260.0;30.0;260.0;340.0;320.0;340.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1085,7 +1085,7 @@ bg=red</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m2=[Campaign Canceled]</panel_attributes>
-    <additional_attributes>590.0;10.0;590.0;50.0;430.0;50.0;430.0;150.0;410.0;150.0;410.0;140.0;390.0;140.0;390.0;150.0;10.0;150.0;10.0;190.0</additional_attributes>
+    <additional_attributes>590.0;10.0;590.0;50.0;430.0;50.0;430.0;150.0;400.0;150.0;400.0;140.0;360.0;140.0;360.0;150.0;10.0;150.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1336,7 +1336,7 @@ halign=center</panel_attributes>
       <w>80</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Expired
+    <panel_attributes>Expiration
 Delay
 halign=center</panel_attributes>
     <additional_attributes/>
