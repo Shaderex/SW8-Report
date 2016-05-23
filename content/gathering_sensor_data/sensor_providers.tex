@@ -54,32 +54,36 @@ We have implemented our \emph{Sensor Provider} as an abstract class, called \mon
 % With these measurements registered, the \mono{SensorProvider}, and in effect all of the sub-classes, are now able to construct \mono{Sample} objects by reading measurements from the cache with specific intervals.
 
 \subsubsection{Implementing a Sensor Provider}
-Because of the abstract \mono{SensorProvider} class, new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows the \emph{full} implementation of how the \mono{AccelerometerSensorProvider}. A developer has to write relative few lines of code to enable such a provider for a any new type of sensor. In order to do so, we have, as seen in \lineref{line:sensor_provider_extends}, subclassed \mono{SensorProvider} with the generic parameter \mono{FloatTripleMeasurement}, which is the output type for the accelerometer sensor. Furthermore, we have overridden the abstract methods: 
+Because of the abstract \mono{SensorProvider} class, new sensors can be implemented into the system with very few lines of code. An example of such an implementation can be seen in \lstref{lst:sensor_provider_acclerometer}, which shows the \emph{full} implementation of how the \mono{AccelerometerSensorProvider}. We have, as seen in \lineref{line:sensor_provider_extends}, subclassed \mono{SensorProvider} with the generic parameter \mono{FloatTripleMeasurement}, which is the output type for the accelerometer sensor. Furthermore, we have overridden the abstract methods: 
 
 \begin{description}
-  \item[\mono{boolean isSensorAvailable()}] is overridden in \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end}. Here we check if the phone has the system feature \mono{FEATURE\_SENSOR\_ACCELEROMETER}; if this is the case, we are able to measure accelerometer.
+  \item[\mono{boolean isSensorAvailable()}] is overridden in \linesref{line:isSensorAvailable_start}{line:isSensorAvailable_end}. Here we check if the phone has the system feature \mono{FEATURE\_SENSOR\_ACCELEROMETER}, if this is the case, we are able to measure accelerometer.
 
-  \item[\mono{SensorType getSensorType()}] is overridden in \linesref{line:getSensorType_start}{line:getSensorType_end}. This method simply return the enum value \mono{ACCELEROMETER}.
+  \item[\mono{SensorType getSensorType()}] is overridden in \linesref{line:getSensorType_start}{line:getSensorType_end}. This method simply returns the enum value \mono{SensorType.ACCELEROMETER}.
 
-  \item[\mono{EventListenerRegistrationManager createRegManager()}] is overridden in \linesref{line:createRegManager_start}{line:createRegManager_end} and will first construct a listener, registering new measurements whenever the sensor outputs new values. We do not wish to do anything when the accuracy changes, so this block is empty. Lastly we create the registration manager, based on fields found on the \mono{SensorProvider} class, and the listener we created.
+  \item[\mono{EventListenerRegistrationManager createRegManager()}] is overridden in \linesref{line:createRegManager_start}{line:createRegManager_end} and will first construct a listener, registering new measurements whenever the sensor outputs new values. We do not wish to do anything when the accuracy of the sensor changes, so this block is empty. Lastly, we create the registration manager, based on fields found on the \mono{SensorProvider} class, and the listener we created.
 
   \item[\mono{FloatTripleMeasurement getDefaultMeasurement()}] is overridden in \linesref{line:getDefaultMeasurement_start}{line:getDefaultMeasurement_end}, simply returning a new \mono{FloatTripleMeasurement} instance with no values provided, causing the values to be initialized to \mono{0.0f}.
 \end{description}
 
 \lstinputlisting[
    style = Java,
-   caption = {Implementation of sensor provider for Accelerometer.},
+   caption = {Implementation of sensor provider for the accelerometer sensor.},
    label = {lst:sensor_provider_acclerometer},
    float=!htbp,
 ]{content/gathering_sensor_data/code_snippets/sensor_provider_acclerometer.java}
 \FloatBarrier
 
 \subsection{Gathering Data from the Microsoft Band 2}
-Due to the structure of sensor providers, as described in \secref{sub:providing_sensor_data_implementation}, it is relatively easy to implement functionality that will gather information from the Microsoft Band 2 smart band. The only major difference between the Microsoft Band sensors, and the sensors in an android smartphone, is that a connection between the smart band and the phone has to be made. This connection has to be made in all of the band sensor providers; due to this, we implemented an abstract class called \mono{SensorProviderBand}, which implements the method \mono{getConnectedBandClient()} which will try to establish a connection to the smart band, through the required Microsoft Health application. The method can be seen in \lstref{lst:get_connected_band_client}. The method return a boolean, indicating if the connection were established or not. However, currently, we do not do anything specific when the connection fails, and we simply try again at a later point in time. For a more detailed description of how the application communicated through the Microsoft Health application, see \secref{sec:device}.
+Due to the structure of sensor providers, as described in \secref{sub:providing_sensor_data_implementation}, it is relatively easy to implement functionality that will gather information from the Microsoft Band 2 smart band. The only major difference between the sensors from this device, and the sensors in an Android smartphone, is that a connection between the smart band and the phone has to be made. This connection has to be available in all of the band sensor providers, thus we implemented an abstract class called \mono{SensorProviderBand}, extending \mono{SensorProvider}, which furthermore, implements the method \mono{getConnectedBandClient()}. This method will try to establish a connection to the smart band through the required Microsoft Health application\footnote{https://www.microsoft.com/microsoft-health/en-us}. The method can be seen in \lstref{lst:get_connected_band_client}. The method returns a boolean, indicating if the connection were established or not. Currently, connection failures are not handled, instead we simply try again at a later point in time when the connection is needed again.
+
+\todo[inline]{Beskriv at dette kode er stjålet}
+
+\todo[inline]{Beskriv koden i detajker. Hvorfor log? Hvorfor devices[0]? osv}
 
 \lstinputlisting[
    style = Java,
-   caption = {Establishing a connection between the phone and the Microsoft Band 2.},
+   caption = {Establishing a connection between the Android application and the Microsoft Band 2.},
    label = {lst:get_connected_band_client},
    float=!htbp,
 ]{content/gathering_sensor_data/code_snippets/get_connected_band_client.java}
