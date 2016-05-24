@@ -1,7 +1,8 @@
 %!TEX root = ../../super_main.tex
 
-\section{Device}
-\label{sec:device}
+\section{Client Application}
+\label{sec:client_application}
+
 The device component is the part of the system that should run directly on the smartphone of the participant. This component is responsible for interacting with the participants, gather data from the sensors on the device, and communicating with the other devices in order to get data from wearables. The sensors represent the underlying hardware, and the Wearable Application is the interface from the client application to external wearable sensors, which in our case is the Microsoft Health application that communicates with Microsoft Band 2 we have implemented support for in the system.
 \\\\
 The smartphone application contains a service component that is the main controller of the client application. This service runs independently in the background at all times, and is the part of the system on a device that communicates with the different sensor providers, and also uploads the collected snapshots to the server. Furthermore it is also responsible for prompting the participants to answer the questionnaires. This service is completely detached from the graphical interface and it runs in its own seperate process, since it needs to be responsive to changes read by sensors and in other data sources. This seperation is furthermore beneficial, because it allows the Android OS to properly close and free the UI components when they are not used and deallocate all memory used by them. 
