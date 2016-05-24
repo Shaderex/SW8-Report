@@ -1,0 +1,6 @@
+%!TEX root = ../../super_main.tex
+
+\section{Debugging Concurrency}
+\label{sec:debugging_concurrency}
+
+We have implemented a lot of concurrency in our Android application, as it is both parallelized with threads and separated into two different processes. We have however found, that our integrated development environment, Android Studio, did not support debugging of Android applications, which are separated into different processes very well. The debugger refused to catch any language exceptions thrown in our background service, which runs in its own separate process, and would just let it crash. This made it very difficult to debug. One thing, which sometimes proved useful, was to temporarily configure our background service to run within the same process as the rest of the Android application. Problems were however often revealed, once the background service was reconfigured to run in its own process again, for instance because memory could no longer be shared. Separating the application in two different processes might not have been worth it, initially, in terms of development time, but we still think that the application should be separated into two processes in order to conserve battery. 
