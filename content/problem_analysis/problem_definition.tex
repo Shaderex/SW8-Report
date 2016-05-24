@@ -8,10 +8,10 @@ There are, as described in \secref{sec:personal_data}, different types of data w
 \\\\
 % Health care stuff requires real time - Impacts battery and
 % Does not allow dynamic use of sensors from other mobile devices than smartphones
-Available sensor gathering applications and accompanying platforms generally have real time goals, health care systems often have intervention goals which requires data to be synchronized with a central node in near real time. The existing solutions we have looked at do not incorporate more devices than smartphones, which in general do not have all the health monitoring sensors of for instance a smart watch or a smart band, which opposed to a smartphone are directly in contact with the body at most times. One could for instance imagine that data from these sensors to be interesting in various health related classification problems. 
+Available sensor gathering applications and accompanying platforms generally have real time goals, health care systems often have intervention goals which requires data to be synchronized with a central node in near real time. The existing solutions we have looked at do not incorporate more devices than smartphones. Smartphones do not, in general, have all the health monitoring sensors of for instance a smartwatch or a smart band, which, opposed to a smartphone, are directly in contact with the body at most times. One could for instance imagine that data from these sensors to be interesting in various health related classification problems. 
 \\\\
 % Participatory sensing and training data
-Gathered sensor data, does not necessarily provide much value without being coupled with a meaningful label, which could for instance be the mental state of a participant through participatory sensing. Without the labeling from the participants, it would not be possible for us to predict anything about human dynamics that is not already measurable by sensors. If we only had data from e.g. an accelerometer, a gyroscope and no label, it would only be possible for us to say something about the correlation between the accelerometer readings and the gyroscope readings. However, if we included a label describing if the person was under the influence of alcohol at the time of the reading, we would be able to say something about the correlation between the readings of these sensors and the state of being influenced by alcohol. 
+Gathered sensor data, does not necessarily provide much value without being coupled with a meaningful label, which could for instance be the mental state of a participant through participatory sensing. It would not be possible for us to predict anything about human dynamics that is not already measurable by sensors, without the labeling from the participants. If we only had data from e.g. an accelerometer, a gyroscope and no label, it would only be possible for us to say something about the correlation between the accelerometer readings and the gyroscope readings. However, if we included a label describing if the person was under the influence of alcohol at the time of the reading, we would be able to say something about the correlation between the readings of these sensors and the state of being influenced by alcohol. 
 
 \subsection{Term definitions}
 Before we define our problem, we establish some terms that will help us to define some concepts in this problem domain. 
@@ -21,16 +21,16 @@ Before we define our problem, we establish some terms that will help us to defin
 \end{description}
 
 \begin{description}
-    \item[Campaign] is a term we borrow the terminology from AndWellness \parencite{hicks2010andwellness} which is a concept that describes  the configuration of triggers, sensor data collection, and participant input necessary to label the collected data. An analogue for a campaign could be a survey, where the questions of the questionnaire, or interview, is a campaigns specification defining what sensors the customer wants to get measurements from. 
+    \item[Campaign] is a term we borrow from AndWellness \parencite{hicks2010andwellness}, which is a concept that describes the configuration of triggers, sensor data collection, and participant input necessary to label the collected data. An analogue for a campaign could be a survey, where the questions of the questionnaire, or interview, is a campaigns specification defining what sensors the customer wants to get measurements from. 
 \end{description}
 
 \begin{description}
-    \item[Snapshot] is our concept of one collection of measurements from the sensors specified from a campaign, that discretely and implicitly describes the context. Furthermore a snapshot contains a label which is derived explicitly from the participants. Note that a label is simple some description of the reality in which the participant exist, which could derived by having participants answering a series of questions. In the analogue where a campaign is a survey, snapshots would be answers to this special kind of context aware survey. In other words a snapshot will be an entry in a set of labeled training data.
+    \item[Snapshot] is our concept of one collection of sensor readings from the sensors specified in a campaign, that discretely captures the context. Furthermore a snapshot contains a label which is derived explicitly from the participants. Note that a label is some description of the reality in which the participant exists, which could be derived by having participants answer a series of questions. In the analogue where a campaign is a survey, snapshots would be answers to this special kind of context aware survey. In other words, a snapshot will be an element in a set of labeled training data.
 \end{description}
 
 \subsection{Problem Statement}
 \label{sub:problem_statement}
 The following problem statement and supporting subquestions are based on the prior analysis.
-
+\\\\
 \input{content/problem_analysis/problem_statement}
 
