@@ -1,0 +1,8 @@
+%!TEX root = ../../super_main.tex
+
+\section{Server Port Issue}
+\label{sec:server_port_issue}
+
+Having the server placed on the university did also introduce other problems, due to a limitation in what ports that we could use for outside access. We were, by the AAU network comittee, assigned two different ports from outside access, namely port 8000 and 8001, which we used for the web application, and our continious integration system respectively. This caused us to have to create our own SSL certificate, which makes most browsers spawn a warning when our customer interface is visited. 
+\\\\
+If we had access to the ports that are normally used for the HTTP and HTTPS protocols, 80 and 443 respectively, we could have used a system called \emph{Let's Encrypt}\footnote{https://letsencrypt.org}, which is a free certificate authority trusted by all major browsers \parencite{lets_encrypt_all_browsers}. \emph{Let's Encrypt} allows for automatic verification of domain name ownership, by installing their client on the server, where it will use the HTTP and HTTPS ports to validate the authenticity of our server, and create a certificate that can be validated through them. Using \emph{Let's Encrypt} as our CA would remove the intimidating warning that potential customers encounter when accessing our page through most web browsers, and also remove the need for overriding the \mono{TrustManager} in the Android client code.
