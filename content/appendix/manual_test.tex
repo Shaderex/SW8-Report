@@ -90,3 +90,20 @@ This appendix contains the list of the manual test we have executed to maintain 
         \end{itemize}
     \item If all strings are present the test passes, otherwise it fails.
 \end{enumerate}
+
+\subsubsection{test-snapshot-from-device-to-server}
+\begin{enumerate}
+    \item Join the public test campaign named ``60SECOND\_TEST\_CAMP''
+    \item Wait for at least 10 minutes
+    \item Go to \mono{https://dev.local.element67.dk:8000/login}
+    \item Use following credentials:
+        \begin{enumerate}
+            \item Username: test@sw808f16.dk
+            \item Password: secret
+        \end{enumerate}
+    \item Go to \mono{https://dev.local.element67.dk:8000/campaigns/}
+    \item Click the ``60SECOND\_TEST\_CAMP''-campaign
+    \item Click the ``Get snapshots data''-button
+    \item See that some snapshots have been uploaded within the last 10 minutes
+    \item See that these snapshots corresponds to the ``60SECOND\_TEST\_CAMP''-campaign specification
+\end{enumerate}
