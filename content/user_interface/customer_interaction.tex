@@ -2,38 +2,13 @@
 
 \section{Customer Interaction}
 \label{sec:customer_interaction}
-To provide customers with a way of defining campaigns, and retrieving information from the system, a website have been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their previously created campaigns as well as create new ones. Alternatively, if customers wish to retrieve the gathered labeled training data, they may retrieve it in a JSON format which is interpretable by a computer. Both ways of interacting with the system will be described in this section. 
+To provide customers with a way of defining campaigns, and retrieving information from the system, a website has been created. This website is only available to customers, who may interact with the system in two ways, depending on their intent. Customers can, through a GUI, browse their campaigns as well as create new ones. Alternatively, if customers wish to retrieve the snapshots for a campaign, they may retrieve it in a JSON format. Both ways of interacting with the system will be described in this section. Mockups of the customer GUI can be found in \appref{app:web_mockup}.   
 \\\\
-The interface for the customer is meant to be some kind of expert system, where more explicit training in how to use the system might be necessary. This have been decided since we deem that the customers in need of snapshots will be willing to invest more effort into using the system in order to get the snapshots they desire. This means that some part of the system might somewhat less intuitive and requires some kind of tacit knowledge to be productive when using it. \tabref{tab:browser_routes} contains all routes that relates to the customer interaction of the system. This table effectively describes the full interface for the customers of the system since it is the complete list of routes they customer uses to interact with.
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{|l|l|} 
-        \hline
-        \textbf{Type} & \textbf{URL}                            \\ \hline 
-        \mono{GET}    & \mono{campaigns}                        \\ \hline 
-        \mono{POST}   & \mono{campaigns}                        \\ \hline 
-        \mono{GET}    & \mono{campaigns/create}                 \\ \hline 
-        \mono{GET}    & \mono{campaigns/\{campaign\}}           \\ \hline 
-        \mono{GET}    & \mono{campaigns/\{campaign\}/snapshots} \\ \hline 
-        \mono{GET}    & \mono{home}                             \\ \hline 
-        \mono{POST}   & \mono{login}                            \\ \hline 
-        \mono{GET}    & \mono{login}                            \\ \hline 
-        \mono{GET}    & \mono{logout}                           \\ \hline 
-        \mono{POST}   & \mono{password/email}                   \\ \hline 
-        \mono{POST}   & \mono{password/reset}                   \\ \hline 
-        \mono{GET}    & \mono{password/reset/\{token?\}}        \\ \hline 
-        \mono{POST}   & \mono{register}                         \\ \hline 
-        \mono{GET}    & \mono{register}                         \\ \hline 
-    \end{tabular}
-    \caption{The routes that the is used on the website.}
-    \label{tab:browser_routes}
-\end{table}
-\FloatBarrier
-
-Note that all screenshots of the customer UI containing an address bar includes the url \mono{https://dev.local.element67.dk:8000}, note that if you want to go visit the website as you read this you need to visit either \mono{https://prod.local.element67.dk:8000} (if you are on the AAU network) or \mono{https://prod.global.element67.dk:8000} (if you are not on the AAU network). Furthermore, mockups of this part of the system can be found in \appref{app:web_mockup}.
+The interface for the customer is meant to be an expert system, where more explicit training in how to use the system might be necessary. This has been decided as we deem that the customers in need of snapshots will be willing to invest more effort into using the system in order to get the snapshots they desire. This means that some part of the system might be less intuitive and will require some kind of tacit knowledge to be productive when using it. 
 \\\\
-When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page, meaning that this welcome-page could be utilized to give the visitors more information regarding the system and the possibilities there lies within, which might lead to them becoming either customers or participants. 
+Note that screenshots of the UI, where the address bar of the browser window is visible, show the base URL \mono{https://prod.local.element67.dk:8000}. This URL can be used to visit the website on the university network. However, if you want to visit the site from outside the network you will need to use another URL, namely \mono{https://prod.global.element67.dk:8000}. 
+\\\\
+When visiting the site, customers are presented with the page seen in \figref{fig:web_welcome}. Everybody, meaning both customers, participants, and people outside these categories, have access to this page. This means that it could be utilized to give the visitors more information regarding the system and be used as a promotion site for the uMiner platform. 
 
 % Welcome not logged in
 \begin{figure}[!htbp]
@@ -46,7 +21,7 @@ When visiting the site, customers are presented with the page seen in \figref{fi
 
 \subsection{Registration and Logging In}
 
-To gain access to the features of the website, customers must first log in. If the customer does not have a login, he can create one. The page for registration as well as the login page are similar to the ones of many other pages. When a user registers he is asked to provide a name, an email and a password. The name is used to show participants who created the different campaigns, allowing them to pick and choose which customers they wish to contribute data to. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. Furthermore, one could imagine that multiple users would like to have access to the same customer-login without having to share the same password. Because of this, it might be beneficial to implement a feature, where multiple account would have access to the same \emph{cooperation} account.
+To gain access to the features of the website, customers must firstly log in. If the customer does not have a login, he can create one. The page for registration as well as the login page are similar to the ones of many other pages. When a user registers he is asked to provide a name, an email and a password. The name is used to show participants who created the different campaigns, allowing them to pick and choose which customers they wish to contribute data to. Please note that the same name can be shared by multiple accounts. This means that multiple accounts can be associated with \emph{Aalborg University}, for instance. Currently, everybody can register an account, but one could imagine that some level of verification might be required, so people cannot impersonate companies or persona. Furthermore, one could imagine that multiple users would like to have access to the same customer-login without having to share the same password. Because of this, it might be beneficial to implement a feature, where multiple accounts would have access to the same campaigns and snapshots.
 
 % % Register
 % \begin{figure}[!htbp]
@@ -69,18 +44,19 @@ To gain access to the features of the website, customers must first log in. If t
 \subsection{Creating Campaigns}
 \label{sub:creating_campaign}
 
-When a customer is logged in, he has the option to create campaigns. This is done through the site seen in \figref{fig:web_create_campaign}. Here, customers will have to specify different details regarding the campaign. To give customers an ideas of how the participants will view this information, a mobile phone is included on the page, showing the mobile application. Please note that this is only an indication of how it will look, since different phones, with different screen sizes, font settings, etc. will influence the look of the application. A detailed description of all the input fields that the customer must fill out is described below.
+When a customer is logged in, he has the option to create campaigns. This is done through the site seen in \figref{fig:web_create_campaign}. Here, customers will have to specify different details regarding the campaign. To give customers an ideas of how the participants will view this information, an example of campaign viewed in the Android application is included on the page. In order for customers to create a campaign, the following information can be provided:
 
 \begin{description}
-    \item[Campaign title] is used to give participants a rough idea of what the campaign will be used for. This information will visible when participants are browsing campaigns and when viewing details regarding the campaign (as mentioned in \ref{sub:browsing_campaigns}).
+    \item[Campaign title] is used to give participants a rough idea of what the campaign will be used for. This information will visible when participants are browsing campaigns and when viewing details regarding a campaign.
 
-    \item[Campaign description] will provide participants with a detailed description of the campaign. This text could possibly contain motivational factory, inclining participants to participate in that specific campaign. This information is only available to participants when viewing the specifications of the campaign (as mentioned in \ref{sub:browsing_campaigns}).
+    \item[Campaign description] will provide participants with a detailed description of the campaign and its purpose. This text could possibly also contain motivational factors, inclining participants to contribute to the given campaign. This information is only available to participants when viewing the specifications of the campaign.
 
-    \item[Campaign author] cannot be specified directly by the customer, but is instead depending on the name of the account that the participant is logged into. Like the campaign title, this information will be included when participants are browsing campaigns and when viewing details regarding the campaign (as mentioned in \ref{sub:browsing_campaigns}).
+    \item[Campaign author] cannot be specified directly by the customer, but is instead depending on the name of the customer as specified in his account credentials. Like the campaign title, this information will be included when participants are browsing campaigns, and when viewing details regarding the campaign.
 
-    \item[Campaign availability] can be specified through the checkbox directly below the description input field. This checkbox is marked by default, making the campaign publicly available, meaning that it is visible for participants when they are browsing the campaigns (as seen in \figref{fig:public_campaigns}). Unchecking this checkbox will cause the campaign to be private, effectively meaning that customers will have to distribute the campaign identifier in order to get participants.
+    \item[Campaign availability] can be specified through the checkbox directly below the description input field. This checkbox is marked by default, making the campaign publicly available, meaning that it is visible for participants when they are browsing the campaigns (see \figref{fig:public_campaigns}). Unchecking this checkbox will cause the campaign to be private, 
+    meaning that it will not be visible in the list of public campaigns on the participant's device, effectively meaning that customers will have to distribute the campaign identifier in order to get participants.
 
-    \item[Sensors] is a section which allows customers to specify which sensors they would like to gather information from. Sensors are divided into four categories, which roughly describes the information that the sensors will collect. In the current implementation participants can join any campaign even though their phone does not have all of the sensors the customer has specified. Customers might be interested in excluding participants who does not have some essential sensors.
+    \item[Sensors] allows the customer to specify, which sensors they would like to gather information from. Sensors are divided into four categories, which roughly describes the information that the sensors will collect. In the current implementation participants can join any campaign even though their phone does not have all of the sensors the customer has specified. Customers might be interested in excluding participants who does not have some essential sensors.
 
     \item[Sample and measurement] consists of five different input fields. The \emph{Snapshots per Campaign} input is used to specify how many snapshots the participant must collect before completing a campaign.
 
