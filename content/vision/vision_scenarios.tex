@@ -2,13 +2,13 @@
 \section{Vision Scenarios}
 \label{sec:vision_scenarios}
 
-Essence, as mentioned in \secref{sub:essence_vision_scenarios}, suggests to utilize vision scenarios. We have come up with a list of opposing directions of development, which can be used to explore the different quadrants of a graph with two of the opposites as its axes. The purpose of this is to detail different directions the project could take and thereby learn more about the problem and possibly learn more about how it can be sovled. 
+Essence, as mentioned in \secref{sub:essence_vision_scenarios}, suggests to utilize vision scenarios. We have come up with a list of opposing directions of development, which can be used to explore the different quadrants of a graph with two of the opposites as its axes. The purpose of this is to detail different directions the project could take and thereby learn more about the problem and possibly learn more about how it can be solved. 
 
 \begin{itemize}
 	\setlength\itemsep{-0.2em}
     \item Disruptive/Non-disruptive - Should the system be based on passively collected sensor data or interactively prompt with questionnaires? % 1
     \item On demand/Continuous - Should the system be activated by participants or run continuously in the background? % 2
-    \item Ease-of-use/Customizable - Should we require that customers must customize campaigns or should it be ``one data collection configuration fits all''? % 3
+    \item Ease-of-use/Customizable - Should we require that customers must customize campaigns or should there be a predefined suite of campaigns % 3
     \item Assigned/Opt-in - Should campaigns be assigned automatically to participants using a participant profile or should participants actively choose campaigns? % 4
     \item Personal/Anonymous - Should the system require personal information about participants or not? % 5
     \item Open source/Strict ownership - Should the data gathered be open source or be strictly owned by the customer? %6
@@ -16,16 +16,20 @@ Essence, as mentioned in \secref{sub:essence_vision_scenarios}, suggests to util
 
 % Dem vi ikke har valgt
 % 1
-We found it difficult to imagine the usefulness of a system that exclusively collects sensor data for classification problems. This means that at least some data not based on sensor should be collected. The degree of disruptiveness could then perhaps be regulated by the campaign configuration. 
-% 2
-The system could allow participants to turn the system on and off easily but we think that having the system running continuously once activated would increase the probability of completing campaigns. Actual data collection would also depend on whether there is one or more active campaigns on the participant's device. 
-% 5
-We found that some demographic information would be necessary or interesting for both the scenario where participants are assigned to campaigns and where they opt-in. Customers would likely be interested in whether the collected data represents the wide population or the specific group they are targeting for their data collection project. The degree of personal information required for a given campaign could perhaps then be defined in a campaign configuration. 
-% 6
-Furthermore, we found that it would be interesting that some of the collected information would be applicable by multiple customers, so collection of redundant data could be avoided to some degree, by allowing customers to specify an \emph{open source} campaign. We choose not to pursue this initially, since we deed it to be unnecessary for an initial solution to the project. 
+In regards to the \emph{Disruptive/Non-disruptive} bullet, we found it difficult to imagine the usefulness of a system that exclusively collects sensor data for classification problems. This means that at least some data, that is not read from sensors, should be collected, e.g. labels. The degree of disruptiveness could then perhaps be regulated by the campaign configuration. 
 \\\\
+% 2
+Considering the \emph{On demand/Continuous} bullet, the system could allow participants to turn the system on and off easily, but we think that having the system running continuously once activated would increase the probability of completing campaigns. Actual data collection could depend on whether there is an active campaign on the participant's device. 
+\\\\
+% 5
+For \emph{Personal/Anonymous}, we found that some demographic information would be interesting. Customers would likely be interested in whether the collected data represents the wide population or the specific group they are targeting for their data collection project. The degree of personal information required for a given campaign could perhaps then be defined in a campaign configuration. 
+\\\\
+% 6
+Related to \emph{Open source/Strict ownership}, we found that it would be interesting if some of the collected information would be usable by multiple customers. This could prevent collection of redundant data to some degree, by allowing customers to specify an \emph{open source} campaign.
+\\\\
+We initially choose not to pursue the four abovementioned opposing directions of development, since we deem them to be unnecessary for an initial version of a solution for our problem. 
 % Dem vi har valgt
 % 3
-We have chosen to include Ease-of-use/Customizable orientation question as the first axis, because we thought it would be interesting to explore different ways of allowing customers to configure what data they want, and how they want it, and because we think that both direction could add value. 
+We have instead chosen to include the \emph{Ease-of-use/Customizable} orientation question as the first axis, because we thought it would be interesting to explore different ways of allowing customers to configure what data they want, and how they want it, and because we think that both directions could add value. 
 % 4
-We have chosen Assigned/Opt-in orientation question for the second axis, because these directions would have a large impact on how a solution should be formed. We would have to store a lot of demographic data about participants, thereby possibly impacting privacy, if we want to assign and match campaigns. Both directions would impact how the interaction with participants should be designed, and what the server side should do in different ways.
+We have furthermore chosen the \emph{Assigned/Opt-in} orientation question for the second axis, because these directions would have a large impact on how a solution should be formed. We would have to store a lot of demographic data about participants, thereby possibly impacting privacy, if we want to assign and match campaigns. Both directions would impact how the interaction with participants should be designed, and which infrastructure we would need in order to support it.
