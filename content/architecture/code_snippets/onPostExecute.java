@@ -15,3 +15,5 @@
 public abstract void onResponseCodeMatching(Response<ResultT> response);
 
 public abstract void onResponseCodeNotMatching(Response<ResultT> response);
+
+public abstract void onConnectionFailure();
