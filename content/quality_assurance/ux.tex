@@ -2,12 +2,14 @@
 \section{Participant Experience Evaluation}
 \label{sec:participant_experience_evaluation}
 
-We want uMiner to be as general as possible in terms of who participants might be. Meaning that we want to target as many different personas as possible in terms of user experience of the Android application. We have for this reason tried to create some sort of user experience evaluations in regards to the part of the system the participants are going to use. The idea of this evaluation is to determine if there are some obvious flaws in the design of how our Android application in regards to disturbing the participants. We want to investigate if we developed a solid start for part of the client application that notifies and asks the participants questions. This evaluation was performed with five people having a compatible smartphone, firstly this is not a great deal of test subjects and does not provide any statistical evidence for the evaluation of the system, but we hope to get some constructive evaluation of the application never the less. Furthermore one should not that the persona of these five test subjects are rather similar. All five are male in their start 20s, with similar interests, all being tech savvy some extend.
+We want uMiner to be as general as possible in terms of who participants might be, meaning that we want to target as many different personas as possible in terms of user experience of the Android application. We have for this reason tried to create some sort of user experience evaluations in regards to the part of the system the participants are going to use. The idea of this evaluation is to determine if there are some obvious flaws in the design of how our Android application in regards to disturbing the participants. 
+\\\\
+This evaluation was performed with five people having a compatible smartphone. This is not an adequate amount of test subjects and does not provide any statistical evidence for the evaluation of the system, but we hope to get some constructive evaluation of the application. Note that the persona of these five test subjects are rather similar: They are all male, in their start 20s, with similar interests, and all being tech savvy to some extend.
 
 \subsection{Setup}
 \label{sub:setup}
 
-We have created a test campaign called ``Alcohol and you'' which should emulate the type of campaign a final customer might specify. The campaign specification can be seen in \tabref{tab:test_campaign_spec}. This specification means that we take 600 measurements every hour and we desire answers for a questionnaire every other hour.
+We have created a test campaign called ``Alcohol and you'' which should emulate the type of campaign a final customer might specify. The campaign specification can be seen in \tabref{tab:test_campaign_spec}. This specification means that we take 600 measurements every hour and we desire answers for a questionnaire every other hour. The test would run for a 24 hour period. 
 
 \begin{table}[!htbp]
     \centering
@@ -28,9 +30,9 @@ We have created a test campaign called ``Alcohol and you'' which should emulate 
 								\item Heartbeat (Microsoft Band 2)
 							\end{itemize}                \\ \hline
 	Questions             & \begin{itemize}[noitemsep]
-								\item Have you within the last two hours had an alcoholic beverage?
-								\item Have you within the last two hours had a carbonated alcoholic beverage?
-								\item Have you within the last two hours had a strong alcoholic beverage with (more than 10\% alcohol)?
+								\item Have you, within the last two hours, had an alcoholic beverage?
+								\item Have you, within the last two hours, had a carbonated alcoholic beverage?
+								\item Have you, within the last two hours, had a strong alcoholic beverage with (more than 10\% alcohol)?
 								\item Do you feel influenced by alcohol?
 							\end{itemize}                \\ \hline
 	\end{tabular}
@@ -39,11 +41,11 @@ We have created a test campaign called ``Alcohol and you'' which should emulate 
 \end{table}
 \FloatBarrier
 
-The application was distributed and installed on devices of test subjects, and they were guided to how they could start contributing to our test campaign. This means that this test does not in any way evaluate the main activity of the system, it only evaluates the experience of being notified by the application and prompted with questions. After the setup of the application we told the test subjects to proceed with their daily life and treat the uMiner application as any other application the might have installed from the Google Play Store. 
+The application was distributed and installed on devices of test subjects, and they were guided to how they could start contributing to our test campaign. Thereby the test does not in any way evaluate the user experience of browsing and joining campaigns, but only evaluates the experience of being notified by the application and prompted with questions. After the setup of the application, we told the test subjects to proceed with their daily life and treat the uMiner application as any other application the might have installed from the Google Play Store. 
 
 \subsection{Results}
 \label{sub:results}
-After 24 hours of the application being installed on the test participants devices we asked them a series of questions to understand the disturbance of the notifications and questionnaire throughout one day of experience. The results of this survey can be seen in \tabref{fig:survey_results}. These results show that our participants in general are not being disturbed to a severe degree. Most of the participants did answer they was not distrubed at all as seen in \figref{fig:general_disturbance}, where the one person feeling disturbed only deemed it to be a degree 2 out of 5 of disturbance as seen in \figref{fig:disturbance_level}. Same goes for the amount of notifications being dismissed, as seen in \figref{fig:ingore_notifications}, only 1 in 5 ignored the notifications and they only did so for half of them or less. Lastly none of the test participants had the desire to uninstall the application after contributing for a day as seen in \figref{fig:want_to_uninstall}.
+After 24 hours of the application being installed on the test participants devices, we asked them a series of questions to understand the disturbance that the notifications and questionnaires had caused them throughout the day. The results of this survey can be seen in \tabref{fig:survey_results}. These results show that our participants in general are not being disturbed to a severe degree. Most of the participants did answer they was not disturbed at all as seen in \figref{fig:general_disturbance}, where the one person feeling disturbed only deemed it to be a degree 2 out of 5 of disturbance as seen in \figref{fig:disturbance_level}. Same goes for the amount of notifications being dismissed, as seen in \figref{fig:ingore_notifications}, only 1 in 5 ignored the notifications and they only did so for half of them or less. Lastly none of the test participants had the desire to uninstall the application after contributing for a day as seen in \figref{fig:want_to_uninstall}.
 
 
 \begin{figure}[!htbp]
@@ -92,6 +94,6 @@ In this small set of test participants the general user experience regarding the
     \translated{If I was not drunk at 6.20 in the morning, I am probably not drunk at 8 or 10 either.}
 \end{quote}
 
-We can see the concern of this participant, and could imagine that the questionnaires would be rather tedious to answer because the user is prompted for the exact same thing over and over. One could imagine that platform would have to provide a better way of prompting for questions, for instance only ask questions once a day. With the ``Alcohol and you'' campaign, one could imagine that the user was asked daily with something like, ``Have you consumed alcohol today?'', and then give the user to enter some timespan in where he was influenced by alcohol. However, with this approach, the accuracy of the snapshots rely on the memory of the participants and this might pollute the snapshots with less accurate data. The important thing to consider is, that if the platform should be further developed, it is important that it provides great tools for the customer to specify how he wants to ask the participants questions. 
+We can see the concern of this participant, and could imagine that the questionnaires would be rather tedious to answer because the user is prompted for the exact same thing over and over. One could imagine that platform would have to provide a better way of prompting for questions, for instance only ask questions once a day. With the ``Alcohol and you'' campaign, one could imagine that the user was asked daily with something like, ``Have you consumed alcohol today?'', and then give the user to enter some timespan in where he was influenced by alcohol. However, with this approach, the accuracy of the snapshots rely on the memory of the participants and this might pollute the snapshots with less accurate data. The important thing to consider is, that if the platform should be further developed, it is important that it provides great tools for the customer to specify how and when he wants to ask the participants questions as we previously described in \secref{sub:answering_questionnaired} and as suggested by the opponent group in \secref{sub:second_meeting_product_evaluation}. 
 \\\\
-In the end, the customer wants to get as accurate data as possible, while still disturbing the participants as little as possible, it will be a challenge to maintain both of these qualities or find some good trade-off between them.
+In the end, the customer wants to get as accurate data as possible, while still disturbing the participants as little as possible. It will be a challenge to maintain both of these qualities or find a good trade-off between them.
