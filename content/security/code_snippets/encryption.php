@@ -1,4 +1,4 @@
-function uuid_gen($length = 32)
+function uuid_gen($length = 64)
 {
     $fp = @fopen('/dev/urandom', 'rb');
     $result = '';
