@@ -1,19 +1,15 @@
 @Override
 protected Response<ResultT> doInBackground(Void... params) {
   try {
-    final SSLContext sc = SSLContext.getInstance("TLS");
+    final SSLContext sc = SSLContext.getInstance("TLS"); //*\label{lst:ssl_context_start}
     sc.init(null, getTrustManagerFactory(context).getTrustManagers(), new java.security.SecureRandom());
-    webb.setSSLSocketFactory(sc.getSocketFactory());
-  } catch (KeyManagementException | NoSuchAlgorithmException exception) {
-    exception.printStackTrace();
+    webb.setSSLSocketFactory(sc.getSocketFactory()); //*\label{lst:ssl_context_end}
   }
-
+  ...
   webb.setRetryManager(new RetryManager());
   webb.setDefaultHeader("Accept", "application/json");
 
-  if (isCancelled()) {
-    return null;
-  }
+  if (isCancelled()) { return null; }
 
   try {
     switch (method) { //*\label{lst:switch_method_start}
