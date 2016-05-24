@@ -24,7 +24,7 @@ The first two routes use the HTTP \mono{GET} request method to retrieve informat
 \\\\
 The final two routes shown in \tabref{tab:api_routes} both use the HTTP \mono{POST} request method, meaning that they are used for upload. The \emph{join} route is utilized when a participant, through the client application, joins a campaign, and the \emph{upload} route is used for uploading snapshots after participants have joined a campaign and are contributing to it. In the \emph{upload} and \emph{join} routes, the \mono{identifier} is also identifying a campaign, and the data, such as the device identifier for the \emph{join} route or the snapshot data for the \emph{upload} route, are stored in the body of the request. 
 \\\\
-Besides the routes for the Android client, there also exist routes related to the user interface of the web application. These routes are not prefixed with ``\mono{api}'', and are used for creating and managing the campaigns in the system and retrieve information about the campaigns and their submitted snapshots. 
+Besides the routes for the Android client, there also exist routes related to the user interface of the web application. These routes are not prefixed with ``\mono{api}'', and are used for creating and managing the campaigns in the system and retrieve information about the campaigns and submitted snapshots. 
 
 \subsubsection{Server Names}
 \label{sub:server_names}
