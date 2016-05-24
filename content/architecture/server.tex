@@ -1,10 +1,9 @@
 %!TEX root = ../../super_main.tex
 \section{Server}
 \label{sec:server}
-The server, as seen in the top right part of \ref{fig:system_architecture}, both provides an Graphical User Interface (GUI) for the customers, and an Application Programming Interface (API) for the communication between the device and the server, such as upstream of snapshots from the devices of the participants or fetching campaign informations for the GUI on the device. 
+The server, seen in the top right part of \ref{fig:system_architecture}, provides a Graphical User Interface (GUI) for the customers, and an Application Programming Interface (API) for the communication between the device and the server.
 \\\\
-The server utilizes a web server technology, called NGINX, to serve dynamic content over the Hypertext Transfer Protocol (HTTP). Furhtermore the server hosts a PostgreSQL database, which allows us to store the data collected from all the participants, as well as information regarding customers and campaigns.  
-With these features the server is now able to facilitate the Laravel\footnote{https://laravel.com} web framework, which is a framework built on the model-view-controller pattern \parencite{leff2001web}. This allows us to route incoming requests and differentitate between requests from the device of a participant and requests from a customer using a browser. 
+The server utilizes a web server technology, called NGINX, to serve dynamic content over the Hypertext Transfer Protocol (HTTP). Furthermore, the server hosts a PostgreSQL database, which allows us to store the data collected from all the participants, as well as information regarding customers and campaigns. With these features the server is able to facilitate the Laravel\footnote{https://laravel.com} web framework, which is a framework built on the model-view-controller pattern \parencite{leff2001web}. The combination of NGINX and Laravel allows us to route incoming requests and differentiate between requests from the device of a participant and requests from a customer using a browser. 
 
 \input{content/architecture/client_server_communication/server_interface}
 
