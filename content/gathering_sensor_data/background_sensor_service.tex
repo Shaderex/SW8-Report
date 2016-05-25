@@ -2,11 +2,10 @@
 
 \section{Background Sensor Service}
 \label{sec:background_sensor_service}
-\todo[inline]{LÆS HERFRA} 
+
 The primary purpose of uMiner is the collection of the sensor data. In order to collect the data, we need to somehow have the gathering of the sensor data to run at all times, when a participant has joined a campaign. It would however be unpreferable to force the participants to have our application open at all times, making them unable to utilize their device for anything else. We have therefore chosen to implement an Android service, called \mono{BackgroundSensorService}. 
 \\\\
 A service is an application component, which encapsulates a long running background task. A service can run in the same process as the graphical interface shown to users, but also in a separate process. We have chosen to run our service in a separate process, because it is ideal for data collection, since we in this way can reduce memory usage when the GUI elements are not presented on the screen. Even though we run our service in a separate process we should still be able to communicate with it from the graphical application. Luckily, the Android framework supports two-way message parsing as a way of communicating with a service. Message parsing makes it easy for the graphical application to communicate with our service.
-\todo[inline]{LÆS HERTIL} 
 
 % Boot receiver
 % On Application start
