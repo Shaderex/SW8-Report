@@ -32,46 +32,46 @@ We wanted to compress the floating point values of the sensors so that the size 
 \\\\
 The test was conducted by generating three pseudo random floating point numbers (from $0$ to $1$). These three numbers would then be compressed by the mechanism described previously. This was repeated for a specific amount of compressions. All of the tests were evaluated $1,000$ times, to avoid measuring different noise factors such as CPU starvation. The tests are performed on two different devices: a Nexus 5 and a OnePlus One. Ideally the test should be performed on several different devices on different tiers, however, we do not have access to a big variety than of devices, and have thus only tested on two. The results of the tests can be seen in \figref{fig:result_of_compression_test}.
 
-\begin{filecontents}{nexus.data}
-1 6
-2 12
-3 19
-4 23
-5 31
-6 38
-7 34
-8 44
-9 54
-10 64
-11 70
-12 57
-13 71
-14 89
-15 91
-16 89
-17 108
-18 112
-19 109
-20 124
-21 121
-22 124
-23 130
-24 140
-25 149
-\end{filecontents}
+% \begin{filecontents}{nexus.data}
+% 1 6
+% 2 12
+% 3 19
+% 4 23
+% 5 31
+% 6 38
+% 7 34
+% 8 44
+% 9 54
+% 10 64
+% 11 70
+% 12 57
+% 13 71
+% 14 89
+% 15 91
+% 16 89
+% 17 108
+% 18 112
+% 19 109
+% 20 124
+% 21 121
+% 22 124
+% 23 130
+% 24 140
+% 25 149
+% \end{filecontents}
 
-\begin{filecontents}{oneplus.data}
-1 16
-2 22
-3 34
-4 41
-5 53
-6 57
-7 66
-8 74
-9 84
-10 71
-\end{filecontents}
+% \begin{filecontents}{oneplus.data}
+% 1 16
+% 2 22
+% 3 34
+% 4 41
+% 5 53
+% 6 57
+% 7 66
+% 8 74
+% 9 84
+% 10 71
+% \end{filecontents}
 
 \begin{figure}[!htbp]
     \centering
