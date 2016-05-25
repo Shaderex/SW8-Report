@@ -1,0 +1,6 @@
+%!TEX root = ../../super_main.tex
+
+\section{Multiple Campaigns}
+\label{sec:multiple_campaigns}
+
+The Android application is only able to follow one campaign at a time in the current state of the system. We imagine, that the system could be expanded to include a sort of campaign scheduler for our background service in our Android application. This scheduler could then be enable the application to follow multiple campaigns by breaking down campaigns to which sensors they require and at which rates data should be collected. The scheduler could then react to the sensors at the fastest rate requested by the subscribed campaigns. Campaigns can then share the collected data, but still only include data the requested rates. Frequent questionnaires might however be a problem with multiple campaigns, and more campaigns will result in increased battery consumption. A multi-campaign system might be able to conserve some battery by delegating more work to the server, i.e. by uploading the data once, and let the server figure out how to split the data into all subscribed campaigns. 
