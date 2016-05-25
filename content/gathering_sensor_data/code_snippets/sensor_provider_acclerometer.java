@@ -33,8 +33,8 @@ public class AccelerometerSensorProvider extends SensorProvider<FloatTripleMeasu
 
     return new SensorEventListenerRegistrationManager(sensorManager,
       sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), 
-      listener); //*\label{line:createRegManager_end}
-  }
+      listener); 
+  } //*\label{line:createRegManager_end}
 
   @Override //*\label{line:getDefaultMeasurement_start}
   protected FloatTripleMeasurement getDefaultMeasurement() {
