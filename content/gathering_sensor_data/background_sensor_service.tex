@@ -2,22 +2,17 @@
 
 \section{Background Sensor Service}
 \label{sec:background_sensor_service}
-
-\todo[inline]{Skriv en fluff introduktion der beskriver motivationen for at samle dataen på en baggrundstråd. Please lad være med at nævne noget i mono tak}
-
-\subsection{Android Services}
-\todo[inline]{Skriv hvorfor vi har valgt at bruge en service -> memory/power optimering. Det skal være NEMT at forstå. Knapt så meget generelt snak, og mere konkret hvad vi har behov for, og hvorfor.}
-
-A service in Android is an application component which encapsulates long running background task. A service can run in the same process as the graphical interface shown to users, but also in a separate process. Running the service separately is ideal for data collection, since we do not have to allocate memory for GUI elements when they are unnecessary. Services have their own lifecycles and can be configured in many different ways. They can be configured as an API where the service itself has a short lifespan while serving some data or while performing a short task or they can be configured as a long running background task with its own complex behavior.
+\todo[inline]{LÆS HERFRA} 
+The primary purpose of uMiner is the collection of the sensor data. In order to collect the data, we need to somehow have the gathering of the sensor data to run at all times, when a participant has joined a campaign. It would however be unpreferable to force the participants to have our application open at all times, making them unable to utilize their device for anything else. We have therefore chosen to implement an Android service, called \mono{BackgroundSensorService}. 
 \\\\
-% Message parsing
-The Android framework supports two-way message parsing as a way of communication with a service when it runs in a different process. Message parsing makes it easy for the Android \mono{Activity} elements in the graphical and interactive part of the application to communicate with our \mono{BackgroundSensorService}.
+A service is an application component, which encapsulates a long running background task. A service can run in the same process as the graphical interface shown to users, but also in a separate process. We have chosen to run our service in a separate process, because it is ideal for data collection, since we in this way can reduce memory usage when the GUI elements are not presented on the screen. Even though we run our service in a separate process we should still be able to communicate with it from the graphical application. Luckily, the Android framework supports two-way message parsing as a way of communicating with a service. Message parsing makes it easy for the graphical application to communicate with our service.
+\todo[inline]{LÆS HERTIL} 
 
 % Boot receiver
 % On Application start
 \subsection{Service Start}
 \label{sub:service_start}
-Our \mono{BackgroundSensorService} should ideally always be running, which does not imply that it is constantly using processing resources. We have implemented two measures to ensure that the service is running for as much time as possible. The first measure is an Android \mono{BroadcastReceiver}, which upon receiving a system wide \emph{boot completed}-broadcast, starts the service. The second measure involves attempting to start the service every time the graphical application is started. It will, however, not start if it is already running.
+Our service should as previously ideally always be running, which does not imply that it is constantly using processing resources. We have implemented two measures to ensure that the service is running for as much time as possible. The first measure is an Android \mono{BroadcastReceiver}, which upon receiving a system wide \emph{boot completed}-broadcast, starts the service. The second measure involves attempting to start the service every time the graphical application is started. It will, however, not start if it is already running.
 
 \subsection{Snapshot Generation and Upload}
 \label{sub:background_sensor_service_snapshot_generation_and_upload}
