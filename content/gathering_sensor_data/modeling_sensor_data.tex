@@ -47,10 +47,7 @@ In order to solve this conflict we have introduced a span between a sequence of 
 \end{figure}
 \FloatBarrier
 
-We want customers to configure how often \emph{measurement}s should be made, and we therefore allow them to define a \emph{measurement frequency} for their \emph{campaign}. Customers should furthermore be able to define how often \emph{sample}s should be gathered, and for that reason we allow them to define a \emph{sample frequency}. Lastly, the length of the \emph{snapshot} is configurable by defining how many \emph{sample}s the customer wants for a single \emph{snapshot}. This is used to calculate what we call \emph{total duration}, which states for how long samples should be generated for a snapshot. All of this is illustrated in \figref{fig:sample_temporality}. 
-
-\todo[inline]{Skriv hvordan label'en kommer ind i billedet. Det skal forklares i dybden, og ikke bare være en sidenote
-. Før stod der: Lastly, a customer should be able to define when the questionnaire should appear to the participant, for example at the start or the end of a snapshot.}
+We want customers to configure how often \emph{measurement}s should be made, and we therefore allow them to define a \emph{measurement frequency} for their \emph{campaign}. Customers should furthermore be able to define how often \emph{sample}s should be gathered, and for that reason we allow them to define a \emph{sample frequency}. The length of the \emph{snapshot} is configurable by defining how many \emph{sample}s the customer wants for a single \emph{snapshot}. This is used to calculate what we call \emph{total duration}, which states for how long samples should be generated for a snapshot. All of this is illustrated in \figref{fig:sample_temporality}. In order for a customer to get his snapshots labeled, he needs to create questions that will be asked to the contributing participants. The answers from the questionnaire are then used as a label for that particular snapshot. This means that a label can either be a single answer, if the questionnaire only contains a single question, or, a sequence of answers, if the questionnaire contains a sequence of questions. An example of a label, containing only a single answer, for a snapshot can be seen in \figref{fig:snapshot_example_with_samples}.
 
 \begin{figure}[!htbp]
     \centering

@@ -7,7 +7,7 @@ As described in \secref{sec:data_quantity_estimation}, we would like keep the po
 \\\\
 An example of this is the heart rate sensor in the Microsoft Band 2 wearable, which uses an signed integer in order to store a heart rate. A signed integer is typically 32 bits, and has a maximum value of $2^{31} - 1$ (2,147,483,647), while a heart rate over 250 is very abnormal. This knowledge would allow us to exploit the limited value range, and use as little as 8-10 bits (values 255-1023). This would effectively cut off the majority of bits used to store a value. Furthermore, Microsoft Band 2 also uses a boolean to represent if the reading is precise (they call it locked), which uses 8 bits. This effectively means that even if you use 10 bits for the heart rate, and 1 for the locked state, you would still save 29 bits.    
 \\\\
-There are other similar cases, and we decided to implement a strategy for compressing one of the common measurements returned by many sensors, namely an array of floats containing three values. An example of a sensor that returns such measurements is the accelerometer, which measures how the phone moves on its $x$, $y$, and $z$ axes. We designed a class called \mono{FloatTripleMeasurement} which is used to compress these three values to a single \mono{long}, meaning we convert $12$ bytes ($3$ floats $\times 4$ bytes) to be stored in $8$ bytes ($\sim 33\%$ space reduction). We do this by sacrificing some of the precision of a regular float, because we think the regular precision is overkill, both in terms of sensor inaccuracy and also its usefulness for the customers. When compressing, we strip the decimal separator from the floats and treat them as a $20$ bit integer value, where the first bit determines whether the value is positive or negative. This means that we now use $60$ bits for storing the compressed value of the floats. We use the remainder of the long to add 3 bits for representing where the decimal should be placed, i.e. how any decimals we include. A visualization of the method used to compress floats can be seen in \figref{fig:float_triple_convert} and \figref{fig:float_triple_bit} respectively.
+There are other similar cases, and we decided to implement a strategy for compressing one of the common measurements returned by many sensors, namely an array of floats containing three values. An example of a sensor that returns such measurements is the accelerometer, which measures how the phone moves on its $x$, $y$, and $z$ axes. We designed a class called \mono{FloatTripleMeasurement} which is used to compress these three values to a single \mono{long}, meaning we convert $12$ bytes ($3$ floats $\times 4$ bytes) to be stored in $8$ bytes ($\sim 33\%$ space reduction). We do this by sacrificing some of the precision of a regular float, because we think the regular precision is overkill, both in terms of sensor inaccuracy and also its usefulness for the customers. When compressing, we strip the decimal separator from the floats and treat them as a $20$ bit integer value, where the first bit determines whether the value is positive or negative. This means that we now use $60$ bits for storing the compressed value of the floats. We use the remainder of the long to add 3 bits for representing where the decimal separator should be placed, i.e. how any decimals we include. A visualization of the method used to compress floats can be seen in \figref{fig:float_triple_convert} and \figref{fig:float_triple_bit} respectively.
 
 \begin{figure}[!htbp]
     \begin{alignat*}{6}
@@ -30,63 +30,7 @@ There are other similar cases, and we decided to implement a strategy for compre
 
 We wanted to compress the floating point values of the sensors so that the size of the data we need to send over network and store on the device would decrease. However, this compression does not come for free. We actively make a trade off between size of data stored and CPU cycles used for compressing and decompressing the values. We have conducted a performance test for our compression of floats that investigates how much extra time has to be spent on compressing and decompressing the floats. 
 \\\\
-The test was conducted by generating three pseudo random floating point numbers (from $0$ to $1$). These three numbers would then be compressed by the mechanism described previously. This was repeated for a specific amount of compressions. All of the tests were evaluated $1,000$ times, to avoid measuring different noise factors such as CPU starvation. The tests are performed on two different devices: a Nexus 5 and a OnePlus One. Ideally the test should be performed on several different devices on different tiers, however, we do not have access to a big variety than of devices, and have thus only tested on two. The results of the tests can be seen in \figref{fig:result_of_compression_test}. The blue dots are tests performed on the Nexus device, while red dots are tests from the OnePlus One device.
-
-% \begin{filecontents}{nexus.data}
-% 1 6
-% 2 12
-% 3 19
-% 4 23
-% 5 31
-% 6 38
-% 7 34
-% 8 44
-% 9 54
-% 10 64
-% 11 70
-% 12 57
-% 13 71
-% 14 89
-% 15 91
-% 16 89
-% 17 108
-% 18 112
-% 19 109
-% 20 124
-% 21 121
-% 22 124
-% 23 130
-% 24 140
-% 25 149
-% \end{filecontents}
-
-% \begin{filecontents}{oneplus.data}
-% 1 3
-% 2 7
-% 3 9
-% 4 14
-% 5 17
-% 6 19
-% 7 24
-% 8 27
-% 9 32
-% 10 34
-% 11 34
-% 12 43
-% 13 46
-% 14 49
-% 15 54
-% 16 54
-% 17 61
-% 18 56
-% 19 67
-% 20 63
-% 21 75
-% 22 77
-% 23 83
-% 24 74
-% 25 78
-% \end{filecontents}
+The test was conducted by generating three pseudo random floating point numbers (from $0$ to $1$). These three numbers would then be compressed by the mechanism described previously. This was repeated for a specific amount of compressions. All of the tests were evaluated $1,000$ times, to avoid measuring different noise factors such as CPU starvation. The tests are performed on three different devices: a Nexus 5 and a OnePlus One and a Galaxy Nexus. Ideally the test should be performed on several different devices on different tiers, however, we do not have access to a big variety of devices, and have thus only tested on three. The results of the tests can be seen in \figref{fig:result_of_compression_test}. The blue dots are tests performed on the Nexus 5 device; red dots are tests from the OnePlus One device; and green dots are tested on the Galaxy Nexus device.
 
 \begin{figure}[!htbp]
     \centering
@@ -110,6 +54,8 @@ The test was conducted by generating three pseudo random floating point numbers 
         \draw plot[mark=*, mark options={fill=blue}] file {content/gathering_sensor_data/nexus.data};
 
         \draw plot[mark=*, mark options={fill=red}] file {content/gathering_sensor_data/oneplus.data};
+
+        \draw plot[mark=*, mark options={fill=green}] file {content/gathering_sensor_data/nexusjr.data};
 
     \end{tikzpicture}
 
