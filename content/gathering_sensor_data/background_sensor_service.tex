@@ -16,10 +16,7 @@ Our service should as previously ideally always be running, which does not imply
 
 \subsection{Snapshot Generation and Upload}
 \label{sub:background_sensor_service_snapshot_generation_and_upload}
-
-\todo[inline]{Lav en ordentlig intro. Inspiration: Referer tilbage sig noget med: ``For at vi kan lave snapshots som covered i section bla skal vi sætte en timer der kan håndtere sensor providers igang der kan sige nu skal vi måle.''}
-
-The background service uses an independent timer for snapshot generation. The timer for snapshot generation is encapsulated in a class called \mono{SnapshotTimer}, which is started whenever the service has an active running campaign. Tasks, which utilizes our sensor providers to generate snapshots, are then scheduled by this timer at a constant rate, until the campaign is completed or stopped by the participant.
+In order to generate snapshots, as mentioned in \ref{sec:modeling_sensor_data}, we should signal different \emph{sensor providers} to start collecting data. This should be done periodically, depending on the configured campaign. To do this, we use a timer, which is encapsulated in a class called \mono{SnapshotTimer}, which is started whenever the service has an active running campaign. Tasks, which utilizes our sensor providers to generate snapshots, are then scheduled by this timer at a constant rate, until the campaign is completed or stopped by the participant.
 \\\\
 Before we send all generated snapshots to the server we transform them to a JSON format. We have chosen to utilize the JSON format because it is human readable, making it easier for us to debug; it is decent for machine learning purposes; and it is a common format which natively can be interpreted by the PHP code on our server. Choosing JSON is in this way convenient, however it is at the sacrifice of spending extra bandwidth for sending the data, which is rather inconvenient for the participants. A better solution would be to use some format with few-to-no keys, where we have optimized how much space we use. 
 \\\\
