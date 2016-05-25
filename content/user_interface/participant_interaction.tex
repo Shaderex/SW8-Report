@@ -2,13 +2,13 @@
 
 \section{Participant Interaction}
 \label{sec:participant_interaction}
-Limited screen real estate characterizes user interfaces for mobile systems and is a general concern when designing user interfaces for these, compared to designing GUIs for desktop systems \parencite[cha. 21]{mobile_computing_constraints}. The limited screen real estate is generally solved by more navigation and by having more focus on a few visible elements at a time. We have therefore split our graphical user interface into a few logical screens with different views and implemented navigation between them in order to improve the interaction. Having all functionality on one screen tends to be less portable to many different screen sizes and cause overlapping hit areas for buttons and other interactive elements.
+Limited screen real estate characterizes user interfaces for mobile systems and is a general concern when designing user interfaces for these, compared to designing GUIs for desktop systems \parencite[cha. 21]{mobile_computing_constraints}. The limited screen real estate is generally solved by more navigation and by having more focus on a few visible elements at a time. We have therefore split our graphical user interface into a few logical screens and implemented navigation between them in order to improve the interaction. Having all functionality on one screen tends to be less portable to many different screen sizes and cause overlapping hit areas for buttons and other interactive elements.
 \\\\
 During the construction of the participant interface we have followed the Google Material Design\footnote{https://www.google.com/design/spec/material-design/} manual, which is a design manual provided by Google for the Android platform. This design manual helps designing an interface using good design practices on the Android platform. By adhering to this design manual, we hope to achieve a user friendly interface for participants that fits as many different users as possible. This will guide us in improving different aspects of our application, such as utilization of screen estate and usability in general without having to design an interface from the ground up.
 
 \subsection{Opening the Application}
 \label{sub:opening_the_application}
-When a participant opens the mobile application, the participant is presented with an initial screen, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with any information, but one could imagine that this view would, in a potential future release, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participant must know. This screen could possibly also contain some motivational factor, provided by the customers, e.g. a ``prize'' for participation.
+When a participant opens the mobile application, the participant is presented with an initial screen, as seen in \figref{fig:initial_screen}. The idea with this screen is to welcome the participant to the application. Currently, it does not supply the participant with any information, but one could imagine that this screen would, in a potential future release, provide the participant with usable information, such as progress in the current campaign, clarification of what concepts and principals the participant must know. This screen could possibly also contain some motivational factor, provided by the customers, e.g. a ``prize'' for participation.
 
 % Initial screen
 \begin{figure}[!htbp]
@@ -29,14 +29,14 @@ When a participant opens the mobile application, the participant is presented wi
 \end{figure}
 \FloatBarrier
 
-The participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial view to navigate to other views in the application. The navigation menu contains three elements, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign'', which each takes the participant to different parts of the application. This menu will at all times be available in the primary application by swiping from the left edge of the screen, or by pressing the hamburger icon ($\equiv$) next to the uMiner title in the top bar. 
+The participants must either use the drawer menu displayed in \figref{fig:navigation} or press the \emph{browse campaigns}-button in the initial screen to navigate to other parts of the application. The navigation menu contains three elements, namely ``Browse campaigns'', ``Join specific'', and ``Current campaign'', which each takes the participant to different parts of the application. This menu will at all times be available in the primary application by swiping from the left edge of the screen, or by pressing the hamburger icon ($\equiv$) next to the uMiner title in the top bar. 
 
 \begin{description}
     \item[``Browse campaigns''] redirects the participant to a view containing brief information about all of the publicly available campaigns, as seen in \figref{fig:public_campaigns}.
 
-    \item[``Join specific''] redirects the participant to a view, as seen in \figref{fig:specific_campaign}, where it is possible to search for a specific campaign by providing a campaign identifier.
+    \item[``Join specific''] redirects the participant to a screen, as seen in \figref{fig:specific_campaign}, where it is possible to search for a specific campaign by providing a campaign identifier.
 
-    \item[``Current campaign''] redirects the participant to a campaign specification view, as seen in \figref{fig:leave_campaign_no_dialog}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
+    \item[``Current campaign''] redirects the participant to a campaign specification screen, as seen in \figref{fig:leave_campaign_no_dialog}, displaying more information about the campaign that they are currently contributing to. If the participant have not yet joined a campaign, a message will briefly be displayed on the screen, informing the participant about this.
 \end{description}
 
 % Navigation
@@ -53,7 +53,7 @@ The participants must either use the drawer menu displayed in \figref{fig:naviga
 
 
 
- If participants want to contribute to a campaign, they may browse the publicly available campaigns, which can be done through the screen seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed here, each with its own entry displaying the title alongside the author of the campaign. If the participant wishes to learn more about one of the listed campaigns, he can press on that campaign and be redirected to a view similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign is shown. 
+ If participants want to contribute to a campaign, they may browse the publicly available campaigns, which can be done through the screen seen in \figref{fig:public_campaigns}. All the publicly available campaigns are listed here, each with its own entry displaying the title alongside the author of the campaign. If the participant wishes to learn more about one of the listed campaigns, he can press on that campaign and be redirected to a screen similar to the one seen in \figref{fig:campaign_specification}, where more detailed information about the selected campaign is shown. 
 \\\\
 We have for the implementation of the listing of campaigns utilized a design pattern called the \emph{view holder} design pattern \parencite{view_holder_pattern} together with an Android \mono{Adapter}. The \mono{Adapter} makes sure that we can reuse \mono{View} instances and thus prevents constant allocation and deallocation of \mono{View}s when the user is scrolling the list. Using the heap excessively is expensive in terms of CPU cycles in Java and triggers the garbage collector to run more than necessary \parencite{android_garbage_collection}. We would thus like to minimize use of the heap. Reusing \mono{View}s helps reduce battery consumption and should improve the general performance perceived by users and prevent stuttering in the graphical interface. Alongside the \emph{view holder} pattern, only the data, which is strictly necessary for displaying the list is downloaded for this screen. More detailed information is fetched when needed by other screens.
 
@@ -62,13 +62,13 @@ We have for the implementation of the listing of campaigns utilized a design pat
     \begin{subfigure}[!t]{.48\textwidth}
         \centering
         \includegraphics[width=.7\linewidth]{mockups/campaigns_list}
-        \caption{Mockup of the browsing view.}
+        \caption{Mockup of the browsing screen.}
         \label{fig:mockup_public_campaigns}
     \end{subfigure}%
     \begin{subfigure}[!t]{.52\textwidth}
         \centering
         \includegraphics[width=.73\linewidth]{user_interfaces/client/client_public_campaigns_with_phone}
-        \caption{Implementation of the browsing view.}
+        \caption{Implementation of the browsing screen.}
         \label{fig:implementation_public_campaigns}
     \end{subfigure}
     \caption{Mockup and implementation of browsing campaigns.}
@@ -76,7 +76,7 @@ We have for the implementation of the listing of campaigns utilized a design pat
 \end{figure}
 \FloatBarrier
 
-The participant also has the opportunity to join a specific campaign, when browsing the public ones, by pressing the blue area in the bottom, which will always be visible regardless of how far the participant scroll in the list. If the area is pressed, the participant will be redirected to the screen showed in \figref{fig:specific_campaign}. Participants can here enter a unique campaign identifier, if they have been given one by a customer. The participant will, upon entering an identifier, be redirected to a view similar to the one seen in \figref{fig:campaign_specification} if the specified identifier corresponds to a campaign. If not, the participant will be notified that the entered campaign identifier is invalid. 
+The participant also has the opportunity to join a specific campaign, when browsing the public ones, by pressing the blue area in the bottom, which will always be visible regardless of how far the participant scroll in the list. If the area is pressed, the participant will be redirected to the screen showed in \figref{fig:specific_campaign}. Participants can here enter a unique campaign identifier, if they have been given one by a customer. The participant will, upon entering an identifier, be redirected to a screen similar to the one seen in \figref{fig:campaign_specification} if the specified identifier corresponds to a campaign. If not, the participant will be notified that the entered campaign identifier is invalid. 
 
 % Search for a campaign through a campaign identifier
 \begin{figure}[!htbp]
@@ -112,7 +112,7 @@ The mobile application currently only supports scrolling through the list of pub
 
 To contribute to a specific campaign, participants must firstly find a campaign that they want to contribute to. This can be done through the campaign browser, previously shown in \figref{fig:public_campaigns}, or entering a unique identifier in the join specific campaign screen, previously shown in \figref{fig:specific_campaign}. The participants must then navigate to a campaign specification screen, similar to the one seen in \figref{fig:campaign_specification}. 
 \\\\
-After a participant has found a campaign that he is willing to contribute to, he will find himself/herself on an overview of the information related to the campaign in a view similar to the one seen in \figref{fig:campaign_specification}. After reviewing this information, the participant can decide if he wants to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will signal the background service to start the collection of snapshots as described in \secref{sub:background_sensor_service_snapshot_generation_and_upload}.
+After a participant has found a campaign that he is willing to contribute to, he will find himself/herself on an overview of the information related to the campaign on a screen similar to the one seen in \figref{fig:campaign_specification}. After reviewing this information, the participant can decide if he wants to contribute by subscribing to the campaign, which will be done by pressing the green subscribe button. This will signal the background service to start the collection of snapshots as described in \secref{sub:background_sensor_service_snapshot_generation_and_upload}.
 
 % Campaign specification
 \begin{figure}[!htbp]
@@ -159,7 +159,7 @@ If for any reason, a participant no longer wishes to contribute to a campaign, h
 % This complies with the way we intended the system to work regarding the participatory sensing as described in \secref{sec:human_activity_recognition}\todo{er det her godt nok?}.
 A participant will be requested to answer questionnaires, if required by a campaign subscribed to by participant's device. These request can occur at any time, even at times where the participant is not actively using uMiner. We have chosen to use Android notifications \parencite{android_notifications} to facilitate these request to participants. A notification will then pop-up when a participant should answer questionnaires, as can be seen in \figref{fig:answering_questionnaire_notification}. One benefit of using Android notifications is, that it allows participants some degree of configuration of how and to which degree they want to be disturbed. Android includes global settings which affects how notifications are delivered to its users. The participants can in this way configure a downtime where they do not wish to be disturbed, for instance when they are at work. Notifications in Android also allows users to configure different sound levels or activate silent mode to minimize disturbances for a period. Our application thus synergizes well with a general usage pattern in Android.     
 \\\\
-When a notification is pressed, the application opens the questionnaire screen as seen in \figref{fig:answering_questionnaire_answering}. We have tried to keep this view simple to allow the participants to quickly answer the questionnaire without any distraction. When the questionnaire is completed the participants will be redirected back to what they were doing before to make the experience of answering questionnaires seamless. 
+When a notification is pressed, the application opens the questionnaire screen as seen in \figref{fig:answering_questionnaire_answering}. We have tried to keep this screen simple to allow the participants to quickly answer the questionnaire without any distraction. When the questionnaire is completed the participants will be redirected back to what they were doing before to make the experience of answering questionnaires seamless. 
 % Answering questionnaires
 \begin{figure}[!htbp]
     \begin{subfigure}[!t]{.50\textwidth}
