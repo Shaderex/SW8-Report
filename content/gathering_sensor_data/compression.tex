@@ -27,7 +27,7 @@ There are other similar cases, and we decided to implement a strategy for compre
     \label{fig:float_triple_bit}
 \end{figure}
 \FloatBarrier
-
+\newpage
 We wanted to compress the floating point values of the sensors so that the size of the data we need to send over network and store on the device would decrease. However, this compression does not come for free. We actively make a trade off between size of data stored and CPU cycles used for compressing and decompressing the values. We have conducted a performance test for our compression of floats that investigates how much extra time has to be spent on compressing and decompressing the floats. 
 \\\\
 The test was conducted by generating three pseudo random floating point numbers (from $0$ to $1$). These three numbers would then be compressed by the mechanism described previously. This was repeated for a specific amount of compressions. All of the tests were evaluated $1,000$ times, to avoid measuring different noise factors such as CPU starvation. The tests are performed on three different devices: a Nexus 5 and a OnePlus One and a Galaxy Nexus. Ideally the test should be performed on several different devices on different tiers, however, we do not have access to a big variety of devices, and have thus only tested on three. The results of the tests can be seen in \figref{fig:result_of_compression_test}. The blue dots are tests performed on the Nexus 5 device; red dots are tests from the OnePlus One device; and green dots are tested on the Galaxy Nexus device.
@@ -35,7 +35,7 @@ The test was conducted by generating three pseudo random floating point numbers 
 \begin{figure}[!htbp]
     \centering
 
-    \begin{tikzpicture}[y=.05cm, x=.4cm,font=\sffamily]
+    \begin{tikzpicture}[y=.04cm, x=.4cm,font=\sffamily]
         %axis
         \draw (0,0) -- coordinate (x axis mid) (25,0);
             \draw (0,0) -- coordinate (y axis mid) (0,150);

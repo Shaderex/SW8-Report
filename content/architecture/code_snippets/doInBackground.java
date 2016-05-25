@@ -1,4 +1,3 @@
-@Override
 protected Response<ResultT> doInBackground(Void... params) {
   try {
     final SSLContext sc = SSLContext.getInstance("TLS"); //*\label{lst:ssl_context_start}

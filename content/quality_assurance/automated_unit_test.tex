@@ -27,7 +27,7 @@ In the PHP project, we have a $\sim 74\%$ line coverage, which is rather good. M
 
 \subsubsection{Manual Test}
 In some cases it was infeasible to create automatic dynamic white box tests in decent time, and we therefore, in these cases, switched to a dynamic black box approach instead. Here we made test specifications, executed some part of the code manually and observed the result relative to the specifications. We mainly did this for the more complex parts of the code, such as the \mono{BackgroundSensorService} class, which schedules all the \mono{SensorProvider}s asynchronously and sends the results to the server. One of the manual tests for the \mono{BackgroundSensorService} is the \textbf{test-snapshot-from-device-to-server} found in \appref{app:manual_test}, which tests if our Android application correctly sends snapshots to the server, but also if the server correctly stores them. We also used this approach for other testing methods, such as regression and integration testing of UI features. For instance, we would, when a new UI-related feature was implemented, manually test if previous UI features still worked. We did not spend time on specifying written test-cases on the most basic of these tests, such as ``is it possible to subscribe to a campaign?'', since these would probably be found during ad-hoc testing while developing new features.
-\\\\
+\newpage
 These manual tests resulted in a generally lower line coverage, especially on the Android project, since the CI plugin we used was unable to compare our manual tests to the code base. This does not necessarily mean that the code is less tested, but it is harder to tell when tests are covering the code base well. 
 
 \subsection{Static Code Analysis}
