@@ -3,7 +3,7 @@
 \section{Existing Solutions}
 \label{sec:existing_solutions}
 
-Some solutions that use data gathering in the area of mental health have been investigated. It seems that a lot of software has been designed to improve this area based on mobile sensor data gathering. We discuss four solutions which both monitor subjects using smartphone sensors and have these subjects fill out surveys. We here refer to subjects as both participants of a data gathering systems and individuals involved in medical research.
+Some solutions that use data gathering have been investigated, of which some are intended to be used in the area of mental health. It seems that a lot of software has been designed to improve this area based on mobile sensor data gathering. We discuss four solutions which monitor subjects using smartphone sensors, and in some cases have these subjects fill out surveys. We here refer to subjects as people who use a data gathering systems for some purpose.
 
 \subsection{Ilumivu mEMA}
 \label{sub:ilumivu_mema}
@@ -49,7 +49,7 @@ Ilumivu and AndWellness both monitor and report sensor readings in real time, me
 % Purple Robot
 \subsection{Purple Robot}
 \label{sub:purple_robot} 
-Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap\footnote{http://phonegap.com/} and Apache Cordova\footnote{https://cordova.apache.org/} applications with native functionality on the Android platform. The application, of which a screenshot can be seen in \figref{fig:purple_robot_screenshot}, allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. The communication for triggering and reading of the sensors is done using a locally running Hypertext Transfer Protocol server that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for a user on its own, but allows other applications to have easy access to the integrated native functionality. This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. However, when we tried out this application it seemed to be unstable, and would often crash. This might also be the case for other users, which might make them less willing to use the application.
+Purple Robot \parencite{purple_robot} is an Android application originally developed to allow for easier or better integration for the PhoneGap\footnote{http://phonegap.com/} and Apache Cordova\footnote{https://cordova.apache.org/} applications with native functionality on the Android platform. The application, of which a screenshot can be seen in \figref{fig:purple_robot_screenshot}, allows other non-native applications to trigger status-bar notifications, application widgets, and full native dialogs. The application also allows other applications to access all the sensors on a device with an uniform interface. The communication for triggering and reading of the sensors is done using a locally running Hypertext Transfer Protocol server, that the Purple Robot application runs. This means that the Purple Robot application actually does not provide a lot of functionality for human activity recognition on its own, but allows other applications to have easy access to the integrated native functionality. This framework could be used to create access to native functionality, i.e. the sensors of an Android device, without having to build and maintain an Android application. Users could be asked to download and install Purple Robot instead. The framework supports delayed and encrypted uploads of collected data. However, when we tried out this application it seemed to be unstable, and would often crash. This might also be the case for other users, which might make them less willing to use the application.
 
 \begin{figure}[!htbp]
 	\centering
@@ -58,6 +58,9 @@ Purple Robot \parencite{purple_robot} is an Android application originally devel
 	\label{fig:purple_robot_screenshot}
 \end{figure}
 \FloatBarrier
+
+\subsubsection{Using Third Party Applications}
+It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and lives. Installing a third party application to handle this information, such as Purple Robot, could become a potential trust issue, and would require additional effort from the participants. As mentionend, we have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical, and would instead like to handle the collection in another manner. 
 
 \subsection{Sensor Data}
 \label{sub:sensor_data}
@@ -71,5 +74,4 @@ Sensor Data is an iPhone application for gathering unlabeled data. A screenshot 
 \end{figure}
 \FloatBarrier
 
-\subsection{Using Third Party Applications}
-It might already be a challenge for us to gain the trust of participants. We are handling sensitive information about their everyday activities and life. Installing a third party application to handle this information could become a potential trust issue, and would require additional effort from the participants. We have installed the Purple Robot application on our devices and found the graphical user interface in the application to be unstable with seemingly random breakdowns. We have found this application and concept interesting, but we have found the application too unstable to be practical, and would instead like to handle the collection ourselves. 
+There are a variety of existing solutions that make it possible to gather sensor data from a smartphone device, and even some that tie this sensor data with questionnaires about the mental health of the person being measured. There also exist solutions that are not meant to gather the data for themselves, but instead provide easy access to sensors for other applications. Most of the systems we have looked at do, according to their descriptions, not attempt to preserve battery when presenting the data to the users, which could be improved upon as we talk about in \secref{sec:general_strategies}. We have furthermore covered some interesting concepts that the other solutions use, such as Campaigns by AndWellness, which could be interesting to pursue in any further development. 
