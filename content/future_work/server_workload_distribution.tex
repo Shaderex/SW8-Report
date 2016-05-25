@@ -1,6 +1,4 @@
 %!TEX root = ../../super_main.tex
 \section{Server Workload Distribution}
 
-In the current state of the system we do a lot of network optimizations by batching network requests together and only sending snapshots when on an unmetered connection. We have considered introducing more requirements to be met before an upload can occur such as requiring that the phone should be charging. In taking such measures we introduce yet another problem, since people tend to charge their mobile devices while sleeping. This might put a strain on the server towards the nightly hours, and should be handled if the systems was introduced to a larger amount of participants. 
-
-\todo[inline]{Hvordan kan vi håndtere det?}
+In the current state of the system we do a lot of network optimizations by batching network requests together and only sending snapshots when on an unmetered connection. We have considered introducing more requirements to be met before an upload can occur such as requiring that the phone should be charging. In taking such measures we introduce yet another problem, since people tend to charge their mobile devices while sleeping. This might put a strain on the server towards the nightly hours, and should be handled if the systems was introduced to a larger amount of participants. This would hopefully be relatively easy to tackle due to the architecture implemented in the developed solution. 
